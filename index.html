@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Andriy Trofymenko - Ingeniero Industrial</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4; /* Fondo gris claro */
+            color: #333;
+        }
+        header {
+            background-color: #333; /* Fondo gris oscuro */
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        header img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%; /* Foto redonda */
+            border: 4px solid white; /* Borde blanco */
+            margin-bottom: 15px;
+        }
+        section {
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white; /* Fondo blanco para las secciones */
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
+            margin-bottom: 20px;
+        }
+        h2 {
+            color: #0073e6; /* Azul para los títulos */
+        }
+        a {
+            color: #0073e6;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .project {
+            margin-bottom: 20px;
+        }
+        .project img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .contact-form button {
+            background-color: #0073e6;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .contact-form button:hover {
+            background-color: #005bb5;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="https://i.ibb.co/WWSsTGT4/foto-perfil.jpg" alt="Foto de Andriy Trofymenko">
+        <h1>Andriy Trofymenko</h1>
+        <p>Ingeniero Industrial</p>
+        <p>Especializado en mejora continua, optimización de procesos y gestión de proyectos.</p>
+    </header>
+
+    <!-- Sección: Sobre Mí -->
+    <section>
+        <h2>Sobre Mí</h2>
+        <p>Soy un ingeniero industrial con más de 5 años de experiencia en mejora continua, gestión de proyectos y optimización de procesos. He trabajado en sectores como residuos sólidos urbanos, energía y consultoría, liderando equipos y implementando soluciones que generan resultados medibles y sostenibles.</p>
+    </section>
+
+    <!-- Sección: Experiencia Profesional -->
+    <section>
+        <h2>Experiencia Profesional</h2>
+        <div class="project">
+            <h3>Instituto Nacional de Tecnología Industrial (INTI)</h3>
+            <p><strong>Ingeniero Industrial - Asesor en Tecnologías de Gestión</strong> (2021 - Actual)</p>
+            <p>Asistencia técnica a empresas para mejorar la productividad. Coordinación de proyectos de investigación y mejora continua.</p>
+        </div>
+        <div class="project">
+            <h3>Represas Patagonia</h3>
+            <p><strong>Responsable de Control de Gestión - Proyecto Cóndor Cliff</strong> (2023)</p>
+            <p>Implementación de metodologías de seguimiento y evaluación para optimizar recursos y mejorar la eficiencia operativa.</p>
+        </div>
+        <!-- Agrega más experiencias aquí -->
+    </section>
+
+    <!-- Sección: Proyectos Destacados -->
+    <section>
+        <h2>Proyectos Destacados</h2>
+        <div class="project">
+            <h3>Mapeo de la Cadena de Valor del Cáñamo Industrial</h3>
+            <p>Lideré la colaboración con CONICET, INTA y otras instituciones para este proyecto. Mira la presentación:</p>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/tYU88wsM110" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <!-- Agrega más proyectos aquí -->
+    </section>
+
+    <!-- Sección: Descargas -->
+    <section>
+        <h2>Descargas</h2>
+        <p>Descarga mi CV y Carta de Presentación:</p>
+        <ul>
+            <li><a href="enlace_a_tu_CV_en_Google_Drive" download>Descargar CV</a></li>
+            <li><a href="enlace_a_tu_Carta_en_Google_Drive" download>Descargar Carta de Presentación</a></li>
+        </ul>
+    </section>
+
+    <!-- Sección: Contacto -->
+    <section>
+        <h2>Contacto</h2>
+        <p>Si deseas contactarme, envíame un mensaje:</p>
+        <form class="contact-form" action="https://formspree.io/f/tu_correo" method="POST">
+            <label for="name">Nombre:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Correo electrónico:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="message">Mensaje:</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
+</body>
+</html>
