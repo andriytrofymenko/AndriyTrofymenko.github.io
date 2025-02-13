@@ -48,8 +48,17 @@
             margin-bottom: 15px;
         }
 
+        h1 {
+            font-size: 2.5rem; /* Tamaño de fuente responsivo */
+        }
+
         h2 {
             color: #0073e6;
+            font-size: 2rem; /* Tamaño de fuente responsivo */
+        }
+
+        p {
+            font-size: 1rem; /* Tamaño de fuente responsivo */
         }
 
         a {
@@ -90,6 +99,31 @@
 
         .contact-form button:hover {
             background-color: #005bb5;
+        }
+
+        /* Ajustes para móviles */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem; /* Tamaño de fuente más pequeño en móviles */
+            }
+
+            h2 {
+                font-size: 1.5rem; /* Tamaño de fuente más pequeño en móviles */
+            }
+
+            header img {
+                width: 100px;
+                height: 100px; /* Imagen más pequeña en móviles */
+            }
+
+            section {
+                padding: 15px; /* Menos padding en móviles */
+            }
+
+            iframe {
+                width: 100%; /* Ajustar el ancho del iframe en móviles */
+                height: auto;
+            }
         }
     </style>
 </head>
@@ -252,4 +286,5 @@
         });
     </script>
 </body>
+</html>
 </html>
