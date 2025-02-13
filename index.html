@@ -31,6 +31,10 @@
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             margin-bottom: 20px;
             padding: 20px;
+            width: 100%; /* Ocupa todo el ancho disponible */
+            max-width: 1200px; /* Ancho máximo para pantallas grandes */
+            margin-left: auto;
+            margin-right: auto;
         }
 
         header {
@@ -122,6 +126,8 @@
 
             section {
                 padding: 15px;
+                margin: 10px; /* Menos margen en móviles */
+                border-radius: 0; /* Sin bordes redondeados en móviles */
             }
 
             iframe {
