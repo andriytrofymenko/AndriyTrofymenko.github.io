@@ -27,12 +27,12 @@
         header {
             position: relative;
             z-index: 1;
-            background: linear-gradient(135deg, rgba(96, 96, 96, 0.5), rgba(128, 128, 128, 0.3)); /* Más translúcido */
+            background: rgba(255, 255, 255, 0.1);
             padding: 60px 0;
             text-align: center;
             color: white;
-            border-bottom: 4px solid #0073e6;
             border-radius: 0 0 20px 20px;
+            backdrop-filter: blur(10px);
         }
 
         header img {
@@ -47,29 +47,31 @@
             font-size: 3rem;
             font-weight: 700;
             margin-bottom: 10px;
+            color: white;
         }
 
         header p {
             font-size: 1.5rem;
             margin-bottom: 5px;
+            color: #0073e6;
         }
 
         header p.specialization {
             font-size: 1.2rem;
             font-weight: 400;
-            color: #f4f4f4;
+            color: #0073e6;
         }
 
         section {
             position: relative;
             z-index: 1;
             background-color: rgba(255, 255, 255, 0.9);
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin-bottom: 30px;
+            padding: 25px;
             width: 100%;
-            max-width: 1200px;
+            max-width: 1000px;
             margin-left: auto;
             margin-right: auto;
         }
@@ -77,6 +79,7 @@
         h2 {
             color: #0073e6;
             font-size: 2rem;
+            font-weight: bold;
         }
 
         p {
@@ -90,16 +93,6 @@
 
         a:hover {
             text-decoration: underline;
-        }
-
-        .project {
-            margin-bottom: 20px;
-        }
-
-        .project img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
         }
 
         .contact-form input, .contact-form textarea {
@@ -123,35 +116,6 @@
             background-color: #005bb5;
         }
 
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 2.5rem;
-            }
-
-            header p {
-                font-size: 1.2rem;
-            }
-
-            header p.specialization {
-                font-size: 1rem;
-            }
-
-            header img {
-                width: 120px;
-                height: 120px;
-            }
-
-            section {
-                padding: 15px;
-                margin: 10px;
-                border-radius: 0;
-            }
-
-            iframe {
-                width: 100%;
-                height: 200px;
-            }
-        }
     </style>
 </head>
 <body>
@@ -165,152 +129,5 @@
             <p class="specialization">Especializado en mejora continua, optimización de procesos y gestión de proyectos.</p>
         </div>
     </header>
-
-    <div class="container my-5">
-        <!-- Sección: Sobre Mí -->
-        <section>
-            <h2>Sobre Mí</h2>
-            <p>Soy un ingeniero industrial con más de 5 años de experiencia en mejora continua, gestión de proyectos y optimización de procesos. He trabajado en sectores como residuos sólidos urbanos, energía y consultoría, liderando equipos y implementando soluciones que generan resultados medibles y sostenibles.</p>
-        </section>
-
-        <!-- Sección: Experiencia Profesional -->
-        <section>
-            <h2>Experiencia Profesional</h2>
-            <div class="project">
-                <h3>Instituto Nacional de Tecnología Industrial (INTI)</h3>
-                <p><strong>Ingeniero Industrial - Asesor en Tecnologías de Gestión</strong> (2021 - Actual)</p>
-                <p>Asistencia técnica a empresas para mejorar la productividad. Coordinación de proyectos de investigación y mejora continua.</p>
-            </div>
-            <!-- Agrega más experiencias aquí -->
-        </section>
-
-        <!-- Sección: Proyectos Destacados -->
-        <section>
-            <h2>Proyectos Destacados</h2>
-            <div class="project">
-                <h3>Mapeo de la Cadena de Valor del Cáñamo Industrial</h3>
-                <p>Lideré la colaboración con CONICET, INTA y otras instituciones para este proyecto. Mira la presentación:</p>
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/tYU88wsM110" frameborder="0" allowfullscreen></iframe>
-            </div>
-            <!-- Agrega más proyectos aquí -->
-        </section>
-
-        <!-- Sección: Descargas -->
-        <section>
-            <h2>Descargas</h2>
-            <p>Descarga mi CV y Carta de Presentación:</p>
-            <ul>
-                <li><a href="enlace_a_tu_CV_en_Google_Drive" download>Descargar CV</a></li>
-                <li><a href="enlace_a_tu_Carta_en_Google_Drive" download>Descargar Carta de Presentación</a></li>
-            </ul>
-        </section>
-
-        <!-- Sección: Contacto -->
-        <section>
-            <h2>Contacto</h2>
-            <p>Si deseas contactarme, envíame un mensaje:</p>
-            <form class="contact-form" action="https://formspree.io/f/tu_correo" method="POST">
-                <label for="name">Nombre:</label>
-                <input type="text" id="name" name="name" required>
-                <label for="email">Correo electrónico:</label>
-                <input type="email" id="email" name="email" required>
-                <label for="message">Mensaje:</label>
-                <textarea id="message" name="message" rows="5" required></textarea>
-                <button type="submit">Enviar</button>
-            </form>
-        </section>
-    </div>
-
-    <script>
-        particlesJS("particles-js", {
-            particles: {
-                number: {
-                    value: 80,
-                    density: {
-                        enable: true,
-                        value_area: 800,
-                    },
-                },
-                color: {
-                    value: "#0073e6",
-                },
-                shape: {
-                    type: "circle",
-                    stroke: {
-                        width: 0,
-                        color: "#000000",
-                    },
-                    polygon: {
-                        nb_sides: 5,
-                    },
-                },
-                opacity: {
-                    value: 0.5,
-                    random: false,
-                    anim: {
-                        enable: false,
-                        speed: 1,
-                        opacity_min: 0.1,
-                        sync: false,
-                    },
-                },
-                size: {
-                    value: 3,
-                    random: true,
-                    anim: {
-                        enable: false,
-                        speed: 40,
-                        size_min: 0.1,
-                        sync: false,
-                    },
-                },
-                line_linked: {
-                    enable: true,
-                    distance: 150,
-                    color: "#0073e6",
-                    opacity: 0.4,
-                    width: 1,
-                },
-                move: {
-                    enable: true,
-                    speed: 6,
-                    direction: "none",
-                    random: false,
-                    straight: false,
-                    out_mode: "out",
-                    bounce: false,
-                    attract: {
-                        enable: false,
-                        rotateX: 600,
-                        rotateY: 1200,
-                    },
-                },
-            },
-            interactivity: {
-                detect_on: "canvas",
-                events: {
-                    onhover: {
-                        enable: true,
-                        mode: "repulse",
-                    },
-                    onclick: {
-                        enable: true,
-                        mode: "push",
-                    },
-                    resize: true,
-                },
-                modes: {
-                    repulse: {
-                        distance: 100,
-                        duration: 0.4,
-                    },
-                    push: {
-                        particles_nb: 4,
-                    },
-                },
-            },
-            retina_detect: true,
-        });
-    </script>
 </body>
 </html>
