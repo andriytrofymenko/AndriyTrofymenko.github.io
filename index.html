@@ -109,6 +109,7 @@
             max-width: 100%;
             height: auto;
             border-radius: 8px;
+            cursor: pointer; /* Cambia el cursor al pasar sobre la imagen */
         }
 
         .contact-form input, .contact-form textarea {
@@ -130,6 +131,35 @@
 
         .contact-form button:hover {
             background-color: #005bb5;
+        }
+
+        /* Estilos para la sección de proyectos destacados */
+        .projects-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px; /* Espacio entre los proyectos */
+        }
+
+        .project-card {
+            flex: 1 1 calc(50% - 20px); /* Dos columnas con espacio entre ellas */
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-card img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            cursor: pointer; /* Cambia el cursor al pasar sobre la imagen */
         }
 
         @media (max-width: 768px) {
@@ -160,6 +190,10 @@
                 width: 100%;
                 height: 200px;
             }
+
+            .project-card {
+                flex: 1 1 100%; /* Una columna en móviles */
+            }
         }
     </style>
 </head>
@@ -185,12 +219,22 @@
         <!-- Sección: Proyectos Destacados -->
         <section>
             <h2>Proyectos Destacados</h2>
-            <div class="project">
-                <h3>Mapeo de la Cadena de Valor del Cáñamo Industrial</h3>
-                <p>Lideré la colaboración con CONICET, INTA y otras instituciones para este proyecto. Mira la presentación:</p>
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/tYU88wsM110" frameborder="0" allowfullscreen></iframe>
+            <div class="projects-grid">
+                <!-- Proyecto 1: Mapeo de la Cadena de Valor del Cáñamo Industrial -->
+                <div class="project-card">
+                    <h3>Mapeo de la Cadena de Valor del Cáñamo Industrial</h3>
+                    <p>Lideré la colaboración con CONICET, INTA y otras instituciones para este proyecto. Mira la presentación:</p>
+                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/tYU88wsM110" frameborder="0" allowfullscreen></iframe>
+                </div>
+
+                <!-- Proyecto 2: Capacitaciones -->
+                <div class="project-card">
+                    <h3>Capacitaciones</h3>
+                    <p>Capacitaciones en mejora continua en diferentes empresas / organismos.</p>
+                    <!-- Imagen con modal -->
+                    <img src="https://i.ibb.co/twgcT4sS/capacitaciones.jpg" alt="Capacitaciones" data-bs-toggle="modal" data-bs-target="#capacitacionesModal">
+                </div>
             </div>
-            <!-- Agrega más proyectos aquí -->
         </section>
 
         <!-- Sección: Descargas -->
@@ -217,6 +261,21 @@
                 <button type="submit">Enviar</button>
             </form>
         </section>
+    </div>
+
+    <!-- Modal para la imagen de Capacitaciones -->
+    <div class="modal fade" id="capacitacionesModal" tabindex="-1" aria-labelledby="capacitacionesModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="capacitacionesModalLabel">Capacitaciones</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="https://i.ibb.co/twgcT4sS/capacitaciones.jpg" alt="Capacitaciones" class="img-fluid">
+                </div>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -329,5 +388,8 @@
             retina_detect: true,
         });
     </script>
+
+    <!-- Bootstrap JS (necesario para el modal) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
