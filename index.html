@@ -77,8 +77,8 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición suave */
         }
 
-        /* Efecto al pasar el cursor */
-        section:hover {
+        /* Efecto para el contenedor en el centro */
+        section.active {
             transform: translateY(-5px); /* Levanta ligeramente el contenedor */
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
         }
@@ -231,6 +231,25 @@
     </div>
 
     <script>
+        // Efecto para el contenedor en el centro de la pantalla
+        document.addEventListener("scroll", () => {
+            const sections = document.querySelectorAll("section");
+            const windowHeight = window.innerHeight;
+
+            sections.forEach((section) => {
+                const rect = section.getBoundingClientRect();
+                const sectionCenter = rect.top + rect.height / 2;
+
+                // Si el centro del contenedor está en el centro de la pantalla
+                if (sectionCenter > windowHeight * 0.4 && sectionCenter < windowHeight * 0.6) {
+                    section.classList.add("active");
+                } else {
+                    section.classList.remove("active");
+                }
+            });
+        });
+
+        // Configuración de partículas
         particlesJS("particles-js", {
             particles: {
                 number: {
