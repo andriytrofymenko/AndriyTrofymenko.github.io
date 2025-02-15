@@ -67,8 +67,8 @@
             z-index: 1;
             background-color: rgba(255, 255, 255, 0.9);
             border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            margin-bottom: 40px; /* Aumenté el margen inferior */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Aumenté el sombreado */
+            margin-bottom: 40px;
             padding: 20px;
             width: 100%;
             max-width: 1400px;
@@ -79,7 +79,7 @@
 
         section.active {
             transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Aumenté el sombreado al activarse */
         }
 
         h2 {
@@ -144,16 +144,16 @@
             flex: 1 1 calc(50% - 20px);
             background-color: #fff;
             border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Aumenté el sombreado */
             padding: 20px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             max-width: 600px;
-            margin: 0 auto; /* Centrar las tarjetas */
+            margin: 0 auto;
         }
 
         .project-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Aumenté el sombreado al activarse */
         }
 
         .project-card img {
@@ -248,7 +248,7 @@
         </section>
 
         <!-- Sección: Proyectos Destacados -->
-        <section style="margin-top: 40px;"> <!-- Añadí margen superior -->
+        <section style="margin-top: 40px;">
             <h2>Proyectos Destacados</h2>
             <div class="projects-grid">
                 <!-- Proyecto 1: Mapeo de la Cadena de Valor del Cáñamo Industrial -->
