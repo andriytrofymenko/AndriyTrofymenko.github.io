@@ -167,15 +167,15 @@
 
         /* Estilos para las imágenes en el contenedor de Capacitaciones */
         .capacitaciones-images {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr); /* Dos columnas */
+            display: flex;
+            flex-wrap: wrap;
             gap: 15px; /* Espacio entre las imágenes */
+            justify-content: center; /* Centrar las imágenes */
         }
 
         .capacitaciones-images img {
-            width: 100%; /* Ajustar al ancho del contenedor */
-            height: 100%; /* Ajustar al alto del contenedor */
-            object-fit: cover; /* Ajustar la imagen sin distorsión */
+            width: calc(33.33% - 10px); /* Tres imágenes por fila con espacio entre ellas */
+            height: auto;
             border-radius: 8px;
             cursor: pointer; /* Cambia el cursor al pasar sobre la imagen */
         }
@@ -227,8 +227,8 @@
                 flex: 1 1 100%; /* Una columna en móviles */
             }
 
-            .capacitaciones-images {
-                grid-template-columns: 1fr; /* Una columna en móviles */
+            .capacitaciones-images img {
+                width: 100%; /* Una imagen por fila en móviles */
             }
         }
     </style>
@@ -275,8 +275,6 @@
                         <img src="https://i.ibb.co/chB8ZGLN/Imagen-de-Whats-App-2025-02-14-a-las-20-27-49-4e77bac1.jpg" alt="Imagen-de-Whats-App-2025-02-14-a-las-20-27-49-4e77bac1" data-bs-toggle="modal" data-bs-target="#capacitacionesModal2">
                         <!-- Imagen con micrófono -->
                         <img src="https://i.ibb.co/PvRrSw0Y/Imagen-de-Whats-App-2025-02-14-a-las-20-10-33-550c9616.jpg" alt="Imagen-de-Whats-App-2025-02-14-a-las-20-10-33-550c9616" data-bs-toggle="modal" data-bs-target="#capacitacionesModal3">
-                        <!-- Espacio vacío para mantener la simetría -->
-                        <div style="background-color: transparent;"></div>
                     </div>
                 </div>
             </div>
