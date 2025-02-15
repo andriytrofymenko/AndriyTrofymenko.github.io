@@ -178,6 +178,20 @@
             cursor: pointer; /* Cambia el cursor al pasar sobre la imagen */
         }
 
+        /* Estilos para los modales */
+        .modal-body {
+            display: flex;
+            justify-content: center; /* Centrar horizontalmente */
+            align-items: center; /* Centrar verticalmente */
+            padding: 0; /* Eliminar padding innecesario */
+        }
+
+        .modal-body img {
+            max-width: 100%;
+            max-height: 80vh; /* Limitar la altura al 80% del viewport */
+            border-radius: 8px;
+        }
+
         @media (max-width: 768px) {
             header h1 {
                 font-size: 2.5rem;
