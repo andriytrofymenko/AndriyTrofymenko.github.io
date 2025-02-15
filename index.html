@@ -562,9 +562,10 @@
                         const imgRect = img.getBoundingClientRect();
 
                         // Colocar la "X" en la esquina superior derecha de la imagen
-                        const closeButtonTop = imgRect.top + 10; // 10px de margen superior
-                        const closeButtonRight = window.innerWidth - imgRect.right + 10; // 10px de margen derecho
+                        const closeButtonTop = imgRect.top + window.scrollY; // Posición absoluta respecto al documento
+                        const closeButtonRight = window.innerWidth - imgRect.right; // Margen derecho respecto a la ventana
 
+                        closeButton.style.position = "absolute";
                         closeButton.style.top = `${closeButtonTop}px`;
                         closeButton.style.right = `${closeButtonRight}px`;
                     };
