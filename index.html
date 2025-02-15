@@ -200,24 +200,23 @@
             border-radius: 0;
         }
 
-        .modal-close {
-            position: absolute;
-            top: 0; /* Pegada al borde superior de la imagen */
-            right: 0; /* Pegada al borde derecho de la imagen */
-            background-color: rgba(255, 255, 255, 0.8); /* Fondo semi-transparente */
-            color: black;
-            border: none;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            font-size: 24px;
-            z-index: 2;
-            margin: 10px; /* Un pequeño margen para que no esté pegada al borde */
-        }
+       .modal-close {
+    position: absolute;
+    top: 10px; /* Ajusta este valor para mover la "X" hacia abajo */
+    right: 10px; /* Ajusta este valor para mover la "X" hacia la izquierda */
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo semi-transparente */
+    color: black;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 24px;
+    z-index: 2;
+}
 
         .modal-close:hover {
             background-color: rgba(255, 255, 255, 1);
