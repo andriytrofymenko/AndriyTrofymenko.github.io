@@ -194,12 +194,28 @@
         }
 
         .modal-body img {
-            width: auto; /* Permite que la imagen use su ancho original */
-            height: auto; /* Permite que la imagen use su altura original */
-            max-width: none; /* Elimina cualquier restricción de ancho máximo */
-            max-height: none; /* Elimina cualquier restricción de altura máxima */
-            object-fit: contain; /* Asegura que la imagen se ajuste sin distorsión */
+            width: auto;
+            height: auto;
+            max-width: none;
+            max-height: none;
+            object-fit: contain;
             border-radius: 0;
+        }
+
+        .modal-close {
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.8);
+            color: black;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 24px;
+            z-index: 2;
         }
 
         @media (max-width: 768px) {
@@ -525,6 +541,47 @@
                 },
             },
             retina_detect: true,
+        });
+
+        // Configuración de la "X" dinámica
+        document.addEventListener("DOMContentLoaded", () => {
+            const modals = document.querySelectorAll(".modal");
+            modals.forEach((modal) => {
+                modal.addEventListener("show.bs.modal", (event) => {
+                    const modalBody = modal.querySelector(".modal-body");
+                    const img = modalBody.querySelector("img");
+                    const closeButton = document.createElement("button");
+                    closeButton.className = "modal-close";
+                    closeButton.innerHTML = "&times;";
+                    closeButton.addEventListener("click", () => {
+                        bootstrap.Modal.getInstance(modal).hide();
+                    });
+
+                    // Asegurarse de que la imagen esté cargada antes de calcular su posición
+                    img.onload = () => {
+                        const imgRect = img.getBoundingClientRect();
+                        const windowWidth = window.innerWidth;
+                        const windowHeight = window.innerHeight;
+
+                        // Calcular la posición de la "X" para que esté a la mitad de la distancia entre la imagen y el borde de la ventana
+                        const closeButtonTop = imgRect.top + (imgRect.height / 2) - 20; // 20px para centrar verticalmente
+                        const closeButtonRight = windowWidth - imgRect.right + (imgRect.width / 2) - 20; // 20px para centrar horizontalmente
+
+                        closeButton.style.top = `${closeButtonTop}px`;
+                        closeButton.style.right = `${closeButtonRight}px`;
+                    };
+
+                    modalBody.appendChild(closeButton);
+                });
+
+                // Limpiar la "X" al cerrar el modal
+                modal.addEventListener("hidden.bs.modal", () => {
+                    const closeButton = modal.querySelector(".modal-close");
+                    if (closeButton) {
+                        closeButton.remove();
+                    }
+                });
+            });
         });
     </script>
 
