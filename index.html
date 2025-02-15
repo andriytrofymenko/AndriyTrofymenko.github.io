@@ -167,14 +167,13 @@
 
         /* Estilos para las imágenes en el contenedor de Capacitaciones */
         .capacitaciones-images {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            justify-content: center; /* Centrar las imágenes */
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Dos columnas */
+            gap: 15px; /* Espacio entre las imágenes */
         }
 
         .capacitaciones-images img {
-            width: 45%; /* Tamaño uniforme para las imágenes */
+            width: 100%; /* Ajustar al ancho del contenedor */
             border-radius: 8px;
             cursor: pointer; /* Cambia el cursor al pasar sobre la imagen */
         }
@@ -212,8 +211,8 @@
                 flex: 1 1 100%; /* Una columna en móviles */
             }
 
-            .capacitaciones-images img {
-                width: 100%; /* Imágenes en una columna en móviles */
+            .capacitaciones-images {
+                grid-template-columns: 1fr; /* Una columna en móviles */
             }
         }
     </style>
@@ -254,9 +253,12 @@
                     <p>Capacitaciones en mejora continua en diferentes empresas / organismos.</p>
                     <!-- Contenedor de imágenes de Capacitaciones -->
                     <div class="capacitaciones-images">
-                        <img src="https://i.ibb.co/bMhY556p/Imagen-de-Whats-App-2025-02-14-a-las-20-10-33-550c9616.jpg" alt="Capacitaciones" data-bs-toggle="modal" data-bs-target="#capacitacionesModal1">
-                        <img src="https://i.ibb.co/zWgygJVY/Imagen-de-Whats-App-2025-02-14-a-las-20-34-16-3b3b9deb.jpg" alt="Imagen-de-Whats-App-2025-02-14-a-las-20-34-16-3b3b9deb" data-bs-toggle="modal" data-bs-target="#capacitacionesModal2">
-                        <img src="https://i.ibb.co/6z173zP/Imagen-de-Whats-App-2025-02-14-a-las-20-30-12-dbf6f0c3.jpg" alt="Imagen-de-Whats-App-2025-02-14-a-las-20-30-12-dbf6f0c3" data-bs-toggle="modal" data-bs-target="#capacitacionesModal3">
+                        <!-- Imagen explicando a una chica -->
+                        <img src="https://i.ibb.co/6z173zP/Imagen-de-Whats-App-2025-02-14-a-las-20-30-12-dbf6f0c3.jpg" alt="Imagen-de-Whats-App-2025-02-14-a-las-20-30-12-dbf6f0c3" data-bs-toggle="modal" data-bs-target="#capacitacionesModal1">
+                        <!-- Imagen sentado con la pantalla -->
+                        <img src="https://i.ibb.co/chB8ZGLN/Imagen-de-Whats-App-2025-02-14-a-las-20-27-49-4e77bac1.jpg" alt="Imagen-de-Whats-App-2025-02-14-a-las-20-27-49-4e77bac1" data-bs-toggle="modal" data-bs-target="#capacitacionesModal2">
+                        <!-- Imagen con micrófono -->
+                        <img src="https://i.ibb.co/PvRrSw0Y/Imagen-de-Whats-App-2025-02-14-a-las-20-10-33-550c9616.jpg" alt="Imagen-de-Whats-App-2025-02-14-a-las-20-10-33-550c9616" data-bs-toggle="modal" data-bs-target="#capacitacionesModal3">
                     </div>
                 </div>
             </div>
@@ -297,7 +299,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <img src="https://i.ibb.co/bMhY556p/Imagen-de-Whats-App-2025-02-14-a-las-20-10-33-550c9616.jpg" alt="Capacitaciones" class="img-fluid">
+                    <img src="https://i.ibb.co/6z173zP/Imagen-de-Whats-App-2025-02-14-a-las-20-30-12-dbf6f0c3.jpg" alt="Imagen-de-Whats-App-2025-02-14-a-las-20-30-12-dbf6f0c3" class="img-fluid">
                 </div>
             </div>
         </div>
@@ -311,7 +313,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <img src="https://i.ibb.co/zWgygJVY/Imagen-de-Whats-App-2025-02-14-a-las-20-34-16-3b3b9deb.jpg" alt="Imagen-de-Whats-App-2025-02-14-a-las-20-34-16-3b3b9deb" class="img-fluid">
+                    <img src="https://i.ibb.co/chB8ZGLN/Imagen-de-Whats-App-2025-02-14-a-las-20-27-49-4e77bac1.jpg" alt="Imagen-de-Whats-App-2025-02-14-a-las-20-27-49-4e77bac1" class="img-fluid">
                 </div>
             </div>
         </div>
@@ -325,7 +327,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <img src="https://i.ibb.co/6z173zP/Imagen-de-Whats-App-2025-02-14-a-las-20-30-12-dbf6f0c3.jpg" alt="Imagen-de-Whats-App-2025-02-14-a-las-20-30-12-dbf6f0c3" class="img-fluid">
+                    <img src="https://i.ibb.co/PvRrSw0Y/Imagen-de-Whats-App-2025-02-14-a-las-20-10-33-550c9616.jpg" alt="Imagen-de-Whats-App-2025-02-14-a-las-20-10-33-550c9616" class="img-fluid">
                 </div>
             </div>
         </div>
