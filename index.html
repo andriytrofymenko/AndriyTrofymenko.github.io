@@ -167,15 +167,13 @@
 
         /* Estilos para las imágenes en el contenedor de Capacitaciones */
         .capacitaciones-images {
-            display: flex;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Dos columnas */
             gap: 15px; /* Espacio entre las imágenes */
-            justify-content: center; /* Centrar las imágenes */
         }
 
         .capacitaciones-images img {
-            width: calc(33.33% - 10px); /* Tres imágenes por fila con espacio entre ellas */
-            height: auto;
+            width: 100%; /* Ajustar al ancho del contenedor */
             border-radius: 8px;
             cursor: pointer; /* Cambia el cursor al pasar sobre la imagen */
         }
@@ -227,8 +225,8 @@
                 flex: 1 1 100%; /* Una columna en móviles */
             }
 
-            .capacitaciones-images img {
-                width: 100%; /* Una imagen por fila en móviles */
+            .capacitaciones-images {
+                grid-template-columns: 1fr; /* Una columna en móviles */
             }
         }
     </style>
