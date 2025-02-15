@@ -86,6 +86,7 @@
         h2 {
             color: #0073e6;
             font-size: 2rem;
+            text-align: center; /* Centrar solo los títulos en azul */
         }
 
         p {
@@ -138,6 +139,7 @@
             display: flex;
             flex-wrap: wrap;
             gap: 20px; /* Espacio entre los proyectos */
+            justify-content: center; /* Centrar las tarjetas */
         }
 
         .project-card {
@@ -147,6 +149,7 @@
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             padding: 20px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            max-width: 500px; /* Ancho máximo para las tarjetas */
         }
 
         .project-card:hover {
@@ -159,6 +162,20 @@
             height: auto;
             border-radius: 8px;
             margin-bottom: 15px;
+            cursor: pointer; /* Cambia el cursor al pasar sobre la imagen */
+        }
+
+        /* Estilos para las imágenes en el contenedor de Capacitaciones */
+        .capacitaciones-images {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center; /* Centrar las imágenes */
+        }
+
+        .capacitaciones-images img {
+            width: 45%; /* Tamaño uniforme para las imágenes */
+            border-radius: 8px;
             cursor: pointer; /* Cambia el cursor al pasar sobre la imagen */
         }
 
@@ -193,6 +210,10 @@
 
             .project-card {
                 flex: 1 1 100%; /* Una columna en móviles */
+            }
+
+            .capacitaciones-images img {
+                width: 100%; /* Imágenes en una columna en móviles */
             }
         }
     </style>
@@ -231,12 +252,11 @@
                 <div class="project-card">
                     <h3>Capacitaciones</h3>
                     <p>Capacitaciones en mejora continua en diferentes empresas / organismos.</p>
-                    <!-- Imágenes con modal -->
-                    <div style="display: flex; flex-wrap: wrap; gap: 15px;">
-                        <img src="https://i.ibb.co/bMhY556p/Imagen-de-Whats-App-2025-02-14-a-las-20-10-33-550c9616.jpg" alt="Capacitaciones" data-bs-toggle="modal" data-bs-target="#capacitacionesModal1" style="width: 45%;">
-                        <img src="https://i.ibb.co/zWgygJVY/Imagen-de-Whats-App-2025-02-14-a-las-20-34-16-3b3b9deb.jpg" alt="Imagen-de-Whats-App-2025-02-14-a-las-20-34-16-3b3b9deb" data-bs-toggle="modal" data-bs-target="#capacitacionesModal2" style="width: 45%;">
-                        <img src="https://i.ibb.co/chB8ZGLN/Imagen-de-Whats-App-2025-02-14-a-las-20-27-49-4e77bac1.jpg" alt="Imagen-de-Whats-App-2025-02-14-a-las-20-27-49-4e77bac1" data-bs-toggle="modal" data-bs-target="#capacitacionesModal3" style="width: 45%;">
-                        <img src="https://i.ibb.co/6z173zP/Imagen-de-Whats-App-2025-02-14-a-las-20-30-12-dbf6f0c3.jpg" alt="Imagen-de-Whats-App-2025-02-14-a-las-20-30-12-dbf6f0c3" data-bs-toggle="modal" data-bs-target="#capacitacionesModal4" style="width: 45%;">
+                    <!-- Contenedor de imágenes de Capacitaciones -->
+                    <div class="capacitaciones-images">
+                        <img src="https://i.ibb.co/bMhY556p/Imagen-de-Whats-App-2025-02-14-a-las-20-10-33-550c9616.jpg" alt="Capacitaciones" data-bs-toggle="modal" data-bs-target="#capacitacionesModal1">
+                        <img src="https://i.ibb.co/zWgygJVY/Imagen-de-Whats-App-2025-02-14-a-las-20-34-16-3b3b9deb.jpg" alt="Imagen-de-Whats-App-2025-02-14-a-las-20-34-16-3b3b9deb" data-bs-toggle="modal" data-bs-target="#capacitacionesModal2">
+                        <img src="https://i.ibb.co/6z173zP/Imagen-de-Whats-App-2025-02-14-a-las-20-30-12-dbf6f0c3.jpg" alt="Imagen-de-Whats-App-2025-02-14-a-las-20-30-12-dbf6f0c3" data-bs-toggle="modal" data-bs-target="#capacitacionesModal3">
                     </div>
                 </div>
             </div>
@@ -302,20 +322,6 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="capacitacionesModalLabel3">Capacitaciones</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <img src="https://i.ibb.co/chB8ZGLN/Imagen-de-Whats-App-2025-02-14-a-las-20-27-49-4e77bac1.jpg" alt="Imagen-de-Whats-App-2025-02-14-a-las-20-27-49-4e77bac1" class="img-fluid">
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="capacitacionesModal4" tabindex="-1" aria-labelledby="capacitacionesModalLabel4" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="capacitacionesModalLabel4">Capacitaciones</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
