@@ -28,11 +28,11 @@
       position: relative;
       z-index: 1;
       background: linear-gradient(135deg, rgba(96, 96, 96, 0.1), rgba(128, 128, 128, 0.05));
-      padding: 20px 0; /* Reducido el padding vertical */
+      padding: 20px 0;
       text-align: center;
       color: white;
       border-radius: 0 0 20px 20px;
-      margin-bottom: 0; /* Eliminado el margen inferior */
+      margin-bottom: 0;
     }
 
     header img {
@@ -40,13 +40,13 @@
       height: 180px;
       border-radius: 50%;
       border: 4px solid white;
-      margin-bottom: 10px; /* Reducido el margen inferior */
+      margin-bottom: 10px;
     }
 
     header h1 {
       font-size: 3rem;
       font-weight: 700;
-      margin-bottom: 5px; /* Reducido el margen inferior */
+      margin-bottom: 5px;
       color: #2c3e50;
     }
 
@@ -60,7 +60,7 @@
       font-size: 1.2rem;
       font-weight: 400;
       color: #555;
-      margin-bottom: 0; /* Eliminado el margen inferior */
+      margin-bottom: 0;
     }
 
     nav {
@@ -302,7 +302,7 @@
       }
 
       header {
-        padding-top: 40px; /* Ajustado para dispositivos móviles */
+        padding-top: 40px;
       }
 
       header h1 {
@@ -364,7 +364,7 @@
     </ul>
   </nav>
 
-  <div class="container my-5" style="padding-top: 0;"> <!-- Eliminado el padding-top -->
+  <div class="container my-5" style="padding-top: 0;">
     <section id="sobre-mi">
       <h2>Sobre Mí</h2>
       <p>Soy un ingeniero industrial con más de 5 años de experiencia en mejora continua, gestión de proyectos y optimización de procesos. He trabajado en sectores como residuos sólidos urbanos, energía y consultoría, liderando equipos y implementando soluciones que generan resultados medibles y sostenibles.</p>
@@ -515,36 +515,21 @@
   </div>
 
   <script>
-    // Efecto para centrar el contenedor en el centro de la pantalla
-    document.addEventListener("scroll", () => {
-      const sections = document.querySelectorAll("section");
-      const windowHeight = window.innerHeight;
-      sections.forEach((section) => {
-        const rect = section.getBoundingClientRect();
-        const sectionCenter = rect.top + rect.height / 2;
-        if (sectionCenter > windowHeight * 0.4 && sectionCenter < windowHeight * 0.6) {
-          section.classList.add("active");
-        } else {
-          section.classList.remove("active");
-        }
-      });
-    });
-
-    // Configuración de partículas
+    // Configuración de partículas para máxima fluidez
     particlesJS("particles-js", {
       particles: {
         number: {
-          value: 80,
+          value: 60, // Número de partículas reducido para mejorar el rendimiento
           density: {
             enable: true,
             value_area: 800,
           },
         },
         color: {
-          value: "#0073e6",
+          value: "#0073e6", // Color de las partículas
         },
         shape: {
-          type: "circle",
+          type: "circle", // Forma de las partículas
           stroke: {
             width: 0,
             color: "#000000",
@@ -557,7 +542,7 @@
           value: 0.5,
           random: false,
           anim: {
-            enable: false,
+            enable: false, // Desactivamos la animación de opacidad para mejorar el rendimiento
             speed: 1,
             opacity_min: 0.1,
             sync: false,
@@ -567,7 +552,7 @@
           value: 3,
           random: true,
           anim: {
-            enable: false,
+            enable: false, // Desactivamos la animación de tamaño para mejorar el rendimiento
             speed: 40,
             size_min: 0.1,
             sync: false,
@@ -582,7 +567,7 @@
         },
         move: {
           enable: true,
-          speed: 6,
+          speed: 6, // Aumentamos la velocidad para mayor fluidez
           direction: "none",
           random: false,
           straight: false,
@@ -619,38 +604,6 @@
         },
       },
       retina_detect: true,
-    });
-
-    // Configuración de la "X" en la esquina superior derecha de la imagen
-    document.addEventListener("DOMContentLoaded", () => {
-      const modals = document.querySelectorAll(".modal");
-      modals.forEach((modal) => {
-        modal.addEventListener("show.bs.modal", (event) => {
-          const modalBody = modal.querySelector(".modal-body");
-          const img = modalBody.querySelector("img");
-          const closeButton = document.createElement("button");
-          closeButton.className = "modal-close";
-          closeButton.innerHTML = "&times;";
-          closeButton.addEventListener("click", () => {
-            bootstrap.Modal.getInstance(modal).hide();
-          });
-          img.onload = () => {
-            const imgRect = img.getBoundingClientRect();
-            const closeButtonTop = imgRect.top + window.scrollY;
-            const closeButtonRight = window.innerWidth - imgRect.right;
-            closeButton.style.position = "absolute";
-            closeButton.style.top = `${closeButtonTop}px`;
-            closeButton.style.right = `${closeButtonRight}px`;
-          };
-          modalBody.appendChild(closeButton);
-        });
-        modal.addEventListener("hidden.bs.modal", () => {
-          const closeButton = modal.querySelector(".modal-close");
-          if (closeButton) {
-            closeButton.remove();
-          }
-        });
-      });
     });
   </script>
 
