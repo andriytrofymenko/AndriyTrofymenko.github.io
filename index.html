@@ -1,624 +1,660 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Andriy Trofymenko - Ingeniero Industrial</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Roboto', sans-serif;
-            color: #333;
-            background-color: #f9f9f9;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Andriy Trofymenko - Ingeniero Industrial</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', sans-serif;
+      color: #333;
+      background-color: #f9f9f9;
+    }
 
-        #particles-js {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            background: transparent;
-            z-index: -1;
-        }
+    #particles-js {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background: transparent;
+      z-index: -1;
+    }
 
-        header {
-            position: relative;
-            z-index: 1;
-            background: linear-gradient(135deg, rgba(96, 96, 96, 0.1), rgba(128, 128, 128, 0.05));
-            padding: 60px 0;
-            text-align: center;
-            color: white;
-            border-radius: 0 0 20px 20px;
-        }
+    header {
+      position: relative;
+      z-index: 1;
+      background: linear-gradient(135deg, rgba(96, 96, 96, 0.1), rgba(128, 128, 128, 0.05));
+      padding: 20px 0; /* Reducido el padding vertical */
+      text-align: center;
+      color: white;
+      border-radius: 0 0 20px 20px;
+      margin-bottom: 0; /* Eliminado el margen inferior */
+    }
 
-        header img {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            border: 4px solid white;
-            margin-bottom: 20px;
-        }
+    header img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      border: 4px solid white;
+      margin-bottom: 10px; /* Reducido el margen inferior */
+    }
 
-        header h1 {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-            color: #2c3e50;
-        }
+    header h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 5px; /* Reducido el margen inferior */
+      color: #2c3e50;
+    }
 
-        header p {
-            font-size: 1.5rem;
-            margin-bottom: 5px;
-            color: #34495e;
-        }
+    header p {
+      font-size: 1.5rem;
+      margin-bottom: 5px;
+      color: #34495e;
+    }
 
-        header p.specialization {
-            font-size: 1.2rem;
-            font-weight: 400;
-            color: #555; /* Color más oscuro para mejor contraste */
-        }
+    header p.specialization {
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: #555;
+      margin-bottom: 0; /* Eliminado el margen inferior */
+    }
 
-        section {
-            position: relative;
-            z-index: 1;
-            background-color: rgba(255, 255, 255, 0.95);
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            margin-bottom: 40px;
-            padding: 30px;
-            width: 100%;
-            max-width: 1800px; /* Aumentado un 50% (de 1200px a 1800px) */
-            margin-left: auto;
-            margin-right: auto;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
+    nav {
+      position: sticky;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(50, 50, 50, 0.4);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      padding: 10px 0;
+      z-index: 1000;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
 
-        section.active {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-        }
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
 
-        /* Efectos profesionales para los títulos */
-        h2 {
-            color: #2c3e50;
-            font-size: 2.5rem;
-            text-align: center;
-            position: relative;
-            display: inline-block;
-            margin: 20px 0;
-            padding-bottom: 10px;
-        }
+    nav ul li {
+      display: inline;
+    }
 
-        h2::after {
-            content: '';
-            position: absolute;
-            width: 50%;
-            height: 3px;
-            background: #0073e6;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%) scaleX(0);
-            transform-origin: center;
-            transition: transform 0.3s ease;
-        }
+    nav ul li a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 10px 20px;
+      border-radius: 5px;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
 
-        h2:hover::after {
-            transform: translateX(-50%) scaleX(1);
-        }
+    nav ul li a:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+    }
 
-        /* Estilos para los títulos de los proyectos */
-        .project-card h3 {
-            color: #1a5276; /* Azul oscuro para diferenciar */
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-            text-align: center;
-        }
+    section {
+      position: relative;
+      z-index: 1;
+      background-color: rgba(255, 255, 255, 0.85);
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+      padding: 20px;
+      width: 100%;
+      max-width: 1800px;
+      margin-left: auto;
+      margin-right: auto;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
 
-        p {
-            font-size: 1rem;
-            color: #555;
-            line-height: 1.6;
-        }
+    section.active {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
 
-        a {
-            color: #0073e6;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
+    h2 {
+      color: #2c3e50;
+      font-size: 2.5rem;
+      text-align: center;
+      position: relative;
+      display: inline-block;
+      margin: 20px 0;
+      padding-bottom: 10px;
+    }
 
-        a:hover {
-            color: #005bb5;
-        }
+    h2::after {
+      content: '';
+      position: absolute;
+      width: 50%;
+      height: 3px;
+      background: #0073e6;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%) scaleX(0);
+      transform-origin: center;
+      transition: transform 0.3s ease;
+    }
 
-        .project {
-            margin-bottom: 20px;
-        }
+    h2:hover::after {
+      transform: translateX(-50%) scaleX(1);
+    }
 
-        .project img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            cursor: pointer;
-        }
+    .project-card h3 {
+      color: #1a5276;
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+      text-align: center;
+    }
 
-        .contact-form input, .contact-form textarea {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 1rem;
-        }
+    p {
+      font-size: 1rem;
+      color: #555;
+      line-height: 1.6;
+    }
 
-        .contact-form button {
-            background-color: #0073e6;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
+    a {
+      color: #0073e6;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
 
-        .contact-form button:hover {
-            background-color: #005bb5;
-        }
+    a:hover {
+      color: #005bb5;
+    }
 
-        .projects-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
-            margin-top: 40px;
-        }
+    .project {
+      margin-bottom: 20px;
+    }
 
-        .project-card {
-            flex: 1 1 calc(50% - 20px);
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            max-width: 900px; /* Aumentado un 50% (de 600px a 900px) */
-            margin: 0 auto;
-        }
+    .project img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      cursor: pointer;
+    }
 
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-        }
+    .contact-form input, .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
 
-        .project-card img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            margin-bottom: 15px;
-            cursor: pointer;
-        }
+    .contact-form button {
+      background-color: #505050;
+      color: white;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 4px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
 
-        .capacitaciones-images {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-        }
+    .contact-form button:hover {
+      background-color: #3d3d3d;
+      transform: translateY(-2px);
+    }
 
-        .capacitaciones-images img {
-            width: 100%;
-            border-radius: 8px;
-            cursor: pointer;
-        }
+    .projects-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 20px;
+    }
 
-        /* Estilos para los modales */
-        .modal-content {
-            background-color: transparent;
-            border: none;
-            box-shadow: none;
-        }
+    .project-card {
+      flex: 1 1 calc(50% - 20px);
+      background-color: rgba(255, 255, 255, 0.85);
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      max-width: 900px;
+      margin: 0 auto;
+    }
 
-        .modal-body {
-            padding: 0;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
 
-        .modal-body img {
-            width: auto;
-            height: auto;
-            max-width: none;
-            max-height: none;
-            object-fit: contain;
-            border-radius: 0;
-        }
+    .project-card img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      cursor: pointer;
+    }
 
-        .modal-close {
-            position: absolute;
-            background-color: rgba(255, 255, 255, 0.8);
-            color: black;
-            border: none;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            font-size: 24px;
-            z-index: 2;
-        }
+    .capacitaciones-images {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
 
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 2.5rem;
-            }
+    .capacitaciones-images img {
+      width: 100%;
+      border-radius: 8px;
+      cursor: pointer;
+    }
 
-            header p {
-                font-size: 1.2rem;
-            }
+    .modal-content {
+      background-color: transparent;
+      border: none;
+      box-shadow: none;
+    }
 
-            header p.specialization {
-                font-size: 1rem;
-            }
+    .modal-body {
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
 
-            header img {
-                width: 120px;
-                height: 120px;
-            }
+    .modal-body img {
+      width: auto;
+      height: auto;
+      max-width: none;
+      max-height: none;
+      object-fit: contain;
+      border-radius: 0;
+    }
 
-            section {
-                padding: 15px;
-                margin: 10px;
-                border-radius: 0;
-            }
+    .modal-close {
+      position: absolute;
+      background-color: rgba(255, 255, 255, 0.8);
+      color: black;
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 24px;
+      z-index: 2;
+    }
 
-            iframe {
-                width: 100%;
-                height: 200px;
-            }
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
 
-            .project-card {
-                flex: 1 1 100%;
-            }
+      header {
+        padding-top: 40px; /* Ajustado para dispositivos móviles */
+      }
 
-            .capacitaciones-images {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+      header h1 {
+        font-size: 2.5rem;
+      }
+
+      header p {
+        font-size: 1.2rem;
+      }
+
+      header p.specialization {
+        font-size: 1rem;
+      }
+
+      header img {
+        width: 120px;
+        height: 120px;
+      }
+
+      section {
+        padding: 15px;
+        margin: 10px;
+        border-radius: 0;
+      }
+
+      iframe {
+        width: 100%;
+        height: 200px;
+      }
+
+      .project-card {
+        flex: 1 1 100%;
+      }
+
+      .capacitaciones-images {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div id="particles-js"></div>
+  <div id="particles-js"></div>
 
-    <header>
-        <div class="container">
-            <img src="https://i.ibb.co/WWSsTGT4/foto-perfil.jpg" alt="Foto de Andriy Trofymenko">
-            <h1>Andriy Trofymenko</h1>
-            <p>INGENIERO INDUSTRIAL</p>
-            <p class="specialization">Especializado en mejora continua, optimización de procesos y gestión de proyectos.</p>
-        </div>
-    </header>
-
-    <div class="container my-5">
-        <!-- Sección: Sobre Mí -->
-        <section>
-            <h2>Sobre Mí</h2>
-            <p>Soy un ingeniero industrial con más de 5 años de experiencia en mejora continua, gestión de proyectos y optimización de procesos. He trabajado en sectores como residuos sólidos urbanos, energía y consultoría, liderando equipos y implementando soluciones que generan resultados medibles y sostenibles.</p>
-        </section>
-
-        <!-- Sección: Proyectos Destacados -->
-        <section style="margin-top: 40px;">
-            <h2>Proyectos Destacados</h2>
-            <div class="projects-grid">
-                <!-- Proyecto 1: Mapeo de la Cadena de Valor del Cáñamo Industrial -->
-                <div class="project-card">
-                    <h3>Mapeo de la Cadena de Valor del Cáñamo Industrial</h3>
-                    <p>Lideré la colaboración con CONICET, INTA y otras instituciones para este proyecto. Mira la presentación:</p>
-                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/tYU88wsM110" frameborder="0" allowfullscreen></iframe>
-                </div>
-
-                <!-- Proyecto 2: Capacitaciones -->
-                <div class="project-card">
-                    <h3>Capacitaciones</h3>
-                    <p>Capacitaciones en mejora continua en diferentes empresas / organismos.</p>
-                    <!-- Contenedor de imágenes de Capacitaciones -->
-                    <div class="capacitaciones-images">
-                        <!-- Imagen explicando a una chica -->
-                        <img src="https://i.ibb.co/6z173zP/Imagen-de-Whats-App-2025-02-14-a-las-20-30-12-dbf6f0c3.jpg" alt="Imagen-de-Whats-App-2025-02-14-a-las-20-30-12-dbf6f0c3" data-bs-toggle="modal" data-bs-target="#capacitacionesModal1">
-                        <!-- Imagen sentado con la pantalla -->
-                        <img src="https://i.ibb.co/chB8ZGLN/Imagen-de-Whats-App-2025-02-14-a-las-20-27-49-4e77bac1.jpg" alt="Imagen-de-Whats-App-2025-02-14-a-las-20-27-49-4e77bac1" data-bs-toggle="modal" data-bs-target="#capacitacionesModal2">
-                        <!-- Imagen con micrófono -->
-                        <img src="https://i.ibb.co/PvRrSw0Y/Imagen-de-Whats-App-2025-02-14-a-las-20-10-33-550c9616.jpg" alt="Imagen-de-Whats-App-2025-02-14-a-las-20-10-33-550c9616" data-bs-toggle="modal" data-bs-target="#capacitacionesModal3">
-                        <!-- Nueva imagen agregada -->
-                        <img src="https://i.ibb.co/fzT5Z94p/Imagen-de-Whats-App-2025-02-14-a-las-20-10-32-960df37f.jpg" alt="Imagen-de-Whats-App-2025-02-14-a-las-20-10-32-960df37f" data-bs-toggle="modal" data-bs-target="#capacitacionesModal4">
-                    </div>
-                </div>
-
-                <!-- Proyecto 3: Dimensionamiento de Planta para Bolsas de Polietileno -->
-                <div class="project-card">
-                    <h3>Dimensionamiento de Planta para Bolsas de Polietileno</h3>
-                    <p>Descripción del proyecto.</p>
-                    <!-- Contenedor de imágenes del Proyecto 3 -->
-                    <div class="capacitaciones-images">
-                        <img src="https://i.ibb.co/rRHcJhrT/2.png" alt="2" data-bs-toggle="modal" data-bs-target="#proyecto3Modal1">
-                        <img src="https://i.ibb.co/G3xbrfMf/render-pro.png" alt="render-pro" data-bs-toggle="modal" data-bs-target="#proyecto3Modal2">
-                        <img src="https://i.ibb.co/b5jKfPz1/3.png" alt="3" data-bs-toggle="modal" data-bs-target="#proyecto3Modal3">
-                        <img src="https://i.ibb.co/DPC2mY5S/7.png" alt="7" data-bs-toggle="modal" data-bs-target="#proyecto3Modal4">
-                    </div>
-                </div>
-
-                <!-- Proyecto 4 -->
-                <div class="project-card">
-                    <h3>Proyecto 4</h3>
-                    <p>Descripción del proyecto 4.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Sección: Descargas -->
-        <section>
-            <h2>Descargas</h2>
-            <p>Descarga mi CV y Carta de Presentación:</p>
-            <ul>
-                <li><a href="enlace_a_tu_CV_en_Google_Drive" download>Descargar CV</a></li>
-                <li><a href="enlace_a_tu_Carta_en_Google_Drive" download>Descargar Carta de Presentación</a></li>
-            </ul>
-        </section>
-
-        <!-- Sección: Contacto -->
-        <section>
-            <h2>Contacto</h2>
-            <p>Si deseas contactarme, envíame un mensaje:</p>
-            <form class="contact-form" action="https://formspree.io/f/tu_correo" method="POST">
-                <label for="name">Nombre:</label>
-                <input type="text" id="name" name="name" required>
-                <label for="email">Correo electrónico:</label>
-                <input type="email" id="email" name="email" required>
-                <label for="message">Mensaje:</label>
-                <textarea id="message" name="message" rows="5" required></textarea>
-                <button type="submit">Enviar</button>
-            </form>
-        </section>
+  <header>
+    <div class="container">
+      <img src="https://i.ibb.co/WWSsTGT4/foto-perfil.jpg" alt="Foto de Andriy Trofymenko">
+      <h1>Andriy Trofymenko</h1>
+      <p>INGENIERO INDUSTRIAL</p>
+      <p class="specialization">Especializado en mejora continua, optimización de procesos y gestión de proyectos.</p>
     </div>
+  </header>
 
-    <!-- Modales para las imágenes de Capacitaciones -->
-    <div class="modal fade" id="capacitacionesModal1" tabindex="-1" aria-labelledby="capacitacionesModalLabel1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <img src="https://i.ibb.co/6z173zP/Imagen-de-Whats-App-2025-02-14-a-las-20-30-12-dbf6f0c3.jpg" alt="Imagen-de-Whats-App-2025-02-14-a-las-20-30-12-dbf6f0c3" class="img-fluid">
-                </div>
-            </div>
+  <nav>
+    <ul>
+      <li><a href="#sobre-mi">Sobre Mí</a></li>
+      <li><a href="#proyectos-destacados">Proyectos Destacados</a></li>
+      <li><a href="#descargas">Descargas</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <div class="container my-5" style="padding-top: 0;"> <!-- Eliminado el padding-top -->
+    <section id="sobre-mi">
+      <h2>Sobre Mí</h2>
+      <p>Soy un ingeniero industrial con más de 5 años de experiencia en mejora continua, gestión de proyectos y optimización de procesos. He trabajado en sectores como residuos sólidos urbanos, energía y consultoría, liderando equipos y implementando soluciones que generan resultados medibles y sostenibles.</p>
+    </section>
+
+    <section id="proyectos-destacados" style="margin-top: 20px;">
+      <h2>Proyectos Destacados</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <h3>Mapeo de la Cadena de Valor del Cáñamo Industrial</h3>
+          <p>Lideré la colaboración con CONICET, INTA y otras instituciones para este proyecto. Mira la presentación:</p>
+          <iframe width="100%" height="315" src="https://www.youtube.com/embed/tYU88wsM110" frameborder="0" allowfullscreen></iframe>
         </div>
-    </div>
 
-    <div class="modal fade" id="capacitacionesModal2" tabindex="-1" aria-labelledby="capacitacionesModalLabel2" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <img src="https://i.ibb.co/chB8ZGLN/Imagen-de-Whats-App-2025-02-14-a-las-20-27-49-4e77bac1.jpg" alt="Imagen-de-Whats-App-2025-02-14-a-las-20-27-49-4e77bac1" class="img-fluid">
-                </div>
-            </div>
+        <div class="project-card">
+          <h3>Capacitaciones</h3>
+          <p>Capacitaciones en mejora continua en diferentes empresas / organismos.</p>
+          <div class="capacitaciones-images">
+            <img src="https://i.ibb.co/6z173zP/Imagen-de-Whats-App-2025-02-14-a-las-20-30-12-dbf6f0c3.jpg" alt="Imagen de Capacitaciones 1" data-bs-toggle="modal" data-bs-target="#capacitacionesModal1">
+            <img src="https://i.ibb.co/chB8ZGLN/Imagen-de-Whats-App-2025-02-14-a-las-20-27-49-4e77bac1.jpg" alt="Imagen de Capacitaciones 2" data-bs-toggle="modal" data-bs-target="#capacitacionesModal2">
+            <img src="https://i.ibb.co/PvRrSw0Y/Imagen-de-Whats-App-2025-02-14-a-las-20-10-33-550c9616.jpg" alt="Imagen de Capacitaciones 3" data-bs-toggle="modal" data-bs-target="#capacitacionesModal3">
+            <img src="https://i.ibb.co/fzT5Z94p/Imagen-de-Whats-App-2025-02-14-a-las-20-10-32-960df37f.jpg" alt="Imagen de Capacitaciones 4" data-bs-toggle="modal" data-bs-target="#capacitacionesModal4">
+          </div>
         </div>
-    </div>
 
-    <div class="modal fade" id="capacitacionesModal3" tabindex="-1" aria-labelledby="capacitacionesModalLabel3" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <img src="https://i.ibb.co/PvRrSw0Y/Imagen-de-Whats-App-2025-02-14-a-las-20-10-33-550c9616.jpg" alt="Imagen-de-Whats-App-2025-02-14-a-las-20-10-33-550c9616" class="img-fluid">
-                </div>
-            </div>
+        <div class="project-card">
+          <h3>Dimensionamiento de Planta para Bolsas de Polietileno</h3>
+          <p>Descripción del proyecto.</p>
+          <div class="capacitaciones-images">
+            <img src="https://i.ibb.co/rRHcJhrT/2.png" alt="2" data-bs-toggle="modal" data-bs-target="#proyecto3Modal1">
+            <img src="https://i.ibb.co/G3xbrfMf/render-pro.png" alt="render-pro" data-bs-toggle="modal" data-bs-target="#proyecto3Modal2">
+            <img src="https://i.ibb.co/b5jKfPz1/3.png" alt="3" data-bs-toggle="modal" data-bs-target="#proyecto3Modal3">
+            <img src="https://i.ibb.co/DPC2mY5S/7.png" alt="7" data-bs-toggle="modal" data-bs-target="#proyecto3Modal4">
+          </div>
         </div>
-    </div>
 
-    <!-- Nuevo modal para la imagen agregada -->
-    <div class="modal fade" id="capacitacionesModal4" tabindex="-1" aria-labelledby="capacitacionesModalLabel4" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <img src="https://i.ibb.co/fzT5Z94p/Imagen-de-Whats-App-2025-02-14-a-las-20-10-32-960df37f.jpg" alt="Imagen-de-Whats-App-2025-02-14-a-las-20-10-32-960df37f" class="img-fluid">
-                </div>
-            </div>
+        <div class="project-card">
+          <h3>Proyecto 4</h3>
+          <p>Descripción del proyecto 4.</p>
         </div>
-    </div>
+      </div>
+    </section>
 
-    <!-- Modales para las imágenes del Proyecto 3 -->
-    <div class="modal fade" id="proyecto3Modal1" tabindex="-1" aria-labelledby="proyecto3ModalLabel1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <img src="https://i.ibb.co/rRHcJhrT/2.png" alt="2" class="img-fluid">
-                </div>
-            </div>
+    <section id="descargas">
+      <h2>Descargas</h2>
+      <p>Descarga mi CV y Carta de Presentación:</p>
+      <ul>
+        <li><a href="enlace_a_tu_CV_en_Google_Drive" download>Descargar CV</a></li>
+        <li><a href="enlace_a_tu_Carta_en_Google_Drive" download>Descargar Carta de Presentación</a></li>
+      </ul>
+    </section>
+
+    <section id="contacto">
+      <h2>Contacto</h2>
+      <p>Si deseas contactarme, envíame un mensaje:</p>
+      <form class="contact-form" action="https://formspree.io/f/tu_correo" method="POST">
+        <label for="name">Nombre:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="email">Correo electrónico:</label>
+        <input type="email" id="email" name="email" required>
+        <label for="message">Mensaje:</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
+  </div>
+
+  <!-- Modales para las imágenes de Capacitaciones -->
+  <div class="modal fade" id="capacitacionesModal1" tabindex="-1" aria-labelledby="capacitacionesModalLabel1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body">
+          <img src="https://i.ibb.co/6z173zP/Imagen-de-Whats-App-2025-02-14-a-las-20-30-12-dbf6f0c3.jpg" alt="Imagen de Capacitaciones 1" class="img-fluid">
         </div>
+      </div>
     </div>
+  </div>
 
-    <div class="modal fade" id="proyecto3Modal2" tabindex="-1" aria-labelledby="proyecto3ModalLabel2" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <img src="https://i.ibb.co/G3xbrfMf/render-pro.png" alt="render-pro" class="img-fluid">
-                </div>
-            </div>
+  <div class="modal fade" id="capacitacionesModal2" tabindex="-1" aria-labelledby="capacitacionesModalLabel2" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body">
+          <img src="https://i.ibb.co/chB8ZGLN/Imagen-de-Whats-App-2025-02-14-a-las-20-27-49-4e77bac1.jpg" alt="Imagen de Capacitaciones 2" class="img-fluid">
         </div>
+      </div>
     </div>
+  </div>
 
-    <div class="modal fade" id="proyecto3Modal3" tabindex="-1" aria-labelledby="proyecto3ModalLabel3" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <img src="https://i.ibb.co/b5jKfPz1/3.png" alt="3" class="img-fluid">
-                </div>
-            </div>
+  <div class="modal fade" id="capacitacionesModal3" tabindex="-1" aria-labelledby="capacitacionesModalLabel3" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body">
+          <img src="https://i.ibb.co/PvRrSw0Y/Imagen-de-Whats-App-2025-02-14-a-las-20-10-33-550c9616.jpg" alt="Imagen de Capacitaciones 3" class="img-fluid">
         </div>
+      </div>
     </div>
+  </div>
 
-    <div class="modal fade" id="proyecto3Modal4" tabindex="-1" aria-labelledby="proyecto3ModalLabel4" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <img src="https://i.ibb.co/DPC2mY5S/7.png" alt="7" class="img-fluid">
-                </div>
-            </div>
+  <div class="modal fade" id="capacitacionesModal4" tabindex="-1" aria-labelledby="capacitacionesModalLabel4" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body">
+          <img src="https://i.ibb.co/fzT5Z94p/Imagen-de-Whats-App-2025-02-14-a-las-20-10-32-960df37f.jpg" alt="Imagen de Capacitaciones 4" class="img-fluid">
         </div>
+      </div>
     </div>
+  </div>
 
-    <script>
-        // Efecto para el contenedor en el centro de la pantalla
-        document.addEventListener("scroll", () => {
-            const sections = document.querySelectorAll("section");
-            const windowHeight = window.innerHeight;
+  <!-- Modales para las imágenes del Proyecto 3 -->
+  <div class="modal fade" id="proyecto3Modal1" tabindex="-1" aria-labelledby="proyecto3ModalLabel1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body">
+          <img src="https://i.ibb.co/rRHcJhrT/2.png" alt="2" class="img-fluid">
+        </div>
+      </div>
+    </div>
+  </div>
 
-            sections.forEach((section) => {
-                const rect = section.getBoundingClientRect();
-                const sectionCenter = rect.top + rect.height / 2;
+  <div class="modal fade" id="proyecto3Modal2" tabindex="-1" aria-labelledby="proyecto3ModalLabel2" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body">
+          <img src="https://i.ibb.co/G3xbrfMf/render-pro.png" alt="render-pro" class="img-fluid">
+        </div>
+      </div>
+    </div>
+  </div>
 
-                if (sectionCenter > windowHeight * 0.4 && sectionCenter < windowHeight * 0.6) {
-                    section.classList.add("active");
-                } else {
-                    section.classList.remove("active");
-                }
-            });
+  <div class="modal fade" id="proyecto3Modal3" tabindex="-1" aria-labelledby="proyecto3ModalLabel3" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body">
+          <img src="https://i.ibb.co/b5jKfPz1/3.png" alt="3" class="img-fluid">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="proyecto3Modal4" tabindex="-1" aria-labelledby="proyecto3ModalLabel4" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body">
+          <img src="https://i.ibb.co/DPC2mY5S/7.png" alt="7" class="img-fluid">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Efecto para centrar el contenedor en el centro de la pantalla
+    document.addEventListener("scroll", () => {
+      const sections = document.querySelectorAll("section");
+      const windowHeight = window.innerHeight;
+      sections.forEach((section) => {
+        const rect = section.getBoundingClientRect();
+        const sectionCenter = rect.top + rect.height / 2;
+        if (sectionCenter > windowHeight * 0.4 && sectionCenter < windowHeight * 0.6) {
+          section.classList.add("active");
+        } else {
+          section.classList.remove("active");
+        }
+      });
+    });
+
+    // Configuración de partículas
+    particlesJS("particles-js", {
+      particles: {
+        number: {
+          value: 80,
+          density: {
+            enable: true,
+            value_area: 800,
+          },
+        },
+        color: {
+          value: "#0073e6",
+        },
+        shape: {
+          type: "circle",
+          stroke: {
+            width: 0,
+            color: "#000000",
+          },
+          polygon: {
+            nb_sides: 5,
+          },
+        },
+        opacity: {
+          value: 0.5,
+          random: false,
+          anim: {
+            enable: false,
+            speed: 1,
+            opacity_min: 0.1,
+            sync: false,
+          },
+        },
+        size: {
+          value: 3,
+          random: true,
+          anim: {
+            enable: false,
+            speed: 40,
+            size_min: 0.1,
+            sync: false,
+          },
+        },
+        line_linked: {
+          enable: true,
+          distance: 150,
+          color: "#0073e6",
+          opacity: 0.4,
+          width: 1,
+        },
+        move: {
+          enable: true,
+          speed: 6,
+          direction: "none",
+          random: false,
+          straight: false,
+          out_mode: "out",
+          bounce: false,
+          attract: {
+            enable: false,
+            rotateX: 600,
+            rotateY: 1200,
+          },
+        },
+      },
+      interactivity: {
+        detect_on: "canvas",
+        events: {
+          onhover: {
+            enable: true,
+            mode: "repulse",
+          },
+          onclick: {
+            enable: true,
+            mode: "push",
+          },
+          resize: true,
+        },
+        modes: {
+          repulse: {
+            distance: 100,
+            duration: 0.4,
+          },
+          push: {
+            particles_nb: 4,
+          },
+        },
+      },
+      retina_detect: true,
+    });
+
+    // Configuración de la "X" en la esquina superior derecha de la imagen
+    document.addEventListener("DOMContentLoaded", () => {
+      const modals = document.querySelectorAll(".modal");
+      modals.forEach((modal) => {
+        modal.addEventListener("show.bs.modal", (event) => {
+          const modalBody = modal.querySelector(".modal-body");
+          const img = modalBody.querySelector("img");
+          const closeButton = document.createElement("button");
+          closeButton.className = "modal-close";
+          closeButton.innerHTML = "&times;";
+          closeButton.addEventListener("click", () => {
+            bootstrap.Modal.getInstance(modal).hide();
+          });
+          img.onload = () => {
+            const imgRect = img.getBoundingClientRect();
+            const closeButtonTop = imgRect.top + window.scrollY;
+            const closeButtonRight = window.innerWidth - imgRect.right;
+            closeButton.style.position = "absolute";
+            closeButton.style.top = `${closeButtonTop}px`;
+            closeButton.style.right = `${closeButtonRight}px`;
+          };
+          modalBody.appendChild(closeButton);
         });
-
-        // Configuración de partículas
-        particlesJS("particles-js", {
-            particles: {
-                number: {
-                    value: 80,
-                    density: {
-                        enable: true,
-                        value_area: 800,
-                    },
-                },
-                color: {
-                    value: "#0073e6",
-                },
-                shape: {
-                    type: "circle",
-                    stroke: {
-                        width: 0,
-                        color: "#000000",
-                    },
-                    polygon: {
-                        nb_sides: 5,
-                    },
-                },
-                opacity: {
-                    value: 0.5,
-                    random: false,
-                    anim: {
-                        enable: false,
-                        speed: 1,
-                        opacity_min: 0.1,
-                        sync: false,
-                    },
-                },
-                size: {
-                    value: 3,
-                    random: true,
-                    anim: {
-                        enable: false,
-                        speed: 40,
-                        size_min: 0.1,
-                        sync: false,
-                    },
-                },
-                line_linked: {
-                    enable: true,
-                    distance: 150,
-                    color: "#0073e6",
-                    opacity: 0.4,
-                    width: 1,
-                },
-                move: {
-                    enable: true,
-                    speed: 6,
-                    direction: "none",
-                    random: false,
-                    straight: false,
-                    out_mode: "out",
-                    bounce: false,
-                    attract: {
-                        enable: false,
-                        rotateX: 600,
-                        rotateY: 1200,
-                    },
-                },
-            },
-            interactivity: {
-                detect_on: "canvas",
-                events: {
-                    onhover: {
-                        enable: true,
-                        mode: "repulse",
-                    },
-                    onclick: {
-                        enable: true,
-                        mode: "push",
-                    },
-                    resize: true,
-                },
-                modes: {
-                    repulse: {
-                        distance: 100,
-                        duration: 0.4,
-                    },
-                    push: {
-                        particles_nb: 4,
-                    },
-                },
-            },
-            retina_detect: true,
+        modal.addEventListener("hidden.bs.modal", () => {
+          const closeButton = modal.querySelector(".modal-close");
+          if (closeButton) {
+            closeButton.remove();
+          }
         });
+      });
+    });
+  </script>
 
-        // Configuración de la "X" en la esquina superior derecha de la imagen
-        document.addEventListener("DOMContentLoaded", () => {
-            const modals = document.querySelectorAll(".modal");
-            modals.forEach((modal) => {
-                modal.addEventListener("show.bs.modal", (event) => {
-                    const modalBody = modal.querySelector(".modal-body");
-                    const img = modalBody.querySelector("img");
-                    const closeButton = document.createElement("button");
-                    closeButton.className = "modal-close";
-                    closeButton.innerHTML = "&times;";
-                    closeButton.addEventListener("click", () => {
-                        bootstrap.Modal.getInstance(modal).hide();
-                    });
-
-                    // Asegurarse de que la imagen esté cargada antes de calcular su posición
-                    img.onload = () => {
-                        const imgRect = img.getBoundingClientRect();
-
-                        // Colocar la "X" en la esquina superior derecha de la imagen
-                        const closeButtonTop = imgRect.top + window.scrollY; // Posición absoluta respecto al documento
-                        const closeButtonRight = window.innerWidth - imgRect.right; // Margen derecho respecto a la ventana
-
-                        closeButton.style.position = "absolute";
-                        closeButton.style.top = `${closeButtonTop}px`;
-                        closeButton.style.right = `${closeButtonRight}px`;
-                    };
-
-                    modalBody.appendChild(closeButton);
-                });
-
-                // Limpiar la "X" al cerrar el modal
-                modal.addEventListener("hidden.bs.modal", () => {
-                    const closeButton = modal.querySelector(".modal-close");
-                    if (closeButton) {
-                        closeButton.remove();
-                    }
-                });
-            });
-        });
-    </script>
-
-    <!-- Bootstrap JS (necesario para el modal) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Bootstrap JS (necesario para el modal) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
