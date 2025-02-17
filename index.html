@@ -68,12 +68,19 @@
       top: 0;
       left: 0;
       width: 100%;
-      background: rgba(50, 50, 50, 0.4);
-      backdrop-filter: blur(10px);
+      background-color: rgba(50, 50, 50, 0.7); /* Fondo translúcido */
+      backdrop-filter: blur(10px); /* Efecto de desenfoque */
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       padding: 10px 0;
       z-index: 1000;
-      transition: background 0.3s ease, transform 0.3s ease;
+      opacity: 0; /* Inicialmente invisible */
+      transform: translateY(-100%); /* Inicialmente fuera de la vista */
+      transition: opacity 0.5s ease, transform 0.5s ease; /* Transición suave */
+    }
+
+    nav.visible {
+      opacity: 1; /* Hacer visible */
+      transform: translateY(0); /* Mover a la posición original */
     }
 
     nav ul {
@@ -604,6 +611,14 @@
         },
       },
       retina_detect: true,
+    });
+
+    // Asegurar que la animación se ejecute al cargar la página
+    document.addEventListener("DOMContentLoaded", function () {
+      const nav = document.querySelector("nav");
+      setTimeout(() => {
+        nav.classList.add("visible"); // Añadir la clase "visible" para activar la animación
+      }, 100); // Pequeño retraso para asegurar que la animación se vea
     });
   </script>
 
