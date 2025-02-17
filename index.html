@@ -353,7 +353,7 @@
 <body>
   <div id="particles-js"></div>
 
-  <header id="inicio"> <!-- Añadido el id="inicio" al header -->
+  <header id="inicio">
     <div class="container">
       <img src="https://i.ibb.co/WWSsTGT4/foto-perfil.jpg" alt="Foto de Andriy Trofymenko">
       <h1>Andriy Trofymenko</h1>
@@ -364,7 +364,7 @@
 
   <nav>
     <ul>
-      <li><a href="#inicio">Inicio</a></li> <!-- Enlace que lleva al header -->
+      <li><a href="#inicio">Inicio</a></li>
       <li><a href="#proyectos-destacados">Proyectos Destacados</a></li>
       <li><a href="#descargas">Descargas</a></li>
       <li><a href="#contacto">Contacto</a></li>
@@ -522,18 +522,18 @@
   </div>
 
   <script>
-    // Configuración de partículas para máxima fluidez
+    // Configuración de partículas para máxima fluidez y color personalizado
     particlesJS("particles-js", {
       particles: {
         number: {
-          value: 60, // Número de partículas reducido para mejorar el rendimiento
+          value: 50, // Número de partículas reducido para mejorar el rendimiento
           density: {
             enable: true,
             value_area: 800,
           },
         },
         color: {
-          value: "#0073e6", // Color de las partículas
+          value: "#2c3e50", // Color de las partículas (coincide con el nombre)
         },
         shape: {
           type: "circle", // Forma de las partículas
@@ -568,7 +568,7 @@
         line_linked: {
           enable: true,
           distance: 150,
-          color: "#0073e6",
+          color: "#2c3e50", // Color de las líneas entre partículas
           opacity: 0.4,
           width: 1,
         },
