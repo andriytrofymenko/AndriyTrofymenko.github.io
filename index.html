@@ -286,7 +286,14 @@
       margin-right: 20px;
     }
 
-    /* En el contenedor Mapeo, centra el video verticalmente con un margen superior adicional */
+    /* Justificar el texto y aplicar márgenes laterales en "Sobre Mi" */
+    #sobre-mi p {
+      text-align: justify;
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+
+    /* Centrar verticalmente el video en el contenedor Mapeo */
     .project-card.mapeo iframe {
       display: block;
       margin: 40px auto 0 auto;
@@ -338,44 +345,35 @@
         align-items: center;
         gap: 10px;
       }
-
       header {
         padding-top: 40px;
       }
-
       header h1 {
         font-size: 2.5rem;
       }
-
       header p {
         font-size: 1.2rem;
       }
-
       header p.specialization {
         font-size: 1rem;
       }
-
       header img {
         width: 120px;
         height: 120px;
       }
-
       section {
         padding: 15px;
         margin: 10px auto;
         width: 80%;
         border-radius: 0;
       }
-
       iframe {
         width: 100%;
         height: 200px;
       }
-
       .project-card {
         flex: 1 1 100%;
       }
-
       .capacitaciones-images {
         grid-template-columns: 1fr;
       }
@@ -385,7 +383,6 @@
 <body>
   <div id="particles-js"></div>
 
-  <!-- Se agrega la clase "mapeo" al contenedor de Mapeo -->
   <header id="inicio">
     <div class="container">
       <img src="https://i.ibb.co/WWSsTGT4/foto-perfil.jpg" alt="Foto de Andriy Trofymenko">
@@ -405,8 +402,10 @@
   </nav>
 
   <section id="sobre-mi">
-    <h2>Sobre Mí</h2>
-    <p>Soy un ingeniero industrial con más de 5 años de experiencia en mejora continua, gestión de proyectos y optimización de procesos. He trabajado en sectores como residuos sólidos urbanos, energía y consultoría, liderando equipos y implementando soluciones que generan resultados medibles y sostenibles.</p>
+    <h2>Sobre Mi</h2>
+    <p>
+      Soy un Ingeniero Industrial especializado en Mejora Continua y Gestión de Procesos, con un fuerte enfoque en la implementación de Tecnologías de Gestión para optimizar operaciones y alcanzar la excelencia operativa. Mi pasión por la mejora de la productividad me ha llevado a liderar proyectos de alto impacto en empresas de diversos sectores, incluyendo la industria textil, la gestión de residuos y el asesoramiento a organizaciones públicas y privadas. Con una formación académica robusta, incluyendo una Diplomatura en Industria 4.0, he desarrollado un enfoque integral que combina conocimientos técnicos con habilidades estratégicas y de liderazgo.
+    </p>
   </section>
 
   <section id="proyectos-destacados" style="margin-top: 20px;">
