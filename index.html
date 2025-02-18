@@ -190,7 +190,8 @@
       cursor: pointer;
     }
 
-    .contact-form input, .contact-form textarea {
+    .contact-form input,
+    .contact-form textarea {
       width: 100%;
       padding: 10px;
       margin: 10px 0;
@@ -269,6 +270,13 @@
     .analisis-layout .capacitaciones-images img {
       height: 250px;
       object-fit: cover;
+    }
+
+    /* Justificar el texto del contenedor "Dimensionamiento" y aplicar márgenes laterales iguales */
+    .dimensionamiento p {
+      text-align: justify;
+      margin-left: 20px;
+      margin-right: 20px;
     }
 
     .modal-content {
@@ -407,10 +415,12 @@
         </div>
       </div>
 
-      <!-- Contenedor Dimensionamiento -->
+      <!-- Contenedor Dimensionamiento con el nuevo texto justificado -->
       <div class="project-card dimensionamiento">
         <h3>Dimensionamiento de Planta para Bolsas de Polietileno</h3>
-        <p>Descripción del proyecto.</p>
+        <p>
+          Lideré el diseño, puesta en marcha y optimización de una planta de fabricación de bolsas para residuos a partir de polietileno reciclado, con una capacidad instalada de 14,6 toneladas mensuales. Logré coordinar un equipo de 130+ cooperativistas, asegurando un flujo de producción de 9.600 kg/mes de bolsas, equivalente al 4,5% del market share del mercado objetivo.
+        </p>
         <div class="capacitaciones-images">
           <img src="https://i.ibb.co/rRHcJhrT/2.png" alt="2" data-bs-toggle="modal" data-bs-target="#proyecto3Modal1">
           <img src="https://i.ibb.co/G3xbrfMf/render-pro.png" alt="render-pro" data-bs-toggle="modal" data-bs-target="#proyecto3Modal2">
@@ -419,7 +429,6 @@
         </div>
       </div>
 
-      <!-- Contenedor Análisis de Lay Out -->
       <div class="project-card analisis-layout">
         <h3>Análisis de Lay Out</h3>
         <p>Descripción del proyecto de análisis de lay out.</p>
@@ -619,52 +628,29 @@
     // Configuración de partículas para máxima fluidez
     particlesJS("particles-js", {
       particles: {
-        number: {
-          value: 60,
-          density: {
-            enable: true,
-            value_area: 800,
-          },
-        },
-        color: {
-          value: "#2c3e50",
-        },
+        number: { value: 60, density: { enable: true, value_area: 800 } },
+        color: { value: "#2c3e50" },
         shape: {
           type: "circle",
-          stroke: {
-            width: 0,
-            color: "#000000",
-          },
-          polygon: {
-            nb_sides: 5,
-          },
+          stroke: { width: 0, color: "#000000" },
+          polygon: { nb_sides: 5 }
         },
         opacity: {
           value: 0.5,
           random: false,
-          anim: {
-            enable: false,
-            speed: 1,
-            opacity_min: 0.1,
-            sync: false,
-          },
+          anim: { enable: false, speed: 1, opacity_min: 0.1, sync: false }
         },
         size: {
           value: 3,
           random: true,
-          anim: {
-            enable: false,
-            speed: 40,
-            size_min: 0.1,
-            sync: false,
-          },
+          anim: { enable: false, speed: 40, size_min: 0.1, sync: false }
         },
         line_linked: {
           enable: true,
           distance: 150,
           color: "#2c3e50",
           opacity: 0.4,
-          width: 1,
+          width: 1
         },
         move: {
           enable: true,
@@ -674,40 +660,25 @@
           straight: false,
           out_mode: "out",
           bounce: false,
-          attract: {
-            enable: false,
-            rotateX: 600,
-            rotateY: 1200,
-          },
-        },
+          attract: { enable: false, rotateX: 600, rotateY: 1200 }
+        }
       },
       interactivity: {
         detect_on: "canvas",
         events: {
-          onhover: {
-            enable: true,
-            mode: "repulse",
-          },
-          onclick: {
-            enable: true,
-            mode: "push",
-          },
-          resize: true,
+          onhover: { enable: true, mode: "repulse" },
+          onclick: { enable: true, mode: "push" },
+          resize: true
         },
         modes: {
-          repulse: {
-            distance: 100,
-            duration: 0.4,
-          },
-          push: {
-            particles_nb: 4,
-          },
-        },
+          repulse: { distance: 100, duration: 0.4 },
+          push: { particles_nb: 4 }
+        }
       },
-      retina_detect: true,
+      retina_detect: true
     });
 
-    document.addEventListener("DOMContentLoaded", function () {
+    document.addEventListener("DOMContentLoaded", function() {
       const nav = document.querySelector("nav");
       setTimeout(() => {
         nav.classList.add("visible");
