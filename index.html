@@ -47,7 +47,7 @@
       font-size: 3rem;
       font-weight: 700;
       margin-bottom: 5px;
-      color: #2c3e50; /* Color del nombre "Andriy Trofymenko" */
+      color: #2c3e50;
     }
 
     header p {
@@ -68,19 +68,19 @@
       top: 0;
       left: 0;
       width: 100%;
-      background-color: rgba(44, 62, 80, 0.7); /* Color #2c3e50 con opacidad */
-      backdrop-filter: blur(10px); /* Efecto de desenfoque */
+      background-color: rgba(44, 62, 80, 0.7);
+      backdrop-filter: blur(10px);
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       padding: 10px 0;
       z-index: 1000;
-      opacity: 0; /* Inicialmente invisible */
-      transform: translateY(-100%); /* Inicialmente fuera de la vista */
-      transition: opacity 0.5s ease, transform 0.5s ease; /* Transición suave */
+      opacity: 0;
+      transform: translateY(-100%);
+      transition: opacity 0.5s ease, transform 0.5s ease;
     }
 
     nav.visible {
-      opacity: 1; /* Hacer visible */
-      transform: translateY(0); /* Mover a la posición original */
+      opacity: 1;
+      transform: translateY(0);
     }
 
     nav ul {
@@ -111,18 +111,17 @@
       transform: translateY(-2px);
     }
 
+    /* Se modificó el ancho de los contenedores a 80% de la página */
     section {
       position: relative;
       z-index: 1;
       background-color: rgba(255, 255, 255, 0.85);
       border-radius: 8px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      margin-bottom: 20px;
+      margin: 20px auto;
       padding: 20px;
-      width: 100%;
+      width: 80%;
       max-width: 1800px;
-      margin-left: auto;
-      margin-right: auto;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
@@ -279,13 +278,12 @@
     .modal-body img {
       width: auto;
       height: auto;
-      max-width: 95vw; /* Aumentado al 95% del viewport (30% más grande) */
-      max-height: 95vh; /* Aumentado al 95% del viewport (30% más grande) */
+      max-width: 95vw;
+      max-height: 95vh;
       object-fit: contain;
       border-radius: 0;
     }
     
-    /* Agregada la regla para la "X" de cierre */
     .modal-close {
       position: absolute;
       top: -10px;
@@ -332,7 +330,8 @@
 
       section {
         padding: 15px;
-        margin: 10px;
+        margin: 10px auto;
+        width: 80%;
         border-radius: 0;
       }
 
@@ -372,73 +371,72 @@
     </ul>
   </nav>
 
-  <div class="container my-5" style="padding-top: 0;">
-    <section id="sobre-mi">
-      <h2>Sobre Mí</h2>
-      <p>Soy un ingeniero industrial con más de 5 años de experiencia en mejora continua, gestión de proyectos y optimización de procesos. He trabajado en sectores como residuos sólidos urbanos, energía y consultoría, liderando equipos y implementando soluciones que generan resultados medibles y sostenibles.</p>
-    </section>
+  <!-- Se eliminaron contenedores extra para que cada sección ocupe el 80% de la página -->
+  <section id="sobre-mi">
+    <h2>Sobre Mí</h2>
+    <p>Soy un ingeniero industrial con más de 5 años de experiencia en mejora continua, gestión de proyectos y optimización de procesos. He trabajado en sectores como residuos sólidos urbanos, energía y consultoría, liderando equipos y implementando soluciones que generan resultados medibles y sostenibles.</p>
+  </section>
 
-    <section id="proyectos-destacados" style="margin-top: 20px;">
-      <h2>Proyectos Destacados</h2>
-      <div class="projects-grid">
-        <div class="project-card">
-          <h3>Mapeo de la Cadena de Valor del Cáñamo Industrial</h3>
-          <p>Lideré la colaboración con CONICET, INTA y otras instituciones para este proyecto. Mira la presentación:</p>
-          <iframe width="100%" height="315" src="https://www.youtube.com/embed/tYU88wsM110" frameborder="0" allowfullscreen></iframe>
-        </div>
+  <section id="proyectos-destacados" style="margin-top: 20px;">
+    <h2>Proyectos Destacados</h2>
+    <div class="projects-grid">
+      <div class="project-card">
+        <h3>Mapeo de la Cadena de Valor del Cáñamo Industrial</h3>
+        <p>Lideré la colaboración con CONICET, INTA y otras instituciones para este proyecto. Mira la presentación:</p>
+        <iframe width="100%" height="315" src="https://www.youtube.com/embed/tYU88wsM110" frameborder="0" allowfullscreen></iframe>
+      </div>
 
-        <div class="project-card">
-          <h3>Capacitaciones</h3>
-          <p>Capacitaciones en mejora continua en diferentes empresas / organismos.</p>
-          <div class="capacitaciones-images">
-            <img src="https://i.ibb.co/6z173zP/Imagen-de-Whats-App-2025-02-14-a-las-20-30-12-dbf6f0c3.jpg" alt="Imagen de Capacitaciones 1" data-bs-toggle="modal" data-bs-target="#capacitacionesModal1">
-            <img src="https://i.ibb.co/chB8ZGLN/Imagen-de-Whats-App-2025-02-14-a-las-20-27-49-4e77bac1.jpg" alt="Imagen de Capacitaciones 2" data-bs-toggle="modal" data-bs-target="#capacitacionesModal2">
-            <img src="https://i.ibb.co/PvRrSw0Y/Imagen-de-Whats-App-2025-02-14-a-las-20-10-33-550c9616.jpg" alt="Imagen de Capacitaciones 3" data-bs-toggle="modal" data-bs-target="#capacitacionesModal3">
-            <img src="https://i.ibb.co/fzT5Z94p/Imagen-de-Whats-App-2025-02-14-a-las-20-10-32-960df37f.jpg" alt="Imagen de Capacitaciones 4" data-bs-toggle="modal" data-bs-target="#capacitacionesModal4">
-          </div>
-        </div>
-
-        <div class="project-card">
-          <h3>Dimensionamiento de Planta para Bolsas de Polietileno</h3>
-          <p>Descripción del proyecto.</p>
-          <div class="capacitaciones-images">
-            <img src="https://i.ibb.co/rRHcJhrT/2.png" alt="2" data-bs-toggle="modal" data-bs-target="#proyecto3Modal1">
-            <img src="https://i.ibb.co/G3xbrfMf/render-pro.png" alt="render-pro" data-bs-toggle="modal" data-bs-target="#proyecto3Modal2">
-            <img src="https://i.ibb.co/b5jKfPz1/3.png" alt="3" data-bs-toggle="modal" data-bs-target="#proyecto3Modal3">
-            <img src="https://i.ibb.co/DPC2mY5S/7.png" alt="7" data-bs-toggle="modal" data-bs-target="#proyecto3Modal4">
-          </div>
-        </div>
-
-        <div class="project-card">
-          <h3>Proyecto 4</h3>
-          <p>Descripción del proyecto 4.</p>
+      <div class="project-card">
+        <h3>Capacitaciones</h3>
+        <p>Capacitaciones en mejora continua en diferentes empresas / organismos.</p>
+        <div class="capacitaciones-images">
+          <img src="https://i.ibb.co/6z173zP/Imagen-de-Whats-App-2025-02-14-a-las-20-30-12-dbf6f0c3.jpg" alt="Imagen de Capacitaciones 1" data-bs-toggle="modal" data-bs-target="#capacitacionesModal1">
+          <img src="https://i.ibb.co/chB8ZGLN/Imagen-de-Whats-App-2025-02-14-a-las-20-27-49-4e77bac1.jpg" alt="Imagen de Capacitaciones 2" data-bs-toggle="modal" data-bs-target="#capacitacionesModal2">
+          <img src="https://i.ibb.co/PvRrSw0Y/Imagen-de-Whats-App-2025-02-14-a-las-20-10-33-550c9616.jpg" alt="Imagen de Capacitaciones 3" data-bs-toggle="modal" data-bs-target="#capacitacionesModal3">
+          <img src="https://i.ibb.co/fzT5Z94p/Imagen-de-Whats-App-2025-02-14-a-las-20-10-32-960df37f.jpg" alt="Imagen de Capacitaciones 4" data-bs-toggle="modal" data-bs-target="#capacitacionesModal4">
         </div>
       </div>
-    </section>
 
-    <section id="descargas">
-      <h2>Descargas</h2>
-      <p>Descarga mi CV y Carta de Presentación:</p>
-      <ul>
-        <li><a href="enlace_a_tu_CV_en_Google_Drive" download>Descargar CV</a></li>
-        <li><a href="enlace_a_tu_Carta_en_Google_Drive" download>Descargar Carta de Presentación</a></li>
-      </ul>
-    </section>
+      <div class="project-card">
+        <h3>Dimensionamiento de Planta para Bolsas de Polietileno</h3>
+        <p>Descripción del proyecto.</p>
+        <div class="capacitaciones-images">
+          <img src="https://i.ibb.co/rRHcJhrT/2.png" alt="2" data-bs-toggle="modal" data-bs-target="#proyecto3Modal1">
+          <img src="https://i.ibb.co/G3xbrfMf/render-pro.png" alt="render-pro" data-bs-toggle="modal" data-bs-target="#proyecto3Modal2">
+          <img src="https://i.ibb.co/b5jKfPz1/3.png" alt="3" data-bs-toggle="modal" data-bs-target="#proyecto3Modal3">
+          <img src="https://i.ibb.co/DPC2mY5S/7.png" alt="7" data-bs-toggle="modal" data-bs-target="#proyecto3Modal4">
+        </div>
+      </div>
 
-    <section id="contacto">
-      <h2>Contacto</h2>
-      <p>Si deseas contactarme, envíame un mensaje:</p>
-      <form class="contact-form" action="https://formspree.io/f/tu_correo" method="POST">
-        <label for="name">Nombre:</label>
-        <input type="text" id="name" name="name" required>
-        <label for="email">Correo electrónico:</label>
-        <input type="email" id="email" name="email" required>
-        <label for="message">Mensaje:</label>
-        <textarea id="message" name="message" rows="5" required></textarea>
-        <button type="submit">Enviar</button>
-      </form>
-    </section>
-  </div>
+      <div class="project-card">
+        <h3>Proyecto 4</h3>
+        <p>Descripción del proyecto 4.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="descargas">
+    <h2>Descargas</h2>
+    <p>Descarga mi CV y Carta de Presentación:</p>
+    <ul>
+      <li><a href="enlace_a_tu_CV_en_Google_Drive" download>Descargar CV</a></li>
+      <li><a href="enlace_a_tu_Carta_en_Google_Drive" download>Descargar Carta de Presentación</a></li>
+    </ul>
+  </section>
+
+  <section id="contacto">
+    <h2>Contacto</h2>
+    <p>Si deseas contactarme, envíame un mensaje:</p>
+    <form class="contact-form" action="https://formspree.io/f/tu_correo" method="POST">
+      <label for="name">Nombre:</label>
+      <input type="text" id="name" name="name" required>
+      <label for="email">Correo electrónico:</label>
+      <input type="email" id="email" name="email" required>
+      <label for="message">Mensaje:</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+  </section>
 
   <!-- Modales para las imágenes de Capacitaciones -->
   <div class="modal fade" id="capacitacionesModal1" tabindex="-1" aria-labelledby="capacitacionesModalLabel1" aria-hidden="true">
@@ -551,17 +549,17 @@
     particlesJS("particles-js", {
       particles: {
         number: {
-          value: 60, // Número de partículas reducido para mejorar el rendimiento
+          value: 60,
           density: {
             enable: true,
             value_area: 800,
           },
         },
         color: {
-          value: "#2c3e50", // Color de las partículas (coincide con el nombre)
+          value: "#2c3e50",
         },
         shape: {
-          type: "circle", // Forma de las partículas
+          type: "circle",
           stroke: {
             width: 0,
             color: "#000000",
@@ -574,7 +572,7 @@
           value: 0.5,
           random: false,
           anim: {
-            enable: false, // Desactivamos la animación de opacidad para mejorar el rendimiento
+            enable: false,
             speed: 1,
             opacity_min: 0.1,
             sync: false,
@@ -584,7 +582,7 @@
           value: 3,
           random: true,
           anim: {
-            enable: false, // Desactivamos la animación de tamaño para mejorar el rendimiento
+            enable: false,
             speed: 40,
             size_min: 0.1,
             sync: false,
@@ -593,13 +591,13 @@
         line_linked: {
           enable: true,
           distance: 150,
-          color: "#2c3e50", // Color de las líneas entre partículas
+          color: "#2c3e50",
           opacity: 0.4,
           width: 1,
         },
         move: {
           enable: true,
-          speed: 6, // Aumentamos la velocidad para mayor fluidez
+          speed: 6,
           direction: "none",
           random: false,
           straight: false,
@@ -638,11 +636,10 @@
       retina_detect: true,
     });
 
-    // Asegurar que la animación se ejecute al cargar la página
     document.addEventListener("DOMContentLoaded", function () {
       const nav = document.querySelector("nav");
       setTimeout(() => {
-        nav.classList.add("visible"); // Añadir la clase "visible" para activar la animación
+        nav.classList.add("visible");
       }, 100);
     });
   </script>
