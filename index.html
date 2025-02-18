@@ -266,17 +266,30 @@
       object-fit: cover;
     }
 
-    /* Regla ya agregada para "Análisis de Lay Out" */
+    /* Para el contenedor "Diseño de Layout" (antes "Análisis de Lay Out") */
     .analisis-layout .capacitaciones-images img {
       height: 250px;
       object-fit: cover;
     }
 
-    /* Justificar el texto del contenedor "Dimensionamiento" y aplicar márgenes laterales iguales */
+    /* Justificar el texto y aplicar márgenes laterales en "Dimensionamiento" */
     .dimensionamiento p {
       text-align: justify;
       margin-left: 20px;
       margin-right: 20px;
+    }
+
+    /* Justificar el texto y aplicar márgenes laterales en "Diseño de Layout" */
+    .analisis-layout p {
+      text-align: justify;
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+
+    /* En el contenedor Mapeo, centra el video verticalmente con un margen superior adicional */
+    .project-card.mapeo iframe {
+      display: block;
+      margin: 40px auto 0 auto;
     }
 
     .modal-content {
@@ -372,6 +385,7 @@
 <body>
   <div id="particles-js"></div>
 
+  <!-- Se agrega la clase "mapeo" al contenedor de Mapeo -->
   <header id="inicio">
     <div class="container">
       <img src="https://i.ibb.co/WWSsTGT4/foto-perfil.jpg" alt="Foto de Andriy Trofymenko">
@@ -398,7 +412,8 @@
   <section id="proyectos-destacados" style="margin-top: 20px;">
     <h2>Proyectos Destacados</h2>
     <div class="projects-grid">
-      <div class="project-card">
+      <!-- Contenedor Mapeo con clase "mapeo" para centrar el video verticalmente -->
+      <div class="project-card mapeo">
         <h3>Mapeo de la Cadena de Valor del Cáñamo Industrial</h3>
         <p>Lideré la colaboración con CONICET, INTA y otras instituciones para este proyecto. Mira la presentación:</p>
         <iframe width="100%" height="315" src="https://www.youtube.com/embed/tYU88wsM110" frameborder="0" allowfullscreen></iframe>
@@ -415,7 +430,6 @@
         </div>
       </div>
 
-      <!-- Contenedor Dimensionamiento con el nuevo texto justificado -->
       <div class="project-card dimensionamiento">
         <h3>Dimensionamiento de Planta para Bolsas de Polietileno</h3>
         <p>
@@ -429,9 +443,12 @@
         </div>
       </div>
 
+      <!-- Contenedor Diseño de Layout modificado -->
       <div class="project-card analisis-layout">
-        <h3>Análisis de Lay Out</h3>
-        <p>Descripción del proyecto de análisis de lay out.</p>
+        <h3>Diseño de Layout</h3>
+        <p>
+          Dirigí la reestructuración del layout de una planta de reparación de equipos industriales de 760 m², incrementando su área operativa a 1.860 m². Implementé la metodología “Planificación Sistemática de Layout”, optimizando la distribución de sectores clave como bahías de reparación, almacenamiento y prueba de componentes. El rediseño mejoró la circulación interna, redujo el cruce de actividades y optimizó el flujo de trabajo, aumentando la eficiencia y productividad de la empresa.
+        </p>
         <div class="capacitaciones-images">
           <img src="https://i.ibb.co/kVRFDtSw/1bc1fb7d699ffa0917736253c54d46c19b2c482b.jpg" alt="Imagen 1" data-bs-toggle="modal" data-bs-target="#proyecto4Modal1">
           <img src="https://i.ibb.co/yFQChTGL/2fc7eced7aea8ee1c2f4f3c0bf05d1eeced0f136.jpg" alt="Imagen 2" data-bs-toggle="modal" data-bs-target="#proyecto4Modal2">
@@ -571,7 +588,7 @@
     </div>
   </div>
 
-  <!-- Modales para las imágenes del Proyecto 4 (Análisis de Lay Out) -->
+  <!-- Modales para las imágenes del Proyecto 4 (Diseño de Layout) -->
   <div class="modal fade" id="proyecto4Modal1" tabindex="-1" aria-labelledby="proyecto4ModalLabel1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
