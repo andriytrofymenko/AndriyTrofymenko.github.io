@@ -284,21 +284,22 @@
       object-fit: contain;
       border-radius: 0;
     }
-
+    
+    /* Agregada la regla para la "X" de cierre */
     .modal-close {
       position: absolute;
+      top: -10px;
+      right: -10px;
       background-color: rgba(255, 255, 255, 0.8);
-      color: black;
+      color: #000;
       border: none;
       border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      width: 30px;
+      height: 30px;
+      font-size: 16px;
+      line-height: 1;
       cursor: pointer;
-      font-size: 24px;
-      z-index: 2;
+      z-index: 3;
     }
 
     @media (max-width: 768px) {
@@ -443,8 +444,11 @@
   <div class="modal fade" id="capacitacionesModal1" tabindex="-1" aria-labelledby="capacitacionesModalLabel1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
-        <div class="modal-body">
-          <img src="https://i.ibb.co/6z173zP/Imagen-de-Whats-App-2025-02-14-a-las-20-30-12-dbf6f0c3.jpg" alt="Imagen de Capacitaciones 1" class="img-fluid">
+        <div class="modal-body" style="position: relative;">
+          <div style="position: relative; display: inline-block;">
+            <button class="modal-close" data-bs-dismiss="modal" aria-label="Close">X</button>
+            <img src="https://i.ibb.co/6z173zP/Imagen-de-Whats-App-2025-02-14-a-las-20-30-12-dbf6f0c3.jpg" alt="Imagen de Capacitaciones 1" class="img-fluid">
+          </div>
         </div>
       </div>
     </div>
@@ -453,8 +457,11 @@
   <div class="modal fade" id="capacitacionesModal2" tabindex="-1" aria-labelledby="capacitacionesModalLabel2" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
-        <div class="modal-body">
-          <img src="https://i.ibb.co/chB8ZGLN/Imagen-de-Whats-App-2025-02-14-a-las-20-27-49-4e77bac1.jpg" alt="Imagen de Capacitaciones 2" class="img-fluid">
+        <div class="modal-body" style="position: relative;">
+          <div style="position: relative; display: inline-block;">
+            <button class="modal-close" data-bs-dismiss="modal" aria-label="Close">X</button>
+            <img src="https://i.ibb.co/chB8ZGLN/Imagen-de-Whats-App-2025-02-14-a-las-20-27-49-4e77bac1.jpg" alt="Imagen de Capacitaciones 2" class="img-fluid">
+          </div>
         </div>
       </div>
     </div>
@@ -463,8 +470,11 @@
   <div class="modal fade" id="capacitacionesModal3" tabindex="-1" aria-labelledby="capacitacionesModalLabel3" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
-        <div class="modal-body">
-          <img src="https://i.ibb.co/PvRrSw0Y/Imagen-de-Whats-App-2025-02-14-a-las-20-10-33-550c9616.jpg" alt="Imagen de Capacitaciones 3" class="img-fluid">
+        <div class="modal-body" style="position: relative;">
+          <div style="position: relative; display: inline-block;">
+            <button class="modal-close" data-bs-dismiss="modal" aria-label="Close">X</button>
+            <img src="https://i.ibb.co/PvRrSw0Y/Imagen-de-Whats-App-2025-02-14-a-las-20-10-33-550c9616.jpg" alt="Imagen de Capacitaciones 3" class="img-fluid">
+          </div>
         </div>
       </div>
     </div>
@@ -473,8 +483,11 @@
   <div class="modal fade" id="capacitacionesModal4" tabindex="-1" aria-labelledby="capacitacionesModalLabel4" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
-        <div class="modal-body">
-          <img src="https://i.ibb.co/fzT5Z94p/Imagen-de-Whats-App-2025-02-14-a-las-20-10-32-960df37f.jpg" alt="Imagen de Capacitaciones 4" class="img-fluid">
+        <div class="modal-body" style="position: relative;">
+          <div style="position: relative; display: inline-block;">
+            <button class="modal-close" data-bs-dismiss="modal" aria-label="Close">X</button>
+            <img src="https://i.ibb.co/fzT5Z94p/Imagen-de-Whats-App-2025-02-14-a-las-20-10-32-960df37f.jpg" alt="Imagen de Capacitaciones 4" class="img-fluid">
+          </div>
         </div>
       </div>
     </div>
@@ -484,8 +497,11 @@
   <div class="modal fade" id="proyecto3Modal1" tabindex="-1" aria-labelledby="proyecto3ModalLabel1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
-        <div class="modal-body">
-          <img src="https://i.ibb.co/rRHcJhrT/2.png" alt="2" class="img-fluid">
+        <div class="modal-body" style="position: relative;">
+          <div style="position: relative; display: inline-block;">
+            <button class="modal-close" data-bs-dismiss="modal" aria-label="Close">X</button>
+            <img src="https://i.ibb.co/rRHcJhrT/2.png" alt="2" class="img-fluid">
+          </div>
         </div>
       </div>
     </div>
@@ -494,8 +510,11 @@
   <div class="modal fade" id="proyecto3Modal2" tabindex="-1" aria-labelledby="proyecto3ModalLabel2" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
-        <div class="modal-body">
-          <img src="https://i.ibb.co/G3xbrfMf/render-pro.png" alt="render-pro" class="img-fluid">
+        <div class="modal-body" style="position: relative;">
+          <div style="position: relative; display: inline-block;">
+            <button class="modal-close" data-bs-dismiss="modal" aria-label="Close">X</button>
+            <img src="https://i.ibb.co/G3xbrfMf/render-pro.png" alt="render-pro" class="img-fluid">
+          </div>
         </div>
       </div>
     </div>
@@ -504,8 +523,11 @@
   <div class="modal fade" id="proyecto3Modal3" tabindex="-1" aria-labelledby="proyecto3ModalLabel3" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
-        <div class="modal-body">
-          <img src="https://i.ibb.co/b5jKfPz1/3.png" alt="3" class="img-fluid">
+        <div class="modal-body" style="position: relative;">
+          <div style="position: relative; display: inline-block;">
+            <button class="modal-close" data-bs-dismiss="modal" aria-label="Close">X</button>
+            <img src="https://i.ibb.co/b5jKfPz1/3.png" alt="3" class="img-fluid">
+          </div>
         </div>
       </div>
     </div>
@@ -514,8 +536,11 @@
   <div class="modal fade" id="proyecto3Modal4" tabindex="-1" aria-labelledby="proyecto3ModalLabel4" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
-        <div class="modal-body">
-          <img src="https://i.ibb.co/DPC2mY5S/7.png" alt="7" class="img-fluid">
+        <div class="modal-body" style="position: relative;">
+          <div style="position: relative; display: inline-block;">
+            <button class="modal-close" data-bs-dismiss="modal" aria-label="Close">X</button>
+            <img src="https://i.ibb.co/DPC2mY5S/7.png" alt="7" class="img-fluid">
+          </div>
         </div>
       </div>
     </div>
@@ -618,7 +643,7 @@
       const nav = document.querySelector("nav");
       setTimeout(() => {
         nav.classList.add("visible"); // Añadir la clase "visible" para activar la animación
-      }, 100); // Pequeño retraso para asegurar que la animación se vea
+      }, 100);
     });
   </script>
 
