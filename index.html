@@ -38,7 +38,7 @@
     header img {
       width: 180px;
       height: 180px;
-      object-fit: cover; /* Mantiene la proporción sin deformar la imagen */
+      object-fit: cover;
       border-radius: 50%;
       border: 4px solid white;
       margin-bottom: 10px;
@@ -267,27 +267,15 @@
       object-fit: cover;
     }
 
-    /* Para el contenedor "Diseño de Layout" (antes "Análisis de Lay Out") */
+    /* Para el contenedor "Diseño de Layout" */
     .analisis-layout .capacitaciones-images img {
       height: 250px;
       object-fit: cover;
     }
 
-    /* Justificar el texto y aplicar márgenes laterales en "Dimensionamiento" */
-    .dimensionamiento p {
-      text-align: justify;
-      margin-left: 20px;
-      margin-right: 20px;
-    }
-
-    /* Justificar el texto y aplicar márgenes laterales en "Diseño de Layout" */
-    .analisis-layout p {
-      text-align: justify;
-      margin-left: 20px;
-      margin-right: 20px;
-    }
-
-    /* Justificar el texto y aplicar márgenes laterales en "Sobre Mi" */
+    /* Justificar el texto y aplicar márgenes laterales */
+    .dimensionamiento p,
+    .analisis-layout p,
     #sobre-mi p {
       text-align: justify;
       margin-left: 20px;
@@ -386,7 +374,6 @@
 
   <header id="inicio">
     <div class="container">
-      <!-- Imagen de inicio actualizada con object-fit para mantener la proporción natural -->
       <img src="https://i.ibb.co/SX0xkz9W/Sin-t-tulo.png" alt="Sin-t-tulo">
       <h1>Andriy Trofymenko</h1>
       <p>INGENIERO INDUSTRIAL</p>
@@ -413,7 +400,7 @@
   <section id="proyectos-destacados" style="margin-top: 20px;">
     <h2>Proyectos Destacados</h2>
     <div class="projects-grid">
-      <!-- Contenedor Mapeo con clase "mapeo" para centrar el video verticalmente -->
+      <!-- Contenedor Mapeo -->
       <div class="project-card mapeo">
         <h3>Mapeo de la Cadena de Valor del Cáñamo Industrial</h3>
         <p style="text-align: justify;">
@@ -450,7 +437,7 @@
         </div>
       </div>
 
-      <!-- Contenedor Diseño de Layout modificado -->
+      <!-- Contenedor Diseño de Layout -->
       <div class="project-card analisis-layout">
         <h3>Diseño de Layout</h3>
         <p>
@@ -460,7 +447,7 @@
           <img src="https://i.ibb.co/kVRFDtSw/1bc1fb7d699ffa0917736253c54d46c19b2c482b.jpg" alt="Imagen 1" data-bs-toggle="modal" data-bs-target="#proyecto4Modal1">
           <img src="https://i.ibb.co/yFQChTGL/2fc7eced7aea8ee1c2f4f3c0bf05d1eeced0f136.jpg" alt="Imagen 2" data-bs-toggle="modal" data-bs-target="#proyecto4Modal2">
           <img src="https://i.ibb.co/5X8tk2D6/8a20fb1069d1d31c2ec18578125f9ffc866bf186.jpg" alt="Imagen 3" data-bs-toggle="modal" data-bs-target="#proyecto4Modal3">
-          <img src="https://i.ibb.co/TBMLDcmm/e8ad767273825feab21628e5a79a95d847648b40.jpg" alt="Imagen 4" data-bs-toggle="modal" data-bs-target="#proyecto4Modal4">
+          <img src="https://i.ibb.co/RkD8tNXq/diagrama-de-hilos.png" alt="diagrama-de-hilos" data-bs-toggle="modal" data-bs-target="#proyecto4Modal4">
         </div>
       </div>
 
@@ -472,8 +459,8 @@
         </p>
         <p style="text-align: justify; margin-left: 20px; margin-right: 20px;">
           <strong>Mejoras logradas:</strong><br>
-          <strong>&bull;</strong> Aumento del 69,2% en pacientes diarios: de 13 a 22 pacientes.<br>
-          <strong>&bull;</strong> Reducción del 43,7% en tiempo promedio de permanencia: de 5:39hs a 3:10hs.<br>
+          <strong>&bull;</strong> Aumento del 69% en pacientes diarios: de 13 a 22 pacientes.<br>
+          <strong>&bull;</strong> Reducción del 44% en tiempo promedio de permanencia: de 5:39hs a 3:10hs.<br>
           <strong>&bull;</strong> Optimización de recorridos: menor cruce de actividades y mejor flujo de trabajo.<br>
         </p>
         <iframe width="100%" height="315" src="https://www.youtube.com/embed/k5jvN9XXlm4" frameborder="0" allowfullscreen style="display: block; margin: 40px auto 0 auto;"></iframe>
@@ -662,13 +649,14 @@
     </div>
   </div>
 
+  <!-- Modal para la imagen modificada del cuarto elemento en "Diseño de Layout" -->
   <div class="modal fade" id="proyecto4Modal4" tabindex="-1" aria-labelledby="proyecto4ModalLabel4" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-body" style="position: relative;">
           <div style="position: relative; display: inline-block;">
             <button class="modal-close" data-bs-dismiss="modal" aria-label="Close">X</button>
-            <img src="https://i.ibb.co/TBMLDcmm/e8ad767273825feab21628e5a79a95d847648b40.jpg" alt="Imagen 4" class="img-fluid">
+            <img src="https://i.ibb.co/RkD8tNXq/diagrama-de-hilos.png" alt="diagrama-de-hilos" class="img-fluid">
           </div>
         </div>
       </div>
@@ -676,7 +664,6 @@
   </div>
 
   <script>
-    // Configuración de partículas para máxima fluidez
     particlesJS("particles-js", {
       particles: {
         number: { value: 60, density: { enable: true, value_area: 800 } },
@@ -737,7 +724,6 @@
     });
   </script>
 
-  <!-- Bootstrap JS (necesario para el modal) -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
