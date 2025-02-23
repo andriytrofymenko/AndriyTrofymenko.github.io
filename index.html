@@ -15,7 +15,6 @@
       color: #333;
       background-color: #e0e0e0;
     }
-
     #particles-js {
       position: fixed;
       width: 100%;
@@ -23,7 +22,6 @@
       background: transparent;
       z-index: -1;
     }
-
     header {
       position: relative;
       z-index: 1;
@@ -34,7 +32,6 @@
       border-radius: 0 0 20px 20px;
       margin-bottom: 0;
     }
-
     header img {
       width: 180px;
       height: 180px;
@@ -43,27 +40,23 @@
       border: 4px solid white;
       margin-bottom: 10px;
     }
-
     header h1 {
       font-size: 3rem;
       font-weight: 700;
       margin-bottom: 5px;
       color: #2c3e50;
     }
-
     header p {
       font-size: 1.5rem;
       margin-bottom: 5px;
       color: #34495e;
     }
-
     header p.specialization {
       font-size: 1.2rem;
       font-weight: 400;
       color: #555;
       margin-bottom: 0;
     }
-
     nav {
       position: sticky;
       top: 0;
@@ -78,12 +71,10 @@
       transform: translateY(-100%);
       transition: opacity 0.5s ease, transform 0.5s ease;
     }
-
     nav.visible {
       opacity: 1;
       transform: translateY(0);
     }
-
     nav ul {
       list-style: none;
       margin: 0;
@@ -92,12 +83,10 @@
       justify-content: center;
       gap: 20px;
     }
-
     nav ul li {
       display: inline;
       position: relative;
     }
-
     nav ul li a {
       text-decoration: none;
       color: #fff;
@@ -107,13 +96,11 @@
       border-radius: 5px;
       transition: background-color 0.3s ease, transform 0.3s ease;
     }
-
     nav ul li a:hover {
       background-color: rgba(255, 255, 255, 0.2);
       transform: translateY(-2px);
     }
-
-    /* Estilos para el menú desplegable */
+    /* Menú desplegable */
     nav ul li.dropdown ul.dropdown-content {
       display: none;
       position: absolute;
@@ -127,22 +114,18 @@
       margin: 0;
       border-radius: 0 0 5px 5px;
     }
-
     nav ul li.dropdown:hover ul.dropdown-content {
       display: block;
     }
-
     nav ul li.dropdown ul.dropdown-content li {
       display: block;
     }
-
     nav ul li.dropdown ul.dropdown-content li a {
       padding: 10px 20px;
       font-size: 0.9rem;
       white-space: nowrap;
       display: block;
     }
-
     section {
       position: relative;
       z-index: 1;
@@ -155,12 +138,10 @@
       max-width: 1800px;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-
     section.active {
       transform: translateY(-5px);
       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     }
-
     h2 {
       color: #2c3e50;
       font-size: 2.5rem;
@@ -170,7 +151,6 @@
       margin: 20px 0;
       padding-bottom: 10px;
     }
-
     h2::after {
       content: '';
       position: absolute;
@@ -183,71 +163,37 @@
       transform-origin: center;
       transition: transform 0.3s ease;
     }
-
     h2:hover::after {
       transform: translateX(-50%) scaleX(1);
     }
-
     .project-card h3 {
       color: #1a5276;
       font-size: 1.8rem;
       margin-bottom: 15px;
       text-align: center;
     }
-
     p {
       font-size: 1rem;
       color: #555;
       line-height: 1.6;
     }
-
     a {
       color: #0073e6;
       text-decoration: none;
       transition: color 0.3s ease;
     }
-
     a:hover {
       color: #005bb5;
     }
-
     .project {
       margin-bottom: 20px;
     }
-
     .project img {
       max-width: 100%;
       height: auto;
       border-radius: 8px;
       cursor: pointer;
     }
-
-    .contact-form input,
-    .contact-form textarea {
-      width: 100%;
-      padding: 10px;
-      margin: 10px 0;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-      font-size: 1rem;
-    }
-
-    .contact-form button {
-      background-color: #505050;
-      color: white;
-      padding: 12px 25px;
-      border: none;
-      border-radius: 4px;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: background-color 0.3s ease, transform 0.3s ease;
-    }
-
-    .contact-form button:hover {
-      background-color: #3d3d3d;
-      transform: translateY(-2px);
-    }
-
     .projects-grid {
       display: flex;
       flex-wrap: wrap;
@@ -255,7 +201,6 @@
       justify-content: center;
       margin-top: 20px;
     }
-
     .project-card {
       flex: 1 1 calc(50% - 20px);
       background-color: rgba(255, 255, 255, 0.85);
@@ -266,12 +211,10 @@
       max-width: 900px;
       margin: 0 auto;
     }
-
     .project-card:hover {
       transform: translateY(-5px);
       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     }
-
     .project-card img {
       max-width: 100%;
       height: auto;
@@ -279,33 +222,28 @@
       margin-bottom: 15px;
       cursor: pointer;
     }
-
     .capacitaciones-images {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 15px;
     }
-
     .capacitaciones-images img {
       width: 100%;
       border-radius: 8px;
       cursor: pointer;
     }
-
     /* Proyectos Dimensionamiento y Layout */
     .dimensionamiento .capacitaciones-images img,
     .analisis-layout .capacitaciones-images img {
       height: 250px;
       object-fit: cover;
     }
-
     /* Herramientas de Gestión */
     .herramientas-images {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 15px;
     }
-
     .herramientas-images img {
       width: 100%;
       height: 250px;
@@ -313,8 +251,7 @@
       border-radius: 8px;
       cursor: pointer;
     }
-
-    /* Justificar el texto con márgenes laterales */
+    /* Justificar texto con márgenes laterales */
     .dimensionamiento p,
     .analisis-layout p,
     #sobre-mi p {
@@ -322,19 +259,16 @@
       margin-left: 20px;
       margin-right: 20px;
     }
-
     /* Video centrado en Mapeo */
     .project-card.mapeo iframe {
       display: block;
       margin: 40px auto 0 auto;
     }
-
     .modal-content {
       background-color: transparent;
       border: none;
       box-shadow: none;
     }
-
     .modal-body {
       padding: 0;
       margin: 0;
@@ -343,7 +277,6 @@
       align-items: center;
       height: 100vh;
     }
-
     .modal-body img {
       width: auto;
       height: auto;
@@ -352,7 +285,6 @@
       object-fit: contain;
       border-radius: 0;
     }
-
     .modal-close {
       position: absolute;
       top: -10px;
@@ -368,7 +300,6 @@
       cursor: pointer;
       z-index: 3;
     }
-
     @media (max-width: 768px) {
       nav ul {
         flex-direction: column;
@@ -413,7 +344,6 @@
 </head>
 <body>
   <div id="particles-js"></div>
-
   <header id="inicio">
     <div class="container">
       <img src="https://i.ibb.co/SX0xkz9W/Sin-t-tulo.png" alt="Sin-t-tulo">
@@ -422,7 +352,6 @@
       <p class="specialization">Especialista en mejora continua, optimización de procesos y gestión estratégica de proyectos.</p>
     </div>
   </header>
-
   <nav>
     <ul>
       <li><a href="#inicio">Inicio</a></li>
@@ -441,14 +370,12 @@
       <li><a href="#contacto">Contacto</a></li>
     </ul>
   </nav>
-
   <section id="sobre-mi">
     <h2>Sobre Mi</h2>
     <p>
       Soy un Ingeniero Industrial especializado en Mejora Continua y Gestión de Procesos, con un fuerte enfoque en la implementación de Tecnologías de Gestión para optimizar operaciones y alcanzar la excelencia operativa. Mi pasión por la mejora de la productividad me ha llevado a liderar proyectos de alto impacto en empresas de diversos sectores, incluyendo la industria textil, la gestión de residuos y el asesoramiento a organizaciones públicas y privadas. Con una formación académica robusta, incluyendo una Diplomatura en Industria 4.0, he desarrollado un enfoque integral que combina conocimientos técnicos con habilidades estratégicas y de liderazgo.
     </p>
   </section>
-
   <section id="proyectos-destacados" style="margin-top: 20px;">
     <h2>Proyectos Destacados</h2>
     <div class="projects-grid">
@@ -461,7 +388,6 @@
         </p>
         <iframe width="100%" height="315" src="https://www.youtube.com/embed/tYU88wsM110" frameborder="0" allowfullscreen></iframe>
       </div>
-
       <div class="project-card" id="proyecto-capacitaciones">
         <h3>Capacitaciones</h3>
         <p style="text-align: justify;">
@@ -471,11 +397,9 @@
           <img src="https://i.ibb.co/6z173zP/Imagen-de-Whats-App-2025-02-14-a-las-20-30-12-dbf6f0c3.jpg" alt="Imagen de Capacitaciones 1" data-bs-toggle="modal" data-bs-target="#capacitacionesModal1">
           <img src="https://i.ibb.co/chB8ZGLN/Imagen-de-Whats-App-2025-02-14-a-las-20-27-49-4e77bac1.jpg" alt="Imagen de Capacitaciones 2" data-bs-toggle="modal" data-bs-target="#capacitacionesModal2">
           <img src="https://i.ibb.co/PvRrSw0Y/Imagen-de-Whats-App-2025-02-14-a-las-20-10-33-550c9616.jpg" alt="Imagen de Capacitaciones 3" data-bs-toggle="modal" data-bs-target="#capacitacionesModal3">
-          <!-- Foto reemplazada -->
           <img src="https://i.ibb.co/Wvbwj2p2/Imagen-de-Whats-App-2025-02-18-a-las-19-47-54-2a875330.jpg" alt="Imagen-de-Whats-App-2025-02-18-a-las-19-47-54-2a875330" border="0" data-bs-toggle="modal" data-bs-target="#capacitacionesModal4">
         </div>
       </div>
-
       <div class="project-card dimensionamiento" id="proyecto-dimensionamiento">
         <h3>Dimensionamiento de Planta para Bolsas de Polietileno</h3>
         <p>
@@ -488,7 +412,6 @@
           <img src="https://i.ibb.co/DPC2mY5S/7.png" alt="7" data-bs-toggle="modal" data-bs-target="#proyecto3Modal4">
         </div>
       </div>
-
       <div class="project-card analisis-layout" id="proyecto-layout">
         <h3>Diseño de Layout</h3>
         <p>
@@ -501,7 +424,6 @@
           <img src="https://i.ibb.co/RkD8tNXq/diagrama-de-hilos.png" alt="diagrama-de-hilos" data-bs-toggle="modal" data-bs-target="#proyecto4Modal4">
         </div>
       </div>
-
       <div class="project-card" id="proyecto-clinicas">
         <h3>Ampliación de Áreas Clínicas para Mejora de Productividad y Ergonomía</h3>
         <p style="text-align: justify; margin-left: 20px; margin-right: 20px;">
@@ -515,7 +437,6 @@
         </p>
         <iframe width="100%" height="315" src="https://www.youtube.com/embed/k5jvN9XXlm4" frameborder="0" allowfullscreen style="display: block; margin: 40px auto 0 auto;"></iframe>
       </div>
-
       <div class="project-card" id="proyecto-herramientas">
         <h3>Herramientas de Gestión</h3>
         <p style="text-align: justify; margin-left: 20px; margin-right: 20px;">
@@ -530,32 +451,19 @@
       </div>
     </div>
   </section>
-
   <section id="descargas">
     <h2>Descargas</h2>
     <ul>
       <li><a href="https://drive.google.com/uc?export=download&id=1z9Katq55iU8C2R7KQPW1573WFHfcRe7Z" download>Descargar CV</a></li>
     </ul>
   </section>
-
   <section id="contacto">
     <h2>Contacto</h2>
     <p>
       ✉️ atrofymenko@fi.uba.ar<br><br>
       ☎ +549 11 33278023
     </p>
-    <p>Si deseas contactarme, envíame un mensaje:</p>
-    <form class="contact-form" action="mailto:atrofymenko@fi.ub.ar" method="POST" enctype="text/plain">
-      <label for="name">Nombre:</label>
-      <input type="text" id="name" name="name" required>
-      <label for="email">Correo electrónico:</label>
-      <input type="email" id="email" name="email" required>
-      <label for="message">Mensaje:</label>
-      <textarea id="message" name="message" rows="5" required></textarea>
-      <button type="submit">Enviar</button>
-    </form>
   </section>
-
   <!-- Modales para las imágenes de Capacitaciones -->
   <div class="modal fade" id="capacitacionesModal1" tabindex="-1" aria-labelledby="capacitacionesModalLabel1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
@@ -569,7 +477,6 @@
       </div>
     </div>
   </div>
-
   <div class="modal fade" id="capacitacionesModal2" tabindex="-1" aria-labelledby="capacitacionesModalLabel2" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
@@ -582,7 +489,6 @@
       </div>
     </div>
   </div>
-
   <div class="modal fade" id="capacitacionesModal3" tabindex="-1" aria-labelledby="capacitacionesModalLabel3" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
@@ -595,8 +501,6 @@
       </div>
     </div>
   </div>
-
-  <!-- Modal con foto reemplazada -->
   <div class="modal fade" id="capacitacionesModal4" tabindex="-1" aria-labelledby="capacitacionesModalLabel4" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
@@ -609,7 +513,6 @@
       </div>
     </div>
   </div>
-
   <!-- Modales para las imágenes del Proyecto 3 (Dimensionamiento) -->
   <div class="modal fade" id="proyecto3Modal1" tabindex="-1" aria-labelledby="proyecto3ModalLabel1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
@@ -623,7 +526,6 @@
       </div>
     </div>
   </div>
-
   <div class="modal fade" id="proyecto3Modal2" tabindex="-1" aria-labelledby="proyecto3ModalLabel2" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
@@ -636,7 +538,6 @@
       </div>
     </div>
   </div>
-
   <div class="modal fade" id="proyecto3Modal3" tabindex="-1" aria-labelledby="proyecto3ModalLabel3" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
@@ -649,7 +550,6 @@
       </div>
     </div>
   </div>
-
   <div class="modal fade" id="proyecto3Modal4" tabindex="-1" aria-labelledby="proyecto3ModalLabel4" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
@@ -662,7 +562,6 @@
       </div>
     </div>
   </div>
-
   <!-- Modales para las imágenes del Proyecto 4 (Diseño de Layout) -->
   <div class="modal fade" id="proyecto4Modal1" tabindex="-1" aria-labelledby="proyecto4ModalLabel1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
@@ -676,7 +575,6 @@
       </div>
     </div>
   </div>
-
   <div class="modal fade" id="proyecto4Modal2" tabindex="-1" aria-labelledby="proyecto4ModalLabel2" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
@@ -689,7 +587,6 @@
       </div>
     </div>
   </div>
-
   <div class="modal fade" id="proyecto4Modal3" tabindex="-1" aria-labelledby="proyecto4ModalLabel3" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
@@ -702,7 +599,6 @@
       </div>
     </div>
   </div>
-
   <div class="modal fade" id="proyecto4Modal4" tabindex="-1" aria-labelledby="proyecto4ModalLabel4" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
@@ -715,7 +611,6 @@
       </div>
     </div>
   </div>
-
   <!-- Modales para las imágenes del contenedor Herramientas de Gestión -->
   <div class="modal fade" id="herramientasModal1" tabindex="-1" aria-labelledby="herramientasModalLabel1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
@@ -729,7 +624,6 @@
       </div>
     </div>
   </div>
-
   <div class="modal fade" id="herramientasModal2" tabindex="-1" aria-labelledby="herramientasModalLabel2" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
@@ -742,7 +636,6 @@
       </div>
     </div>
   </div>
-
   <div class="modal fade" id="herramientasModal3" tabindex="-1" aria-labelledby="herramientasModalLabel3" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
@@ -755,7 +648,6 @@
       </div>
     </div>
   </div>
-
   <div class="modal fade" id="herramientasModal4" tabindex="-1" aria-labelledby="herramientasModalLabel4" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
@@ -768,7 +660,6 @@
       </div>
     </div>
   </div>
-
   <script>
     particlesJS("particles-js", {
       particles: {
@@ -821,7 +712,6 @@
       },
       retina_detect: true
     });
-
     document.addEventListener("DOMContentLoaded", function() {
       const nav = document.querySelector("nav");
       setTimeout(() => {
