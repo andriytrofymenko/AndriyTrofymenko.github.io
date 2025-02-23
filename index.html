@@ -272,6 +272,20 @@
       height: 250px;
       object-fit: cover;
     }
+    
+    /* Estilos para el contenedor "Herramientas de Gestión" */
+    .herramientas-images {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+    .herramientas-images img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 8px;
+      cursor: pointer;
+    }
 
     /* Justificar el texto y aplicar márgenes laterales */
     .dimensionamiento p,
@@ -363,7 +377,8 @@
       .project-card {
         flex: 1 1 100%;
       }
-      .capacitaciones-images {
+      .capacitaciones-images,
+      .herramientas-images {
         grid-template-columns: 1fr;
       }
     }
@@ -411,6 +426,7 @@
         <iframe width="100%" height="315" src="https://www.youtube.com/embed/tYU88wsM110" frameborder="0" allowfullscreen></iframe>
       </div>
 
+      <!-- Contenedor Capacitaciones -->
       <div class="project-card">
         <h3>Capacitaciones</h3>
         <p style="text-align: justify;">
@@ -424,6 +440,7 @@
         </div>
       </div>
 
+      <!-- Contenedor Dimensionamiento de Planta -->
       <div class="project-card dimensionamiento">
         <h3>Dimensionamiento de Planta para Bolsas de Polietileno</h3>
         <p>
@@ -451,7 +468,7 @@
         </div>
       </div>
 
-      <!-- Nuevo Contenedor Proyecto 5 -->
+      <!-- Contenedor Ampliación de Áreas Clínicas -->
       <div class="project-card">
         <h3>Ampliación de Áreas Clínicas para Mejora de Productividad y Ergonomía</h3>
         <p style="text-align: justify; margin-left: 20px; margin-right: 20px;">
@@ -466,12 +483,18 @@
         <iframe width="100%" height="315" src="https://www.youtube.com/embed/k5jvN9XXlm4" frameborder="0" allowfullscreen style="display: block; margin: 40px auto 0 auto;"></iframe>
       </div>
 
-      <!-- Nuevo Contenedor Proyecto 6 -->
+      <!-- Contenedor Herramientas de Gestión (Proyecto 6) -->
       <div class="project-card">
-        <h3>Nuevo Proyecto 6</h3>
-        <p>
-          Descripción del nuevo proyecto. Puedes agregar más información y contenido visual en esta sección.
+        <h3>Herramientas de Gestión</h3>
+        <p style="text-align: justify; margin-left: 20px; margin-right: 20px;">
+          Ejemplos de implementación de diferentes herramientas de gestión para la mejora de la productividad.
         </p>
+        <div class="herramientas-images">
+          <img src="https://i.ibb.co/XkSLpXg0/5S.png" alt="5S" data-bs-toggle="modal" data-bs-target="#herramientasModal1">
+          <img src="https://i.ibb.co/qMnndpyB/IMG-20250222-WA0004.jpg" alt="IMG-20250222-WA0004" data-bs-toggle="modal" data-bs-target="#herramientasModal2">
+          <img src="https://i.ibb.co/21XsSHgD/IMG-20250222-WA0007.jpg" alt="IMG-20250222-WA0007" data-bs-toggle="modal" data-bs-target="#herramientasModal3">
+          <img src="https://i.ibb.co/cnDFGLF/sdssdd.png" alt="sdssdd" data-bs-toggle="modal" data-bs-target="#herramientasModal4">
+        </div>
       </div>
 
     </div>
@@ -481,7 +504,6 @@
     <h2>Descargas</h2>
     <ul>
       <li><a href="https://drive.google.com/uc?export=download&id=1z9Katq55iU8C2R7KQPW1573WFHfcRe7Z" download>Descargar CV</a></li>
-      <li><a href="enlace_a_tu_Carta_en_Google_Drive" download>Descargar Carta de Presentación</a></li>
     </ul>
   </section>
 
@@ -556,7 +578,7 @@
     </div>
   </div>
 
-  <!-- Modales para las imágenes del Proyecto 3 -->
+  <!-- Modales para las imágenes del Proyecto 3 (Dimensionamiento) -->
   <div class="modal fade" id="proyecto3Modal1" tabindex="-1" aria-labelledby="proyecto3ModalLabel1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
@@ -649,7 +671,6 @@
     </div>
   </div>
 
-  <!-- Modal para la imagen modificada del cuarto elemento en "Diseño de Layout" -->
   <div class="modal fade" id="proyecto4Modal4" tabindex="-1" aria-labelledby="proyecto4ModalLabel4" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
@@ -657,6 +678,59 @@
           <div style="position: relative; display: inline-block;">
             <button class="modal-close" data-bs-dismiss="modal" aria-label="Close">X</button>
             <img src="https://i.ibb.co/RkD8tNXq/diagrama-de-hilos.png" alt="diagrama-de-hilos" class="img-fluid">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modales para las imágenes del contenedor Herramientas de Gestión -->
+  <div class="modal fade" id="herramientasModal1" tabindex="-1" aria-labelledby="herramientasModalLabel1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body" style="position: relative;">
+          <div style="position: relative; display: inline-block;">
+            <button class="modal-close" data-bs-dismiss="modal" aria-label="Close">X</button>
+            <img src="https://i.ibb.co/XkSLpXg0/5S.png" alt="5S" class="img-fluid">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="herramientasModal2" tabindex="-1" aria-labelledby="herramientasModalLabel2" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body" style="position: relative;">
+          <div style="position: relative; display: inline-block;">
+            <button class="modal-close" data-bs-dismiss="modal" aria-label="Close">X</button>
+            <img src="https://i.ibb.co/qMnndpyB/IMG-20250222-WA0004.jpg" alt="IMG-20250222-WA0004" class="img-fluid">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="herramientasModal3" tabindex="-1" aria-labelledby="herramientasModalLabel3" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body" style="position: relative;">
+          <div style="position: relative; display: inline-block;">
+            <button class="modal-close" data-bs-dismiss="modal" aria-label="Close">X</button>
+            <img src="https://i.ibb.co/21XsSHgD/IMG-20250222-WA0007.jpg" alt="IMG-20250222-WA0007" class="img-fluid">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="herramientasModal4" tabindex="-1" aria-labelledby="herramientasModalLabel4" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body" style="position: relative;">
+          <div style="position: relative; display: inline-block;">
+            <button class="modal-close" data-bs-dismiss="modal" aria-label="Close">X</button>
+            <img src="https://i.ibb.co/cnDFGLF/sdssdd.png" alt="sdssdd" class="img-fluid">
           </div>
         </div>
       </div>
