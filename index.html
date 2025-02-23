@@ -13,7 +13,7 @@
       padding: 0;
       font-family: 'Roboto', sans-serif;
       color: #333;
-      background-color: #e0e0e0; /* Fondo oscurecido */
+      background-color: #e0e0e0;
     }
 
     #particles-js {
@@ -95,6 +95,7 @@
 
     nav ul li {
       display: inline;
+      position: relative;
     }
 
     nav ul li a {
@@ -110,6 +111,36 @@
     nav ul li a:hover {
       background-color: rgba(255, 255, 255, 0.2);
       transform: translateY(-2px);
+    }
+
+    /* Estilos para el menú desplegable */
+    nav ul li.dropdown ul.dropdown-content {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: rgba(44, 62, 80, 0.9);
+      min-width: 250px;
+      z-index: 1000;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      border-radius: 0 0 5px 5px;
+    }
+
+    nav ul li.dropdown:hover ul.dropdown-content {
+      display: block;
+    }
+
+    nav ul li.dropdown ul.dropdown-content li {
+      display: block;
+    }
+
+    nav ul li.dropdown ul.dropdown-content li a {
+      padding: 10px 20px;
+      font-size: 0.9rem;
+      white-space: nowrap;
+      display: block;
     }
 
     section {
@@ -261,24 +292,20 @@
       cursor: pointer;
     }
 
-    /* Para el contenedor "Dimensionamiento de Planta..." */
-    .dimensionamiento .capacitaciones-images img {
-      height: 250px;
-      object-fit: cover;
-    }
-
-    /* Para el contenedor "Diseño de Layout" */
+    /* Proyectos Dimensionamiento y Layout */
+    .dimensionamiento .capacitaciones-images img,
     .analisis-layout .capacitaciones-images img {
       height: 250px;
       object-fit: cover;
     }
-    
-    /* Estilos para el contenedor "Herramientas de Gestión" */
+
+    /* Herramientas de Gestión */
     .herramientas-images {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 15px;
     }
+
     .herramientas-images img {
       width: 100%;
       height: 250px;
@@ -287,7 +314,7 @@
       cursor: pointer;
     }
 
-    /* Justificar el texto y aplicar márgenes laterales */
+    /* Justificar el texto con márgenes laterales */
     .dimensionamiento p,
     .analisis-layout p,
     #sobre-mi p {
@@ -296,7 +323,7 @@
       margin-right: 20px;
     }
 
-    /* Centrar verticalmente el video en el contenedor Mapeo */
+    /* Video centrado en Mapeo */
     .project-card.mapeo iframe {
       display: block;
       margin: 40px auto 0 auto;
@@ -325,7 +352,7 @@
       object-fit: contain;
       border-radius: 0;
     }
-    
+
     .modal-close {
       position: absolute;
       top: -10px;
@@ -392,14 +419,24 @@
       <img src="https://i.ibb.co/SX0xkz9W/Sin-t-tulo.png" alt="Sin-t-tulo">
       <h1>Andriy Trofymenko</h1>
       <p>INGENIERO INDUSTRIAL</p>
-      <p class="specialization">Especializado en mejora continua, optimización de procesos y gestión de proyectos.</p>
+      <p class="specialization">Especialista en mejora continua, optimización de procesos y gestión estratégica de proyectos.</p>
     </div>
   </header>
 
   <nav>
     <ul>
       <li><a href="#inicio">Inicio</a></li>
-      <li><a href="#proyectos-destacados">Proyectos Destacados</a></li>
+      <li class="dropdown">
+        <a href="#proyectos-destacados">Proyectos Destacados</a>
+        <ul class="dropdown-content">
+          <li><a href="#proyecto-mapeo">Mapeo de la Cadena de Valor del Cáñamo Industrial</a></li>
+          <li><a href="#proyecto-capacitaciones">Capacitaciones</a></li>
+          <li><a href="#proyecto-dimensionamiento">Dimensionamiento de Planta para Bolsas de Polietileno</a></li>
+          <li><a href="#proyecto-layout">Diseño de Layout</a></li>
+          <li><a href="#proyecto-clinicas">Ampliación de Áreas Clínicas para Mejora de Productividad y Ergonomía</a></li>
+          <li><a href="#proyecto-herramientas">Herramientas de Gestión</a></li>
+        </ul>
+      </li>
       <li><a href="#descargas">Descargas</a></li>
       <li><a href="#contacto">Contacto</a></li>
     </ul>
@@ -415,8 +452,7 @@
   <section id="proyectos-destacados" style="margin-top: 20px;">
     <h2>Proyectos Destacados</h2>
     <div class="projects-grid">
-      <!-- Contenedor Mapeo -->
-      <div class="project-card mapeo">
+      <div class="project-card mapeo" id="proyecto-mapeo">
         <h3>Mapeo de la Cadena de Valor del Cáñamo Industrial</h3>
         <p style="text-align: justify;">
           En este proyecto, lideré la coordinación de un equipo multidisciplinario conformado por profesionales del CONICET, INTA, INTI, RACME y UNICEN, con el propósito de analizar en profundidad cada eslabón de la cadena de valor del cáñamo industrial. Mi función principal consistió en integrar de manera efectiva los conocimientos técnicos de cada institución y garantizar la ejecución del plan de trabajo, desde la identificación de oportunidades de mejora hasta la propuesta de soluciones concretas que impulsaran el desarrollo sostenible de este sector emergente.
@@ -426,8 +462,7 @@
         <iframe width="100%" height="315" src="https://www.youtube.com/embed/tYU88wsM110" frameborder="0" allowfullscreen></iframe>
       </div>
 
-      <!-- Contenedor Capacitaciones -->
-      <div class="project-card">
+      <div class="project-card" id="proyecto-capacitaciones">
         <h3>Capacitaciones</h3>
         <p style="text-align: justify;">
           En el ámbito de las capacitaciones, he brindado asistencia técnica especializada a empresas privadas y organismos públicos, transfiriendo metodologías y herramientas de gestión que impulsan la Mejora Continua y aumentan la Productividad. Mi labor se centra en impartir conocimientos estratégicos para fortalecer equipos de trabajo y potenciar la competitividad organizacional.
@@ -436,12 +471,12 @@
           <img src="https://i.ibb.co/6z173zP/Imagen-de-Whats-App-2025-02-14-a-las-20-30-12-dbf6f0c3.jpg" alt="Imagen de Capacitaciones 1" data-bs-toggle="modal" data-bs-target="#capacitacionesModal1">
           <img src="https://i.ibb.co/chB8ZGLN/Imagen-de-Whats-App-2025-02-14-a-las-20-27-49-4e77bac1.jpg" alt="Imagen de Capacitaciones 2" data-bs-toggle="modal" data-bs-target="#capacitacionesModal2">
           <img src="https://i.ibb.co/PvRrSw0Y/Imagen-de-Whats-App-2025-02-14-a-las-20-10-33-550c9616.jpg" alt="Imagen de Capacitaciones 3" data-bs-toggle="modal" data-bs-target="#capacitacionesModal3">
-          <img src="https://i.ibb.co/fzT5Z94p/Imagen-de-Whats-App-2025-02-14-a-las-20-10-32-960df37f.jpg" alt="Imagen de Capacitaciones 4" data-bs-toggle="modal" data-bs-target="#capacitacionesModal4">
+          <!-- Foto reemplazada -->
+          <img src="https://i.ibb.co/Wvbwj2p2/Imagen-de-Whats-App-2025-02-18-a-las-19-47-54-2a875330.jpg" alt="Imagen-de-Whats-App-2025-02-18-a-las-19-47-54-2a875330" border="0" data-bs-toggle="modal" data-bs-target="#capacitacionesModal4">
         </div>
       </div>
 
-      <!-- Contenedor Dimensionamiento de Planta -->
-      <div class="project-card dimensionamiento">
+      <div class="project-card dimensionamiento" id="proyecto-dimensionamiento">
         <h3>Dimensionamiento de Planta para Bolsas de Polietileno</h3>
         <p>
           Lideré el diseño, puesta en marcha y optimización de una planta de fabricación de bolsas para residuos a partir de polietileno reciclado, con una capacidad instalada de 14,6 toneladas mensuales. Logré coordinar un equipo de 130 cooperativistas, asegurando un flujo de producción de 9.600 kg/mes de bolsas, equivalente al 4,5% del market share del mercado objetivo.
@@ -454,8 +489,7 @@
         </div>
       </div>
 
-      <!-- Contenedor Diseño de Layout -->
-      <div class="project-card analisis-layout">
+      <div class="project-card analisis-layout" id="proyecto-layout">
         <h3>Diseño de Layout</h3>
         <p>
           Dirigí la reestructuración del layout de una planta de reparación de equipos industriales de 760 m², incrementando su área operativa a 1.860 m². Implementé la metodología “Planificación Sistemática de Layout”, optimizando la distribución de sectores clave como bahías de reparación, almacenamiento y prueba de componentes. El rediseño mejoró la circulación interna, redujo el cruce de actividades y optimizó el flujo de trabajo, aumentando la eficiencia y productividad de la empresa.
@@ -468,8 +502,7 @@
         </div>
       </div>
 
-      <!-- Contenedor Ampliación de Áreas Clínicas -->
-      <div class="project-card">
+      <div class="project-card" id="proyecto-clinicas">
         <h3>Ampliación de Áreas Clínicas para Mejora de Productividad y Ergonomía</h3>
         <p style="text-align: justify; margin-left: 20px; margin-right: 20px;">
           Dirigí la ampliación y optimización del área de endoscopia de una clínica, enfocándome en el diseño e implementación de un nuevo sistema de giro de camas y la reorganización del layout para mejorar la eficiencia operativa. Realicé un análisis detallado del flujo de trabajo actual, desarrollé un nuevo diseño que optimiza la distribución de recursos y llevé a cabo simulaciones para validar su eficacia.
@@ -483,8 +516,7 @@
         <iframe width="100%" height="315" src="https://www.youtube.com/embed/k5jvN9XXlm4" frameborder="0" allowfullscreen style="display: block; margin: 40px auto 0 auto;"></iframe>
       </div>
 
-      <!-- Contenedor Herramientas de Gestión (Proyecto 6) -->
-      <div class="project-card">
+      <div class="project-card" id="proyecto-herramientas">
         <h3>Herramientas de Gestión</h3>
         <p style="text-align: justify; margin-left: 20px; margin-right: 20px;">
           Ejemplos de implementación de diferentes herramientas de gestión para la mejora de la productividad.
@@ -496,7 +528,6 @@
           <img src="https://i.ibb.co/cnDFGLF/sdssdd.png" alt="sdssdd" data-bs-toggle="modal" data-bs-target="#herramientasModal4">
         </div>
       </div>
-
     </div>
   </section>
 
@@ -510,11 +541,11 @@
   <section id="contacto">
     <h2>Contacto</h2>
     <p>
-      ✉️ atrofymenko@fi.uba.ar<br>
+      ✉️ atrofymenko@fi.uba.ar<br><br>
       ☎ +549 11 33278023
     </p>
     <p>Si deseas contactarme, envíame un mensaje:</p>
-    <form class="contact-form" action="https://formspree.io/f/tu_correo" method="POST">
+    <form class="contact-form" action="mailto:atrofymenko@fi.ub.ar" method="POST" enctype="text/plain">
       <label for="name">Nombre:</label>
       <input type="text" id="name" name="name" required>
       <label for="email">Correo electrónico:</label>
@@ -565,13 +596,14 @@
     </div>
   </div>
 
+  <!-- Modal con foto reemplazada -->
   <div class="modal fade" id="capacitacionesModal4" tabindex="-1" aria-labelledby="capacitacionesModalLabel4" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-body" style="position: relative;">
           <div style="position: relative; display: inline-block;">
             <button class="modal-close" data-bs-dismiss="modal" aria-label="Close">X</button>
-            <img src="https://i.ibb.co/fzT5Z94p/Imagen-de-Whats-App-2025-02-14-a-las-20-10-32-960df37f.jpg" alt="Imagen de Capacitaciones 4" class="img-fluid">
+            <img src="https://i.ibb.co/Wvbwj2p2/Imagen-de-Whats-App-2025-02-18-a-las-19-47-54-2a875330.jpg" alt="Imagen-de-Whats-App-2025-02-18-a-las-19-47-54-2a875330" border="0" class="img-fluid">
           </div>
         </div>
       </div>
@@ -797,7 +829,6 @@
       }, 100);
     });
   </script>
-
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
