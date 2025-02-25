@@ -43,19 +43,18 @@
     header h1 {
       font-size: 3rem;
       font-weight: 700;
-      margin-bottom: 5px;
+      margin-bottom: 30px; /* modificado de 5px a 30px */
       color: #2c3e50;
     }
     header p {
-      font-size: 1.5rem;
-      margin-bottom: 5px;
+      font-size: 1.95rem;
       color: #34495e;
-    }
-    header p.specialization {
-      font-size: 1.2rem;
-      font-weight: 400;
-      color: #555;
-      margin-bottom: 0;
+      /* Para lograr que la distancia entre "Andriy Trofymenko" e "INGENIERO INDUSTRIAL"
+         (colapsando el margin-bottom de h1 y el margin-top de p) sea la misma que la distancia
+         entre "INGENIERO INDUSTRIAL" y la barra de navegación (margin-bottom de p + padding-bottom de header),
+         se establece margin-top: 30px y margin-bottom: 10px (ya que 10px + 20px de padding-bottom = 30px). */
+      margin-top: 30px;
+      margin-bottom: 10px;
     }
     nav {
       position: sticky;
@@ -317,9 +316,6 @@
       header p {
         font-size: 1.2rem;
       }
-      header p.specialization {
-        font-size: 1rem;
-      }
       header img {
         width: 120px;
         height: 120px;
@@ -350,8 +346,7 @@
     <div class="container">
       <img src="https://i.ibb.co/SX0xkz9W/Sin-t-tulo.png" alt="Sin-t-tulo">
       <h1>Andriy Trofymenko</h1>
-      <p>INGENIERO INDUSTRIAL</p>
-      <p class="specialization">Especialista en mejora continua, optimización de procesos y gestión estratégica de proyectos.</p>
+      <p style="font-size: 1.95rem; margin-top: 30px; margin-bottom: 10px;">INGENIERO INDUSTRIAL</p>
     </div>
   </header>
   <nav>
@@ -375,7 +370,7 @@
   <section id="sobre-mi">
     <h2>Sobre Mi</h2>
     <p>
-      Soy un Ingeniero Industrial especializado en Mejora Continua y Gestión de Procesos, con un fuerte enfoque en la implementación de Tecnologías de Gestión para optimizar operaciones y alcanzar la excelencia operativa. Mi pasión por la mejora de la productividad me ha llevado a liderar proyectos de alto impacto en empresas de diversos sectores, incluyendo la industria textil, la gestión de residuos y el asesoramiento a organizaciones públicas y privadas. Con una formación académica robusta, incluyendo una Diplomatura en Industria 4.0, he desarrollado un enfoque integral que combina conocimientos técnicos con habilidades estratégicas y de liderazgo.
+      Soy Ingeniero Industrial, especializado en mejora continua, optimización de procesos y gestión estratégica de proyectos. Mi enfoque se centra en la implementación de metodologías de gestión para alcanzar la excelencia operativa, con el objetivo de maximizar la productividad. A lo largo de mi carrera, he tenido el privilegio de liderar proyectos de alto impacto en empresas de diversos sectores, tanto públicos como privados. Respaldado por una sólida formación académica, que incluye una Diplomatura Universitaria en Industrias 4.0, he desarrollado una perspectiva integral que fusiona conocimientos técnicos con habilidades estratégicas y de liderazgo.
     </p>
   </section>
   <section id="proyectos-destacados" style="margin-top: 20px;">
