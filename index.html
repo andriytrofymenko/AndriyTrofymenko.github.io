@@ -8,6 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   <style>
+    /* Estilos generales */
     body {
       margin: 0;
       padding: 0;
@@ -334,6 +335,239 @@
         grid-template-columns: 1fr;
       }
     }
+    /* Estilos del Roadmap */
+    .roadmap-container {
+      width: 100%;
+      max-width: 840px;
+      position: relative;
+      margin: 0 auto;
+    }
+    .road {
+      height: 50px;
+      background-color: #666;
+      position: relative;
+      border-radius: 5px;
+    }
+    .road::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 5%;
+      right: 5%;
+      height: 6px;
+      background: repeating-linear-gradient(90deg, #fff, #fff 40px, transparent 40px, transparent 80px);
+      transform: translateY(-50%);
+    }
+    .marker {
+      position: absolute;
+      transform: translateX(-50%);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .marker:hover {
+      transform: translateX(-50%) scale(1.05);
+    }
+    .marker-pin {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
+      position: relative;
+      z-index: 2;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    .marker-line {
+      position: absolute;
+      left: 50%;
+      width: 2px;
+      transform: translateX(-50%);
+      z-index: 1;
+    }
+    .integrated-text {
+      position: absolute;
+      width: 280px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: white;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      border-left: 3px solid;
+      font-size: 14px;
+      line-height: 1.4;
+      color: #333;
+      text-align: justify;
+      z-index: 4;
+    }
+    .marker.top .integrated-text {
+      bottom: 100%;
+      margin-bottom: 15px;
+    }
+    .marker.top .integrated-text::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: -15px;
+      transform: translateX(-50%);
+      border-left: 12px solid transparent;
+      border-right: 12px solid transparent;
+      border-top: 15px solid;
+    }
+    .marker.bottom .integrated-text {
+      top: 100%;
+      margin-top: 15px;
+    }
+    .marker.bottom .integrated-text::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: -15px;
+      transform: translateX(-50%);
+      border-left: 12px solid transparent;
+      border-right: 12px solid transparent;
+      border-bottom: 15px solid;
+    }
+    .marker-1 {
+      left: 10%;
+      top: -80px;
+    }
+    .marker-1 .integrated-text {
+      border-left-color: #e53935;
+    }
+    .marker-1 .integrated-text::after {
+      border-top-color: #e53935;
+    }
+    .marker-1 .marker-pin,
+    .marker-1 .marker-line {
+      background-color: #e53935;
+    }
+    .marker-1 .marker-line {
+      height: 80px;
+      top: 50px;
+    }
+    .marker-2 {
+      left: 30%;
+      top: 80px;
+    }
+    .marker-2 .integrated-text {
+      border-left-color: #f57c00;
+    }
+    .marker-2 .integrated-text::after {
+      border-bottom-color: #f57c00;
+    }
+    .marker-2 .marker-pin,
+    .marker-2 .marker-line {
+      background-color: #f57c00;
+    }
+    .marker-2 .marker-line {
+      height: 80px;
+      bottom: 50px;
+    }
+    .marker-3 {
+      left: 50%;
+      top: -80px;
+    }
+    .marker-3 .integrated-text {
+      border-left-color: #ffc107;
+    }
+    .marker-3 .integrated-text::after {
+      border-top-color: #ffc107;
+    }
+    .marker-3 .marker-pin,
+    .marker-3 .marker-line {
+      background-color: #ffc107;
+    }
+    .marker-3 .marker-line {
+      height: 80px;
+      top: 50px;
+    }
+    .marker-4 {
+      left: 70%;
+      top: 80px;
+    }
+    .marker-4 .integrated-text {
+      border-left-color: #1e88e5;
+    }
+    .marker-4 .integrated-text::after {
+      border-bottom-color: #1e88e5;
+    }
+    .marker-4 .marker-pin,
+    .marker-4 .marker-line {
+      background-color: #1e88e5;
+    }
+    .marker-4 .marker-line {
+      height: 80px;
+      bottom: 50px;
+    }
+    .marker-5 {
+      left: 90%;
+      top: -80px;
+    }
+    .marker-5 .integrated-text {
+      border-left-color: #43a047;
+    }
+    .marker-5 .integrated-text::after {
+      border-top-color: #43a047;
+    }
+    .marker-5 .marker-pin,
+    .marker-5 .marker-line {
+      background-color: #43a047;
+    }
+    .marker-5 .marker-line {
+      height: 80px;
+      top: 50px;
+    }
+    /* Roadmap: Contenedor de productividad con animación en las barras y sin el ícono industrial */
+    .productivity-improvement {
+      position: absolute;
+      left: 100%;
+      bottom: 10px;
+      margin-left: 20px;
+      z-index: 3;
+      display: flex;
+      align-items: flex-end;
+      gap: 8px;
+      height: 80px;
+    }
+    .productivity-container {
+      background: rgba(255,255,255,0.95);
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      border-left: 4px solid #43a047;
+    }
+    .productivity-graph {
+      display: flex;
+      align-items: flex-end;
+      justify-content: center; /* Barras centradas */
+      gap: 6px;
+      height: 60px;
+    }
+    .graph-bar {
+      width: 12px;
+      background: linear-gradient(to top, #388e3c, #43a047);
+      border-radius: 3px 3px 0 0;
+      animation: bar-grow 1.6s ease-out infinite alternate;
+    }
+    .bar-1 { animation-delay: 0.2s; }
+    .bar-2 { animation-delay: 0.4s; }
+    .bar-3 { animation-delay: 0.6s; }
+    @keyframes bar-grow {
+      0% { height: 0; }
+      100% { height: var(--target-height); }
+    }
+    .productivity-text {
+      text-align: center;
+      margin-top: 10px;
+      font-size: 14px;
+      color: #2c3e50;
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
@@ -364,12 +598,14 @@
       <li><a href="#contacto">Contacto</a></li>
     </ul>
   </nav>
+  <!-- SECCIÓN SOBRE MI -->
   <section id="sobre-mi">
     <h2>Sobre Mi</h2>
     <p>
       Soy Ingeniero Industrial, especializado en mejora continua, optimización de procesos y gestión estratégica de proyectos. Mi enfoque se centra en la implementación de metodologías de gestión para alcanzar la excelencia operativa, con el objetivo de maximizar la productividad. A lo largo de mi carrera, he tenido el privilegio de liderar proyectos de alto impacto en empresas de diversos sectores, tanto públicos como privados. Respaldado por una sólida formación académica, que incluye una Diplomatura Universitaria en Industrias 4.0, he desarrollado una perspectiva integral que fusiona conocimientos técnicos con habilidades estratégicas y de liderazgo.
     </p>
   </section>
+  <!-- SECCIÓN PROYECTOS DESTACADOS -->
   <section id="proyectos-destacados" style="margin-top: 20px;">
     <h2>Proyectos Destacados</h2>
     <div class="projects-grid">
@@ -445,39 +681,77 @@
       </div>
     </div>
   </section>
-  
-  <!-- Sección "Servicios" -->
-  <section id="servicios" style="margin-top: 20px;">
+  <!-- SECCIÓN SERVICIOS (con roadmap modificado: barras animadas y sin ícono) -->
+  <section id="servicios" style="margin-top: 20px; padding-bottom: 210px;">
     <h2>Servicios</h2>
-
-    <!-- Capacitaciones -->
     <h3 style="text-align: left; color: #1a5276; font-size: 1.8rem; margin-bottom: 15px;">Capacitaciones</h3>
     <p style="text-align: justify;">
       Brindo capacitaciones, tanto in company como online, centradas en metodologías y herramientas de gestión que permitirán a tu equipo optimizar procesos, aumentar la productividad y fomentar la innovación. Gracias a un enfoque práctico respaldado por la rigurosidad de la Ingeniería Industrial, tu organización adquirirá los conocimientos necesarios para implementar Lean Manufacturing, Six Sigma, 5S, Kaizen, Gestión de Proyectos, Análisis de Datos, así como técnicas de comunicación efectiva y estrategias de desarrollo de mandos medios, entre otras herramientas fundamentales. Con estas capacitaciones, tu equipo desarrollará una cultura de mejora continua y estará preparado para enfrentar los desafíos presentes y futuros.
     </p>
-
-    <!-- Asistencia Técnica -->
     <h3 style="text-align: left; color: #1a5276; font-size: 1.8rem; margin-bottom: 15px;">Asistencia Técnica</h3>
     <p style="text-align: justify;">
       Realizo Asistencias Técnicas para ayudar a las organizaciones a detectar y eliminar pérdidas en sus procesos internos, permitiéndoles reducir costos, optimizar recursos y mejorar la productividad. A través de un análisis detallado, identifico oportunidades de mejora y propongo soluciones basadas en principios de eficiencia operativa y gestión industrial. Para garantizar resultados sostenibles y facilitar la transferencia de conocimientos teóricos, las asistencias incluyen capacitaciones prácticas durante su implementación. De esta manera, el equipo adquiere las herramientas necesarias para mantener y reforzar las mejoras en el tiempo, impulsando una cultura de Mejora Continua.
       <br><br>
       A continuación, se presenta el roadmap del proceso de Asistencia Técnica:
     </p>
-
-    <!-- Roadmap con la nueva imagen -->
-    <div style="text-align: center; margin-top: 40px;">
-      <a href="https://ibb.co/938dykYX" target="_blank" style="text-decoration: none;">
-        <img src="https://i.ibb.co/pr0k4BXD/Road-Map-dise-o.jpg" alt="Road-Map-dise-o" border="0" style="max-width: 100%; height: auto;">
-      </a>
+    <div class="roadmap-container" style="margin-top: 260px;">
+      <div class="road"></div>
+      <!-- Contenedor de productividad con barras animadas y centradas; se eliminó el ícono -->
+      <div class="productivity-improvement">
+        <div class="productivity-container">
+          <div class="productivity-graph">
+            <div class="graph-bar bar-1" style="--target-height: 30px"></div>
+            <div class="graph-bar bar-2" style="--target-height: 45px"></div>
+            <div class="graph-bar bar-3" style="--target-height: 60px"></div>
+          </div>
+          <div class="productivity-text">Productividad</div>
+        </div>
+      </div>
+      <div class="marker marker-1 top">
+        <div class="integrated-text">
+          Diagnóstico empresarial orientado a evaluar la situación inicial de un sector específico o el desempeño global de la empresa, permitiendo un análisis estructurado de su funcionamiento.
+        </div>
+        <div class="marker-pin">1</div>
+        <div class="marker-line"></div>
+      </div>
+      <div class="marker marker-2 bottom">
+        <div class="integrated-text">
+          Identificación de oportunidades de mejora.
+        </div>
+        <div class="marker-pin">2</div>
+        <div class="marker-line"></div>
+      </div>
+      <div class="marker marker-3 top">
+        <div class="integrated-text">
+          Priorización, en colaboración con el cliente, de las oportunidades de mejora a abordar, estableciendo indicadores clave de desempeño y definiendo la metodología de implementación.
+        </div>
+        <div class="marker-pin">3</div>
+        <div class="marker-line"></div>
+      </div>
+      <div class="marker marker-4 bottom">
+        <div class="integrated-text">
+          Desarrollo de la Asistencia Técnica.
+        </div>
+        <div class="marker-pin">4</div>
+        <div class="marker-line"></div>
+      </div>
+      <div class="marker marker-5 top">
+        <div class="integrated-text">
+          Medición de resultados y entrega del informe.
+        </div>
+        <div class="marker-pin">5</div>
+        <div class="marker-line"></div>
+      </div>
     </div>
   </section>
-  
+  <!-- SECCIÓN DESCARGAS -->
   <section id="descargas">
     <h2>Descargas</h2>
     <ul>
       <li><a href="https://raw.githubusercontent.com/andriytrofymenko/AndriyTrofymenko.github.io/78e133196b88284e2f0072dfe6fecbe26ec64189/CV%20Andriy%20Trofymenko.pdf" download>Descargar CV</a></li>
     </ul>
   </section>
+  <!-- SECCIÓN CONTACTO -->
   <section id="contacto">
     <h2>Contacto</h2>
     <p>
@@ -486,8 +760,8 @@
       📍 Río Gallegos, Santa Cruz
     </p>
   </section>
-
-  <!-- Modales para las imágenes de Capacitaciones -->
+  <!-- Modales para las imágenes (Capacitaciones, Proyectos, Herramientas) -->
+  <!-- Modal Capacitaciones 1 -->
   <div class="modal fade" id="capacitacionesModal1" tabindex="-1" aria-labelledby="capacitacionesModalLabel1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
@@ -500,6 +774,7 @@
       </div>
     </div>
   </div>
+  <!-- Modal Capacitaciones 2 -->
   <div class="modal fade" id="capacitacionesModal2" tabindex="-1" aria-labelledby="capacitacionesModalLabel2" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
@@ -512,6 +787,7 @@
       </div>
     </div>
   </div>
+  <!-- Modal Capacitaciones 3 -->
   <div class="modal fade" id="capacitacionesModal3" tabindex="-1" aria-labelledby="capacitacionesModalLabel3" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
@@ -524,6 +800,7 @@
       </div>
     </div>
   </div>
+  <!-- Modal Capacitaciones 4 -->
   <div class="modal fade" id="capacitacionesModal4" tabindex="-1" aria-labelledby="capacitacionesModalLabel4" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
@@ -536,8 +813,7 @@
       </div>
     </div>
   </div>
-
-  <!-- Modales para las imágenes del Proyecto 3 (Dimensionamiento) -->
+  <!-- Modal Proyecto 3 (Dimensionamiento) -->
   <div class="modal fade" id="proyecto3Modal1" tabindex="-1" aria-labelledby="proyecto3ModalLabel1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
@@ -586,8 +862,7 @@
       </div>
     </div>
   </div>
-
-  <!-- Modales para las imágenes del Proyecto 4 (Diseño de Layout) -->
+  <!-- Modal Proyecto 4 (Diseño de Layout) -->
   <div class="modal fade" id="proyecto4Modal1" tabindex="-1" aria-labelledby="proyecto4ModalLabel1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
@@ -636,8 +911,7 @@
       </div>
     </div>
   </div>
-
-  <!-- Modales para las imágenes del contenedor Herramientas de Gestión -->
+  <!-- Modal Herramientas de Gestión -->
   <div class="modal fade" id="herramientasModal1" tabindex="-1" aria-labelledby="herramientasModalLabel1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
@@ -686,7 +960,6 @@
       </div>
     </div>
   </div>
-
   <script>
     particlesJS("particles-js", {
       particles: {
@@ -739,12 +1012,25 @@
       },
       retina_detect: true
     });
-
+    
     document.addEventListener("DOMContentLoaded", function() {
       const nav = document.querySelector("nav");
       setTimeout(() => {
         nav.classList.add("visible");
       }, 100);
+    });
+    
+    // Código para la interactividad del Roadmap
+    document.addEventListener('DOMContentLoaded', function() {
+      const markers = document.querySelectorAll('.marker');
+      markers.forEach(marker => {
+        marker.addEventListener('mouseenter', function() {
+          this.style.transform = 'translateX(-50%) scale(1.05)';
+        });
+        marker.addEventListener('mouseleave', function() {
+          this.style.transform = 'translateX(-50%) scale(1)';
+        });
+      });
     });
   </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
