@@ -203,7 +203,7 @@
       background-color: #f0f0f0;
       border: 1px solid #ccc;
       border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
       padding: 20px;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       max-width: 900px;
@@ -335,7 +335,7 @@
         grid-template-columns: 1fr;
       }
     }
-    /* Estilos del Roadmap */
+    /* Estilos del Roadmap (MEJORADOS) */
     .roadmap-container {
       width: 100%;
       max-width: 840px;
@@ -403,6 +403,7 @@
       color: #333;
       text-align: justify;
       z-index: 4;
+      transition: opacity 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
     }
     .marker.top .integrated-text {
       bottom: 100%;
@@ -556,7 +557,7 @@
       width: 12px;
       background: linear-gradient(to top, #388e3c, #43a047);
       border-radius: 3px 3px 0 0;
-      animation: bar-grow 1.6s ease-out infinite alternate;
+      animation: bar-grow 1.6s ease-in-out infinite alternate;
     }
     .bar-1 { animation-delay: 0.2s; }
     .bar-2 { animation-delay: 0.4s; }
@@ -571,6 +572,21 @@
       font-size: 14px;
       color: #2c3e50;
       font-weight: bold;
+    }
+    
+    /* Nuevos contenedores para Capacitaciones y Asistencia Técnica */
+    .servicios-container {
+      width: 99,5%;
+      background-color: #f0f0f0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      padding: 20px;
+      margin: 20px auto;
+    }
+    /* Para agrandar el contenedor de Asistencia Técnica */
+    .servicios-container.asistencia {
+      min-height: 710px;
     }
   </style>
 </head>
@@ -597,7 +613,13 @@
           <li><a href="#proyecto-herramientas">Herramientas de Gestión</a></li>
         </ul>
       </li>
-      <li><a href="#servicios">Servicios</a></li>
+      <li class="dropdown">
+        <a href="#servicios">Servicios</a>
+        <ul class="dropdown-content">
+          <li><a href="#servicio-capacitaciones">Capacitaciones</a></li>
+          <li><a href="#servicio-asistencia">Asistencia Técnica</a></li>
+        </ul>
+      </li>
       <li><a href="#descargas">Descargas</a></li>
       <li><a href="#contacto">Contacto</a></li>
     </ul>
@@ -685,66 +707,72 @@
       </div>
     </div>
   </section>
-  <!-- SECCIÓN SERVICIOS (con roadmap modificado: barras animadas y sin ícono) -->
-  <section id="servicios" style="margin-top: 20px; padding-bottom: 210px;">
+  <!-- SECCIÓN SERVICIOS con contenedores para Capacitaciones y Asistencia Técnica -->
+  <!-- Se conserva el tamaño total original de la sección (padding-bottom: 210px) -->
+  <section id="servicios" style="margin-top: 20px; padding-bottom: 05px;">
     <h2>Servicios</h2>
-    <h3 style="text-align: left; color: #1a5276; font-size: 1.8rem; margin-bottom: 15px;">Capacitaciones</h3>
-    <p style="text-align: justify;">
-      Brindo capacitaciones, tanto in company como online, centradas en metodologías y herramientas de gestión que permitirán a tu equipo optimizar procesos, aumentar la productividad y fomentar la innovación. Gracias a un enfoque práctico respaldado por la rigurosidad de la Ingeniería Industrial, tu organización adquirirá los conocimientos necesarios para implementar Lean Manufacturing, Six Sigma, 5S, Kaizen, Gestión de Proyectos, Análisis de Datos, así como técnicas de comunicación efectiva y estrategias de desarrollo de mandos medios, entre otras herramientas fundamentales. Con estas capacitaciones, tu equipo desarrollará una cultura de mejora continua y estará preparado para enfrentar los desafíos presentes y futuros.
-    </p>
-    <h3 style="text-align: left; color: #1a5276; font-size: 1.8rem; margin-bottom: 15px;">Asistencia Técnica</h3>
-    <p style="text-align: justify;">
-      Realizo Asistencias Técnicas para ayudar a las organizaciones a detectar y eliminar pérdidas en sus procesos internos, permitiéndoles reducir costos, optimizar recursos y mejorar la productividad. A través de un análisis detallado, se identifican oportunidades de mejora y se proponen soluciones basadas en principios de eficiencia operativa y gestión industrial. Para garantizar resultados sostenibles y facilitar la transferencia de conocimientos teóricos, las asistencias incluyen capacitaciones prácticas durante su implementación. De esta manera, el equipo adquiere las herramientas necesarias para mantener y reforzar las mejoras en el tiempo, impulsando una cultura de mejora continua.
-      <br><br>
-      A continuación, se presenta el roadmap del proceso de Asistencia Técnica:
-    </p>
-    <div class="roadmap-container" style="margin-top: 260px;">
-      <div class="road"></div>
-      <!-- Contenedor de productividad con barras animadas y centradas; se eliminó el ícono -->
-      <div class="productivity-improvement">
-        <div class="productivity-container">
-          <div class="productivity-graph">
-            <div class="graph-bar bar-1" style="--target-height: 30px"></div>
-            <div class="graph-bar bar-2" style="--target-height: 45px"></div>
-            <div class="graph-bar bar-3" style="--target-height: 60px"></div>
+    <div class="servicios-container" id="servicio-capacitaciones">
+      <h3 style="text-align: left; font-size: 1.8rem; margin-bottom: 15px; color: #1a5276;">Capacitaciones</h3>
+      <p style="text-align: justify;">
+        Brindo capacitaciones, tanto in company como online, centradas en metodologías y herramientas de gestión que permitirán a tu equipo optimizar procesos, aumentar la productividad y fomentar la innovación. Gracias a un enfoque práctico respaldado por la rigurosidad de la Ingeniería Industrial, tu organización adquirirá los conocimientos necesarios para implementar Lean Manufacturing, Six Sigma, 5S, Kaizen, Gestión de Proyectos, Análisis de Datos, así como técnicas de comunicación efectiva y estrategias de desarrollo de mandos medios, entre otras herramientas fundamentales. Con estas capacitaciones, tu equipo desarrollará una cultura de mejora continua y estará preparado para enfrentar los desafíos presentes y futuros.
+      </p>
+    </div>
+    <div class="servicios-container asistencia" id="servicio-asistencia">
+      <h3 style="text-align: left; font-size: 1.8rem; margin-bottom: 15px; color: #1a5276;">Asistencia Técnica</h3>
+      <p style="text-align: justify;">
+        Realizo Asistencias Técnicas para ayudar a las organizaciones a detectar y eliminar pérdidas en sus procesos internos, permitiéndoles reducir costos, optimizar recursos y mejorar la productividad. A través de un análisis detallado, se identifican oportunidades de mejora y se proponen soluciones basadas en principios de eficiencia operativa y gestión industrial. Para garantizar resultados sostenibles y facilitar la transferencia de conocimientos teóricos, las asistencias incluyen capacitaciones prácticas durante su implementación. De esta manera, el equipo adquiere las herramientas necesarias para mantener y reforzar las mejoras en el tiempo, impulsando una cultura de mejora continua.
+        <br><br>
+        A continuación, se presenta el roadmap del proceso de Asistencia Técnica:
+      </p>
+      <div class="roadmap-container" style="margin-top: 260px;">
+        <div class="road"></div>
+        <!-- Contenedor de productividad con barras animadas y sin el ícono industrial -->
+        <div class="productivity-improvement">
+          <div class="productivity-container">
+            <div class="productivity-graph">
+              <div class="graph-bar bar-1" style="--target-height: 30px"></div>
+              <div class="graph-bar bar-2" style="--target-height: 45px"></div>
+              <div class="graph-bar bar-3" style="--target-height: 60px"></div>
+            </div>
+            <div class="productivity-text">Productividad</div>
           </div>
-          <div class="productivity-text">Productividad</div>
+          <div class="industrial-icon"></div>
         </div>
-      </div>
-      <div class="marker marker-1 top">
-        <div class="integrated-text">
-          Diagnóstico empresarial orientado a evaluar la situación inicial de un sector específico o el desempeño global de la empresa, permitiendo un análisis estructurado de su funcionamiento.
+        <div class="marker marker-1 top">
+          <div class="integrated-text">
+            Diagnóstico empresarial orientado a evaluar la situación inicial de un sector específico o el desempeño global de la empresa, permitiendo un análisis estructurado de su funcionamiento.
+          </div>
+          <div class="marker-pin">1</div>
+          <div class="marker-line"></div>
         </div>
-        <div class="marker-pin">1</div>
-        <div class="marker-line"></div>
-      </div>
-      <div class="marker marker-2 bottom">
-        <div class="integrated-text">
-          Identificación de oportunidades de mejora.
+        <div class="marker marker-2 bottom">
+          <div class="integrated-text">
+            Identificación de oportunidades de mejora.
+          </div>
+          <div class="marker-pin">2</div>
+          <div class="marker-line"></div>
         </div>
-        <div class="marker-pin">2</div>
-        <div class="marker-line"></div>
-      </div>
-      <div class="marker marker-3 top">
-        <div class="integrated-text">
-          Priorización, en colaboración con el cliente, de las oportunidades de mejora a abordar, estableciendo indicadores clave de desempeño y definiendo la metodología de implementación.
+        <div class="marker marker-3 top">
+          <div class="integrated-text">
+            Priorización, en colaboración con el cliente, de las oportunidades de mejora a abordar, estableciendo indicadores clave de desempeño y definiendo la metodología de implementación.
+          </div>
+          <div class="marker-pin">3</div>
+          <div class="marker-line"></div>
         </div>
-        <div class="marker-pin">3</div>
-        <div class="marker-line"></div>
-      </div>
-      <div class="marker marker-4 bottom">
-        <div class="integrated-text">
-          Desarrollo de la Asistencia Técnica.
+        <div class="marker marker-4 bottom">
+          <div class="integrated-text">
+            Desarrollo de la Asistencia Técnica.
+          </div>
+          <div class="marker-pin">4</div>
+          <div class="marker-line"></div>
         </div>
-        <div class="marker-pin">4</div>
-        <div class="marker-line"></div>
-      </div>
-      <div class="marker marker-5 top">
-        <div class="integrated-text">
-          Medición de resultados y entrega del informe.
+        <div class="marker marker-5 top">
+          <div class="integrated-text">
+            Medición de resultados y entrega del informe.
+          </div>
+          <div class="marker-pin">5</div>
+          <div class="marker-line"></div>
         </div>
-        <div class="marker-pin">5</div>
-        <div class="marker-line"></div>
       </div>
     </div>
   </section>
@@ -1024,7 +1052,7 @@
       }, 100);
     });
     
-    // Código para la interactividad del Roadmap
+    // Interactividad del Roadmap: Usamos transform translateX para evitar que el texto se vuelva borroso
     document.addEventListener('DOMContentLoaded', function() {
       const markers = document.querySelectorAll('.marker');
       markers.forEach(marker => {
