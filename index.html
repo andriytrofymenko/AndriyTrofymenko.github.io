@@ -62,13 +62,6 @@
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       padding: 10px 0;
       z-index: 1000;
-      opacity: 0;
-      transform: translateY(-100%);
-      transition: opacity 0.5s ease, transform 0.5s ease;
-    }
-    nav.visible {
-      opacity: 1;
-      transform: translateY(0);
     }
     nav ul {
       list-style: none;
@@ -574,16 +567,20 @@
       font-weight: bold;
     }
     
-    /* Aquí está el degradado anterior que puedes modificar */
+    /* Cambios solicitados: degradado mayor en los contenedores de servicios y efecto hover sutil */
     .servicios-container {
       width: 99.5%;
-      background: linear-gradient(135deg, #ffffff, #dcdcdc);
+      background: linear-gradient(135deg, #ffffff, #e0e0e0);
       border: 1px solid #ccc;
       border-radius: 8px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
       padding: 20px;
       margin: 20px auto;
-      transition: background 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .servicios-container:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
     }
     /* Para agrandar el contenedor de Asistencia Técnica */
     .servicios-container.asistencia {
@@ -685,8 +682,7 @@
         <h3>Ampliación de Áreas Clínicas para Mejora de Productividad y Ergonomía</h3>
         <p style="text-align: justify; margin-left: 20px; margin-right: 20px;">
           Dirigí la ampliación y optimización del área de endoscopia de una clínica, enfocándome en el diseño e implementación de un nuevo sistema de giro camas y la reorganización del layout para mejorar la eficiencia operativa. Realicé un análisis detallado del flujo de trabajo actual, desarrollé un nuevo diseño que optimiza la distribución de recursos y llevé a cabo simulaciones para validar su eficacia.
-        </p>
-        <p style="text-align: justify; margin-left: 20px; margin-right: 20px;">
+          <br><br>
           <strong>Mejoras logradas:</strong><br>
           <strong>&bull;</strong> Aumento del 69% en pacientes diarios: de 13 a 22 pacientes.<br>
           <strong>&bull;</strong> Reducción del 44% en tiempo promedio de permanencia: de 5:39hs a 3:10hs.<br>
@@ -1047,26 +1043,6 @@
         }
       },
       retina_detect: true
-    });
-    
-    document.addEventListener("DOMContentLoaded", function() {
-      const nav = document.querySelector("nav");
-      setTimeout(() => {
-        nav.classList.add("visible");
-      }, 100);
-    });
-    
-    // Interactividad del Roadmap: Usamos transform translateX para evitar que el texto se vuelva borroso
-    document.addEventListener('DOMContentLoaded', function() {
-      const markers = document.querySelectorAll('.marker');
-      markers.forEach(marker => {
-        marker.addEventListener('mouseenter', function() {
-          this.style.transform = 'translateX(-50%) scale(1.05)';
-        });
-        marker.addEventListener('mouseleave', function() {
-          this.style.transform = 'translateX(-50%) scale(1)';
-        });
-      });
     });
   </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
