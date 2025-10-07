@@ -3,36 +3,63 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Andriy Trofymenko - Ingeniero Industrial especializado en mejora continua, optimización de procesos y gestión estratégica. Servicios de capacitación y asistencia técnica.">
+  <meta name="keywords" content="Ingeniero Industrial, Lean Manufacturing, Six Sigma, Mejora Continua, Optimización de Procesos, Capacitaciones">
+  <meta name="author" content="Andriy Trofymenko">
+  
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Andriy Trofymenko - Ingeniero Industrial">
+  <meta property="og:description" content="Especialista en mejora continua y optimización de procesos industriales">
+  <meta property="og:image" content="https://i.ibb.co/SX0xkz9W/Sin-t-tulo.png">
+  
   <title>Andriy Trofymenko - Ingeniero Industrial</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  
   <style>
-    /* Estilos generales */
-    body {
+    :root {
+      --primary: #2c3e50;
+      --primary-light: #34495e;
+      --secondary: #0073e6;
+      --accent: #005bb5;
+      --text-dark: #333;
+      --text-light: #666;
+      --bg-gray: #e0e0e0;
+      --bg-light: #f0f0f0;
+      --bg-white: #ffffff;
+      --border: #ccc;
+      --shadow-sm: 0 2px 4px rgba(0,0,0,0.1);
+      --shadow-md: 0 4px 8px rgba(0,0,0,0.1);
+      --shadow-lg: 0 8px 16px rgba(0,0,0,0.2);
+    }
+    
+    * {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    body {
       font-family: 'Roboto', sans-serif;
-      color: #333;
-      background-color: #e0e0e0;
+      color: var(--text-dark);
+      line-height: 1.6;
+      background: var(--bg-gray);
     }
-    #particles-js {
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      background: transparent;
-      z-index: -1;
-    }
+    
+    /* Header */
     header {
-      position: relative;
-      z-index: 1;
       background: linear-gradient(135deg, rgba(96, 96, 96, 0.1), rgba(128, 128, 128, 0.05));
-      padding: 20px 0;
+      padding: 40px 20px;
       text-align: center;
       color: white;
       border-radius: 0 0 20px 20px;
-      margin-bottom: 0;
     }
+    
     header img {
       width: 180px;
       height: 180px;
@@ -40,41 +67,51 @@
       border-radius: 50%;
       border: 4px solid white;
       margin-bottom: 10px;
+      transition: transform 0.3s ease;
     }
+    
+    header img:hover {
+      transform: scale(1.05);
+    }
+    
     header h1 {
       font-size: 3rem;
       font-weight: 700;
       margin-bottom: 5px;
-      color: #2c3e50;
+      color: var(--primary);
     }
+    
     header p {
       font-size: 1.5rem;
       margin-bottom: 5px;
-      color: #34495e;
+      color: var(--primary-light);
     }
+    
+    /* Navigation */
     nav {
       position: sticky;
       top: 0;
-      left: 0;
-      width: 100%;
-      background-color: rgba(44, 62, 80, 0.7);
+      background: rgba(44, 62, 80, 0.95);
       backdrop-filter: blur(10px);
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      padding: 10px 0;
+      box-shadow: var(--shadow-sm);
+      padding: 15px 0;
       z-index: 1000;
     }
+    
     nav ul {
       list-style: none;
-      margin: 0;
-      padding: 0;
       display: flex;
       justify-content: center;
-      gap: 20px;
+      gap: 15px;
+      flex-wrap: wrap;
+      padding: 0;
+      margin: 0;
     }
+    
     nav ul li {
       display: inline;
-      position: relative;
     }
+    
     nav ul li a {
       text-decoration: none;
       color: #fff;
@@ -82,978 +119,582 @@
       font-size: 1rem;
       padding: 10px 20px;
       border-radius: 5px;
-      transition: background-color 0.3s ease, transform 0.3s ease;
+      transition: all 0.3s ease;
+      display: inline-block;
     }
+    
     nav ul li a:hover {
-      background-color: rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.2);
       transform: translateY(-2px);
     }
-    /* Menú desplegable */
-    nav ul li.dropdown ul.dropdown-content {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      background-color: rgba(44, 62, 80, 0.9);
-      min-width: 250px;
-      z-index: 1000;
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      border-radius: 0 0 5px 5px;
-    }
-    nav ul li.dropdown:hover ul.dropdown-content {
-      display: block;
-    }
-    nav ul li.dropdown ul.dropdown-content li {
-      display: block;
-    }
-    nav ul li.dropdown ul.dropdown-content li a {
-      padding: 10px 20px;
-      font-size: 0.9rem;
-      white-space: nowrap;
-      display: block;
-    }
+    
+    /* Sections */
     section {
-      position: relative;
-      z-index: 1;
-      background-color: rgba(255, 255, 255, 0.85);
+      background: rgba(255, 255, 255, 0.85);
       border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      box-shadow: var(--shadow-md);
       margin: 20px auto;
-      padding: 20px;
-      width: 80%;
-      max-width: 1800px;
+      padding: 40px;
+      width: 90%;
+      max-width: 1200px;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    section.active {
+    
+    section:hover {
       transform: translateY(-5px);
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      box-shadow: var(--shadow-lg);
     }
+    
     h2 {
-      color: #2c3e50;
+      color: var(--primary);
       font-size: 2.5rem;
       text-align: center;
       position: relative;
       display: inline-block;
-      margin: 20px 0;
+      width: 100%;
+      margin: 0 0 30px 0;
       padding-bottom: 10px;
     }
+    
     h2::after {
       content: '';
       position: absolute;
       width: 50%;
       height: 3px;
-      background: #0073e6;
+      background: var(--secondary);
       bottom: 0;
       left: 50%;
       transform: translateX(-50%) scaleX(0);
       transform-origin: center;
       transition: transform 0.3s ease;
     }
+    
     h2:hover::after {
       transform: translateX(-50%) scaleX(1);
     }
-    .project-card h3 {
-      color: #1a5276;
-      font-size: 1.8rem;
-      margin-bottom: 15px;
-      text-align: center;
-    }
+    
     p {
       font-size: 1rem;
-      color: #333;
+      color: var(--text-dark);
       line-height: 1.6;
       margin-bottom: 1rem;
     }
-    a {
-      color: #0073e6;
-      text-decoration: none;
-      transition: color 0.3s ease;
+    
+    /* About */
+    #sobre-mi p {
+      text-align: justify;
+      font-size: 1.05rem;
+      line-height: 1.8;
     }
-    a:hover {
-      color: #005bb5;
+    
+    /* Projects Grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+      gap: 30px;
+      margin-top: 30px;
     }
-    .project {
-      margin-bottom: 20px;
+    
+    .project-card {
+      background: var(--bg-light);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      box-shadow: var(--shadow-md);
+      padding: 0;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      overflow: hidden;
     }
-    .project img {
-      max-width: 100%;
-      height: auto;
+    
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .project-card h3 {
+      color: #1a5276;
+      font-size: 1.8rem;
+      margin-bottom: 0;
+      text-align: center;
+      padding: 25px 20px;
+      background: linear-gradient(135deg, #ffffff, #f5f5f5);
+      border-bottom: 2px solid var(--border);
+    }
+    
+    .project-card p {
+      padding: 20px 25px;
+      text-align: justify;
+      color: var(--text-dark);
+    }
+    
+    .project-card ul {
+      padding: 0 25px 20px 50px;
+      margin: 0;
+    }
+    
+    .project-card ul li {
+      margin-bottom: 10px;
+      color: var(--text-dark);
+    }
+    
+    .project-card iframe {
+      width: 100%;
+      height: 315px;
+      border: none;
+      display: block;
+    }
+    
+    .project-images {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+      padding: 20px;
+    }
+    
+    .project-images img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
       border-radius: 8px;
       cursor: pointer;
-    }
-    .projects-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
-      margin-top: 20px;
-    }
-    /* Contenedores de proyectos */
-    .project-card {
-      flex: 1 1 calc(50% - 20px);
-      background-color: #f0f0f0;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      padding: 20px;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .project-images img:hover {
+      transform: scale(1.05);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    /* Services */
+    .service-card {
+      background: linear-gradient(135deg, #ffffff, #e0e0e0);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      box-shadow: var(--shadow-md);
+      padding: 30px;
+      margin: 20px 0;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .service-card h3 {
+      color: #1a5276;
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+    }
+    
+    .service-card p {
+      text-align: justify;
+      line-height: 1.7;
+    }
+    
+    /* Roadmap */
+    .roadmap {
+      margin: 40px 0;
+      padding: 30px;
+      background: linear-gradient(135deg, #f5f5f5, #e8e8e8);
+      border-radius: 8px;
+    }
+    
+    .roadmap h4 {
+      text-align: center;
+      color: var(--primary);
+      font-size: 1.5rem;
+      margin-bottom: 30px;
+    }
+    
+    .roadmap-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
       max-width: 900px;
       margin: 0 auto;
     }
-    .project-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    }
-    .project-card img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 8px;
-      margin-bottom: 15px;
-      cursor: pointer;
-    }
-    .capacitaciones-images {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 15px;
-    }
-    .capacitaciones-images img {
-      width: 100%;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-    /* Proyectos Dimensionamiento y Layout */
-    .dimensionamiento .capacitaciones-images img,
-    .analisis-layout .capacitaciones-images img {
-      height: 250px;
-      object-fit: cover;
-    }
-    /* Herramientas de Gestión */
-    .herramientas-images {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 15px;
-    }
-    .herramientas-images img {
-      width: 100%;
-      height: 250px;
-      object-fit: cover;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-    /* Justificar texto */
-    .dimensionamiento p,
-    .analisis-layout p,
-    #sobre-mi p {
-      text-align: justify;
-      margin-left: 20px;
-      margin-right: 20px;
-    }
-    /* Video centrado en Mapeo */
-    .project-card.mapeo iframe {
-      display: block;
-      margin: 40px auto 0 auto;
-    }
-    .modal-content {
-      background-color: transparent;
-      border: none;
-      box-shadow: none;
-    }
-    .modal-body {
-      padding: 0;
-      margin: 0;
+    
+    .roadmap-step {
       display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
+      gap: 20px;
+      align-items: flex-start;
     }
-    .modal-body img {
-      width: auto;
-      height: auto;
+    
+    .step-number {
+      min-width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, #e53935, #d32f2f);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.3rem;
+      box-shadow: var(--shadow-md);
+      flex-shrink: 0;
+    }
+    
+    .roadmap-step:nth-child(2) .step-number {
+      background: linear-gradient(135deg, #f57c00, #e65100);
+    }
+    
+    .roadmap-step:nth-child(3) .step-number {
+      background: linear-gradient(135deg, #ffc107, #ffa000);
+    }
+    
+    .roadmap-step:nth-child(4) .step-number {
+      background: linear-gradient(135deg, #1e88e5, #1565c0);
+    }
+    
+    .roadmap-step:nth-child(5) .step-number {
+      background: linear-gradient(135deg, #43a047, #2e7d32);
+    }
+    
+    .step-content {
+      flex: 1;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: var(--shadow-sm);
+      border-left: 3px solid;
+    }
+    
+    .roadmap-step:nth-child(1) .step-content {
+      border-left-color: #e53935;
+    }
+    
+    .roadmap-step:nth-child(2) .step-content {
+      border-left-color: #f57c00;
+    }
+    
+    .roadmap-step:nth-child(3) .step-content {
+      border-left-color: #ffc107;
+    }
+    
+    .roadmap-step:nth-child(4) .step-content {
+      border-left-color: #1e88e5;
+    }
+    
+    .roadmap-step:nth-child(5) .step-content {
+      border-left-color: #43a047;
+    }
+    
+    .step-content p {
+      margin: 0;
+      color: var(--text-dark);
+      text-align: justify;
+    }
+    
+    /* Downloads */
+    #descargas ul {
+      list-style: none;
+      text-align: center;
+      padding: 0;
+    }
+    
+    #descargas a {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--secondary), var(--accent));
+      color: white;
+      padding: 15px 40px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow-md);
+    }
+    
+    #descargas a:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    /* Contact */
+    #contacto {
+      text-align: center;
+    }
+    
+    #contacto p {
+      font-size: 1.1rem;
+      line-height: 2;
+    }
+    
+    #contacto svg {
+      vertical-align: middle;
+      margin-right: 5px;
+    }
+    
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.9);
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .modal.active {
+      display: flex;
+    }
+    
+    .modal-content {
+      position: relative;
       max-width: 95vw;
       max-height: 95vh;
-      object-fit: contain;
-      border-radius: 0;
     }
+    
+    .modal-content img {
+      max-width: 100%;
+      max-height: 95vh;
+      object-fit: contain;
+    }
+    
     .modal-close {
       position: absolute;
-      top: -10px;
-      right: -10px;
-      background-color: rgba(255, 255, 255, 0.8);
-      color: #000;
+      top: -15px;
+      right: -15px;
+      background: white;
       border: none;
+      width: 40px;
+      height: 40px;
       border-radius: 50%;
-      width: 30px;
-      height: 30px;
-      font-size: 16px;
-      line-height: 1;
       cursor: pointer;
-      z-index: 3;
+      font-size: 20px;
+      font-weight: bold;
+      box-shadow: var(--shadow-lg);
+      transition: all 0.3s ease;
     }
+    
+    .modal-close:hover {
+      transform: scale(1.1);
+      background: var(--secondary);
+      color: white;
+    }
+    
+    /* Responsive */
     @media (max-width: 768px) {
-      nav ul {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-      }
-      header {
-        padding-top: 40px;
-      }
       header h1 {
-        font-size: 2.5rem;
+        font-size: 2rem;
       }
+      
       header p {
         font-size: 1.2rem;
       }
+      
       header img {
         width: 120px;
         height: 120px;
       }
-      section {
-        padding: 15px;
-        margin: 10px auto;
-        width: 80%;
-        border-radius: 0;
+      
+      nav ul {
+        flex-direction: column;
+        gap: 5px;
       }
-      iframe {
+      
+      nav ul li a {
+        display: block;
         width: 100%;
-        height: 200px;
+        text-align: center;
       }
-      .project-card {
-        flex: 1 1 100%;
+      
+      section {
+        width: 95%;
+        padding: 20px;
       }
-      .capacitaciones-images,
-      .herramientas-images {
+      
+      h2 {
+        font-size: 2rem;
+      }
+      
+      .projects-grid {
         grid-template-columns: 1fr;
       }
-    }
-    /* Estilos del Roadmap (MEJORADOS) */
-    .roadmap-container {
-      width: 100%;
-      max-width: 840px;
-      position: relative;
-      margin: 0 auto;
-    }
-    .road {
-      height: 50px;
-      background-color: #666;
-      position: relative;
-      border-radius: 5px;
-    }
-    .road::before {
-      content: "";
-      position: absolute;
-      top: 50%;
-      left: 5%;
-      right: 5%;
-      height: 6px;
-      background: repeating-linear-gradient(90deg, #fff, #fff 40px, transparent 40px, transparent 80px);
-      transform: translateY(-50%);
-    }
-    .marker {
-      position: absolute;
-      transform: translateX(-50%);
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-    .marker:hover {
-      transform: translateX(-50%) scale(1.05);
-    }
-    .marker-pin {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: white;
-      font-weight: bold;
-      font-size: 18px;
-      position: relative;
-      z-index: 2;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    }
-    .marker-line {
-      position: absolute;
-      left: 50%;
-      width: 2px;
-      transform: translateX(-50%);
-      z-index: 1;
-    }
-    .integrated-text {
-      position: absolute;
-      width: 280px;
-      left: 50%;
-      transform: translateX(-50%);
-      background-color: white;
-      padding: 15px;
-      border-radius: 8px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      border-left: 3px solid;
-      font-size: 14px;
-      line-height: 1.4;
-      color: #333;
-      text-align: justify;
-      z-index: 4;
-      transition: opacity 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
-    }
-    .marker.top .integrated-text {
-      bottom: 100%;
-      margin-bottom: 15px;
-    }
-    .marker.top .integrated-text::after {
-      content: "";
-      position: absolute;
-      left: 50%;
-      bottom: -15px;
-      transform: translateX(-50%);
-      border-left: 12px solid transparent;
-      border-right: 12px solid transparent;
-      border-top: 15px solid;
-    }
-    .marker.bottom .integrated-text {
-      top: 100%;
-      margin-top: 15px;
-    }
-    .marker.bottom .integrated-text::after {
-      content: "";
-      position: absolute;
-      left: 50%;
-      top: -15px;
-      transform: translateX(-50%);
-      border-left: 12px solid transparent;
-      border-right: 12px solid transparent;
-      border-bottom: 15px solid;
-    }
-    .marker-1 {
-      left: 10%;
-      top: -80px;
-    }
-    .marker-1 .integrated-text {
-      border-left-color: #e53935;
-      width: 280px; /* Ajusta este valor a tu gusto */
-    }
-    .marker-1 .integrated-text::after {
-      border-top-color: #e53935;
-    }
-    .marker-1 .marker-pin,
-    .marker-1 .marker-line {
-      background-color: #e53935;
-    }
-    .marker-1 .marker-line {
-      height: 80px;
-      top: 50px;
-    }
-    .marker-2 {
-      left: 30%;
-      top: 80px;
-    }
-    .marker-2 .integrated-text {
-      border-left-color: #f57c00;
-      width: 300px;
-    }
-    .marker-2 .integrated-text::after {
-      border-bottom-color: #f57c00;
-    }
-    .marker-2 .marker-pin,
-    .marker-2 .marker-line {
-      background-color: #f57c00;
-    }
-    .marker-2 .marker-line {
-      height: 80px;
-      bottom: 50px;
-    }
-    .marker-3 {
-      left: 50%;
-      top: -80px;
-    }
-    .marker-3 .integrated-text {
-      border-left-color: #ffc107;
-    }
-    .marker-3 .integrated-text::after {
-      border-top-color: #ffc107;
-    }
-    .marker-3 .marker-pin,
-    .marker-3 .marker-line {
-      background-color: #ffc107;
-    }
-    .marker-3 .marker-line {
-      height: 80px;
-      top: 50px;
-    }
-    .marker-4 {
-      left: 70%;
-      top: 80px;
-    }
-    .marker-4 .integrated-text {
-      border-left-color: #1e88e5;
-      width: 255px; /* Ajusta este valor a tu gusto */
-    }
-    .marker-4 .integrated-text::after {
-      border-bottom-color: #1e88e5;
-    }
-    .marker-4 .marker-pin,
-    .marker-4 .marker-line {
-      background-color: #1e88e5;
-    }
-    .marker-4 .marker-line {
-      height: 80px;
-      bottom: 50px;
-    }
-    .marker-5 {
-      left: 90%;
-      top: -80px;
-    }
-    .marker-5 .integrated-text {
-      border-left-color: #43a047;
-      width: 320px; /* Ajusta este valor a tu gusto */
-    }
-    .marker-5 .integrated-text::after {
-      border-top-color: #43a047;
-    }
-    .marker-5 .marker-pin,
-    .marker-5 .marker-line {
-      background-color: #43a047;
-    }
-    .marker-5 .marker-line {
-      height: 80px;
-      top: 50px;
-    }
-    /* Roadmap: Contenedor de productividad con animación en las barras y sin el ícono industrial */
-    .productivity-improvement {
-      position: absolute;
-      left: 100%;
-      bottom: -30px;
-      margin-left: 20px;
-      z-index: 3;
-      display: flex;
-      align-items: flex-end;
-      gap: 8px;
-      height: 80px;
-    }
-    .productivity-container {
-      background: rgba(255,255,255,0.95);
-      padding: 15px;
-      border-radius: 8px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      border-left: 4px solid #43a047;
-    }
-    .productivity-graph {
-      display: flex;
-      align-items: flex-end;
-      justify-content: center; /* Barras centradas */
-      gap: 6px;
-      height: 60px;
-    }
-    .graph-bar {
-      width: 12px;
-      background: linear-gradient(to top, #388e3c, #43a047);
-      border-radius: 3px 3px 0 0;
-      animation: bar-grow 1.6s ease-in-out infinite alternate;
-    }
-    .bar-1 { animation-delay: 0.2s; }
-    .bar-2 { animation-delay: 0.4s; }
-    .bar-3 { animation-delay: 0.6s; }
-    @keyframes bar-grow {
-      0% { height: 0; }
-      100% { height: var(--target-height); }
-    }
-    .productivity-text {
-      text-align: center;
-      margin-top: 10px;
-      font-size: 14px;
-      color: #2c3e50;
-      font-weight: bold;
-    }
-    
-    /* Cambios solicitados: degradado mayor en los contenedores de servicios y efecto hover sutil */
-    .servicios-container {
-      width: 99.5%;
-      background: linear-gradient(135deg, #ffffff, #e0e0e0);
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      padding: 20px;
-      margin: 20px auto;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .servicios-container:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-    }
-    /* Para agrandar el contenedor de Asistencia Técnica */
-    .servicios-container.asistencia {
-      min-height: 710px;
+      
+      .project-images {
+        grid-template-columns: 1fr;
+      }
+      
+      .roadmap-step {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .step-number {
+        margin-bottom: 10px;
+      }
     }
   </style>
 </head>
 <body>
-  <div id="particles-js"></div>
+  <!-- Header -->
   <header id="inicio">
-    <div class="container">
-      <img src="https://i.ibb.co/SX0xkz9W/Sin-t-tulo.png" alt="Sin-t-tulo">
-      <h1>Andriy Trofymenko</h1>
-      <p style="font-size: 1.95rem;">INGENIERO INDUSTRIAL</p>
-    </div>
+    <img src="https://i.ibb.co/SX0xkz9W/Sin-t-tulo.png" alt="Andriy Trofymenko">
+    <h1>Andriy Trofymenko</h1>
+    <p style="font-size: 1.95rem;">INGENIERO INDUSTRIAL</p>
   </header>
+
+  <!-- Navigation -->
   <nav>
     <ul>
       <li><a href="#inicio">Inicio</a></li>
-      <li class="dropdown">
-        <a href="#proyectos-destacados">Proyectos Destacados</a>
-        <ul class="dropdown-content">
-          <li><a href="#proyecto-mapeo">Mapeo de la Cadena de Valor del Cáñamo Industrial</a></li>
-          <li><a href="#proyecto-capacitaciones">Capacitaciones</a></li>
-          <li><a href="#proyecto-dimensionamiento">Dimensionamiento de Planta para Bolsas de Polietileno</a></li>
-          <li><a href="#proyecto-layout">Diseño de Layout</a></li>
-          <li><a href="#proyecto-clinicas">Ampliación de Áreas Clínicas para Mejora de Productividad y Ergonomía</a></li>
-          <li><a href="#proyecto-herramientas">Herramientas de Gestión</a></li>
-        </ul>
-      </li>
-      <li class="dropdown">
-        <a href="#servicios">Servicios</a>
-        <ul class="dropdown-content">
-          <li><a href="#servicio-capacitaciones">Capacitaciones</a></li>
-          <li><a href="#servicio-asistencia">Asistencia Técnica</a></li>
-        </ul>
-      </li>
+      <li><a href="#sobre-mi">Sobre mí</a></li>
+      <li><a href="#proyectos">Proyectos</a></li>
+      <li><a href="#servicios">Servicios</a></li>
       <li><a href="#descargas">Descargas</a></li>
       <li><a href="#contacto">Contacto</a></li>
     </ul>
   </nav>
-  <!-- SECCIÓN SOBRE MI -->
+
+  <!-- Sobre mí -->
   <section id="sobre-mi">
     <h2>Sobre mí</h2>
     <p>
       Soy Ingeniero Industrial, especializado en mejora continua, optimización de procesos y gestión estratégica de proyectos. Mi enfoque se centra en la implementación de metodologías de gestión para alcanzar la excelencia operativa, con el objetivo de maximizar la productividad. A lo largo de mi carrera, he tenido el privilegio de liderar proyectos de alto impacto en empresas de diversos sectores, tanto públicos como privados. Respaldado por una sólida formación académica, que incluye una Diplomatura Universitaria en Industrias 4.0, he desarrollado una perspectiva integral que fusiona conocimientos técnicos con habilidades estratégicas y de liderazgo.
     </p>
   </section>
-  <!-- SECCIÓN PROYECTOS DESTACADOS -->
-  <section id="proyectos-destacados" style="margin-top: 20px;">
+
+  <!-- Proyectos -->
+  <section id="proyectos">
     <h2>Proyectos Destacados</h2>
+    
     <div class="projects-grid">
-      <div class="project-card mapeo" id="proyecto-mapeo">
+      <!-- Cáñamo -->
+      <div class="project-card">
         <h3>Mapeo de la Cadena de Valor del Cáñamo Industrial</h3>
-        <p style="text-align: justify;">
+        <p>
           En este proyecto, lideré la coordinación de un equipo multidisciplinario conformado por profesionales del CONICET, INTA, INTI, RACME y UNICEN, con el propósito de analizar en profundidad cada eslabón de la cadena de valor del cáñamo industrial. Mi función principal consistió en integrar de manera efectiva los conocimientos técnicos de cada institución y garantizar la ejecución del plan de trabajo, desde la identificación de oportunidades de mejora hasta la propuesta de soluciones concretas que impulsarán el desarrollo sostenible de este sector emergente.
-          <br><br>
-          Para ilustrar con mayor detalle los alcances de esta iniciativa, lo invito a ver la presentación en la que participé como expositor:
         </p>
-        <iframe width="100%" height="315" src="https://www.youtube.com/embed/tYU88wsM110" frameborder="0" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/tYU88wsM110" allowfullscreen loading="lazy"></iframe>
       </div>
-      <div class="project-card" id="proyecto-capacitaciones">
+
+      <!-- Capacitaciones -->
+      <div class="project-card">
         <h3>Capacitaciones</h3>
-        <p style="text-align: justify;">
+        <p>
           En el ámbito de las capacitaciones, he brindado asistencia técnica especializada a empresas privadas y organismos públicos, transfiriendo metodologías y herramientas de gestión que impulsan la mejora continua y aumentan la productividad. Mi labor se centra en impartir conocimientos estratégicos para fortalecer equipos de trabajo y potenciar la competitividad organizacional.
         </p>
-        <div class="capacitaciones-images">
-          <img src="https://i.ibb.co/6z173zP/Imagen-de-Whats-App-2025-02-14-a-las-20-30-12-dbf6f0c3.jpg" alt="Imagen de Capacitaciones 1" data-bs-toggle="modal" data-bs-target="#capacitacionesModal1">
-          <img src="https://i.ibb.co/chB8ZGLN/Imagen-de-Whats-App-2025-02-14-a-las-20-27-49-4e77bac1.jpg" alt="Imagen de Capacitaciones 2" data-bs-toggle="modal" data-bs-target="#capacitacionesModal2">
-          <img src="https://i.ibb.co/PvRrSw0Y/Imagen-de-Whats-App-2025-02-14-a-las-20-10-33-550c9616.jpg" alt="Imagen de Capacitaciones 3" data-bs-toggle="modal" data-bs-target="#capacitacionesModal3">
-          <img src="https://i.ibb.co/Wvbwj2p2/Imagen-de-Whats-App-2025-02-18-a-las-19-47-54-2a875330.jpg" alt="Imagen-de-Whats-App-2025-02-18-a-las-19-47-54-2a875330" border="0" data-bs-toggle="modal" data-bs-target="#capacitacionesModal4">
+        <div class="project-images">
+          <img src="https://i.ibb.co/6z173zP/Imagen-de-Whats-App-2025-02-14-a-las-20-30-12-dbf6f0c3.jpg" alt="Capacitación 1" loading="lazy" onclick="openModal(this.src)">
+          <img src="https://i.ibb.co/chB8ZGLN/Imagen-de-Whats-App-2025-02-14-a-las-20-27-49-4e77bac1.jpg" alt="Capacitación 2" loading="lazy" onclick="openModal(this.src)">
+          <img src="https://i.ibb.co/PvRrSw0Y/Imagen-de-Whats-App-2025-02-14-a-las-20-10-33-550c9616.jpg" alt="Capacitación 3" loading="lazy" onclick="openModal(this.src)">
+          <img src="https://i.ibb.co/Wvbwj2p2/Imagen-de-Whats-App-2025-02-18-a-las-19-47-54-2a875330.jpg" alt="Capacitación 4" loading="lazy" onclick="openModal(this.src)">
         </div>
       </div>
-      <div class="project-card dimensionamiento" id="proyecto-dimensionamiento">
+
+      <!-- Planta -->
+      <div class="project-card">
         <h3>Dimensionamiento de Planta para Bolsas de Polietileno</h3>
         <p>
           Lideré el diseño, puesta en marcha y optimización de una planta de fabricación de bolsas para residuos a partir de polietileno reciclado, con una capacidad instalada de 14,6 toneladas mensuales. Logré coordinar un equipo de 130 cooperativistas, asegurando un flujo de producción de 9.600 kg/mes de bolsas, equivalente al 4,5% del market share del mercado objetivo.
         </p>
-        <div class="capacitaciones-images">
-          <img src="https://i.ibb.co/rRHcJhrT/2.png" alt="2" data-bs-toggle="modal" data-bs-target="#proyecto3Modal1">
-          <img src="https://i.ibb.co/G3xbrfMf/render-pro.png" alt="render-pro" data-bs-toggle="modal" data-bs-target="#proyecto3Modal2">
-          <img src="https://i.ibb.co/b5jKfPz1/3.png" alt="3" data-bs-toggle="modal" data-bs-target="#proyecto3Modal3">
-          <img src="https://i.ibb.co/DPC2mY5S/7.png" alt="7" data-bs-toggle="modal" data-bs-target="#proyecto3Modal4">
+        <div class="project-images">
+          <img src="https://i.ibb.co/rRHcJhrT/2.png" alt="Planta 1" loading="lazy" onclick="openModal(this.src)">
+          <img src="https://i.ibb.co/G3xbrfMf/render-pro.png" alt="Planta 2" loading="lazy" onclick="openModal(this.src)">
+          <img src="https://i.ibb.co/b5jKfPz1/3.png" alt="Planta 3" loading="lazy" onclick="openModal(this.src)">
+          <img src="https://i.ibb.co/DPC2mY5S/7.png" alt="Planta 4" loading="lazy" onclick="openModal(this.src)">
         </div>
       </div>
-      <div class="project-card analisis-layout" id="proyecto-layout">
+
+      <!-- Layout -->
+      <div class="project-card">
         <h3>Diseño de Layout</h3>
         <p>
-          Dirigí la reestructuración del layout de una planta de reparación de equipos industriales de 760 m², incrementando su área operativa a 1.860 m². Implementé la metodología “Planificación Sistemática de Layout”, optimizando la distribución de sectores clave como bahías de reparación, almacenamiento y prueba de componentes. El rediseño mejoró la circulación interna, redujo el cruce de actividades y optimizó el flujo de trabajo, aumentando la eficiencia y productividad de la empresa.
+          Dirigí la reestructuración del layout de una planta de reparación de equipos industriales de 760 m², incrementando su área operativa a 1.860 m². Implementé la metodología "Planificación Sistemática de Layout", optimizando la distribución de sectores clave como bahías de reparación, almacenamiento y prueba de componentes. El rediseño mejoró la circulación interna, redujo el cruce de actividades y optimizó el flujo de trabajo, aumentando la eficiencia y productividad de la empresa.
         </p>
-        <div class="capacitaciones-images">
-          <img src="https://i.ibb.co/kVRFDtSw/1bc1fb7d699ffa0917736253c54d46c19b2c482b.jpg" alt="Imagen 1" data-bs-toggle="modal" data-bs-target="#proyecto4Modal1">
-          <img src="https://i.ibb.co/yFQChTGL/2fc7eced7aea8ee1c2f4f3c0bf05d1eeced0f136.jpg" alt="Imagen 2" data-bs-toggle="modal" data-bs-target="#proyecto4Modal2">
-          <img src="https://i.ibb.co/5X8tk2D6/8a20fb1069d1d31c2ec18578125f9ffc866bf186.jpg" alt="Imagen 3" data-bs-toggle="modal" data-bs-target="#proyecto4Modal3">
-          <img src="https://i.ibb.co/RkD8tNXq/diagrama-de-hilos.png" alt="diagrama-de-hilos" data-bs-toggle="modal" data-bs-target="#proyecto4Modal4">
+        <div class="project-images">
+          <img src="https://i.ibb.co/kVRFDtSw/1bc1fb7d699ffa0917736253c54d46c19b2c482b.jpg" alt="Layout 1" loading="lazy" onclick="openModal(this.src)">
+          <img src="https://i.ibb.co/yFQChTGL/2fc7eced7aea8ee1c2f4f3c0bf05d1eeced0f136.jpg" alt="Layout 2" loading="lazy" onclick="openModal(this.src)">
+          <img src="https://i.ibb.co/5X8tk2D6/8a20fb1069d1d31c2ec18578125f9ffc866bf186.jpg" alt="Layout 3" loading="lazy" onclick="openModal(this.src)">
+          <img src="https://i.ibb.co/RkD8tNXq/diagrama-de-hilos.png" alt="Layout 4" loading="lazy" onclick="openModal(this.src)">
         </div>
       </div>
-      <div class="project-card" id="proyecto-clinicas">
+
+      <!-- Clínicas -->
+      <div class="project-card">
         <h3>Ampliación de Áreas Clínicas para Mejora de Productividad y Ergonomía</h3>
-        <p style="text-align: justify; margin-left: 20px; margin-right: 20px;">
+        <p>
           Dirigí la ampliación y optimización del área de endoscopia de una clínica, enfocándome en el diseño e implementación de un nuevo sistema de giro camas y la reorganización del layout para mejorar la eficiencia operativa. Realicé un análisis detallado del flujo de trabajo actual, desarrollé un nuevo diseño que optimiza la distribución de recursos y llevé a cabo simulaciones para validar su eficacia.
-          <br><br>
-          <strong>Mejoras logradas:</strong><br>
-          <strong>&bull;</strong> Aumento del 69% en pacientes diarios: de 13 a 22 pacientes.<br>
-          <strong>&bull;</strong> Reducción del 44% en tiempo promedio de permanencia: de 5:39hs a 3:10hs.<br>
-          <strong>&bull;</strong> Optimización de recorridos: menor cruce de actividades y mejor flujo de trabajo.<br>
         </p>
-        <iframe width="100%" height="315" src="https://www.youtube.com/embed/k5jvN9XXlm4" frameborder="0" allowfullscreen style="display: block; margin: 40px auto 0 auto;"></iframe>
+        <ul>
+          <li><strong>Aumento del 69% en pacientes diarios:</strong> de 13 a 22 pacientes</li>
+          <li><strong>Reducción del 44% en tiempo promedio de permanencia:</strong> de 5:39hs a 3:10hs</li>
+          <li><strong>Optimización de recorridos:</strong> menor cruce de actividades y mejor flujo de trabajo</li>
+        </ul>
+        <iframe src="https://www.youtube.com/embed/k5jvN9XXlm4" allowfullscreen loading="lazy"></iframe>
       </div>
-      <div class="project-card" id="proyecto-herramientas">
+
+      <!-- Herramientas -->
+      <div class="project-card">
         <h3>Herramientas de Gestión</h3>
-        <p style="text-align: justify; margin-left: 20px; margin-right: 20px;">
+        <p>
           Ejemplos de implementación de diferentes herramientas de gestión para la mejora de la productividad.
         </p>
-        <div class="herramientas-images">
-          <img src="https://i.ibb.co/XkSLpXg0/5S.png" alt="5S" data-bs-toggle="modal" data-bs-target="#herramientasModal1">
-          <img src="https://i.ibb.co/qMnndpyB/IMG-20250222-WA0004.jpg" alt="IMG-20250222-WA0004" data-bs-toggle="modal" data-bs-target="#herramientasModal2">
-          <img src="https://i.ibb.co/21XsSHgD/IMG-20250222-WA0007.jpg" alt="IMG-20250222-WA0007" data-bs-toggle="modal" data-bs-target="#herramientasModal3">
-          <img src="https://i.ibb.co/cnDFGLF/sdssdd.png" alt="sdssdd" data-bs-toggle="modal" data-bs-target="#herramientasModal4">
+        <div class="project-images">
+          <img src="https://i.ibb.co/XkSLpXg0/5S.png" alt="Herramienta 1" loading="lazy" onclick="openModal(this.src)">
+          <img src="https://i.ibb.co/qMnndpyB/IMG-20250222-WA0004.jpg" alt="Herramienta 2" loading="lazy" onclick="openModal(this.src)">
+          <img src="https://i.ibb.co/21XsSHgD/IMG-20250222-WA0007.jpg" alt="Herramienta 3" loading="lazy" onclick="openModal(this.src)">
+          <img src="https://i.ibb.co/cnDFGLF/sdssdd.png" alt="Herramienta 4" loading="lazy" onclick="openModal(this.src)">
         </div>
       </div>
     </div>
   </section>
-  <!-- SECCIÓN SERVICIOS con contenedores para Capacitaciones y Asistencia Técnica -->
-  <!-- Se conserva el tamaño total original de la sección (padding-bottom: 210px) -->
-  <section id="servicios" style="margin-top: 20px; padding-bottom: 05px;">
+
+  <!-- Servicios -->
+  <section id="servicios">
     <h2>Servicios</h2>
-    <div class="servicios-container" id="servicio-capacitaciones">
-      <h3 style="text-align: left; font-size: 1.8rem; margin-bottom: 15px; color: #1a5276;">Capacitaciones</h3>
-      <p style="text-align: justify;">
+    
+    <div class="service-card">
+      <h3>Capacitaciones</h3>
+      <p>
         Brindo capacitaciones, tanto in company como online, centradas en metodologías y herramientas de gestión que permitirán a tu equipo optimizar procesos, aumentar la productividad y fomentar la innovación. Gracias a un enfoque práctico respaldado por la rigurosidad de la Ingeniería Industrial, tu organización adquirirá los conocimientos necesarios para implementar metodologías y herramientas como Lean Manufacturing, Six Sigma, 5S, Kaizen, Gestión de Proyectos, Análisis de Datos, así como técnicas de comunicación efectiva y estrategias de desarrollo de mandos medios, entre otras. Con estas capacitaciones, tu equipo desarrollará una cultura de mejora continua y estará preparado para enfrentar los desafíos presentes y futuros.
       </p>
     </div>
-    <div class="servicios-container asistencia" id="servicio-asistencia">
-      <h3 style="text-align: left; font-size: 1.8rem; margin-bottom: 15px; color: #1a5276;">Asistencia Técnica</h3>
-      <p style="text-align: justify;">
+
+    <div class="service-card">
+      <h3>Asistencia Técnica</h3>
+      <p>
         Realizo Asistencias Técnicas para ayudar a las organizaciones a detectar y eliminar pérdidas en sus procesos internos, permitiéndoles reducir costos, optimizar recursos y mejorar la productividad. A través de un análisis detallado, se identifican oportunidades de mejora y se proponen soluciones basadas en principios de eficiencia operativa y gestión industrial. Para garantizar resultados sostenibles y facilitar la transferencia de conocimientos teóricos, las asistencias incluyen capacitaciones prácticas durante su implementación. De esta manera, el equipo adquiere las herramientas necesarias para mantener y reforzar las mejoras en el tiempo, impulsando una cultura de mejora continua.
-        <br><br>
-        A continuación, se presenta el roadmap del proceso de Asistencia Técnica:
       </p>
-      <div class="roadmap-container" style="margin-top: 260px;">
-        <div class="road"></div>
-        <!-- Contenedor de productividad con barras animadas y sin el ícono industrial -->
-        <div class="productivity-improvement">
-          <div class="productivity-container">
-            <div class="productivity-graph">
-              <div class="graph-bar bar-1" style="--target-height: 30px"></div>
-              <div class="graph-bar bar-2" style="--target-height: 45px"></div>
-              <div class="graph-bar bar-3" style="--target-height: 60px"></div>
+      
+      <div class="roadmap">
+        <h4>Roadmap del Proceso de Asistencia Técnica</h4>
+        <div class="roadmap-steps">
+          <div class="roadmap-step">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <p>Diagnóstico empresarial orientado a evaluar la situación inicial de un sector específico o el desempeño global de la empresa, permitiendo un análisis estructurado de su funcionamiento.</p>
             </div>
-            <div class="productivity-text">Productividad</div>
           </div>
-          <div class="industrial-icon"></div>
-        </div>
-        <div class="marker marker-1 top">
-          <div class="integrated-text">
-            Diagnóstico empresarial orientado a evaluar la situación inicial de un sector específico o el desempeño global de la empresa, permitiendo un análisis estructurado de su funcionamiento.
+          <div class="roadmap-step">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <p>Identificación de oportunidades de mejora.</p>
+            </div>
           </div>
-          <div class="marker-pin">1</div>
-          <div class="marker-line"></div>
-        </div>
-        <div class="marker marker-2 bottom">
-          <div class="integrated-text">
-            Identificación de oportunidades de mejora.
+          <div class="roadmap-step">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <p>Priorización, en colaboración con el cliente, de las oportunidades de mejora a abordar, estableciendo indicadores clave de desempeño y definiendo la metodología de implementación.</p>
+            </div>
           </div>
-          <div class="marker-pin">2</div>
-          <div class="marker-line"></div>
-        </div>
-        <div class="marker marker-3 top">
-          <div class="integrated-text">
-            Priorización, en colaboración con el cliente, de las oportunidades de mejora a abordar, estableciendo indicadores clave de desempeño y definiendo la metodología de implementación.
+          <div class="roadmap-step">
+            <div class="step-number">4</div>
+            <div class="step-content">
+              <p>Desarrollo de la Asistencia Técnica.</p>
+            </div>
           </div>
-          <div class="marker-pin">3</div>
-          <div class="marker-line"></div>
-        </div>
-        <div class="marker marker-4 bottom">
-          <div class="integrated-text">
-            Desarrollo de la Asistencia Técnica.
-          </div>
-          <div class="marker-pin">4</div>
-          <div class="marker-line"></div>
-        </div>
-        <div class="marker marker-5 top">
-          <div class="integrated-text">
-            Medición de resultados y entrega del informe.
-          </div>
-          <div class="marker-pin">5</div>
-          <div class="marker-line"></div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- SECCIÓN DESCARGAS -->
-  <section id="descargas">
-    <h2>Descargas</h2>
-    <ul>
-     <li>
-  <a href="https://andriytrofymenko.github.io/CV%20Andriy%20Trofymenko.pdf?v=4" 
-     download target="_blank" rel="noopener">
-     Descargar CV
-  </a>
-</li>
-    </ul>
-  </section>
-  <!-- SECCIÓN CONTACTO -->
-  <section id="contacto">
-    <h2>Contacto</h2>
-    <p>
-      ✉️ atrofymenko@fi.uba.ar<br><br>
-      ☎ +549 11 33278023<br><br>
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
-        <path fill-rule="evenodd" d="M3.654 6.328c0-1.755 1.447-3.179 3.233-3.179 1.786 0 3.233 1.424 3.233 3.179 0 1.056-.53 2.202-1.369 2.963-.745.666-1.5 1.07-1.864 1.168a.58.58 0 0 1-.001-.003C5.992 9.514 5.238 9.11 4.493 8.444 3.654 7.603 3.654 6.328 3.654 6.328zm4.936 7.846C5.74 12.217 2.25 9.344 2.25 6.328 2.25 3.986 4.347 2 6.887 2c2.54 0 4.637 1.986 4.637 4.328 0 3.016-3.49 5.889-5.654 7.846l-.01.008a.623.623 0 0 1-.41.16.623.623 0 0 1-.41-.16l-.01-.008z"/>
-      </svg>
-      Río Gallegos, Santa Cruz
-    </p>
-  </section>
-  <!-- Modales para las imágenes (Capacitaciones, Proyectos, Herramientas) -->
-  <!-- Modal Capacitaciones 1 -->
-  <div class="modal fade" id="capacitacionesModal1" tabindex="-1" aria-labelledby="capacitacionesModalLabel1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-body" style="position: relative;">
-          <div style="position: relative; display: inline-block;">
-            <button class="modal-close" data-bs-dismiss="modal" aria-label="Close">X</button>
-            <img src="https://i.ibb.co/6z173zP/Imagen-de-Whats-App-2025-02-14-a-las-20-30-12-dbf6f0c3.jpg" alt="Imagen de Capacitaciones 1" class="img-fluid">
+          <div class="roadmap-step">
+            <div class="step-number">5</div>
+            <div class="step-content">
+              <p>Medición de resultados y entrega del informe.</p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-  <!-- Modal Capacitaciones 2 -->
-  <div class="modal fade" id="capacitacionesModal2" tabindex="-1" aria-labelledby="capacitacionesModalLabel2" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-body" style="position: relative;">
-          <div style="position: relative; display: inline-block;">
-            <button class="modal-close" data-bs-dismiss="modal" aria-label="Close">X</button>
-            <img src="https://i.ibb.co/chB8ZGLN/Imagen-de-Whats-App-2025-02-14-a-las-20-27-49-4e77bac1.jpg" alt="Imagen de Capacitaciones 2" class="img-fluid">
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- Modal Capacitaciones 3 -->
-  <div class="modal fade" id="capacitacionesModal3" tabindex="-1" aria-labelledby="capacitacionesModalLabel3" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-body" style="position: relative;">
-          <div style="position: relative; display: inline-block;">
-            <button class="modal-close" data-bs-dismiss="modal" aria-label="Close">X</button>
-            <img src="https://i.ibb.co/PvRrSw0Y/Imagen-de-Whats-App-2025-02-14-a-las-20-10-33-550c9616.jpg" alt="Imagen de Capacitaciones 3" class="img-fluid">
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- Modal Capacitaciones 4 -->
-  <div class="modal fade" id="capacitacionesModal4" tabindex="-1" aria-labelledby="capacitacionesModalLabel4" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-body" style="position: relative;">
-          <div style="position: relative; display: inline-block;">
-            <button class="modal-close" data-bs-dismiss="modal" aria-label="Close">X</button>
-            <img src="https://i.ibb.co/Wvbwj2p2/Imagen-de-Whats-App-2025-02-18-a-las-19-47-54-2a875330.jpg" alt="Imagen-de-Whats-App-2025-02-18-a-las-19-47-54-2a875330" border="0" class="img-fluid">
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- Modal Proyecto 3 (Dimensionamiento) -->
-  <div class="modal fade" id="proyecto3Modal1" tabindex="-1" aria-labelledby="proyecto3ModalLabel1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-body" style="position: relative;">
-          <div style="position: relative; display: inline-block;">
-            <button class="modal-close" data-bs-dismiss="modal" aria-label="Close">X</button>
-            <img src="https://i.ibb.co/rRHcJhrT/2.png" alt="2" class="img-fluid">
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="modal fade" id="proyecto3Modal2" tabindex="-1" aria-labelledby="proyecto3ModalLabel2" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-body" style="position: relative;">
-          <div style="position: relative; display: inline-block;">
-            <button class="modal-close" data-bs-dismiss="modal" aria-label="Close">X</button>
-            <img src="https://i.ibb.co/G3xbrfMf/render-pro.png" alt="render-pro" class="img-fluid">
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="modal fade" id="proyecto3Modal3" tabindex="-1" aria-labelledby="proyecto3ModalLabel3" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-body" style="position: relative;">
-          <div style="position: relative; display: inline-block;">
-            <button class="modal-close" data-bs-dismiss="modal" aria-label="Close">X</button>
-            <img src="https://i.ibb.co/b5jKfPz1/3.png" alt="3" class="img-fluid">
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="modal fade" id="proyecto3Modal4" tabindex="-1" aria-labelledby="proyecto3ModalLabel4" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-body" style="position: relative;">
-          <div style="position: relative; display: inline-block;">
-            <button class="modal-close" data-bs-dismiss="modal" aria-label="Close">X</button>
-            <img src="https://i.ibb.co/DPC2mY5S/7.png" alt="7" class="img-fluid">
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- Modal Proyecto 4 (Diseño de Layout) -->
-  <div class="modal fade" id="proyecto4Modal1" tabindex="-1" aria-labelledby="proyecto4ModalLabel1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-body" style="position: relative;">
-          <div style="position: relative; display: inline-block;">
-            <button class="modal-close" data-bs-dismiss="modal" aria-label="Close">X</button>
-            <img src="https://i.ibb.co/kVRFDtSw/1bc1fb7d699ffa0917736253c54d46c19b2c482b.jpg" alt="Imagen 1" class="img-fluid">
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="modal fade" id="proyecto4Modal2" tabindex="-1" aria-labelledby="proyecto4ModalLabel2" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-body" style="position: relative;">
-          <div style="position: relative; display: inline-block;">
-            <button class="modal-close" data-bs-dismiss="modal" aria-label="Close">X</button>
-            <img src="https://i.ibb.co/yFQChTGL/2fc7eced7aea8ee1c2f4f3c0bf05d1eeced0f136.jpg" alt="Imagen 2" class="img-fluid">
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="modal fade" id="proyecto4Modal3" tabindex="-1" aria-labelledby="proyecto4ModalLabel3" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-body" style="position: relative;">
-          <div style="position: relative; display: inline-block;">
-            <button class="modal-close" data-bs-dismiss="modal" aria-label="Close">X</button>
-            <img src="https://i.ibb.co/5X8tk2D6/8a20fb1069d1d31c2ec18578125f9ffc866bf186.jpg" alt="Imagen 3" class="img-fluid">
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="modal fade" id="proyecto4Modal4" tabindex="-1" aria-labelledby="proyecto4ModalLabel4" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-body" style="position: relative;">
-          <div style="position: relative; display: inline-block;">
-            <button class="modal-close" data-bs-dismiss="modal" aria-label="Close">X</button>
-            <img src="https://i.ibb.co/RkD8tNXq/diagrama-de-hilos.png" alt="diagrama-de-hilos" class="img-fluid">
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- Modal Herramientas de Gestión -->
-  <div class="modal fade" id="herramientasModal1" tabindex="-1" aria-labelledby="herramientasModalLabel1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-body" style="position: relative;">
-          <div style="position: relative; display: inline-block;">
-            <button class="modal-close" data-bs-dismiss="modal" aria-label="Close">X</button>
-            <img src="https://i.ibb.co/XkSLpXg0/5S.png" alt="5S" class="img-fluid">
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="modal fade" id="herramientasModal2" tabindex="-1" aria-labelledby="herramientasModalLabel2" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-body" style="position: relative;">
-          <div style="position: relative; display: inline-block;">
-            <button class="modal-close" data-bs-dismiss="modal" aria-label="Close">X</button>
-            <img src="https://i.ibb.co/qMnndpyB/IMG-20250222-WA0004.jpg" alt="IMG-20250222-WA0004" class="img-fluid">
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="modal fade" id="herramientasModal3" tabindex="-1" aria-labelledby="herramientasModalLabel3" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-body" style="position: relative;">
-          <div style="position: relative; display: inline-block;">
-            <button class="modal-close" data-bs-dismiss="modal" aria-label="Close">X</button>
-            <img src="https://i.ibb.co/21XsSHgD/IMG-20250222-WA0007.jpg" alt="IMG-20250222-WA0007" class="img-fluid">
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="modal fade" id="herramientasModal4" tabindex="-1" aria-labelledby="herramientasModalLabel4" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-body" style="position: relative;">
-          <div style="position: relative; display: inline-block;">
-            <button class="modal-close" data-bs-dismiss="modal" aria-label="Close">X</button>
-            <img src="https://i.ibb.co/cnDFGLF/sdssdd.png" alt="sdssdd" class="img-fluid">
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <script>
-    particlesJS("particles-js", {
-      particles: {
-        number: { value: 60, density: { enable: true, value_area: 800 } },
-        color: { value: "#2c3e50" },
-        shape: {
-          type: "circle",
-          stroke: { width: 0, color: "#000000" },
-          polygon: { nb_sides: 5 }
-        },
-        opacity: {
-          value: 0.5,
-          random: false,
-          anim: { enable: false, speed: 1, opacity_min: 0.1, sync: false }
-        },
-        size: {
-          value: 3,
-          random: true,
-          anim: { enable: false, speed: 40, size_min: 0.1, sync: false }
-        },
-        line_linked: {
-          enable: true,
-          distance: 150,
-          color: "#2c3e50",
-          opacity: 0.4,
-          width: 1
-        },
-        move: {
-          enable: true,
-          speed: 6,
-          direction: "none",
-          random: false,
-          straight: false,
-          out_mode: "out",
-          bounce: false,
-          attract: { enable: false, rotateX: 600, rotateY: 1200 }
-        }
-      },
-      interactivity: {
-        detect_on: "canvas",
-        events: {
-          onhover: { enable: true, mode: "repulse" },
-          onclick: { enable: true, mode: "push" },
-          resize: true
-        },
-        modes: {
-          repulse: { distance: 100, duration: 0.4 },
-          push: { particles_nb: 4 }
-        }
-      },
-      retina_detect: true
-    });
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
-
-
-
-
