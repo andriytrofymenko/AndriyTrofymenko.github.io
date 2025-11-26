@@ -319,7 +319,7 @@
         .marker-4 .integrated-text { border-left-color: #1e88e5; }
         .marker-5 .integrated-text { border-left-color: #43a047; }
         
-        /* Flechas del Roadmap (estilos de tu código original, ajustados) */
+        /* Flechas del Roadmap */
         .marker.top .integrated-text::after { content: ""; position: absolute; left: 50%; bottom: -15px; transform: translateX(-50%); border-left: 10px solid transparent; border-right: 10px solid transparent; border-top: 15px solid; }
         .marker.bottom .integrated-text::after { content: ""; position: absolute; left: 50%; top: -15px; transform: translateX(-50%); border-left: 10px solid transparent; border-right: 10px solid transparent; border-bottom: 15px solid; }
         .marker-1 .integrated-text::after { border-top-color: #e53935; }
@@ -382,7 +382,7 @@
             text-align: center;
         }
 
-        /* Modal Close Button */
+        /* Modal Close Button (Estilo para que se vea bien en el fondo oscuro) */
          .modal-content {
             background-color: transparent;
             border: none;
@@ -418,14 +418,13 @@
             line-height: 1;
             cursor: pointer;
             z-index: 3;
-            /* Estilo para que se vea bien sobre el fondo oscuro del modal */
             box-shadow: 0 0 10px rgba(0,0,0,0.5); 
         }
         
         /* 9. Media Queries para Responsividad Móvil */
         @media (max-width: 992px) {
             .projects-grid {
-                grid-template-columns: 1fr; /* Una sola columna en tablet/móvil */
+                grid-template-columns: 1fr;
             }
             header h1 {
                 font-size: 2.2rem;
@@ -443,16 +442,16 @@
                 margin: 15px auto;
             }
             .project-images-grid {
-                grid-template-columns: 1fr; /* Una sola columna para imágenes en móvil */
+                grid-template-columns: 1fr;
             }
             .project-images-grid img {
                 height: auto;
             }
             .productivity-improvement {
-                display: none; /* Ocultar en móvil para simplicidad */
+                display: none;
             }
             
-            /* **Adaptación del Roadmap a Vertical (Clave para Móvil)** */
+            /* Adaptación del Roadmap a Vertical (Móvil) */
             .roadmap-container {
                 margin-top: 20px !important;
                 padding-top: 0;
@@ -548,10 +547,31 @@
         <h2>Sobre mí</h2>
         <div class="row">
             <div class="col-lg-12">
-                <p class="lead" style="text-align: justify; margin: 0 20px;">
-                    Soy Ingeniero Industrial, especializado en **Lean Manufacturing** y **Gestión Estratégica**. Mi enfoque se centra en la implementación de metodologías de gestión para alcanzar la excelencia operativa, con el objetivo de maximizar la **productividad**. A lo largo de mi carrera, he tenido el privilegio de liderar proyectos de alto impacto en empresas de diversos sectores, tanto públicos como privados. Respaldado por una sólida formación académica, que incluye una **Diplomatura Universitaria en Industrias 4.0**, he desarrollado una perspectiva integral que fusiona conocimientos técnicos con habilidades estratégicas y de liderazgo.
+                <p class="lead text-center mb-4" style="font-weight: 400; font-size: 1.1rem; text-align: justify; padding: 0 20px;">
+                    Soy Ingeniero Industrial, especializado en <strong>Lean Manufacturing</strong> y <strong>Gestión Estratégica</strong>. Mi misión es maximizar la productividad y la excelencia operativa de su organización. A lo largo de mi carrera, he liderado proyectos de alto impacto en diversos sectores. Respaldado por una sólida formación académica, incluyendo una <strong>Diplomatura Universitaria en Industrias 4.0</strong>, he desarrollado una perspectiva integral que fusiona conocimientos técnicos con habilidades estratégicas y de liderazgo.
                 </p>
+                
+                <h4 class="text-center mt-4 mb-4" style="color: var(--primary-color);">Mis Pilares de Valor</h4>
+
+                <div class="row text-center">
+                    <div class="col-md-3 mb-3">
+                        <i class="bi bi-gear-wide-connected fs-3 text-success"></i>
+                        <p class="fw-bold mt-2">Optimización de Procesos</p>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <i class="bi bi-bar-chart-line fs-3 text-warning"></i>
+                        <p class="fw-bold mt-2">Productividad Cuantificable</p>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <i class="bi bi-lightbulb fs-3 text-info"></i>
+                        <p class="fw-bold mt-2">Innovación y Kaizen</p>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <i class="bi bi-people fs-3 text-danger"></i>
+                        <p class="fw-bold mt-2">Liderazgo de Equipos</p>
+                    </div>
                 </div>
+            </div>
         </div>
     </section>
     
@@ -581,8 +601,8 @@
                         Diseño, puesta en marcha y optimización de una planta de fabricación de bolsas a partir de polietileno reciclado, coordinando un equipo de 130 cooperativistas.
                     </p>
                     <ul>
-                        <li><i class="bi bi-check-circle-fill text-success me-2"></i> Capacidad instalada de **14,6 toneladas mensuales**.</li>
-                        <li><i class="bi bi-check-circle-fill text-success me-2"></i> Flujo de producción estable de **9.600 kg/mes** (4,5% del market share).</li>
+                        <li><i class="bi bi-check-circle-fill text-success me-2"></i> Capacidad instalada de <strong>14,6 toneladas mensuales</strong>.</li>
+                        <li><i class="bi bi-check-circle-fill text-success me-2"></i> Flujo de producción estable de <strong>9.600 kg/mes</strong> (4,5% del market share).</li>
                         <li><i class="bi bi-check-circle-fill text-success me-2"></i> Diseño de layout y optimización del flujo de materiales.</li>
                     </ul>
                 </div>
@@ -601,9 +621,9 @@
                         Dirigí la reestructuración del layout de una planta de reparación de equipos (760 m² a 1.860 m²). Implementé la metodología “Planificación Sistemática de Layout”.
                     </p>
                     <ul>
-                        <li><i class="bi bi-check-circle-fill text-success me-2"></i> **Incremento de área operativa** en 1100 m² (144% de ampliación).</li>
+                        <li><i class="bi bi-check-circle-fill text-success me-2"></i> <strong>Incremento de área operativa</strong> en 1100 m² (144% de ampliación).</li>
                         <li><i class="bi bi-check-circle-fill text-success me-2"></i> Optimización de la distribución de bahías y almacenamiento.</li>
-                        <li><i class="bi bi-check-circle-fill text-success me-2"></i> **Reducción de cruce de actividades** y mejora del flujo de trabajo.</li>
+                        <li><i class="bi bi-check-circle-fill text-success me-2"></i> <strong>Reducción de cruce de actividades</strong> y mejora del flujo de trabajo.</li>
                     </ul>
                 </div>
                 <div class="project-images-grid">
@@ -621,8 +641,8 @@
                         Dirigí la optimización del área de endoscopia de una clínica, implementando un nuevo sistema de giro camas y reorganizando el layout para máxima eficiencia.
                     </p>
                     <ul>
-                        <li><i class="bi bi-check-circle-fill text-success me-2"></i> Aumento del **69% en pacientes diarios** (de 13 a 22).</li>
-                        <li><i class="bi bi-check-circle-fill text-success me-2"></i> Reducción del **44% en tiempo promedio de permanencia** (de 5:39hs a 3:10hs).</li>
+                        <li><i class="bi bi-check-circle-fill text-success me-2"></i> Aumento del <strong>69% en pacientes diarios</strong> (de 13 a 22).</li>
+                        <li><i class="bi bi-check-circle-fill text-success me-2"></i> Reducción del <strong>44% en tiempo promedio de permanencia</strong> (de 5:39hs a 3:10hs).</li>
                         <li><i class="bi bi-check-circle-fill text-success me-2"></i> Optimización de recorridos mediante simulación y nuevo diseño.</li>
                     </ul>
                 </div>
@@ -656,8 +676,8 @@
                         Ejemplos concretos de aplicación de herramientas de gestión visual y metodologías para la mejora de la productividad en diversos entornos.
                     </p>
                     <ul>
-                        <li><i class="bi bi-check-circle-fill text-success me-2"></i> Implementación de la metodología **5S** en áreas de trabajo.</li>
-                        <li><i class="bi bi-check-circle-fill text-success me-2"></i> Desarrollo de tableros de control **Kanban** y Kaizen.</li>
+                        <li><i class="bi bi-check-circle-fill text-success me-2"></i> Implementación de la metodología <strong>5S</strong> en áreas de trabajo.</li>
+                        <li><i class="bi bi-check-circle-fill text-success me-2"></i> Desarrollo de tableros de control <strong>Kanban</strong> y Kaizen.</li>
                         <li><i class="bi bi-check-circle-fill text-success me-2"></i> Adaptación de herramientas para el monitoreo de KPIs.</li>
                     </ul>
                 </div>
@@ -678,14 +698,14 @@
         <div class="servicios-container" id="servicio-capacitaciones">
             <h3>Capacitaciones In Company y Online</h3>
             <p style="text-align: justify;">
-                Brindo capacitaciones centradas en metodologías de gestión (Lean Manufacturing, Six Sigma, 5S, Kaizen, Gestión de Proyectos) para que su equipo optimice procesos y aumente la productividad. El enfoque es **100% práctico**, asegurando la transferencia efectiva de conocimientos y la creación de una cultura de mejora continua en su organización.
+                Brindo capacitaciones centradas en metodologías de gestión (Lean Manufacturing, Six Sigma, 5S, Kaizen, Gestión de Proyectos) para que su equipo optimice procesos y aumente la productividad. El enfoque es <strong>100% práctico</strong>, asegurando la transferencia efectiva de conocimientos y la creación de una cultura de mejora continua en su organización.
             </p>
         </div>
         
         <div class="servicios-container" id="servicio-asistencia">
             <h3>Asistencia Técnica Integral</h3>
             <p style="text-align: justify;">
-                Realizo Asistencias Técnicas especializadas para **detectar y eliminar pérdidas** en sus procesos internos, reducir costos y optimizar recursos. A través de un análisis detallado, propongo e implemento soluciones de eficiencia operativa, siempre con el objetivo final de un **incremento medible en su productividad**. El proceso incluye capacitaciones prácticas durante la implementación.
+                Realizo Asistencias Técnicas especializadas para <strong>detectar y eliminar pérdidas</strong> en sus procesos internos, reducir costos y optimizar recursos. A través de un análisis detallado, propongo e implemento soluciones de eficiencia operativa, siempre con el objetivo final de un <strong>incremento medible en su productividad</strong>. El proceso incluye capacitaciones prácticas durante la implementación.
             </p>
             
             <h4 class="text-center mt-5 mb-5" style="color: var(--primary-color);">Roadmap del Proceso de Asistencia Técnica</h4>
@@ -757,7 +777,7 @@
         <p>
             <i class="bi bi-envelope-fill me-2" style="color: var(--accent-color);"></i> <strong>Correo Electrónico:</strong> atrofymenko@fi.uba.ar<br>
             <i class="bi bi-telephone-fill me-2" style="color: var(--accent-color);"></i> <strong>Teléfono:</strong> +549 11 33278023<br>
-            <i class="bi bi-geo-alt-fill me-2" style="color: var(--accent-color);"></i> **Ubicación:** Río Gallegos, Santa Cruz (Disponible para proyectos remotos e in-situ).
+            <i class="bi bi-geo-alt-fill me-2" style="color: var(--accent-color);"></i> <strong>Ubicación:</strong> Río Gallegos, Santa Cruz (Disponible para proyectos remotos e in-situ).
         </p>
         <p class="text-center mt-4">
             <a href="https://linkedin.com/in/su_perfil_linkedin" target="_blank" class="btn btn-outline-primary me-2"><i class="bi bi-linkedin me-2"></i> LinkedIn</a>
