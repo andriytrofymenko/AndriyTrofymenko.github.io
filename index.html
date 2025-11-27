@@ -1,1028 +1,1084 @@
-<!DOCTYPE html>
+<!DOCTYPE html>      
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Andriy Trofymenko - Ingeniero Industrial & Consultor de Procesos</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-
-    <style>
-        /* 1. Estilos Base y Tipografía */
-        :root {
-            --primary-color: #2c3e50; /* Azul Oscuro */
-            --accent-color: #007bff; /* Azul de acento (Reemplaza el azul claro viejo) */
-            --light-bg: #f8f9fa; /* Fondo claro para secciones */
-            --body-bg: #e0e0e0;
-        }
-
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Roboto', sans-serif;
-            color: var(--primary-color);
-            background-color: var(--body-bg);
-            scroll-behavior: smooth;
-        }
-
-        #particles-js {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            background: transparent;
-            z-index: -1;
-        }
-        
-        /* 2. Header y Hero Section */
-        header {
-            position: relative;
-            z-index: 1;
-            background: linear-gradient(135deg, rgba(96, 96, 96, 0.1), rgba(128, 128, 128, 0.05));
-            padding: 40px 0 20px 0;
-            text-align: center;
-            border-radius: 0 0 20px 20px;
-        }
-        
-        header img {
-            width: 180px;
-            height: 180px;
-            object-fit: cover;
-            border-radius: 50%;
-            border: 4px solid white;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
-            margin-bottom: 10px;
-        }
-        
-        header h1 {
-            font-size: 2.8rem;
-            font-weight: 700;
-            margin-bottom: 5px;
-            color: var(--primary-color);
-        }
-        
-        header p {
-            font-size: 1.6rem;
-            margin-bottom: 0;
-            color: #34495e;
-            font-weight: 500;
-        }
-
-        /* 3. Navbar Sticky */
-        .navbar {
-            background-color: rgba(44, 62, 80, 0.9) !important;
-            backdrop-filter: blur(5px);
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
-            z-index: 1000;
-            position: sticky;
-            top: 0;
-        }
-        
-        .navbar-nav .nav-link {
-            color: #fff !important;
-            font-weight: 500;
-            padding: 10px 15px;
-            transition: background-color 0.3s ease;
-        }
-        
-        .navbar-nav .nav-link:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 5px;
-        }
-
-        /* 4. Estilos de Secciones y Contenido */
-        section {
-            position: relative;
-            z-index: 1;
-            background-color: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-            margin: 30px auto;
-            padding: 30px;
-            width: 90%;
-            max-width: 1200px;
-            transition: box-shadow 0.3s ease;
-        }
-
-        section:hover {
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-        }
-        
-        h2 {
-            color: var(--primary-color);
-            font-size: 2.2rem;
-            text-align: center;
-            margin-bottom: 30px;
-            position: relative;
-        }
-        
-        h2::after {
-            content: '';
-            position: absolute;
-            width: 80px;
-            height: 3px;
-            background: var(--accent-color);
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        /* 5. Estilos de Proyectos (Grid responsivo) */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-            gap: 30px;
-            margin-top: 20px;
-        }
-        
-        .project-card {
-            background-color: var(--light-bg);
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            padding: 25px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-        
-        .project-card h3 {
-            color: var(--accent-color);
-            font-size: 1.6rem;
-            margin-bottom: 15px;
-            text-align: left;
-            font-weight: 500;
-        }
-        
-        .project-card p {
-            font-size: 0.95rem;
-            line-height: 1.5;
-            text-align: justify;
-        }
-
-        .project-card ul {
-            padding-left: 20px;
-            margin-bottom: 15px;
-        }
-
-        .project-card ul li {
-            font-size: 0.9rem;
-            margin-bottom: 5px;
-            list-style: none;
-            text-align: left;
-        }
-
-        .project-card ul li::before {
-            content: "🚀"; /* Nuevo bullet visual */
-            margin-right: 8px;
-            font-size: 0.8rem;
-        }
-
-        .project-card iframe {
-            margin-top: 15px;
-            border-radius: 6px;
-        }
-
-        /* Imágenes de Proyectos */
-        .project-images-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
-            margin-top: 15px;
-        }
-        
-        .project-images-grid img {
-            width: 100%;
-            height: 150px;
-            object-fit: cover;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: opacity 0.3s;
-        }
-
-        .project-images-grid img:hover {
-            opacity: 0.8;
-        }
-        
-        /* 6. Estilos de Servicios */
-        .servicios-container {
-            background: linear-gradient(135deg, #ffffff, #f0f0f0);
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-            padding: 25px;
-            margin-bottom: 25px;
-            transition: transform 0.3s ease;
-        }
-
-        .servicios-container h3 {
-            color: var(--primary-color);
-            border-bottom: 2px solid var(--accent-color);
-            padding-bottom: 5px;
-            margin-bottom: 20px;
-        }
-        
-        /* 7. Roadmap (Escritorio) */
-        .roadmap-container {
-            width: 100%;
-            max-width: 900px;
-            position: relative;
-            margin: 150px auto 0 auto;
-        }
-        
-        .road {
-            height: 50px;
-            background-color: #6c757d;
-            position: relative;
-            border-radius: 5px;
-        }
-        
-        .road::before {
-            content: "";
-            position: absolute;
-            top: 50%;
-            left: 5%;
-            right: 5%;
-            height: 6px;
-            background: repeating-linear-gradient(90deg, #fff, #fff 30px, transparent 30px, transparent 60px);
-            transform: translateY(-50%);
-        }
-        
-        .marker {
-            position: absolute;
-            transform: translateX(-50%);
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .marker-pin {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            font-weight: bold;
-            font-size: 16px;
-            position: relative;
-            z-index: 2;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-            border: 3px solid #fff;
-        }
-        
-        .integrated-text {
-            position: absolute;
-            width: 250px;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: white;
-            padding: 12px;
-            border-radius: 6px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            border-left: 3px solid;
-            font-size: 0.85rem;
-            line-height: 1.4;
-            text-align: justify;
-            opacity: 1;
-        }
-
-        /* Ajustes de posición del Roadmap */
-        .marker.top { top: -60px; }
-        .marker.bottom { top: 60px; }
-        .marker-1 { left: 10%; }
-        .marker-2 { left: 30%; }
-        .marker-3 { left: 50%; }
-        .marker-4 { left: 70%; }
-        .marker-5 { left: 90%; }
-
-        .marker.top .integrated-text { bottom: 100%; margin-bottom: 15px; }
-        .marker.bottom .integrated-text { top: 100%; margin-top: 15px; }
-        
-        /* Estilos de color para los pines y textos (Roadmap) */
-        .marker-1 .marker-pin { background-color: #e53935; }
-        .marker-2 .marker-pin { background-color: #f57c00; }
-        .marker-3 .marker-pin { background-color: #ffc107; }
-        .marker-4 .marker-pin { background-color: #1e88e5; }
-        .marker-5 .marker-pin { background-color: #43a047; }
-        
-        .marker-1 .integrated-text { border-left-color: #e53935; }
-        .marker-2 .integrated-text { border-left-color: #f57c00; }
-        .marker-3 .integrated-text { border-left-color: #ffc107; }
-        .marker-4 .integrated-text { border-left-color: #1e88e5; }
-        .marker-5 .integrated-text { border-left-color: #43a047; }
-        
-        /* Flechas del Roadmap */
-        .marker.top .integrated-text::after { content: ""; position: absolute; left: 50%; bottom: -15px; transform: translateX(-50%); border-left: 10px solid transparent; border-right: 10px solid transparent; border-top: 15px solid; }
-        .marker.bottom .integrated-text::after { content: ""; position: absolute; left: 50%; top: -15px; transform: translateX(-50%); border-left: 10px solid transparent; border-right: 10px solid transparent; border-bottom: 15px solid; }
-        .marker-1 .integrated-text::after { border-top-color: #e53935; }
-        .marker-2 .integrated-text::after { border-bottom-color: #f57c00; }
-        .marker-3 .integrated-text::after { border-top-color: #ffc107; }
-        .marker-4 .integrated-text::after { border-bottom-color: #1e88e5; }
-        .marker-5 .integrated-text::after { border-top-color: #43a047; }
-
-        /* Gráfico de Productividad */
-        .productivity-improvement {
-            position: absolute;
-            left: 100%;
-            bottom: -50px;
-            margin-left: 20px;
-            z-index: 3;
-            display: flex;
-            align-items: flex-end;
-            gap: 8px;
-            height: 80px;
-        }
-        .productivity-container {
-            background: rgba(255,255,255,0.95);
-            padding: 10px;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            border-left: 4px solid #43a047;
-            text-align: center;
-        }
-        .productivity-graph {
-            display: flex;
-            align-items: flex-end;
-            justify-content: center;
-            gap: 6px;
-            height: 50px;
-        }
-        .graph-bar {
-            width: 10px;
-            background: linear-gradient(to top, #388e3c, #43a047);
-            border-radius: 3px 3px 0 0;
-            animation: bar-grow 1.6s ease-in-out infinite alternate;
-        }
-        .bar-1 { animation-delay: 0.2s; }
-        .bar-2 { animation-delay: 0.4s; }
-        .bar-3 { animation-delay: 0.6s; }
-        @keyframes bar-grow {
-            0% { height: 0; }
-            100% { height: var(--target-height); }
-        }
-        .productivity-text {
-            margin-top: 5px;
-            font-size: 12px;
-            color: #2c3e50;
-            font-weight: bold;
-        }
-        
-        /* 8. Contacto */
-        #contacto p {
-            font-size: 1.1rem;
-            line-height: 2.0;
-            text-align: center;
-        }
-
-        /* Modal Close Button */
-         .modal-content {
-            background-color: transparent;
-            border: none;
-            box-shadow: none;
-        }
-        .modal-body {
-            padding: 0;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        .modal-body img {
-            width: auto;
-            height: auto;
-            max-width: 95vw;
-            max-height: 95vh;
-            object-fit: contain;
-            border-radius: 0;
-        }
-        .modal-close {
-            position: absolute;
-            top: -10px;
-            right: -10px;
-            background-color: rgba(255, 255, 255, 0.8);
-            color: #000;
-            border: none;
-            border-radius: 50%;
-            width: 30px;
-            height: 30px;
-            font-size: 16px;
-            line-height: 1;
-            cursor: pointer;
-            z-index: 3;
-            box-shadow: 0 0 10px rgba(0,0,0,0.5); 
-        }
-        
-        /* 9. Media Queries para Responsividad Móvil */
-        @media (max-width: 992px) {
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-            header h1 {
-                font-size: 2.2rem;
-            }
-            header p {
-                font-size: 1.1rem;
-            }
-            header img {
-                width: 150px;
-                height: 150px;
-            }
-            section {
-                padding: 20px;
-                width: 95%;
-                margin: 15px auto;
-            }
-            .project-images-grid {
-                grid-template-columns: 1fr;
-            }
-            .project-images-grid img {
-                height: auto;
-            }
-            .productivity-improvement {
-                display: none;
-            }
-            
-            /* Adaptación del Roadmap a Vertical (Móvil) */
-            .roadmap-container {
-                margin-top: 20px !important;
-                padding-top: 0;
-            }
-            .road {
-                display: none;
-            }
-            .marker {
-                position: relative !important;
-                left: auto !important;
-                top: auto !important;
-                transform: none !important;
-                margin-bottom: 20px;
-                display: flex;
-                align-items: flex-start;
-                padding-left: 20px;
-            }
-            .marker-pin {
-                flex-shrink: 0;
-                margin-right: 15px;
-                position: absolute;
-                left: 0;
-            }
-            .integrated-text {
-                position: relative !important;
-                width: 100% !important;
-                left: auto !important;
-                transform: none !important;
-                margin-top: 0;
-                margin-bottom: 0;
-                padding: 10px;
-                box-shadow: none;
-                background-color: transparent;
-                border-left: none;
-                font-size: 0.9rem;
-            }
-            .integrated-text::after {
-                content: none !important;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Andriy Trofymenko - Ingeniero Industrial</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <style>
+    /* Estilos generales */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', sans-serif;
+      color: #333;
+      background-color: #e0e0e0;
+    }
+    #particles-js {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background: transparent;
+      z-index: -1;
+    }
+    header {
+      position: relative;
+      z-index: 1;
+      background: linear-gradient(135deg, rgba(96, 96, 96, 0.1), rgba(128, 128, 128, 0.05));
+      padding: 0px 0;
+      text-align: center;
+      color: white;
+      border-radius: 0 0 20px 20px;
+      margin-bottom: 0;
+    }
+    header img {
+      width: 220px;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 50%;
+      object-position: center 50%;
+      border: 4px solid white;
+      margin-top: -20px;
+      margin-bottom: 5px;
+    }
+    header h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 0px;
+      color: #2c3e50;
+    }
+    header p {
+      font-size: 1.5rem;
+      margin-bottom: 5px;
+      color: #34495e;
+    }
+    nav {
+      position: sticky;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(44, 62, 80, 0.7);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      padding: 10px 0;
+      z-index: 1000;
+    }
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+    nav ul li {
+      display: inline;
+      position: relative;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 10px 20px;
+      border-radius: 5px;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+    nav ul li a:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+    }
+    /* Menú desplegable */
+    nav ul li.dropdown ul.dropdown-content {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: rgba(44, 62, 80, 0.9);
+      min-width: 250px;
+      z-index: 1000;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      border-radius: 0 0 5px 5px;
+    }
+    nav ul li.dropdown:hover ul.dropdown-content {
+      display: block;
+    }
+    nav ul li.dropdown ul.dropdown-content li {
+      display: block;
+    }
+    nav ul li.dropdown ul.dropdown-content li a {
+      padding: 10px 20px;
+      font-size: 0.9rem;
+      white-space: nowrap;
+      display: block;
+    }
+    section {
+      position: relative;
+      z-index: 1;
+      background-color: rgba(255, 255, 255, 0.85);
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin: 20px auto;
+      padding: 20px;
+      width: 80%;
+      max-width: 1800px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    section.active {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+    h2 {
+      color: #2c3e50;
+      font-size: 2.5rem;
+      text-align: center;
+      position: relative;
+      display: inline-block;
+      margin: 20px 0;
+      padding-bottom: 10px;
+    }
+    h2::after {
+      content: '';
+      position: absolute;
+      width: 50%;
+      height: 3px;
+      background: #0073e6;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%) scaleX(0);
+      transform-origin: center;
+      transition: transform 0.3s ease;
+    }
+    h2:hover::after {
+      transform: translateX(-50%) scaleX(1);
+    }
+    .project-card h3 {
+      color: #1a5276;
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+    p {
+      font-size: 1rem;
+      color: #333;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+    a {
+      color: #0073e6;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    a:hover {
+      color: #005bb5;
+    }
+    .project {
+      margin-bottom: 20px;
+    }
+    .project img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .projects-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    /* Contenedores de proyectos */
+    .project-card {
+      flex: 1 1 calc(50% - 20px);
+      background-color: #f0f0f0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      padding: 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+    .project-card img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      cursor: pointer;
+    }
+    .capacitaciones-images {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+    .capacitaciones-images img {
+      width: 100%;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    /* Proyectos Dimensionamiento y Layout */
+    .dimensionamiento .capacitaciones-images img,
+    .analisis-layout .capacitaciones-images img {
+      height: 250px;
+      object-fit: cover;
+    }
+    /* Herramientas de Gestión */
+    .herramientas-images {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+    .herramientas-images img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    /* Justificar texto */
+    .dimensionamiento p,
+    .analisis-layout p,
+    #sobre-mi p {
+      text-align: justify;
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+    /* Video centrado en Mapeo */
+    .project-card.mapeo iframe {
+      display: block;
+      margin: 40px auto 0 auto;
+    }
+    .modal-content {
+      background-color: transparent;
+      border: none;
+      box-shadow: none;
+    }
+    .modal-body {
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .modal-body img {
+      width: auto;
+      height: auto;
+      max-width: 95vw;
+      max-height: 95vh;
+      object-fit: contain;
+      border-radius: 0;
+    }
+    .modal-close {
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      background-color: rgba(255, 255, 255, 0.8);
+      color: #000;
+      border: none;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      font-size: 16px;
+      line-height: 1;
+      cursor: pointer;
+      z-index: 3;
+    }
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+      header {
+        padding-top: 40px;
+      }
+      header h1 {
+        font-size: 2.5rem;
+      }
+      header p {
+        font-size: 1.2rem;
+      }
+      header img {
+        width: 120px;
+        height: 120px;
+      }
+      section {
+        padding: 15px;
+        margin: 10px auto;
+        width: 80%;
+        border-radius: 0;
+      }
+      iframe {
+        width: 100%;
+        height: 200px;
+      }
+      .project-card {
+        flex: 1 1 100%;
+      }
+      .capacitaciones-images,
+      .herramientas-images {
+        grid-template-columns: 1fr;
+      }
+    }
+    /* Estilos del Roadmap (MEJORADOS) */
+    .roadmap-container {
+      width: 100%;
+      max-width: 840px;
+      position: relative;
+      margin: 0 auto;
+    }
+    .road {
+      height: 50px;
+      background-color: #666;
+      position: relative;
+      border-radius: 5px;
+    }
+    .road::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 5%;
+      right: 5%;
+      height: 6px;
+      background: repeating-linear-gradient(90deg, #fff, #fff 40px, transparent 40px, transparent 80px);
+      transform: translateY(-50%);
+    }
+    .marker {
+      position: absolute;
+      transform: translateX(-50%);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .marker:hover {
+      transform: translateX(-50%) scale(1.05);
+    }
+    .marker-pin {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
+      position: relative;
+      z-index: 2;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    .marker-line {
+      position: absolute;
+      left: 50%;
+      width: 2px;
+      transform: translateX(-50%);
+      z-index: 1;
+    }
+    .integrated-text {
+      position: absolute;
+      width: 280px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: white;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      border-left: 3px solid;
+      font-size: 14px;
+      line-height: 1.4;
+      color: #333;
+      text-align: justify;
+      z-index: 4;
+      transition: opacity 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+    .marker.top .integrated-text {
+      bottom: 100%;
+      margin-bottom: 15px;
+    }
+    .marker.top .integrated-text::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: -15px;
+      transform: translateX(-50%);
+      border-left: 12px solid transparent;
+      border-right: 12px solid transparent;
+      border-top: 15px solid;
+    }
+    .marker.bottom .integrated-text {
+      top: 100%;
+      margin-top: 15px;
+    }
+    .marker.bottom .integrated-text::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: -15px;
+      transform: translateX(-50%);
+      border-left: 12px solid transparent;
+      border-right: 12px solid transparent;
+      border-bottom: 15px solid;
+    }
+    .marker-1 {
+      left: 10%;
+      top: -80px;
+    }
+    .marker-1 .integrated-text {
+      border-left-color: #e53935;
+      width: 280px; /* Ajusta este valor a tu gusto */
+    }
+    .marker-1 .integrated-text::after {
+      border-top-color: #e53935;
+    }
+    .marker-1 .marker-pin,
+    .marker-1 .marker-line {
+      background-color: #e53935;
+    }
+    .marker-1 .marker-line {
+      height: 80px;
+      top: 50px;
+    }
+    .marker-2 {
+      left: 30%;
+      top: 80px;
+    }
+    .marker-2 .integrated-text {
+      border-left-color: #f57c00;
+      width: 300px;
+    }
+    .marker-2 .integrated-text::after {
+      border-bottom-color: #f57c00;
+    }
+    .marker-2 .marker-pin,
+    .marker-2 .marker-line {
+      background-color: #f57c00;
+    }
+    .marker-2 .marker-line {
+      height: 80px;
+      bottom: 50px;
+    }
+    .marker-3 {
+      left: 50%;
+      top: -80px;
+    }
+    .marker-3 .integrated-text {
+      border-left-color: #ffc107;
+    }
+    .marker-3 .integrated-text::after {
+      border-top-color: #ffc107;
+    }
+    .marker-3 .marker-pin,
+    .marker-3 .marker-line {
+      background-color: #ffc107;
+    }
+    .marker-3 .marker-line {
+      height: 80px;
+      top: 50px;
+    }
+    .marker-4 {
+      left: 70%;
+      top: 80px;
+    }
+    .marker-4 .integrated-text {
+      border-left-color: #1e88e5;
+      width: 255px; /* Ajusta este valor a tu gusto */
+    }
+    .marker-4 .integrated-text::after {
+      border-bottom-color: #1e88e5;
+    }
+    .marker-4 .marker-pin,
+    .marker-4 .marker-line {
+      background-color: #1e88e5;
+    }
+    .marker-4 .marker-line {
+      height: 80px;
+      bottom: 50px;
+    }
+    .marker-5 {
+      left: 90%;
+      top: -80px;
+    }
+    .marker-5 .integrated-text {
+      border-left-color: #43a047;
+      width: 320px; /* Ajusta este valor a tu gusto */
+    }
+    .marker-5 .integrated-text::after {
+      border-top-color: #43a047;
+    }
+    .marker-5 .marker-pin,
+    .marker-5 .marker-line {
+      background-color: #43a047;
+    }
+    .marker-5 .marker-line {
+      height: 80px;
+      top: 50px;
+    }
+    /* Roadmap: Contenedor de productividad con animación en las barras y sin el ícono industrial */
+    .productivity-improvement {
+      position: absolute;
+      left: 100%;
+      bottom: -30px;
+      margin-left: 20px;
+      z-index: 3;
+      display: flex;
+      align-items: flex-end;
+      gap: 8px;
+      height: 80px;
+    }
+    .productivity-container {
+      background: rgba(255,255,255,0.95);
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      border-left: 4px solid #43a047;
+    }
+    .productivity-graph {
+      display: flex;
+      align-items: flex-end;
+      justify-content: center; /* Barras centradas */
+      gap: 6px;
+      height: 60px;
+    }
+    .graph-bar {
+      width: 12px;
+      background: linear-gradient(to top, #388e3c, #43a047);
+      border-radius: 3px 3px 0 0;
+      animation: bar-grow 1.6s ease-in-out infinite alternate;
+    }
+    .bar-1 { animation-delay: 0.2s; }
+    .bar-2 { animation-delay: 0.4s; }
+    .bar-3 { animation-delay: 0.6s; }
+    @keyframes bar-grow {
+      0% { height: 0; }
+      100% { height: var(--target-height); }
+    }
+    .productivity-text {
+      text-align: center;
+      margin-top: 10px;
+      font-size: 14px;
+      color: #2c3e50;
+      font-weight: bold;
+    }
+    
+    /* Cambios solicitados: degradado mayor en los contenedores de servicios y efecto hover sutil */
+    .servicios-container {
+      width: 99.5%;
+      background: linear-gradient(135deg, #ffffff, #e0e0e0);
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      padding: 20px;
+      margin: 20px auto;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .servicios-container:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    }
+    /* Para agrandar el contenedor de Asistencia Técnica */
+    .servicios-container.asistencia {
+      min-height: 710px;
+    }
+  </style>
 </head>
 <body>
-    <div id="particles-js"></div>
-    
-    <header id="inicio">
-        <div class="container">
-            <img src="https://i.postimg.cc/nrHcj0X6/test-2.png" alt="Andriy Trofymenko" border="0" style="margin-top: 17px">
-            <h1>Andriy Trofymenko</h1>
-            <p style="font-size: 1.6rem;">INGENIERO INDUSTRIAL | CONSULTOR EN EFICIENCIA OPERATIVA</p>
-        </div>
-    </header>
-
-    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
-        <div class="container-fluid">
-            <a class="navbar-brand d-lg-none" href="#inicio">A. Trofymenko</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav mx-auto">
-                    <li class="nav-item"><a class="nav-link" href="#inicio">Inicio</a></li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownProyectos" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Proyectos
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownProyectos">
-                            <li><a class="dropdown-item" href="#proyecto-mapeo">Mapeo Cadena Valor</a></li>
-                            <li><a class="dropdown-item" href="#proyecto-dimensionamiento">Dimensionamiento Planta</a></li>
-                            <li><a class="dropdown-item" href="#proyecto-layout">Diseño de Layout</a></li>
-                            <li><a class="dropdown-item" href="#proyecto-clinicas">Ampliación Áreas Clínicas</a></li>
-                            <li><a class="dropdown-item" href="#proyecto-capacitaciones">Capacitaciones</a></li>
-                            <li><a class="dropdown-item" href="#proyecto-herramientas">Herramientas Gestión</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownServicios" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Servicios
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownServicios">
-                            <li><a class="dropdown-item" href="#servicio-capacitaciones">Capacitaciones</a></li>
-                            <li><a class="dropdown-item" href="#servicio-asistencia">Asistencia Técnica</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" href="#descargas">Descargas</a></li>
-                    <li class="nav-item"><a class="nav-link btn btn-primary text-white ms-lg-3" href="#contacto" style="background-color: var(--accent-color);">Contacto Rápido</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    
-    <section id="sobre-mi">
-        <h2>Sobre mí</h2>
-        <div class="row">
-            <div class="col-lg-12">
-                <p class="lead mb-4" style="font-weight: 400; font-size: 1.1rem; text-align: justify; padding: 0 20px;">
-                    Soy Ingeniero Industrial, especializado en Lean Manufacturing y Gestión Estratégica. Mi misión es maximizar la productividad y la excelencia operativa de su organización. A lo largo de mi carrera, he liderado proyectos de alto impacto en diversos sectores. Respaldado por una sólida formación académica, incluyendo una Diplomatura Universitaria en Industrias 4.0, he desarrollado una perspectiva integral que fusiona conocimientos técnicos con habilidades estratégicas y de liderazgo.
-                </p>
-                
-                <h4 class="text-center mt-4 mb-4" style="color: var(--primary-color);">Mis Pilares de Valor</h4>
-
-                <div class="row text-center">
-                    <div class="col-md-3 mb-3">
-                        <i class="bi bi-gear-wide-connected fs-3 text-success"></i>
-                        <p class="fw-bold mt-2">Optimización de Procesos</p>
-                    </div>
-                    <div class="col-md-3 mb-3">
-                        <i class="bi bi-bar-chart-line fs-3 text-warning"></i>
-                        <p class="fw-bold mt-2">Productividad Cuantificable</p>
-                    </div>
-                    <div class="col-md-3 mb-3">
-                        <i class="bi bi-lightbulb fs-3 text-info"></i>
-                        <p class="fw-bold mt-2">Innovación y Kaizen</p>
-                    </div>
-                    <div class="col-md-3 mb-3">
-                        <i class="bi bi-people fs-3 text-danger"></i>
-                        <p class="fw-bold mt-2">Liderazgo de Equipos</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <section id="proyectos-destacados">
-        <h2>Proyectos Destacados</h2>
-        <div class="projects-grid">
-            
-            <div class="project-card mapeo" id="proyecto-mapeo">
-                <div>
-                    <h3>Mapeo de la Cadena de Valor del Cáñamo Industrial</h3>
-                    <p>
-                        Lideré la coordinación de un equipo multidisciplinario (CONICET, INTA, INTI) para el análisis exhaustivo de la cadena de valor, desde el diagnóstico hasta la propuesta de soluciones.
-                    </p>
-                    <ul>
-                        <li><i class="bi bi-check-circle-fill text-success me-2"></i> Integración efectiva de 5 instituciones técnicas clave.</li>
-                        <li><i class="bi bi-check-circle-fill text-success me-2"></i> Identificación de oportunidades para el desarrollo sostenible del sector emergente.</li>
-                        <li><i class="bi bi-check-circle-fill text-success me-2"></i> Ejecución exitosa del plan de trabajo en tiempo y forma.</li>
-                    </ul>
-                </div>
-                <iframe width="100%" height="250" src="https://www.youtube.com/embed/tYU88wsM110" frameborder="0" allowfullscreen></iframe>
-            </div>
-            
-            <div class="project-card dimensionamiento" id="proyecto-dimensionamiento">
-                <div>
-                    <h3>Dimensionamiento de Planta para Bolsas de Polietileno</h3>
-                    <p>
-                        Diseño, puesta en marcha y optimización de una planta de fabricación de bolsas a partir de polietileno reciclado, coordinando un equipo de 130 cooperativistas.
-                    </p>
-                    <ul>
-                        <li><i class="bi bi-check-circle-fill text-success me-2"></i> Capacidad instalada de <strong>14,6 toneladas mensuales</strong>.</li>
-                        <li><i class="bi bi-check-circle-fill text-success me-2"></i> Flujo de producción estable de <strong>9.600 kg/mes</strong> (4,5% del market share).</li>
-                        <li><i class="bi bi-check-circle-fill text-success me-2"></i> Diseño de layout y optimización del flujo de materiales.</li>
-                    </ul>
-                </div>
-                <div class="project-images-grid">
-                    <img src="https://i.ibb.co/rRHcJhrT/2.png" alt="Plano de Dimensionamiento 1" data-bs-toggle="modal" data-bs-target="#proyecto3Modal1">
-                    <img src="https://i.ibb.co/G3xbrfMf/render-pro.png" alt="Render de Planta" data-bs-toggle="modal" data-bs-target="#proyecto3Modal2">
-                    <img src="https://i.ibb.co/b5jKfPz1/3.png" alt="Plano de Dimensionamiento 2" data-bs-toggle="modal" data-bs-target="#proyecto3Modal3">
-                    <img src="https://i.ibb.co/DPC2mY5S/7.png" alt="Plano de Dimensionamiento 3" data-bs-toggle="modal" data-bs-target="#proyecto3Modal4">
-                </div>
-            </div>
-
-            <div class="project-card analisis-layout" id="proyecto-layout">
-                <div>
-                    <h3>Rediseño y Optimización de Layout Industrial</h3>
-                    <p>
-                        Dirigí la reestructuración del layout de una planta de reparación de equipos (760 m² a 1.860 m²). Implementé la metodología “Planificación Sistemática de Layout”.
-                    </p>
-                    <ul>
-                        <li><i class="bi bi-check-circle-fill text-success me-2"></i> <strong>Incremento de área operativa</strong> en 1100 m² (144% de ampliación).</li>
-                        <li><i class="bi bi-check-circle-fill text-success me-2"></i> Optimización de la distribución de bahías y almacenamiento.</li>
-                        <li><i class="bi bi-check-circle-fill text-success me-2"></i> <strong>Reducción de cruce de actividades</strong> y mejora del flujo de trabajo.</li>
-                    </ul>
-                </div>
-                <div class="project-images-grid">
-                    <img src="https://i.ibb.co/kVRFDtSw/1bc1fb7d699ffa0917736253c54d46c19b2c482b.jpg" alt="Layout Imagen 1" data-bs-toggle="modal" data-bs-target="#proyecto4Modal1">
-                    <img src="https://i.ibb.co/yFQChTGL/2fc7eced7aea8ee1c2f4f3c0bf05d1eeced0f136.jpg" alt="Layout Imagen 2" data-bs-toggle="modal" data-bs-target="#proyecto4Modal2">
-                    <img src="https://i.ibb.co/5X8tk2D6/8a20fb1069d1d31c2ec18578125f9ffc866bf186.jpg" alt="Layout Imagen 3" data-bs-toggle="modal" data-bs-target="#proyecto4Modal3">
-                    <img src="https://i.ibb.co/RkD8tNXq/diagrama-de-hilos.png" alt="Diagrama de Hilos" data-bs-toggle="modal" data-bs-target="#proyecto4Modal4">
-                </div>
-            </div>
-
-            <div class="project-card" id="proyecto-clinicas">
-                <div>
-                    <h3>Ampliación de Áreas Clínicas para Mejora de Productividad</h3>
-                    <p>
-                        Dirigí la optimización del área de endoscopia de una clínica, implementando un nuevo sistema de giro camas y reorganizando el layout para máxima eficiencia.
-                    </p>
-                    <ul>
-                        <li><i class="bi bi-check-circle-fill text-success me-2"></i> Aumento del <strong>69% en pacientes diarios</strong> (de 13 a 22).</li>
-                        <li><i class="bi bi-check-circle-fill text-success me-2"></i> Reducción del <strong>44% en tiempo promedio de permanencia</strong> (de 5:39hs a 3:10hs).</li>
-                        <li><i class="bi bi-check-circle-fill text-success me-2"></i> Optimización de recorridos mediante simulación y nuevo diseño.</li>
-                    </ul>
-                </div>
-                <iframe width="100%" height="250" src="https://www.youtube.com/embed/k5jvN9XXlm4" frameborder="0" allowfullscreen></iframe>
-            </div>
-
-            <div class="project-card" id="proyecto-capacitaciones">
-                <div>
-                    <h3>Asistencia Técnica y Capacitaciones In Company</h3>
-                    <p>
-                        Transferencia de metodologías y herramientas de gestión a empresas privadas y organismos públicos para impulsar la mejora continua y aumentar la productividad.
-                    </p>
-                    <ul>
-                        <li><i class="bi bi-check-circle-fill text-success me-2"></i> Implementación de Lean Manufacturing, Six Sigma, 5S y Kaizen.</li>
-                        <li><i class="bi bi-check-circle-fill text-success me-2"></i> Fortalecimiento de equipos en gestión de proyectos y mandos medios.</li>
-                        <li><i class="bi bi-check-circle-fill text-success me-2"></i> Adaptación de contenidos a las necesidades específicas de cada sector.</li>
-                    </ul>
-                </div>
-                <div class="project-images-grid">
-                    <img src="https://i.ibb.co/6z173zP/Imagen-de-Whats-App-2025-02-14-a-las-20-30-12-dbf6f0c3.jpg" alt="Capacitaciones 1" data-bs-toggle="modal" data-bs-target="#capacitacionesModal1">
-                    <img src="https://i.ibb.co/chB8ZGLN/Imagen-de-Whats-App-2025-02-14-a-las-20-27-49-4e77bac1.jpg" alt="Capacitaciones 2" data-bs-toggle="modal" data-bs-target="#capacitacionesModal2">
-                    <img src="https://i.ibb.co/PvRrSw0Y/Imagen-de-Whats-App-2025-02-14-a-las-20-10-33-550c9616.jpg" alt="Capacitaciones 3" data-bs-toggle="modal" data-bs-target="#capacitacionesModal3">
-                    <img src="https://i.ibb.co/Wvbwj2p2/Imagen-de-Whats-App-2025-02-18-a-las-19-47-54-2a875330.jpg" alt="Capacitaciones 4" data-bs-toggle="modal" data-bs-target="#capacitacionesModal4">
-                </div>
-            </div>
-
-            <div class="project-card" id="proyecto-herramientas">
-                <div>
-                    <h3>Herramientas de Gestión e Implementación Visual</h3>
-                    <p>
-                        Ejemplos concretos de aplicación de herramientas de gestión visual y metodologías para la mejora de la productividad en diversos entornos.
-                    </p>
-                    <ul>
-                        <li><i class="bi bi-check-circle-fill text-success me-2"></i> Implementación de la metodología <strong>5S</strong> en áreas de trabajo.</li>
-                        <li><i class="bi bi-check-circle-fill text-success me-2"></i> Desarrollo de tableros de control <strong>Kanban</strong> y Kaizen.</li>
-                        <li><i class="bi bi-check-circle-fill text-success me-2"></i> Adaptación de herramientas para el monitoreo de KPIs.</li>
-                    </ul>
-                </div>
-                <div class="project-images-grid">
-                    <img src="https://i.ibb.co/XkSLpXg0/5S.png" alt="5S" data-bs-toggle="modal" data-bs-target="#herramientasModal1">
-                    <img src="https://i.ibb.co/qMnndpyB/IMG-20250222-WA0004.jpg" alt="Herramienta 2" data-bs-toggle="modal" data-bs-target="#herramientasModal2">
-                    <img src="https://i.ibb.co/21XsSHgD/IMG-20250222-WA0007.jpg" alt="Herramienta 3" data-bs-toggle="modal" data-bs-target="#herramientasModal3">
-                    <img src="https://i.ibb.co/cnDFGLF/sdssdd.png" alt="Herramienta 4" data-bs-toggle="modal" data-bs-target="#herramientasModal4">
-                </div>
-            </div>
-            
-        </div>
-    </section>
-
-    <section id="servicios">
-        <h2>Servicios Profesionales</h2>
-        
-        <div class="servicios-container" id="servicio-capacitaciones">
-            <h3>Capacitaciones In Company y Online</h3>
-            <p style="text-align: justify;">
-                Brindo capacitaciones centradas en metodologías de gestión (Lean Manufacturing, Six Sigma, 5S, Kaizen, Gestión de Proyectos) para que su equipo optimice procesos y aumente la productividad. El enfoque es <strong>100% práctico</strong>, asegurando la transferencia efectiva de conocimientos y la creación de una cultura de mejora continua en su organización.
-            </p>
-        </div>
-        
-        <div class="servicios-container" id="servicio-asistencia">
-            <h3>Asistencia Técnica Integral</h3>
-            <p style="text-align: justify;">
-                Realizo Asistencias Técnicas especializadas para <strong>detectar y eliminar pérdidas</strong> en sus procesos internos, reducir costos y optimizar recursos. A través de un análisis detallado, propongo e implemento soluciones de eficiencia operativa, siempre con el objetivo final de un <strong>incremento medible en su productividad</strong>. El proceso incluye capacitaciones prácticas durante la implementación.
-            </p>
-            
-            <h4 class="text-center mt-5 mb-5" style="color: var(--primary-color);">Roadmap del Proceso de Asistencia Técnica</h4>
-            
-            <div class="roadmap-container">
-                <div class="road"></div>
-                
-                <div class="productivity-improvement">
-                    <div class="productivity-container">
-                        <div class="productivity-graph">
-                            <div class="graph-bar bar-1" style="--target-height: 30px"></div>
-                            <div class="graph-bar bar-2" style="--target-height: 45px"></div>
-                            <div class="graph-bar bar-3" style="--target-height: 60px"></div>
-                        </div>
-                        <div class="productivity-text">Mejora (%)</div>
-                    </div>
-                </div>
-                
-                <div class="marker marker-1 top">
-                    <div class="marker-pin">1</div>
-                    <div class="integrated-text">
-                        Diagnóstico empresarial (análisis de la situación inicial y desempeño de procesos clave).
-                    </div>
-                </div>
-                <div class="marker marker-2 bottom">
-                    <div class="marker-pin">2</div>
-                    <div class="integrated-text">
-                        Identificación y priorización de las oportunidades de mejora de alto impacto.
-                    </div>
-                </div>
-                <div class="marker marker-3 top">
-                    <div class="marker-pin">3</div>
-                    <div class="integrated-text">
-                        Definición de KPIs y establecimiento de la metodología de implementación.
-                    </div>
-                </div>
-                <div class="marker marker-4 bottom">
-                    <div class="marker-pin">4</div>
-                    <div class="integrated-text">
-                        Desarrollo e implementación de la Asistencia Técnica (incluye capacitación práctica).
-                    </div>
-                </div>
-                <div class="marker marker-5 top">
-                    <div class="marker-pin">5</div>
-                    <div class="integrated-text">
-                        Medición de resultados, estandarización y entrega del informe final.
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-    </section>
-
-    <section id="descargas">
-        <h2>Descargas</h2>
-        <p class="text-center">
-            Acceda a mi currículum vitae profesional.
+  <div id="particles-js"></div>
+  <header id="inicio">
+    <div class="container">
+      <img src="https://i.postimg.cc/nrHcj0X6/test-2.png" alt="Andriy Trofymenko" border="0" style="margin-top: 17px">
+      <h1>Andriy Trofymenko</h1>
+      <p style="font-size: 1.95rem;">INGENIERO INDUSTRIAL</p>
+    </div>
+  </header>
+  <nav>
+    <ul>
+      <li><a href="#inicio">Inicio</a></li>
+      <li class="dropdown">
+        <a href="#proyectos-destacados">Proyectos Destacados</a>
+        <ul class="dropdown-content">
+          <li><a href="#proyecto-mapeo">Mapeo de la Cadena de Valor del Cáñamo Industrial</a></li>
+          <li><a href="#proyecto-capacitaciones">Capacitaciones</a></li>
+          <li><a href="#proyecto-dimensionamiento">Dimensionamiento de Planta para Bolsas de Polietileno</a></li>
+          <li><a href="#proyecto-layout">Diseño de Layout</a></li>
+          <li><a href="#proyecto-clinicas">Ampliación de Áreas Clínicas para Mejora de Productividad y Ergonomía</a></li>
+          <li><a href="#proyecto-herramientas">Herramientas de Gestión</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="#servicios">Servicios</a>
+        <ul class="dropdown-content">
+          <li><a href="#servicio-capacitaciones">Capacitaciones</a></li>
+          <li><a href="#servicio-asistencia">Asistencia Técnica</a></li>
+        </ul>
+      </li>
+      <li><a href="#descargas">Descargas</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </nav>
+  <!-- SECCIÓN SOBRE MI -->
+  <section id="sobre-mi">
+    <h2>Sobre mí</h2>
+    <p>
+      Soy Ingeniero Industrial, especializado en mejora continua, optimización de procesos y gestión estratégica de proyectos. Mi enfoque se centra en la implementación de metodologías de gestión para alcanzar la excelencia operativa, con el objetivo de maximizar la productividad. A lo largo de mi carrera, he tenido el privilegio de liderar proyectos de alto impacto en empresas de diversos sectores, tanto públicos como privados. Respaldado por una sólida formación académica, que incluye una Diplomatura Universitaria en Industrias 4.0, he desarrollado una perspectiva integral que fusiona conocimientos técnicos con habilidades estratégicas y de liderazgo.
+    </p>
+  </section>
+  <!-- SECCIÓN PROYECTOS DESTACADOS -->
+  <section id="proyectos-destacados" style="margin-top: 20px;">
+    <h2>Proyectos Destacados</h2>
+    <div class="projects-grid">
+      <div class="project-card mapeo" id="proyecto-mapeo">
+        <h3>Mapeo de la Cadena de Valor del Cáñamo Industrial</h3>
+        <p style="text-align: justify;">
+          En este proyecto, lideré la coordinación de un equipo multidisciplinario conformado por profesionales del CONICET, INTA, INTI, RACME y UNICEN, con el propósito de analizar en profundidad cada eslabón de la cadena de valor del cáñamo industrial. Mi función principal consistió en integrar de manera efectiva los conocimientos técnicos de cada institución y garantizar la ejecución del plan de trabajo, desde la identificación de oportunidades de mejora hasta la propuesta de soluciones concretas que impulsarán el desarrollo sostenible de este sector emergente.
+          <br><br>
+          Para ilustrar con mayor detalle los alcances de esta iniciativa, lo invito a ver la presentación en la que participé como expositor:
         </p>
-        <div class="text-center">
-            <a href="https://andriytrofymenko.github.io/CV%20Andriy%20Trofymenko.pdf?v=4" 
-               download target="_blank" rel="noopener" class="btn btn-lg btn-success">
-                <i class="bi bi-file-earmark-arrow-down-fill me-2"></i> Descargar CV
-            </a>
+        <iframe width="100%" height="315" src="https://www.youtube.com/embed/tYU88wsM110" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <div class="project-card" id="proyecto-capacitaciones">
+        <h3>Capacitaciones</h3>
+        <p style="text-align: justify;">
+          En el ámbito de las capacitaciones, he brindado asistencia técnica especializada a empresas privadas y organismos públicos, transfiriendo metodologías y herramientas de gestión que impulsan la mejora continua y aumentan la productividad. Mi labor se centra en impartir conocimientos estratégicos para fortalecer equipos de trabajo y potenciar la competitividad organizacional.
+        </p>
+        <div class="capacitaciones-images">
+          <img src="https://i.ibb.co/6z173zP/Imagen-de-Whats-App-2025-02-14-a-las-20-30-12-dbf6f0c3.jpg" alt="Imagen de Capacitaciones 1" data-bs-toggle="modal" data-bs-target="#capacitacionesModal1">
+          <img src="https://i.ibb.co/chB8ZGLN/Imagen-de-Whats-App-2025-02-14-a-las-20-27-49-4e77bac1.jpg" alt="Imagen de Capacitaciones 2" data-bs-toggle="modal" data-bs-target="#capacitacionesModal2">
+          <img src="https://i.ibb.co/PvRrSw0Y/Imagen-de-Whats-App-2025-02-14-a-las-20-10-33-550c9616.jpg" alt="Imagen de Capacitaciones 3" data-bs-toggle="modal" data-bs-target="#capacitacionesModal3">
+          <img src="https://i.ibb.co/Wvbwj2p2/Imagen-de-Whats-App-2025-02-18-a-las-19-47-54-2a875330.jpg" alt="Imagen-de-Whats-App-2025-02-18-a-las-19-47-54-2a875330" border="0" data-bs-toggle="modal" data-bs-target="#capacitacionesModal4">
         </div>
-    </section>
-    
-    <section id="contacto">
-        <h2>Contacto</h2>
+      </div>
+      <div class="project-card dimensionamiento" id="proyecto-dimensionamiento">
+        <h3>Dimensionamiento de Planta para Bolsas de Polietileno</h3>
         <p>
-            <i class="bi bi-envelope-fill me-2" style="color: var(--accent-color);"></i> <strong>Correo Electrónico:</strong> atrofymenko@fi.uba.ar<br>
-            <i class="bi bi-telephone-fill me-2" style="color: var(--accent-color);"></i> <strong>Teléfono:</strong> +549 11 33278023<br>
-            <i class="bi bi-geo-alt-fill me-2" style="color: var(--accent-color);"></i> <strong>Ubicación:</strong> Río Gallegos, Santa Cruz (Disponible para proyectos remotos e in-situ).
+          Lideré el diseño, puesta en marcha y optimización de una planta de fabricación de bolsas para residuos a partir de polietileno reciclado, con una capacidad instalada de 14,6 toneladas mensuales. Logré coordinar un equipo de 130 cooperativistas, asegurando un flujo de producción de 9.600 kg/mes de bolsas, equivalente al 4,5% del market share del mercado objetivo.
         </p>
-        <p class="text-center mt-4">
-            <a href="https://linkedin.com/in/su_perfil_linkedin" target="_blank" class="btn btn-outline-primary me-2"><i class="bi bi-linkedin me-2"></i> LinkedIn</a>
-            <a href="mailto:atrofymenko@fi.uba.ar" class="btn btn-outline-secondary"><i class="bi bi-envelope-fill me-2"></i> Enviar Email</a>
+        <div class="capacitaciones-images">
+          <img src="https://i.ibb.co/rRHcJhrT/2.png" alt="2" data-bs-toggle="modal" data-bs-target="#proyecto3Modal1">
+          <img src="https://i.ibb.co/G3xbrfMf/render-pro.png" alt="render-pro" data-bs-toggle="modal" data-bs-target="#proyecto3Modal2">
+          <img src="https://i.ibb.co/b5jKfPz1/3.png" alt="3" data-bs-toggle="modal" data-bs-target="#proyecto3Modal3">
+          <img src="https://i.ibb.co/DPC2mY5S/7.png" alt="7" data-bs-toggle="modal" data-bs-target="#proyecto3Modal4">
+        </div>
+      </div>
+      <div class="project-card analisis-layout" id="proyecto-layout">
+        <h3>Diseño de Layout</h3>
+        <p>
+          Dirigí la reestructuración del layout de una planta de reparación de equipos industriales de 760 m², incrementando su área operativa a 1.860 m². Implementé la metodología “Planificación Sistemática de Layout”, optimizando la distribución de sectores clave como bahías de reparación, almacenamiento y prueba de componentes. El rediseño mejoró la circulación interna, redujo el cruce de actividades y optimizó el flujo de trabajo, aumentando la eficiencia y productividad de la empresa.
         </p>
-    </section>
-
-    <div class="modal fade" id="capacitacionesModal1" tabindex="-1" aria-labelledby="capacitacionesModalLabel1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-body" style="position: relative;">
-                    <div style="position: relative; display: inline-block;">
-                        <button class="modal-close" data-bs-dismiss="modal" aria-label="Close">X</button>
-                        <img src="https://i.ibb.co/6z173zP/Imagen-de-Whats-App-2025-02-14-a-las-20-30-12-dbf6f0c3.jpg" alt="Imagen de Capacitaciones 1" class="img-fluid">
-                    </div>
-                </div>
-            </div>
+        <div class="capacitaciones-images">
+          <img src="https://i.ibb.co/kVRFDtSw/1bc1fb7d699ffa0917736253c54d46c19b2c482b.jpg" alt="Imagen 1" data-bs-toggle="modal" data-bs-target="#proyecto4Modal1">
+          <img src="https://i.ibb.co/yFQChTGL/2fc7eced7aea8ee1c2f4f3c0bf05d1eeced0f136.jpg" alt="Imagen 2" data-bs-toggle="modal" data-bs-target="#proyecto4Modal2">
+          <img src="https://i.ibb.co/5X8tk2D6/8a20fb1069d1d31c2ec18578125f9ffc866bf186.jpg" alt="Imagen 3" data-bs-toggle="modal" data-bs-target="#proyecto4Modal3">
+          <img src="https://i.ibb.co/RkD8tNXq/diagrama-de-hilos.png" alt="diagrama-de-hilos" data-bs-toggle="modal" data-bs-target="#proyecto4Modal4">
         </div>
-    </div>
-    <div class="modal fade" id="capacitacionesModal2" tabindex="-1" aria-labelledby="capacitacionesModalLabel2" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-body" style="position: relative;">
-                    <div style="position: relative; display: inline-block;">
-                        <button class="modal-close" data-bs-dismiss="modal" aria-label="Close">X</button>
-                        <img src="https://i.ibb.co/chB8ZGLN/Imagen-de-Whats-App-2025-02-14-a-las-20-27-49-4e77bac1.jpg" alt="Imagen de Capacitaciones 2" class="img-fluid">
-                    </div>
-                </div>
-            </div>
+      </div>
+      <div class="project-card" id="proyecto-clinicas">
+        <h3>Ampliación de Áreas Clínicas para Mejora de Productividad y Ergonomía</h3>
+        <p style="text-align: justify; margin-left: 20px; margin-right: 20px;">
+          Dirigí la ampliación y optimización del área de endoscopia de una clínica, enfocándome en el diseño e implementación de un nuevo sistema de giro camas y la reorganización del layout para mejorar la eficiencia operativa. Realicé un análisis detallado del flujo de trabajo actual, desarrollé un nuevo diseño que optimiza la distribución de recursos y llevé a cabo simulaciones para validar su eficacia.
+          <br><br>
+          <strong>Mejoras logradas:</strong><br>
+          <strong>&bull;</strong> Aumento del 69% en pacientes diarios: de 13 a 22 pacientes.<br>
+          <strong>&bull;</strong> Reducción del 44% en tiempo promedio de permanencia: de 5:39hs a 3:10hs.<br>
+          <strong>&bull;</strong> Optimización de recorridos: menor cruce de actividades y mejor flujo de trabajo.<br>
+        </p>
+        <iframe width="100%" height="315" src="https://www.youtube.com/embed/k5jvN9XXlm4" frameborder="0" allowfullscreen style="display: block; margin: 40px auto 0 auto;"></iframe>
+      </div>
+      <div class="project-card" id="proyecto-herramientas">
+        <h3>Herramientas de Gestión</h3>
+        <p style="text-align: justify; margin-left: 20px; margin-right: 20px;">
+          Ejemplos de implementación de diferentes herramientas de gestión para la mejora de la productividad.
+        </p>
+        <div class="herramientas-images">
+          <img src="https://i.ibb.co/XkSLpXg0/5S.png" alt="5S" data-bs-toggle="modal" data-bs-target="#herramientasModal1">
+          <img src="https://i.ibb.co/qMnndpyB/IMG-20250222-WA0004.jpg" alt="IMG-20250222-WA0004" data-bs-toggle="modal" data-bs-target="#herramientasModal2">
+          <img src="https://i.ibb.co/21XsSHgD/IMG-20250222-WA0007.jpg" alt="IMG-20250222-WA0007" data-bs-toggle="modal" data-bs-target="#herramientasModal3">
+          <img src="https://i.ibb.co/cnDFGLF/sdssdd.png" alt="sdssdd" data-bs-toggle="modal" data-bs-target="#herramientasModal4">
         </div>
+      </div>
     </div>
-    <div class="modal fade" id="capacitacionesModal3" tabindex="-1" aria-labelledby="capacitacionesModalLabel3" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-body" style="position: relative;">
-                    <div style="position: relative; display: inline-block;">
-                        <button class="modal-close" data-bs-dismiss="modal" aria-label="Close">X</button>
-                        <img src="https://i.ibb.co/PvRrSw0Y/Imagen-de-Whats-App-2025-02-14-a-las-20-10-33-550c9616.jpg" alt="Imagen de Capacitaciones 3" class="img-fluid">
-                    </div>
-                </div>
+  </section>
+  <!-- SECCIÓN SERVICIOS con contenedores para Capacitaciones y Asistencia Técnica -->
+  <!-- Se conserva el tamaño total original de la sección (padding-bottom: 210px) -->
+  <section id="servicios" style="margin-top: 20px; padding-bottom: 05px;">
+    <h2>Servicios</h2>
+    <div class="servicios-container" id="servicio-capacitaciones">
+      <h3 style="text-align: left; font-size: 1.8rem; margin-bottom: 15px; color: #1a5276;">Capacitaciones</h3>
+      <p style="text-align: justify;">
+        Brindo capacitaciones, tanto in company como online, centradas en metodologías y herramientas de gestión que permitirán a tu equipo optimizar procesos, aumentar la productividad y fomentar la innovación. Gracias a un enfoque práctico respaldado por la rigurosidad de la Ingeniería Industrial, tu organización adquirirá los conocimientos necesarios para implementar metodologías y herramientas como Lean Manufacturing, Six Sigma, 5S, Kaizen, Gestión de Proyectos, Análisis de Datos, así como técnicas de comunicación efectiva y estrategias de desarrollo de mandos medios, entre otras. Con estas capacitaciones, tu equipo desarrollará una cultura de mejora continua y estará preparado para enfrentar los desafíos presentes y futuros.
+      </p>
+    </div>
+    <div class="servicios-container asistencia" id="servicio-asistencia">
+      <h3 style="text-align: left; font-size: 1.8rem; margin-bottom: 15px; color: #1a5276;">Asistencia Técnica</h3>
+      <p style="text-align: justify;">
+        Realizo Asistencias Técnicas para ayudar a las organizaciones a detectar y eliminar pérdidas en sus procesos internos, permitiéndoles reducir costos, optimizar recursos y mejorar la productividad. A través de un análisis detallado, se identifican oportunidades de mejora y se proponen soluciones basadas en principios de eficiencia operativa y gestión industrial. Para garantizar resultados sostenibles y facilitar la transferencia de conocimientos teóricos, las asistencias incluyen capacitaciones prácticas durante su implementación. De esta manera, el equipo adquiere las herramientas necesarias para mantener y reforzar las mejoras en el tiempo, impulsando una cultura de mejora continua.
+        <br><br>
+        A continuación, se presenta el roadmap del proceso de Asistencia Técnica:
+      </p>
+      <div class="roadmap-container" style="margin-top: 260px;">
+        <div class="road"></div>
+        <!-- Contenedor de productividad con barras animadas y sin el ícono industrial -->
+        <div class="productivity-improvement">
+          <div class="productivity-container">
+            <div class="productivity-graph">
+              <div class="graph-bar bar-1" style="--target-height: 30px"></div>
+              <div class="graph-bar bar-2" style="--target-height: 45px"></div>
+              <div class="graph-bar bar-3" style="--target-height: 60px"></div>
             </div>
+            <div class="productivity-text">Productividad</div>
+          </div>
+          <div class="industrial-icon"></div>
         </div>
-    </div>
-    <div class="modal fade" id="capacitacionesModal4" tabindex="-1" aria-labelledby="capacitacionesModalLabel4" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-body" style="position: relative;">
-                    <div style="position: relative; display: inline-block;">
-                        <button class="modal-close" data-bs-dismiss="modal" aria-label="Close">X</button>
-                        <img src="https://i.ibb.co/Wvbwj2p2/Imagen-de-Whats-App-2025-02-18-a-las-19-47-54-2a875330.jpg" alt="Imagen de Capacitaciones 4" class="img-fluid">
-                    </div>
-                </div>
-            </div>
+        <div class="marker marker-1 top">
+          <div class="integrated-text">
+            Diagnóstico empresarial orientado a evaluar la situación inicial de un sector específico o el desempeño global de la empresa, permitiendo un análisis estructurado de su funcionamiento.
+          </div>
+          <div class="marker-pin">1</div>
+          <div class="marker-line"></div>
         </div>
-    </div>
-    
-    <div class="modal fade" id="proyecto3Modal1" tabindex="-1" aria-labelledby="proyecto3ModalLabel1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-body" style="position: relative;">
-                    <div style="position: relative; display: inline-block;">
-                        <button class="modal-close" data-bs-dismiss="modal" aria-label="Close">X</button>
-                        <img src="https://i.ibb.co/rRHcJhrT/2.png" alt="Imagen Proyecto 3 - 1" class="img-fluid">
-                    </div>
-                </div>
-            </div>
+        <div class="marker marker-2 bottom">
+          <div class="integrated-text">
+            Identificación de oportunidades de mejora.
+          </div>
+          <div class="marker-pin">2</div>
+          <div class="marker-line"></div>
         </div>
-    </div>
-    <div class="modal fade" id="proyecto3Modal2" tabindex="-1" aria-labelledby="proyecto3ModalLabel2" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-body" style="position: relative;">
-                    <div style="position: relative; display: inline-block;">
-                        <button class="modal-close" data-bs-dismiss="modal" aria-label="Close">X</button>
-                        <img src="https://i.ibb.co/G3xbrfMf/render-pro.png" alt="Imagen Proyecto 3 - 2" class="img-fluid">
-                    </div>
-                </div>
-            </div>
+        <div class="marker marker-3 top">
+          <div class="integrated-text">
+            Priorización, en colaboración con el cliente, de las oportunidades de mejora a abordar, estableciendo indicadores clave de desempeño y definiendo la metodología de implementación.
+          </div>
+          <div class="marker-pin">3</div>
+          <div class="marker-line"></div>
         </div>
-    </div>
-    <div class="modal fade" id="proyecto3Modal3" tabindex="-1" aria-labelledby="proyecto3ModalLabel3" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-body" style="position: relative;">
-                    <div style="position: relative; display: inline-block;">
-                        <button class="modal-close" data-bs-dismiss="modal" aria-label="Close">X</button>
-                        <img src="https://i.ibb.co/b5jKfPz1/3.png" alt="Imagen Proyecto 3 - 3" class="img-fluid">
-                    </div>
-                </div>
-            </div>
+        <div class="marker marker-4 bottom">
+          <div class="integrated-text">
+            Desarrollo de la Asistencia Técnica.
+          </div>
+          <div class="marker-pin">4</div>
+          <div class="marker-line"></div>
         </div>
-    </div>
-    <div class="modal fade" id="proyecto3Modal4" tabindex="-1" aria-labelledby="proyecto3ModalLabel4" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-body" style="position: relative;">
-                    <div style="position: relative; display: inline-block;">
-                        <button class="modal-close" data-bs-dismiss="modal" aria-label="Close">X</button>
-                        <img src="https://i.ibb.co/DPC2mY5S/7.png" alt="Imagen Proyecto 3 - 4" class="img-fluid">
-                    </div>
-                </div>
-            </div>
+        <div class="marker marker-5 top">
+          <div class="integrated-text">
+            Medición de resultados y entrega del informe.
+          </div>
+          <div class="marker-pin">5</div>
+          <div class="marker-line"></div>
         </div>
+      </div>
     </div>
-
-    <div class="modal fade" id="proyecto4Modal1" tabindex="-1" aria-labelledby="proyecto4ModalLabel1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-body" style="position: relative;">
-                    <div style="position: relative; display: inline-block;">
-                        <button class="modal-close" data-bs-dismiss="modal" aria-label="Close">X</button>
-                        <img src="https://i.ibb.co/kVRFDtSw/1bc1fb7d699ffa0917736253c54d46c19b2c482b.jpg" alt="Imagen Proyecto 4 - 1" class="img-fluid">
-                    </div>
-                </div>
-            </div>
+  </section>
+  <!-- SECCIÓN DESCARGAS -->
+  <section id="descargas">
+    <h2>Descargas</h2>
+    <ul>
+     <li>
+  <a href="https://andriytrofymenko.github.io/CV%20Andriy%20Trofymenko.pdf?v=4" 
+     download target="_blank" rel="noopener">
+     Descargar CV
+  </a>
+</li>
+    </ul>
+  </section>
+  <!-- SECCIÓN CONTACTO -->
+  <section id="contacto">
+    <h2>Contacto</h2>
+    <p>
+      ✉️ atrofymenko@fi.uba.ar<br><br>
+      ☎ +549 11 33278023<br><br>
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M3.654 6.328c0-1.755 1.447-3.179 3.233-3.179 1.786 0 3.233 1.424 3.233 3.179 0 1.056-.53 2.202-1.369 2.963-.745.666-1.5 1.07-1.864 1.168a.58.58 0 0 1-.001-.003C5.992 9.514 5.238 9.11 4.493 8.444 3.654 7.603 3.654 6.328 3.654 6.328zm4.936 7.846C5.74 12.217 2.25 9.344 2.25 6.328 2.25 3.986 4.347 2 6.887 2c2.54 0 4.637 1.986 4.637 4.328 0 3.016-3.49 5.889-5.654 7.846l-.01.008a.623.623 0 0 1-.41.16.623.623 0 0 1-.41-.16l-.01-.008z"/>
+      </svg>
+      Río Gallegos, Santa Cruz
+    </p>
+  </section>
+  <!-- Modales para las imágenes (Capacitaciones, Proyectos, Herramientas) -->
+  <!-- Modal Capacitaciones 1 -->
+  <div class="modal fade" id="capacitacionesModal1" tabindex="-1" aria-labelledby="capacitacionesModalLabel1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body" style="position: relative;">
+          <div style="position: relative; display: inline-block;">
+            <button class="modal-close" data-bs-dismiss="modal" aria-label="Close">X</button>
+            <img src="https://i.ibb.co/6z173zP/Imagen-de-Whats-App-2025-02-14-a-las-20-30-12-dbf6f0c3.jpg" alt="Imagen de Capacitaciones 1" class="img-fluid">
+          </div>
         </div>
+      </div>
     </div>
-    <div class="modal fade" id="proyecto4Modal2" tabindex="-1" aria-labelledby="proyecto4ModalLabel2" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-body" style="position: relative;">
-                    <div style="position: relative; display: inline-block;">
-                        <button class="modal-close" data-bs-dismiss="modal" aria-label="Close">X</button>
-                        <img src="https://i.ibb.co/yFQChTGL/2fc7eced7aea8ee1c2f4f3c0bf05d1eeced0f136.jpg" alt="Imagen Proyecto 4 - 2" class="img-fluid">
-                    </div>
-                </div>
-            </div>
+  </div>
+  <!-- Modal Capacitaciones 2 -->
+  <div class="modal fade" id="capacitacionesModal2" tabindex="-1" aria-labelledby="capacitacionesModalLabel2" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body" style="position: relative;">
+          <div style="position: relative; display: inline-block;">
+            <button class="modal-close" data-bs-dismiss="modal" aria-label="Close">X</button>
+            <img src="https://i.ibb.co/chB8ZGLN/Imagen-de-Whats-App-2025-02-14-a-las-20-27-49-4e77bac1.jpg" alt="Imagen de Capacitaciones 2" class="img-fluid">
+          </div>
         </div>
+      </div>
     </div>
-    <div class="modal fade" id="proyecto4Modal3" tabindex="-1" aria-labelledby="proyecto4ModalLabel3" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-body" style="position: relative;">
-                    <div style="position: relative; display: inline-block;">
-                        <button class="modal-close" data-bs-dismiss="modal" aria-label="Close">X</button>
-                        <img src="https://i.ibb.co/5X8tk2D6/8a20fb1069d1d31c2ec18578125f9ffc866bf186.jpg" alt="Imagen Proyecto 4 - 3" class="img-fluid">
-                    </div>
-                </div>
-            </div>
+  </div>
+  <!-- Modal Capacitaciones 3 -->
+  <div class="modal fade" id="capacitacionesModal3" tabindex="-1" aria-labelledby="capacitacionesModalLabel3" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body" style="position: relative;">
+          <div style="position: relative; display: inline-block;">
+            <button class="modal-close" data-bs-dismiss="modal" aria-label="Close">X</button>
+            <img src="https://i.ibb.co/PvRrSw0Y/Imagen-de-Whats-App-2025-02-14-a-las-20-10-33-550c9616.jpg" alt="Imagen de Capacitaciones 3" class="img-fluid">
+          </div>
         </div>
+      </div>
     </div>
-    <div class="modal fade" id="proyecto4Modal4" tabindex="-1" aria-labelledby="proyecto4ModalLabel4" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-body" style="position: relative;">
-                    <div style="position: relative; display: inline-block;">
-                        <button class="modal-close" data-bs-dismiss="modal" aria-label="Close">X</button>
-                        <img src="https://i.ibb.co/RkD8tNXq/diagrama-de-hilos.png" alt="Imagen Proyecto 4 - 4" class="img-fluid">
-                    </div>
-                </div>
-            </div>
+  </div>
+  <!-- Modal Capacitaciones 4 -->
+  <div class="modal fade" id="capacitacionesModal4" tabindex="-1" aria-labelledby="capacitacionesModalLabel4" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body" style="position: relative;">
+          <div style="position: relative; display: inline-block;">
+            <button class="modal-close" data-bs-dismiss="modal" aria-label="Close">X</button>
+            <img src="https://i.ibb.co/Wvbwj2p2/Imagen-de-Whats-App-2025-02-18-a-las-19-47-54-2a875330.jpg" alt="Imagen-de-Whats-App-2025-02-18-a-las-19-47-54-2a875330" border="0" class="img-fluid">
+          </div>
         </div>
+      </div>
     </div>
-
-    <div class="modal fade" id="herramientasModal1" tabindex="-1" aria-labelledby="herramientasModalLabel1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-body" style="position: relative;">
-                    <div style="position: relative; display: inline-block;">
-                        <button class="modal-close" data-bs-dismiss="modal" aria-label="Close">X</button>
-                        <img src="https://i.ibb.co/XkSLpXg0/5S.png" alt="Imagen Herramientas 1" class="img-fluid">
-                    </div>
-                </div>
-            </div>
+  </div>
+  <!-- Modal Proyecto 3 (Dimensionamiento) -->
+  <div class="modal fade" id="proyecto3Modal1" tabindex="-1" aria-labelledby="proyecto3ModalLabel1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body" style="position: relative;">
+          <div style="position: relative; display: inline-block;">
+            <button class="modal-close" data-bs-dismiss="modal" aria-label="Close">X</button>
+            <img src="https://i.ibb.co/rRHcJhrT/2.png" alt="2" class="img-fluid">
+          </div>
         </div>
+      </div>
     </div>
-    <div class="modal fade" id="herramientasModal2" tabindex="-1" aria-labelledby="herramientasModalLabel2" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-body" style="position: relative;">
-                    <div style="position: relative; display: inline-block;">
-                        <button class="modal-close" data-bs-dismiss="modal" aria-label="Close">X</button>
-                        <img src="https://i.ibb.co/qMnndpyB/IMG-20250222-WA0004.jpg" alt="Imagen Herramientas 2" class="img-fluid">
-                    </div>
-                </div>
-            </div>
+  </div>
+  <div class="modal fade" id="proyecto3Modal2" tabindex="-1" aria-labelledby="proyecto3ModalLabel2" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body" style="position: relative;">
+          <div style="position: relative; display: inline-block;">
+            <button class="modal-close" data-bs-dismiss="modal" aria-label="Close">X</button>
+            <img src="https://i.ibb.co/G3xbrfMf/render-pro.png" alt="render-pro" class="img-fluid">
+          </div>
         </div>
+      </div>
     </div>
-    <div class="modal fade" id="herramientasModal3" tabindex="-1" aria-labelledby="herramientasModalLabel3" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-body" style="position: relative;">
-                    <div style="position: relative; display: inline-block;">
-                        <button class="modal-close" data-bs-dismiss="modal" aria-label="Close">X</button>
-                        <img src="https://i.ibb.co/21XsSHgD/IMG-20250222-WA0007.jpg" alt="Imagen Herramientas 3" class="img-fluid">
-                    </div>
-                </div>
-            </div>
+  </div>
+  <div class="modal fade" id="proyecto3Modal3" tabindex="-1" aria-labelledby="proyecto3ModalLabel3" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body" style="position: relative;">
+          <div style="position: relative; display: inline-block;">
+            <button class="modal-close" data-bs-dismiss="modal" aria-label="Close">X</button>
+            <img src="https://i.ibb.co/b5jKfPz1/3.png" alt="3" class="img-fluid">
+          </div>
         </div>
+      </div>
     </div>
-    <div class="modal fade" id="herramientasModal4" tabindex="-1" aria-labelledby="herramientasModalLabel4" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-body" style="position: relative;">
-                    <div style="position: relative; display: inline-block;">
-                        <button class="modal-close" data-bs-dismiss="modal" aria-label="Close">X</button>
-                        <img src="https://i.ibb.co/cnDFGLF/sdssdd.png" alt="Imagen Herramientas 4" class="img-fluid">
-                    </div>
-                </div>
-            </div>
+  </div>
+  <div class="modal fade" id="proyecto3Modal4" tabindex="-1" aria-labelledby="proyecto3ModalLabel4" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body" style="position: relative;">
+          <div style="position: relative; display: inline-block;">
+            <button class="modal-close" data-bs-dismiss="modal" aria-label="Close">X</button>
+            <img src="https://i.ibb.co/DPC2mY5S/7.png" alt="7" class="img-fluid">
+          </div>
         </div>
+      </div>
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    
-    <script>
-        // Inicialización de Particles.js
-        particlesJS("particles-js", {
-            "particles": {
-                "number": { "value": 50, "density": { "enable": true, "value_area": 800 } },
-                "color": { "value": "#6c757d" },
-                "shape": { "type": "circle", "stroke": { "width": 0, "color": "#000000" } },
-                "opacity": { "value": 0.5, "random": false, "anim": { "enable": false } },
-                "size": { "value": 3, "random": true, "anim": { "enable": false } },
-                "line_linked": { "enable": true, "distance": 150, "color": "#6c757d", "opacity": 0.4, "width": 1 },
-                "move": { "enable": true, "speed": 4, "direction": "none", "random": false, "straight": false, "out_mode": "out", "bounce": false }
-            },
-            "interactivity": {
-                "detect_on": "canvas",
-                "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" }, "resize": true },
-                "modes": { "grab": { "distance": 140, "line_linked": { "opacity": 1 } }, "push": { "particles_nb": 4 } }
-            },
-            "retina_detect": true
-        });
-
-        // Script para resaltar la sección activa en la navegación (opcional)
-        document.addEventListener("scroll", () => {
-            const sections = document.querySelectorAll("section");
-            const navLinks = document.querySelectorAll(".nav-link");
-            let current = "";
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop - 100;
-                const sectionHeight = section.clientHeight;
-                if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
-                    current = section.getAttribute("id");
-                }
-            });
-
-            navLinks.forEach(link => {
-                link.classList.remove("active");
-                if (link.getAttribute("href").includes(current)) {
-                    link.classList.add("active");
-                }
-            });
-        });
-    </script>
+  </div>
+  <!-- Modal Proyecto 4 (Diseño de Layout) -->
+  <div class="modal fade" id="proyecto4Modal1" tabindex="-1" aria-labelledby="proyecto4ModalLabel1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body" style="position: relative;">
+          <div style="position: relative; display: inline-block;">
+            <button class="modal-close" data-bs-dismiss="modal" aria-label="Close">X</button>
+            <img src="https://i.ibb.co/kVRFDtSw/1bc1fb7d699ffa0917736253c54d46c19b2c482b.jpg" alt="Imagen 1" class="img-fluid">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="proyecto4Modal2" tabindex="-1" aria-labelledby="proyecto4ModalLabel2" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body" style="position: relative;">
+          <div style="position: relative; display: inline-block;">
+            <button class="modal-close" data-bs-dismiss="modal" aria-label="Close">X</button>
+            <img src="https://i.ibb.co/yFQChTGL/2fc7eced7aea8ee1c2f4f3c0bf05d1eeced0f136.jpg" alt="Imagen 2" class="img-fluid">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="proyecto4Modal3" tabindex="-1" aria-labelledby="proyecto4ModalLabel3" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body" style="position: relative;">
+          <div style="position: relative; display: inline-block;">
+            <button class="modal-close" data-bs-dismiss="modal" aria-label="Close">X</button>
+            <img src="https://i.ibb.co/5X8tk2D6/8a20fb1069d1d31c2ec18578125f9ffc866bf186.jpg" alt="Imagen 3" class="img-fluid">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="proyecto4Modal4" tabindex="-1" aria-labelledby="proyecto4ModalLabel4" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body" style="position: relative;">
+          <div style="position: relative; display: inline-block;">
+            <button class="modal-close" data-bs-dismiss="modal" aria-label="Close">X</button>
+            <img src="https://i.ibb.co/RkD8tNXq/diagrama-de-hilos.png" alt="diagrama-de-hilos" class="img-fluid">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal Herramientas de Gestión -->
+  <div class="modal fade" id="herramientasModal1" tabindex="-1" aria-labelledby="herramientasModalLabel1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body" style="position: relative;">
+          <div style="position: relative; display: inline-block;">
+            <button class="modal-close" data-bs-dismiss="modal" aria-label="Close">X</button>
+            <img src="https://i.ibb.co/XkSLpXg0/5S.png" alt="5S" class="img-fluid">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="herramientasModal2" tabindex="-1" aria-labelledby="herramientasModalLabel2" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body" style="position: relative;">
+          <div style="position: relative; display: inline-block;">
+            <button class="modal-close" data-bs-dismiss="modal" aria-label="Close">X</button>
+            <img src="https://i.ibb.co/qMnndpyB/IMG-20250222-WA0004.jpg" alt="IMG-20250222-WA0004" class="img-fluid">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="herramientasModal3" tabindex="-1" aria-labelledby="herramientasModalLabel3" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body" style="position: relative;">
+          <div style="position: relative; display: inline-block;">
+            <button class="modal-close" data-bs-dismiss="modal" aria-label="Close">X</button>
+            <img src="https://i.ibb.co/21XsSHgD/IMG-20250222-WA0007.jpg" alt="IMG-20250222-WA0007" class="img-fluid">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="herramientasModal4" tabindex="-1" aria-labelledby="herramientasModalLabel4" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body" style="position: relative;">
+          <div style="position: relative; display: inline-block;">
+            <button class="modal-close" data-bs-dismiss="modal" aria-label="Close">X</button>
+            <img src="https://i.ibb.co/cnDFGLF/sdssdd.png" alt="sdssdd" class="img-fluid">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    particlesJS("particles-js", {
+      particles: {
+        number: { value: 60, density: { enable: true, value_area: 800 } },
+        color: { value: "#2c3e50" },
+        shape: {
+          type: "circle",
+          stroke: { width: 0, color: "#000000" },
+          polygon: { nb_sides: 5 }
+        },
+        opacity: {
+          value: 0.5,
+          random: false,
+          anim: { enable: false, speed: 1, opacity_min: 0.1, sync: false }
+        },
+        size: {
+          value: 3,
+          random: true,
+          anim: { enable: false, speed: 40, size_min: 0.1, sync: false }
+        },
+        line_linked: {
+          enable: true,
+          distance: 150,
+          color: "#2c3e50",
+          opacity: 0.4,
+          width: 1
+        },
+        move: {
+          enable: true,
+          speed: 6,
+          direction: "none",
+          random: false,
+          straight: false,
+          out_mode: "out",
+          bounce: false,
+          attract: { enable: false, rotateX: 600, rotateY: 1200 }
+        }
+      },
+      interactivity: {
+        detect_on: "canvas",
+        events: {
+          onhover: { enable: true, mode: "repulse" },
+          onclick: { enable: true, mode: "push" },
+          resize: true
+        },
+        modes: {
+          repulse: { distance: 100, duration: 0.4 },
+          push: { particles_nb: 4 }
+        }
+      },
+      retina_detect: true
+    });
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
