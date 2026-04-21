@@ -1,1084 +1,1429 @@
-<!DOCTYPE html>      
+<!DOCTYPE html>
 <html lang="es">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Andriy Trofymenko - Ingeniero Industrial</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-  <style>
-    /* Estilos generales */
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Roboto', sans-serif;
-      color: #333;
-      background-color: #e0e0e0;
-    }
-    #particles-js {
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      background: transparent;
-      z-index: -1;
-    }
-    header {
-      position: relative;
-      z-index: 1;
-      background: linear-gradient(135deg, rgba(96, 96, 96, 0.1), rgba(128, 128, 128, 0.05));
-      padding: 0px 0;
-      text-align: center;
-      color: white;
-      border-radius: 0 0 20px 20px;
-      margin-bottom: 0;
-    }
-    header img {
-      width: 220px;
-      height: 220px;
-      object-fit: cover;
-      border-radius: 50%;
-      object-position: center 50%;
-      border: 4px solid white;
-      margin-top: -20px;
-      margin-bottom: 5px;
-    }
-    header h1 {
-      font-size: 3rem;
-      font-weight: 700;
-      margin-bottom: 0px;
-      color: #2c3e50;
-    }
-    header p {
-      font-size: 1.5rem;
-      margin-bottom: 5px;
-      color: #34495e;
-    }
-    nav {
-      position: sticky;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background-color: rgba(44, 62, 80, 0.7);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      padding: 10px 0;
-      z-index: 1000;
-    }
-    nav ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-    }
-    nav ul li {
-      display: inline;
-      position: relative;
-    }
-    nav ul li a {
-      text-decoration: none;
-      color: #fff;
-      font-weight: 600;
-      font-size: 1rem;
-      padding: 10px 20px;
-      border-radius: 5px;
-      transition: background-color 0.3s ease, transform 0.3s ease;
-    }
-    nav ul li a:hover {
-      background-color: rgba(255, 255, 255, 0.2);
-      transform: translateY(-2px);
-    }
-    /* Menú desplegable */
-    nav ul li.dropdown ul.dropdown-content {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      background-color: rgba(44, 62, 80, 0.9);
-      min-width: 250px;
-      z-index: 1000;
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      border-radius: 0 0 5px 5px;
-    }
-    nav ul li.dropdown:hover ul.dropdown-content {
-      display: block;
-    }
-    nav ul li.dropdown ul.dropdown-content li {
-      display: block;
-    }
-    nav ul li.dropdown ul.dropdown-content li a {
-      padding: 10px 20px;
-      font-size: 0.9rem;
-      white-space: nowrap;
-      display: block;
-    }
-    section {
-      position: relative;
-      z-index: 1;
-      background-color: rgba(255, 255, 255, 0.85);
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      margin: 20px auto;
-      padding: 20px;
-      width: 80%;
-      max-width: 1800px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    section.active {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    }
-    h2 {
-      color: #2c3e50;
-      font-size: 2.5rem;
-      text-align: center;
-      position: relative;
-      display: inline-block;
-      margin: 20px 0;
-      padding-bottom: 10px;
-    }
-    h2::after {
-      content: '';
-      position: absolute;
-      width: 50%;
-      height: 3px;
-      background: #0073e6;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%) scaleX(0);
-      transform-origin: center;
-      transition: transform 0.3s ease;
-    }
-    h2:hover::after {
-      transform: translateX(-50%) scaleX(1);
-    }
-    .project-card h3 {
-      color: #1a5276;
-      font-size: 1.8rem;
-      margin-bottom: 15px;
-      text-align: center;
-    }
-    p {
-      font-size: 1rem;
-      color: #333;
-      line-height: 1.6;
-      margin-bottom: 1rem;
-    }
-    a {
-      color: #0073e6;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-    a:hover {
-      color: #005bb5;
-    }
-    .project {
-      margin-bottom: 20px;
-    }
-    .project img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-    .projects-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
-      margin-top: 20px;
-    }
-    /* Contenedores de proyectos */
-    .project-card {
-      flex: 1 1 calc(50% - 20px);
-      background-color: #f0f0f0;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      padding: 20px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-    .project-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    }
-    .project-card img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 8px;
-      margin-bottom: 15px;
-      cursor: pointer;
-    }
-    .capacitaciones-images {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 15px;
-    }
-    .capacitaciones-images img {
-      width: 100%;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-    /* Proyectos Dimensionamiento y Layout */
-    .dimensionamiento .capacitaciones-images img,
-    .analisis-layout .capacitaciones-images img {
-      height: 250px;
-      object-fit: cover;
-    }
-    /* Herramientas de Gestión */
-    .herramientas-images {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 15px;
-    }
-    .herramientas-images img {
-      width: 100%;
-      height: 250px;
-      object-fit: cover;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-    /* Justificar texto */
-    .dimensionamiento p,
-    .analisis-layout p,
-    #sobre-mi p {
-      text-align: justify;
-      margin-left: 20px;
-      margin-right: 20px;
-    }
-    /* Video centrado en Mapeo */
-    .project-card.mapeo iframe {
-      display: block;
-      margin: 40px auto 0 auto;
-    }
-    .modal-content {
-      background-color: transparent;
-      border: none;
-      box-shadow: none;
-    }
-    .modal-body {
-      padding: 0;
-      margin: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-    .modal-body img {
-      width: auto;
-      height: auto;
-      max-width: 95vw;
-      max-height: 95vh;
-      object-fit: contain;
-      border-radius: 0;
-    }
-    .modal-close {
-      position: absolute;
-      top: -10px;
-      right: -10px;
-      background-color: rgba(255, 255, 255, 0.8);
-      color: #000;
-      border: none;
-      border-radius: 50%;
-      width: 30px;
-      height: 30px;
-      font-size: 16px;
-      line-height: 1;
-      cursor: pointer;
-      z-index: 3;
-    }
-    @media (max-width: 768px) {
-      nav ul {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-      }
-      header {
-        padding-top: 40px;
-      }
-      header h1 {
-        font-size: 2.5rem;
-      }
-      header p {
-        font-size: 1.2rem;
-      }
-      header img {
-        width: 120px;
-        height: 120px;
-      }
-      section {
-        padding: 15px;
-        margin: 10px auto;
-        width: 80%;
-        border-radius: 0;
-      }
-      iframe {
-        width: 100%;
-        height: 200px;
-      }
-      .project-card {
-        flex: 1 1 100%;
-      }
-      .capacitaciones-images,
-      .herramientas-images {
-        grid-template-columns: 1fr;
-      }
-    }
-    /* Estilos del Roadmap (MEJORADOS) */
-    .roadmap-container {
-      width: 100%;
-      max-width: 840px;
-      position: relative;
-      margin: 0 auto;
-    }
-    .road {
-      height: 50px;
-      background-color: #666;
-      position: relative;
-      border-radius: 5px;
-    }
-    .road::before {
-      content: "";
-      position: absolute;
-      top: 50%;
-      left: 5%;
-      right: 5%;
-      height: 6px;
-      background: repeating-linear-gradient(90deg, #fff, #fff 40px, transparent 40px, transparent 80px);
-      transform: translateY(-50%);
-    }
-    .marker {
-      position: absolute;
-      transform: translateX(-50%);
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-    .marker:hover {
-      transform: translateX(-50%) scale(1.05);
-    }
-    .marker-pin {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: white;
-      font-weight: bold;
-      font-size: 18px;
-      position: relative;
-      z-index: 2;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    }
-    .marker-line {
-      position: absolute;
-      left: 50%;
-      width: 2px;
-      transform: translateX(-50%);
-      z-index: 1;
-    }
-    .integrated-text {
-      position: absolute;
-      width: 280px;
-      left: 50%;
-      transform: translateX(-50%);
-      background-color: white;
-      padding: 15px;
-      border-radius: 8px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      border-left: 3px solid;
-      font-size: 14px;
-      line-height: 1.4;
-      color: #333;
-      text-align: justify;
-      z-index: 4;
-      transition: opacity 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
-    }
-    .marker.top .integrated-text {
-      bottom: 100%;
-      margin-bottom: 15px;
-    }
-    .marker.top .integrated-text::after {
-      content: "";
-      position: absolute;
-      left: 50%;
-      bottom: -15px;
-      transform: translateX(-50%);
-      border-left: 12px solid transparent;
-      border-right: 12px solid transparent;
-      border-top: 15px solid;
-    }
-    .marker.bottom .integrated-text {
-      top: 100%;
-      margin-top: 15px;
-    }
-    .marker.bottom .integrated-text::after {
-      content: "";
-      position: absolute;
-      left: 50%;
-      top: -15px;
-      transform: translateX(-50%);
-      border-left: 12px solid transparent;
-      border-right: 12px solid transparent;
-      border-bottom: 15px solid;
-    }
-    .marker-1 {
-      left: 10%;
-      top: -80px;
-    }
-    .marker-1 .integrated-text {
-      border-left-color: #e53935;
-      width: 280px; /* Ajusta este valor a tu gusto */
-    }
-    .marker-1 .integrated-text::after {
-      border-top-color: #e53935;
-    }
-    .marker-1 .marker-pin,
-    .marker-1 .marker-line {
-      background-color: #e53935;
-    }
-    .marker-1 .marker-line {
-      height: 80px;
-      top: 50px;
-    }
-    .marker-2 {
-      left: 30%;
-      top: 80px;
-    }
-    .marker-2 .integrated-text {
-      border-left-color: #f57c00;
-      width: 300px;
-    }
-    .marker-2 .integrated-text::after {
-      border-bottom-color: #f57c00;
-    }
-    .marker-2 .marker-pin,
-    .marker-2 .marker-line {
-      background-color: #f57c00;
-    }
-    .marker-2 .marker-line {
-      height: 80px;
-      bottom: 50px;
-    }
-    .marker-3 {
-      left: 50%;
-      top: -80px;
-    }
-    .marker-3 .integrated-text {
-      border-left-color: #ffc107;
-    }
-    .marker-3 .integrated-text::after {
-      border-top-color: #ffc107;
-    }
-    .marker-3 .marker-pin,
-    .marker-3 .marker-line {
-      background-color: #ffc107;
-    }
-    .marker-3 .marker-line {
-      height: 80px;
-      top: 50px;
-    }
-    .marker-4 {
-      left: 70%;
-      top: 80px;
-    }
-    .marker-4 .integrated-text {
-      border-left-color: #1e88e5;
-      width: 255px; /* Ajusta este valor a tu gusto */
-    }
-    .marker-4 .integrated-text::after {
-      border-bottom-color: #1e88e5;
-    }
-    .marker-4 .marker-pin,
-    .marker-4 .marker-line {
-      background-color: #1e88e5;
-    }
-    .marker-4 .marker-line {
-      height: 80px;
-      bottom: 50px;
-    }
-    .marker-5 {
-      left: 90%;
-      top: -80px;
-    }
-    .marker-5 .integrated-text {
-      border-left-color: #43a047;
-      width: 320px; /* Ajusta este valor a tu gusto */
-    }
-    .marker-5 .integrated-text::after {
-      border-top-color: #43a047;
-    }
-    .marker-5 .marker-pin,
-    .marker-5 .marker-line {
-      background-color: #43a047;
-    }
-    .marker-5 .marker-line {
-      height: 80px;
-      top: 50px;
-    }
-    /* Roadmap: Contenedor de productividad con animación en las barras y sin el ícono industrial */
-    .productivity-improvement {
-      position: absolute;
-      left: 100%;
-      bottom: -30px;
-      margin-left: 20px;
-      z-index: 3;
-      display: flex;
-      align-items: flex-end;
-      gap: 8px;
-      height: 80px;
-    }
-    .productivity-container {
-      background: rgba(255,255,255,0.95);
-      padding: 15px;
-      border-radius: 8px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      border-left: 4px solid #43a047;
-    }
-    .productivity-graph {
-      display: flex;
-      align-items: flex-end;
-      justify-content: center; /* Barras centradas */
-      gap: 6px;
-      height: 60px;
-    }
-    .graph-bar {
-      width: 12px;
-      background: linear-gradient(to top, #388e3c, #43a047);
-      border-radius: 3px 3px 0 0;
-      animation: bar-grow 1.6s ease-in-out infinite alternate;
-    }
-    .bar-1 { animation-delay: 0.2s; }
-    .bar-2 { animation-delay: 0.4s; }
-    .bar-3 { animation-delay: 0.6s; }
-    @keyframes bar-grow {
-      0% { height: 0; }
-      100% { height: var(--target-height); }
-    }
-    .productivity-text {
-      text-align: center;
-      margin-top: 10px;
-      font-size: 14px;
-      color: #2c3e50;
-      font-weight: bold;
-    }
-    
-    /* Cambios solicitados: degradado mayor en los contenedores de servicios y efecto hover sutil */
-    .servicios-container {
-      width: 99.5%;
-      background: linear-gradient(135deg, #ffffff, #e0e0e0);
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      padding: 20px;
-      margin: 20px auto;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .servicios-container:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-    }
-    /* Para agrandar el contenedor de Asistencia Técnica */
-    .servicios-container.asistencia {
-      min-height: 710px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Andriy Trofymenko - Soluciones de Ingeniería</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+
+    <style>
+        /* =========================================
+           VARIABLES Y CONFIGURACIÓN BASE
+           ========================================= */
+        :root {
+            --primary-bg: #eff3f8;
+            --text-dark: #1e293b;
+            --text-muted: #64748b;
+            --accent-color: #0f4c81;
+            --accent-hover: #0a355c;
+            --secondary-accent: #eab308;
+            --white: #ffffff;
+            --glass-bg: rgba(255, 255, 255, 0.97);
+            --nav-shadow: 0 4px 20px -1px rgba(0, 0, 0, 0.07), 0 2px 8px -1px rgba(0, 0, 0, 0.04);
+            --card-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.07), 0 4px 10px -3px rgba(0, 0, 0, 0.04);
+            --card-hover-shadow: 0 25px 40px -5px rgba(0, 0, 0, 0.12), 0 10px 15px -5px rgba(0, 0, 0, 0.06);
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--primary-bg);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, .nav-link {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        a { text-decoration: none; }
+
+        /* =========================================
+           NAVBAR
+           ========================================= */
+        .navbar {
+            background-color: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            box-shadow: var(--nav-shadow);
+            padding: 14px 0;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--accent-color);
+        }
+
+        .nav-link {
+            font-weight: 600;
+            color: var(--text-dark);
+            margin: 0 10px;
+            font-size: 0.9rem;
+            position: relative;
+            transition: color 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .dropdown-toggle::after {
+            content: none !important;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--accent-color);
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::before {
+            width: 100%;
+        }
+
+        @media (min-width: 992px) {
+            .navbar-nav .nav-item:not(:last-child)::after {
+                content: '|';
+                color: #cbd5e1;
+                position: absolute;
+                right: -5px;
+                top: 50%;
+                transform: translateY(-50%);
+                font-size: 0.8rem;
+                opacity: 0.6;
+            }
+            .navbar-nav .nav-item { position: relative; }
+        }
+
+        .dropdown-menu {
+            border: none;
+            box-shadow: var(--card-hover-shadow);
+            border-radius: 12px;
+            padding: 10px;
+        }
+
+        .dropdown-item {
+            padding: 10px 15px;
+            border-radius: 7px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .dropdown-item:hover {
+            background-color: rgba(15, 76, 129, 0.07);
+            color: var(--accent-color);
+            padding-left: 20px;
+        }
+
+        /* =========================================
+           ANIMACIONES
+           ========================================= */
+        @keyframes revealUp {
+            from { opacity: 0; transform: translateY(30px); filter: blur(10px); }
+            to   { opacity: 1; transform: translateY(0);    filter: blur(0); }
+        }
+
+        @keyframes mainReveal {
+            0%   { transform: scale(1.05); opacity: 0; filter: blur(15px); }
+            100% { transform: scale(1);    opacity: 1; filter: blur(0); }
+        }
+
+        @keyframes meshPivot {
+            0%   { transform: translate(0, 0) scale(1); }
+            33%  { transform: translate(5%, 5%) scale(1.1); }
+            66%  { transform: translate(-3%, 2%) scale(0.95); }
+            100% { transform: translate(0, 0) scale(1); }
+        }
+
+        @keyframes floatRing {
+            0%, 100% { transform: scale(1); opacity: 0.12; }
+            50%       { transform: scale(1.06); opacity: 0.22; }
+        }
+
+        .hero-animate-1 { animation: mainReveal 1.2s cubic-bezier(0.22, 1, 0.36, 1) both; }
+        .hero-animate-2 { animation: revealUp  1s cubic-bezier(0.22, 1, 0.36, 1) 0.4s both; }
+        .hero-animate-3 { animation: revealUp  1s cubic-bezier(0.22, 1, 0.36, 1) 0.6s both; }
+        .hero-animate-4 { animation: revealUp  1s cubic-bezier(0.22, 1, 0.36, 1) 0.8s both; }
+
+        /* =========================================
+           HERO
+           ========================================= */
+        header {
+            position: relative;
+            height: 100vh;
+            min-height: 680px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: #0f172a;
+            color: white;
+            overflow: hidden;
+            margin-top: -76px;
+            padding-top: 80px;
+        }
+
+        .hero-bg-mesh {
+            position: absolute;
+            top: -10%; left: -10%;
+            width: 120%; height: 120%;
+            z-index: 1;
+            background:
+                radial-gradient(circle at 20% 30%, rgba(15, 76, 129, 0.45) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(30, 41, 59, 0.6) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, #0f172a 0%, #020617 100%);
+            animation: meshPivot 15s ease-in-out infinite alternate;
+        }
+
+        .hero-grid {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: 2;
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            mask-image: radial-gradient(circle at center, black 30%, transparent 80%);
+            -webkit-mask-image: radial-gradient(circle at center, black 30%, transparent 80%);
+        }
+
+        header::after {
+            content: "";
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: 3;
+            opacity: 0.04;
+            pointer-events: none;
+            background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 4;
+            max-width: 900px;
+            padding: 20px 16px;
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            cursor: default;
+        }
+
+        /* Foto de perfil */
+        .profile-img {
+            width: 280px;
+            height: 280px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 6px solid rgba(255, 255, 255, 0.2);
+            box-shadow:
+                0 0 0 12px rgba(15, 76, 129, 0.18),
+                0 0 50px rgba(0, 0, 0, 0.5);
+            margin-bottom: 35px;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.3s ease, box-shadow 0.4s ease;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.06);
+            border-color: var(--secondary-accent);
+            box-shadow:
+                0 0 0 14px rgba(234, 179, 8, 0.2),
+                0 0 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-title {
+            font-size: clamp(2.2rem, 6vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 15px;
+            letter-spacing: -1px;
+            background: linear-gradient(to right, #fff 30%, #94a3b8);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 3vw, 1.7rem);
+            font-weight: 300;
+            color: #94a3b8;
+            margin-bottom: 45px;
+            line-height: 1.5;
+        }
+
+        .btn-cta {
+            background-color: var(--secondary-accent);
+            color: #000;
+            font-weight: 700;
+            padding: 15px 40px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 1rem;
+            border: none;
+            box-shadow: 0 4px 20px rgba(234, 180, 8, 0.45);
+            display: inline-block;
+        }
+
+        .btn-cta:hover {
+            background-color: #fbbf24;
+            transform: translateY(-4px);
+            box-shadow: 0 14px 30px rgba(234, 179, 8, 0.55);
+            color: #000;
+        }
+
+        .btn-outline-cta {
+            background-color: transparent;
+            color: #fff;
+            font-weight: 700;
+            padding: 15px 40px;
+            border-radius: 50px;
+            border: 2px solid rgba(255, 255, 255, 0.45);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 1rem;
+            display: inline-block;
+        }
+
+        .btn-outline-cta:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-color: #fff;
+            transform: translateY(-4px);
+            color: #fff;
+        }
+
+        /* =========================================
+           SECCIONES GENERALES
+           ========================================= */
+        section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: clamp(1.9rem, 4vw, 2.8rem);
+            font-weight: 700;
+            color: var(--accent-color);
+            margin-bottom: 70px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(to right, var(--secondary-accent), #fbbf24);
+            margin: 18px auto 0;
+            border-radius: 2px;
+        }
+
+        .content-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: clamp(24px, 5vw, 50px);
+            box-shadow: var(--card-shadow);
+        }
+
+        /* =========================================
+           PROYECTOS Y TARJETAS
+           ========================================= */
+        .project-card {
+            background: var(--white);
+            border-radius: 18px;
+            overflow: hidden;
+            border: none;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            border-top: 3px solid transparent;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.13);
+            border-top-color: var(--accent-color);
+        }
+
+        .project-card-body {
+            padding: clamp(18px, 3vw, 30px);
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+        }
+
+        .project-desc {
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-bottom: 25px;
+            text-align: left;
+            line-height: 1.7;
+        }
+
+        /* Grilla de imágenes */
+        .img-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-top: auto;
+        }
+
+        .img-grid img {
+            width: 100%;
+            height: 110px;
+            object-fit: cover;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease, filter 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .img-grid img:hover {
+            transform: scale(1.06);
+            filter: brightness(1.08);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            z-index: 2;
+            position: relative;
+        }
+
+        /* Video container */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
+            margin-top: auto;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+        }
+
+        /* =========================================
+           ROADMAP
+           ========================================= */
+        .roadmap-wrapper {
+            position: relative;
+            padding: 20px 0;
+        }
+
+        @media (min-width: 992px) {
+            .roadmap-steps {
+                display: flex;
+                justify-content: space-between;
+                position: relative;
+            }
+
+            .roadmap-steps::before {
+                content: '';
+                position: absolute;
+                top: 25px; left: 0; right: 0;
+                height: 2px;
+                background: linear-gradient(to right, transparent, #e2e8f0 8%, #e2e8f0 92%, transparent);
+                z-index: 0;
+            }
+
+            .step-item {
+                flex: 1;
+                text-align: center;
+                position: relative;
+                z-index: 1;
+                padding: 0 15px;
+            }
+
+            .step-number {
+                width: 50px;
+                height: 50px;
+                background: var(--white);
+                border: 2px solid var(--accent-color);
+                color: var(--accent-color);
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 1.2rem;
+                font-weight: 700;
+                margin: 0 auto 20px;
+                box-shadow: 0 0 0 6px var(--primary-bg);
+                transition: all 0.3s ease;
+            }
+
+            .step-item:hover .step-number {
+                background: var(--accent-color);
+                color: var(--white);
+                transform: scale(1.1);
+            }
+        }
+
+        @media (max-width: 991px) {
+            .roadmap-steps {
+                display: flex;
+                flex-direction: column;
+                gap: 30px;
+                border-left: 2px solid #e2e8f0;
+                margin-left: 20px;
+                padding-left: 30px;
+            }
+
+            .step-item { position: relative; }
+
+            .step-number {
+                position: absolute;
+                left: -56px;
+                top: 0;
+                width: 50px;
+                height: 50px;
+                background: var(--white);
+                border: 2px solid var(--accent-color);
+                color: var(--accent-color);
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: 700;
+            }
+        }
+
+        .step-title { font-weight: 700; margin-bottom: 5px; color: var(--text-dark); }
+        .step-desc  { font-size: 0.9rem; color: var(--text-muted); }
+
+        /* =========================================
+           CLIENTES / CARRUSEL
+           ========================================= */
+        #clientes {
+            background-color: var(--accent-color);
+            padding: 80px 0;
+        }
+
+        .clientes-title {
+            color: #ffffff !important;
+        }
+
+        .clientes-title::after {
+            background: var(--secondary-accent) !important;
+        }
+
+        .clients-card {
+            padding: 10px 0;
+            overflow: hidden;
+            position: relative;
+            background: transparent;
+            box-shadow: none;
+            border: none;
+        }
+
+        .slider-container {
+            width: 100%;
+            overflow: hidden;
+            display: flex;
+            position: relative;
+        }
+
+        /* Fade edges */
+        .slider-container::before,
+        .slider-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 100px;
+            height: 100%;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .slider-container::before {
+            left: 0;
+            background: linear-gradient(to right, var(--accent-color), transparent);
+        }
+
+        .slider-container::after {
+            right: 0;
+            background: linear-gradient(to left, var(--accent-color), transparent);
+        }
+
+        .logo-track {
+            display: flex;
+            width: calc(250px * 10);
+            animation: scroll 30s linear infinite;
+        }
+
+        .logo-track:hover { animation-play-state: paused; }
+
+        @keyframes scroll {
+            0%   { transform: translateX(0); }
+            100% { transform: translateX(calc(-250px * 5)); }
+        }
+
+        .client-logo-wrapper {
+            width: 250px;
+            height: 110px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 35px;
+        }
+
+        .client-logo {
+            max-width: 100%;
+            max-height: 55px;
+            object-fit: contain;
+            filter: brightness(0) invert(1);
+            opacity: 0.7;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .client-logo-wrapper:hover .client-logo {
+            opacity: 1;
+            transform: scale(1.08);
+        }
+
+        .client-logo.client-logo-lg {
+            max-height: 80px;
+        }
+
+        .client-logo-named {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+            transition: transform 0.3s ease;
+        }
+
+        .client-logo-named .client-logo {
+            max-height: 38px;
+        }
+
+        .client-logo-name {
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+
+        .client-logo-wrapper:hover .client-logo-named {
+            transform: scale(1.08);
+        }
+
+        .client-logo-wrapper:hover .client-logo-name {
+            opacity: 1;
+        }
+
+        svg.client-logo {
+            fill: white;
+            filter: none;
+            opacity: 0.7;
+            max-height: 55px;
+            width: auto;
+        }
+
+        .client-logo-wrapper:hover svg.client-logo {
+            opacity: 1;
+            transform: scale(1.08);
+        }
+
+        @media (max-width: 768px) {
+            .client-logo-wrapper { width: 180px; padding: 0 25px; }
+            .logo-track { width: calc(180px * 10); }
+            @keyframes scroll {
+                0%   { transform: translateX(0); }
+                100% { transform: translateX(calc(-180px * 5)); }
+            }
+        }
+
+        /* =========================================
+           CONTACTO & FOOTER
+           ========================================= */
+        #contacto {
+            background-color: var(--white);
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            color: var(--text-dark);
+            transition: transform 0.2s, color 0.2s;
+            flex-wrap: wrap;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-2px);
+            color: var(--accent-color);
+        }
+
+        .contact-item span {
+            word-break: break-word;
+            text-align: center;
+        }
+
+        .contact-icon {
+            color: var(--accent-color);
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        footer {
+            background-color: #0f172a;
+            color: #94a3b8;
+            text-align: center;
+            padding: 30px 0;
+            font-size: 0.9rem;
+        }
+
+        /* =========================================
+           MODAL
+           ========================================= */
+        .btn-nav-modal {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 1056;
+        }
+
+        .btn-nav-modal:hover {
+            background: var(--accent-color);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .btn-prev { left: 20px; }
+        .btn-next { right: 20px; }
+
+        /* =========================================
+           AURORA ANIMADA
+           ========================================= */
+        .aurora-wrap {
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .aurora-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0;
+            animation: auroraFadeIn 2s ease forwards;
+        }
+
+        @keyframes auroraFadeIn {
+            to { opacity: 1; }
+        }
+
+        .blob-1 {
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(15, 76, 129, 0.55) 0%, transparent 70%);
+            top: -15%; left: -10%;
+            animation: auroraFadeIn 2s ease forwards, blob1Move 18s ease-in-out infinite alternate;
+        }
+
+        .blob-2 {
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, rgba(30, 90, 160, 0.4) 0%, transparent 70%);
+            bottom: -10%; right: -5%;
+            animation: auroraFadeIn 2.4s ease forwards, blob2Move 22s ease-in-out infinite alternate;
+        }
+
+        .blob-3 {
+            width: 380px; height: 380px;
+            background: radial-gradient(circle, rgba(234, 179, 8, 0.12) 0%, transparent 70%);
+            top: 30%; right: 15%;
+            animation: auroraFadeIn 3s ease forwards, blob3Move 16s ease-in-out infinite alternate;
+        }
+
+        .blob-4 {
+            width: 320px; height: 320px;
+            background: radial-gradient(circle, rgba(56, 120, 200, 0.3) 0%, transparent 70%);
+            bottom: 20%; left: 20%;
+            animation: auroraFadeIn 2.8s ease forwards, blob4Move 20s ease-in-out infinite alternate;
+        }
+
+        @keyframes blob1Move {
+            0%   { transform: translate(0, 0)      scale(1); }
+            33%  { transform: translate(8%, 12%)   scale(1.12); }
+            66%  { transform: translate(-5%, 6%)   scale(0.93); }
+            100% { transform: translate(4%, -8%)   scale(1.06); }
+        }
+
+        @keyframes blob2Move {
+            0%   { transform: translate(0, 0)      scale(1); }
+            33%  { transform: translate(-10%, -8%) scale(1.1); }
+            66%  { transform: translate(6%, -12%)  scale(0.9); }
+            100% { transform: translate(-4%, 6%)   scale(1.08); }
+        }
+
+        @keyframes blob3Move {
+            0%   { transform: translate(0, 0)      scale(1); }
+            50%  { transform: translate(-12%, 10%) scale(1.15); }
+            100% { transform: translate(8%, -6%)   scale(0.88); }
+        }
+
+        @keyframes blob4Move {
+            0%   { transform: translate(0, 0)      scale(1); }
+            40%  { transform: translate(10%, -10%) scale(1.1); }
+            100% { transform: translate(-6%, 8%)   scale(0.95); }
+        }
+
+        @media (max-width: 768px) {
+            .aurora-blob { filter: blur(60px); }
+            .blob-1 { width: 380px; height: 380px; }
+            .blob-2 { width: 320px; height: 320px; }
+            .blob-3 { width: 240px; height: 240px; }
+            .blob-4 { width: 200px; height: 200px; }
+        }
+
+        /* =========================================
+           RESPONSIVE — tablet
+           ========================================= */
+        @media (max-width: 768px) {
+            section { padding: 60px 0; }
+
+            .section-title { margin-bottom: 45px; }
+
+            .hero-subtitle { margin-bottom: 32px; }
+
+            .btn-cta, .btn-outline-cta {
+                padding: 13px 28px;
+                font-size: 0.92rem;
+            }
+
+            .btn-nav-modal { width: 42px; height: 42px; }
+            .btn-prev { left: 10px; }
+            .btn-next { right: 10px; }
+        }
+
+        /* =========================================
+           RESPONSIVE — móvil pequeño
+           ========================================= */
+        @media (max-width: 480px) {
+            header {
+                min-height: 100svh;
+                padding-top: 90px;
+                padding-bottom: 40px;
+                height: auto;
+            }
+
+            .hero-subtitle { font-size: 1rem; }
+
+            .btn-cta, .btn-outline-cta {
+                padding: 11px 22px;
+                font-size: 0.85rem;
+                letter-spacing: 0.5px;
+            }
+
+            .d-flex.gap-3 { gap: 10px !important; }
+
+            .img-grid img { height: 88px; }
+
+            .project-title { font-size: 1.2rem; }
+
+            .step-number {
+                left: -52px;
+                width: 42px;
+                height: 42px;
+                font-size: 1rem;
+            }
+
+            .roadmap-steps {
+                margin-left: 16px;
+                padding-left: 26px;
+            }
+
+            .section-title { margin-bottom: 35px; }
+        }
+    </style>
 </head>
+
 <body>
-  <div id="particles-js"></div>
-  <header id="inicio">
-    <div class="container">
-      <img src="https://i.postimg.cc/nrHcj0X6/test-2.png" alt="Andriy Trofymenko" border="0" style="margin-top: 17px">
-      <h1>Andriy Trofymenko</h1>
-      <p style="font-size: 1.95rem;">INGENIERO INDUSTRIAL</p>
-    </div>
-  </header>
-  <nav>
-    <ul>
-      <li><a href="#inicio">Inicio</a></li>
-      <li class="dropdown">
-        <a href="#proyectos-destacados">Proyectos Destacados</a>
-        <ul class="dropdown-content">
-          <li><a href="#proyecto-mapeo">Mapeo de la Cadena de Valor del Cáñamo Industrial</a></li>
-          <li><a href="#proyecto-capacitaciones">Capacitaciones</a></li>
-          <li><a href="#proyecto-dimensionamiento">Dimensionamiento de Planta para Bolsas de Polietileno</a></li>
-          <li><a href="#proyecto-layout">Diseño de Layout</a></li>
-          <li><a href="#proyecto-clinicas">Ampliación de Áreas Clínicas para Mejora de Productividad y Ergonomía</a></li>
-          <li><a href="#proyecto-herramientas">Herramientas de Gestión</a></li>
-        </ul>
-      </li>
-      <li class="dropdown">
-        <a href="#servicios">Servicios</a>
-        <ul class="dropdown-content">
-          <li><a href="#servicio-capacitaciones">Capacitaciones</a></li>
-          <li><a href="#servicio-asistencia">Asistencia Técnica</a></li>
-        </ul>
-      </li>
-      <li><a href="#descargas">Descargas</a></li>
-      <li><a href="#contacto">Contacto</a></li>
-    </ul>
-  </nav>
-  <!-- SECCIÓN SOBRE MI -->
-  <section id="sobre-mi">
-    <h2>Sobre mí</h2>
-    <p>
-      Soy Ingeniero Industrial, especializado en mejora continua, optimización de procesos y gestión estratégica de proyectos. Mi enfoque se centra en la implementación de metodologías de gestión para alcanzar la excelencia operativa, con el objetivo de maximizar la productividad. A lo largo de mi carrera, he tenido el privilegio de liderar proyectos de alto impacto en empresas de diversos sectores, tanto públicos como privados. Respaldado por una sólida formación académica, que incluye una Diplomatura Universitaria en Industrias 4.0, he desarrollado una perspectiva integral que fusiona conocimientos técnicos con habilidades estratégicas y de liderazgo.
-    </p>
-  </section>
-  <!-- SECCIÓN PROYECTOS DESTACADOS -->
-  <section id="proyectos-destacados" style="margin-top: 20px;">
-    <h2>Proyectos Destacados</h2>
-    <div class="projects-grid">
-      <div class="project-card mapeo" id="proyecto-mapeo">
-        <h3>Mapeo de la Cadena de Valor del Cáñamo Industrial</h3>
-        <p style="text-align: justify;">
-          En este proyecto, lideré la coordinación de un equipo multidisciplinario conformado por profesionales del CONICET, INTA, INTI, RACME y UNICEN, con el propósito de analizar en profundidad cada eslabón de la cadena de valor del cáñamo industrial. Mi función principal consistió en integrar de manera efectiva los conocimientos técnicos de cada institución y garantizar la ejecución del plan de trabajo, desde la identificación de oportunidades de mejora hasta la propuesta de soluciones concretas que impulsarán el desarrollo sostenible de este sector emergente.
-          <br><br>
-          Para ilustrar con mayor detalle los alcances de esta iniciativa, lo invito a ver la presentación en la que participé como expositor:
-        </p>
-        <iframe width="100%" height="315" src="https://www.youtube.com/embed/tYU88wsM110" frameborder="0" allowfullscreen></iframe>
-      </div>
-      <div class="project-card" id="proyecto-capacitaciones">
-        <h3>Capacitaciones</h3>
-        <p style="text-align: justify;">
-          En el ámbito de las capacitaciones, he brindado asistencia técnica especializada a empresas privadas y organismos públicos, transfiriendo metodologías y herramientas de gestión que impulsan la mejora continua y aumentan la productividad. Mi labor se centra en impartir conocimientos estratégicos para fortalecer equipos de trabajo y potenciar la competitividad organizacional.
-        </p>
-        <div class="capacitaciones-images">
-          <img src="https://i.ibb.co/6z173zP/Imagen-de-Whats-App-2025-02-14-a-las-20-30-12-dbf6f0c3.jpg" alt="Imagen de Capacitaciones 1" data-bs-toggle="modal" data-bs-target="#capacitacionesModal1">
-          <img src="https://i.ibb.co/chB8ZGLN/Imagen-de-Whats-App-2025-02-14-a-las-20-27-49-4e77bac1.jpg" alt="Imagen de Capacitaciones 2" data-bs-toggle="modal" data-bs-target="#capacitacionesModal2">
-          <img src="https://i.ibb.co/PvRrSw0Y/Imagen-de-Whats-App-2025-02-14-a-las-20-10-33-550c9616.jpg" alt="Imagen de Capacitaciones 3" data-bs-toggle="modal" data-bs-target="#capacitacionesModal3">
-          <img src="https://i.ibb.co/Wvbwj2p2/Imagen-de-Whats-App-2025-02-18-a-las-19-47-54-2a875330.jpg" alt="Imagen-de-Whats-App-2025-02-18-a-las-19-47-54-2a875330" border="0" data-bs-toggle="modal" data-bs-target="#capacitacionesModal4">
-        </div>
-      </div>
-      <div class="project-card dimensionamiento" id="proyecto-dimensionamiento">
-        <h3>Dimensionamiento de Planta para Bolsas de Polietileno</h3>
-        <p>
-          Lideré el diseño, puesta en marcha y optimización de una planta de fabricación de bolsas para residuos a partir de polietileno reciclado, con una capacidad instalada de 14,6 toneladas mensuales. Logré coordinar un equipo de 130 cooperativistas, asegurando un flujo de producción de 9.600 kg/mes de bolsas, equivalente al 4,5% del market share del mercado objetivo.
-        </p>
-        <div class="capacitaciones-images">
-          <img src="https://i.ibb.co/rRHcJhrT/2.png" alt="2" data-bs-toggle="modal" data-bs-target="#proyecto3Modal1">
-          <img src="https://i.ibb.co/G3xbrfMf/render-pro.png" alt="render-pro" data-bs-toggle="modal" data-bs-target="#proyecto3Modal2">
-          <img src="https://i.ibb.co/b5jKfPz1/3.png" alt="3" data-bs-toggle="modal" data-bs-target="#proyecto3Modal3">
-          <img src="https://i.ibb.co/DPC2mY5S/7.png" alt="7" data-bs-toggle="modal" data-bs-target="#proyecto3Modal4">
-        </div>
-      </div>
-      <div class="project-card analisis-layout" id="proyecto-layout">
-        <h3>Diseño de Layout</h3>
-        <p>
-          Dirigí la reestructuración del layout de una planta de reparación de equipos industriales de 760 m², incrementando su área operativa a 1.860 m². Implementé la metodología “Planificación Sistemática de Layout”, optimizando la distribución de sectores clave como bahías de reparación, almacenamiento y prueba de componentes. El rediseño mejoró la circulación interna, redujo el cruce de actividades y optimizó el flujo de trabajo, aumentando la eficiencia y productividad de la empresa.
-        </p>
-        <div class="capacitaciones-images">
-          <img src="https://i.ibb.co/kVRFDtSw/1bc1fb7d699ffa0917736253c54d46c19b2c482b.jpg" alt="Imagen 1" data-bs-toggle="modal" data-bs-target="#proyecto4Modal1">
-          <img src="https://i.ibb.co/yFQChTGL/2fc7eced7aea8ee1c2f4f3c0bf05d1eeced0f136.jpg" alt="Imagen 2" data-bs-toggle="modal" data-bs-target="#proyecto4Modal2">
-          <img src="https://i.ibb.co/5X8tk2D6/8a20fb1069d1d31c2ec18578125f9ffc866bf186.jpg" alt="Imagen 3" data-bs-toggle="modal" data-bs-target="#proyecto4Modal3">
-          <img src="https://i.ibb.co/RkD8tNXq/diagrama-de-hilos.png" alt="diagrama-de-hilos" data-bs-toggle="modal" data-bs-target="#proyecto4Modal4">
-        </div>
-      </div>
-      <div class="project-card" id="proyecto-clinicas">
-        <h3>Ampliación de Áreas Clínicas para Mejora de Productividad y Ergonomía</h3>
-        <p style="text-align: justify; margin-left: 20px; margin-right: 20px;">
-          Dirigí la ampliación y optimización del área de endoscopia de una clínica, enfocándome en el diseño e implementación de un nuevo sistema de giro camas y la reorganización del layout para mejorar la eficiencia operativa. Realicé un análisis detallado del flujo de trabajo actual, desarrollé un nuevo diseño que optimiza la distribución de recursos y llevé a cabo simulaciones para validar su eficacia.
-          <br><br>
-          <strong>Mejoras logradas:</strong><br>
-          <strong>&bull;</strong> Aumento del 69% en pacientes diarios: de 13 a 22 pacientes.<br>
-          <strong>&bull;</strong> Reducción del 44% en tiempo promedio de permanencia: de 5:39hs a 3:10hs.<br>
-          <strong>&bull;</strong> Optimización de recorridos: menor cruce de actividades y mejor flujo de trabajo.<br>
-        </p>
-        <iframe width="100%" height="315" src="https://www.youtube.com/embed/k5jvN9XXlm4" frameborder="0" allowfullscreen style="display: block; margin: 40px auto 0 auto;"></iframe>
-      </div>
-      <div class="project-card" id="proyecto-herramientas">
-        <h3>Herramientas de Gestión</h3>
-        <p style="text-align: justify; margin-left: 20px; margin-right: 20px;">
-          Ejemplos de implementación de diferentes herramientas de gestión para la mejora de la productividad.
-        </p>
-        <div class="herramientas-images">
-          <img src="https://i.ibb.co/XkSLpXg0/5S.png" alt="5S" data-bs-toggle="modal" data-bs-target="#herramientasModal1">
-          <img src="https://i.ibb.co/qMnndpyB/IMG-20250222-WA0004.jpg" alt="IMG-20250222-WA0004" data-bs-toggle="modal" data-bs-target="#herramientasModal2">
-          <img src="https://i.ibb.co/21XsSHgD/IMG-20250222-WA0007.jpg" alt="IMG-20250222-WA0007" data-bs-toggle="modal" data-bs-target="#herramientasModal3">
-          <img src="https://i.ibb.co/cnDFGLF/sdssdd.png" alt="sdssdd" data-bs-toggle="modal" data-bs-target="#herramientasModal4">
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- SECCIÓN SERVICIOS con contenedores para Capacitaciones y Asistencia Técnica -->
-  <!-- Se conserva el tamaño total original de la sección (padding-bottom: 210px) -->
-  <section id="servicios" style="margin-top: 20px; padding-bottom: 05px;">
-    <h2>Servicios</h2>
-    <div class="servicios-container" id="servicio-capacitaciones">
-      <h3 style="text-align: left; font-size: 1.8rem; margin-bottom: 15px; color: #1a5276;">Capacitaciones</h3>
-      <p style="text-align: justify;">
-        Brindo capacitaciones, tanto in company como online, centradas en metodologías y herramientas de gestión que permitirán a tu equipo optimizar procesos, aumentar la productividad y fomentar la innovación. Gracias a un enfoque práctico respaldado por la rigurosidad de la Ingeniería Industrial, tu organización adquirirá los conocimientos necesarios para implementar metodologías y herramientas como Lean Manufacturing, Six Sigma, 5S, Kaizen, Gestión de Proyectos, Análisis de Datos, así como técnicas de comunicación efectiva y estrategias de desarrollo de mandos medios, entre otras. Con estas capacitaciones, tu equipo desarrollará una cultura de mejora continua y estará preparado para enfrentar los desafíos presentes y futuros.
-      </p>
-    </div>
-    <div class="servicios-container asistencia" id="servicio-asistencia">
-      <h3 style="text-align: left; font-size: 1.8rem; margin-bottom: 15px; color: #1a5276;">Asistencia Técnica</h3>
-      <p style="text-align: justify;">
-        Realizo Asistencias Técnicas para ayudar a las organizaciones a detectar y eliminar pérdidas en sus procesos internos, permitiéndoles reducir costos, optimizar recursos y mejorar la productividad. A través de un análisis detallado, se identifican oportunidades de mejora y se proponen soluciones basadas en principios de eficiencia operativa y gestión industrial. Para garantizar resultados sostenibles y facilitar la transferencia de conocimientos teóricos, las asistencias incluyen capacitaciones prácticas durante su implementación. De esta manera, el equipo adquiere las herramientas necesarias para mantener y reforzar las mejoras en el tiempo, impulsando una cultura de mejora continua.
-        <br><br>
-        A continuación, se presenta el roadmap del proceso de Asistencia Técnica:
-      </p>
-      <div class="roadmap-container" style="margin-top: 260px;">
-        <div class="road"></div>
-        <!-- Contenedor de productividad con barras animadas y sin el ícono industrial -->
-        <div class="productivity-improvement">
-          <div class="productivity-container">
-            <div class="productivity-graph">
-              <div class="graph-bar bar-1" style="--target-height: 30px"></div>
-              <div class="graph-bar bar-2" style="--target-height: 45px"></div>
-              <div class="graph-bar bar-3" style="--target-height: 60px"></div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="#inicio">Inicio</a></li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Proyectos
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#proyecto-mapeo">Cáñamo Industrial</a></li>
+                            <li><a class="dropdown-item" href="#proyecto-capacitaciones">Capacitaciones</a></li>
+                            <li><a class="dropdown-item" href="#proyecto-dimensionamiento">Planta de Polietileno</a>
+                            </li>
+                            <li><a class="dropdown-item" href="#proyecto-layout">Diseño de Layout</a></li>
+                            <li><a class="dropdown-item" href="#proyecto-clinicas">Áreas Clínicas</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Servicios
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#servicio-capacitaciones">Capacitaciones</a></li>
+                            <li><a class="dropdown-item" href="#servicio-asistencia">Asistencia Técnica</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+                </ul>
             </div>
-            <div class="productivity-text">Productividad</div>
-          </div>
-          <div class="industrial-icon"></div>
         </div>
-        <div class="marker marker-1 top">
-          <div class="integrated-text">
-            Diagnóstico empresarial orientado a evaluar la situación inicial de un sector específico o el desempeño global de la empresa, permitiendo un análisis estructurado de su funcionamiento.
-          </div>
-          <div class="marker-pin">1</div>
-          <div class="marker-line"></div>
+    </nav>
+
+    <!-- HEADER / HERO -->
+    <header id="inicio">
+        <div class="hero-bg-mesh"></div>
+        <div class="hero-grid"></div>
+        <div class="aurora-wrap" aria-hidden="true">
+            <div class="aurora-blob blob-1"></div>
+            <div class="aurora-blob blob-2"></div>
+            <div class="aurora-blob blob-3"></div>
+            <div class="aurora-blob blob-4"></div>
         </div>
-        <div class="marker marker-2 bottom">
-          <div class="integrated-text">
-            Identificación de oportunidades de mejora.
-          </div>
-          <div class="marker-pin">2</div>
-          <div class="marker-line"></div>
+        <div class="hero-content">
+            <img src="https://i.postimg.cc/nrHcj0X6/test-2.png" alt="Andriy Trofymenko"
+                class="profile-img hero-animate-1">
+            <h1 class="hero-title hero-animate-2">Andriy Trofymenko</h1>
+            <p class="hero-subtitle hero-animate-3">Ingeniero Industrial | Optimización de Procesos | Mejora Continua
+            </p>
+            <div class="d-flex justify-content-center gap-3 hero-animate-4 flex-wrap">
+                <a href="#proyectos-destacados" class="btn-cta">Ver Mi Trabajo</a>
+                <a href="https://andriytrofymenko.github.io/CV%20Andriy%20Trofymenko.pdf?v=4" target="_blank"
+                    class="btn-outline-cta">
+                    <i class="bi bi-download me-2"></i>Descargar CV
+                </a>
+            </div>
         </div>
-        <div class="marker marker-3 top">
-          <div class="integrated-text">
-            Priorización, en colaboración con el cliente, de las oportunidades de mejora a abordar, estableciendo indicadores clave de desempeño y definiendo la metodología de implementación.
-          </div>
-          <div class="marker-pin">3</div>
-          <div class="marker-line"></div>
+    </header>
+
+    <!-- SOBRE MÍ -->
+    <section id="sobre-mi">
+        <div class="container">
+            <div class="content-card" data-aos="fade-up">
+                <h2 class="section-title" style="margin-top: 0; margin-bottom: 30px;">Acerca de Mí</h2>
+                <div class="row justify-content-center">
+                    <div class="col-lg-10 text-center">
+                        <p class="lead text-muted">
+                            Soy Ingeniero Industrial especializado en la gestión estratégica de proyectos y la
+                            excelencia operativa.
+                            Mi enfoque combina la rigurosidad técnica con una visión integral para transformar procesos,
+                            reducir costos y maximizar la productividad en organizaciones públicas y privadas.
+                            <br><br>
+                            Con formación en <strong>Industrias 4.0</strong>, impulso soluciones que integran tecnología
+                            y metodologías ágiles para enfrentar los desafíos modernos.
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="marker marker-4 bottom">
-          <div class="integrated-text">
-            Desarrollo de la Asistencia Técnica.
-          </div>
-          <div class="marker-pin">4</div>
-          <div class="marker-line"></div>
+    </section>
+
+    <!-- PROYECTOS DESTACADOS -->
+    <section id="proyectos-destacados">
+        <div class="container">
+            <h2 class="section-title">Proyectos Destacados</h2>
+
+            <!-- Grid Responsiva: 1 col móvil, 2 col tablet, 3 col desktop -->
+            <div class="row g-4">
+
+                <!-- Proyecto 1 -->
+                <div class="col-md-6 col-xl-4" data-aos="fade-up">
+                    <div class="project-card" id="proyecto-mapeo">
+                        <div class="project-card-body">
+                            <h3 class="project-title">Cadena de Valor del Cáñamo</h3>
+                            <p class="project-desc">
+                                Coordinación de equipo multidisciplinario (CONICET, INTA, INTI) para analizar la cadena
+                                de valor del cáñamo industrial. Desarrollo de propuestas para el desarrollo sostenible
+                                del sector.
+                            </p>
+                            <div class="video-container">
+                                <iframe src="https://www.youtube.com/embed/tYU88wsM110" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proyecto 2 -->
+                <div class="col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-card" id="proyecto-capacitaciones">
+                        <div class="project-card-body">
+                            <h3 class="project-title">Capacitaciones Corporativas</h3>
+                            <p class="project-desc">
+                                Asistencia técnica y formación para fortalecer equipos de trabajo, implementando
+                                metodologías estratégicas para la competitividad organizacional.
+                            </p>
+                            <div class="img-grid">
+                                <img src="https://i.ibb.co/6z173zP/Imagen-de-Whats-App-2025-02-14-a-las-20-30-12-dbf6f0c3.jpg"
+                                    data-bs-toggle="modal" data-bs-target="#modalVisor" onclick="updateModal(this)"
+                                    loading="lazy">
+                                <img src="https://i.ibb.co/chB8ZGLN/Imagen-de-Whats-App-2025-02-14-a-las-20-27-49-4e77bac1.jpg"
+                                    data-bs-toggle="modal" data-bs-target="#modalVisor" onclick="updateModal(this)"
+                                    loading="lazy">
+                                <img src="https://i.ibb.co/PvRrSw0Y/Imagen-de-Whats-App-2025-02-14-a-las-20-10-33-550c9616.jpg"
+                                    data-bs-toggle="modal" data-bs-target="#modalVisor" onclick="updateModal(this)"
+                                    loading="lazy">
+                                <img src="https://i.ibb.co/Wvbwj2p2/Imagen-de-Whats-App-2025-02-18-a-las-19-47-54-2a875330.jpg"
+                                    data-bs-toggle="modal" data-bs-target="#modalVisor" onclick="updateModal(this)"
+                                    loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proyecto 3 -->
+                <div class="col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-card" id="proyecto-dimensionamiento">
+                        <div class="project-card-body">
+                            <h3 class="project-title">Planta de Polietileno</h3>
+                            <p class="project-desc">
+                                Diseño y puesta en marcha de planta de 14.6 toneladas/mes. Coordinación de 130 operarios
+                                para alcanzar producción de 9.600 kg/mes (4.5% market share).
+                            </p>
+                            <div class="img-grid">
+                                <img src="https://i.ibb.co/rRHcJhrT/2.png" data-bs-toggle="modal"
+                                    data-bs-target="#modalVisor" onclick="updateModal(this)" loading="lazy">
+                                <img src="https://i.ibb.co/G3xbrfMf/render-pro.png" data-bs-toggle="modal"
+                                    data-bs-target="#modalVisor" onclick="updateModal(this)" loading="lazy">
+                                <img src="https://i.ibb.co/b5jKfPz1/3.png" data-bs-toggle="modal"
+                                    data-bs-target="#modalVisor" onclick="updateModal(this)" loading="lazy">
+                                <img src="https://i.ibb.co/DPC2mY5S/7.png" data-bs-toggle="modal"
+                                    data-bs-target="#modalVisor" onclick="updateModal(this)" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proyecto 4 -->
+                <div class="col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-card" id="proyecto-layout">
+                        <div class="project-card-body">
+                            <h3 class="project-title">Reestructuración de Layout</h3>
+                            <p class="project-desc">
+                                Optimización de planta industrial de 760m² a 1.860m². Uso de "Planificación Sistemática
+                                de Layout" para mejorar flujo de trabajo y productividad.
+                            </p>
+                            <div class="img-grid">
+                                <img src="https://i.ibb.co/kVRFDtSw/1bc1fb7d699ffa0917736253c54d46c19b2c482b.jpg"
+                                    data-bs-toggle="modal" data-bs-target="#modalVisor" onclick="updateModal(this)"
+                                    loading="lazy">
+                                <img src="https://i.ibb.co/yFQChTGL/2fc7eced7aea8ee1c2f4f3c0bf05d1eeced0f136.jpg"
+                                    data-bs-toggle="modal" data-bs-target="#modalVisor" onclick="updateModal(this)"
+                                    loading="lazy">
+                                <img src="https://i.ibb.co/5X8tk2D6/8a20fb1069d1d31c2ec18578125f9ffc866bf186.jpg"
+                                    data-bs-toggle="modal" data-bs-target="#modalVisor" onclick="updateModal(this)"
+                                    loading="lazy">
+                                <img src="https://i.ibb.co/RkD8tNXq/diagrama-de-hilos.png" data-bs-toggle="modal"
+                                    data-bs-target="#modalVisor" onclick="updateModal(this)" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proyecto 5 -->
+                <div class="col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-card" id="proyecto-clinicas">
+                        <div class="project-card-body">
+                            <h3 class="project-title">Optimización Clínica</h3>
+                            <p class="project-desc">
+                                <i class="bi bi-graph-up-arrow text-success"></i> +69% Pacientes diarios<br>
+                                <i class="bi bi-clock-history text-primary"></i> -44% Tiempo de espera<br>
+                                Rediseño de flujos y layout en área de endoscopia para maximizar eficiencia y ergonomía.
+                            </p>
+                            <div class="video-container">
+                                <iframe src="https://www.youtube.com/embed/k5jvN9XXlm4" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proyecto 6 -->
+                <div class="col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="project-card" id="proyecto-herramientas">
+                        <div class="project-card-body">
+                            <h3 class="project-title">Herramientas de Gestión</h3>
+                            <p class="project-desc">
+                                Implementación práctica de herramientas Lean y de gestión visual (5S, Kanban) para el
+                                control y mejora de procesos productivos.
+                            </p>
+                            <div class="img-grid">
+                                <img src="https://i.ibb.co/XkSLpXg0/5S.png" data-bs-toggle="modal"
+                                    data-bs-target="#modalVisor" onclick="updateModal(this)" loading="lazy">
+                                <img src="https://i.ibb.co/qMnndpyB/IMG-20250222-WA0004.jpg" data-bs-toggle="modal"
+                                    data-bs-target="#modalVisor" onclick="updateModal(this)" loading="lazy">
+                                <img src="https://i.ibb.co/21XsSHgD/IMG-20250222-WA0007.jpg" data-bs-toggle="modal"
+                                    data-bs-target="#modalVisor" onclick="updateModal(this)" loading="lazy">
+                                <img src="https://i.ibb.co/cnDFGLF/sdssdd.png" data-bs-toggle="modal"
+                                    data-bs-target="#modalVisor" onclick="updateModal(this)" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
-        <div class="marker marker-5 top">
-          <div class="integrated-text">
-            Medición de resultados y entrega del informe.
-          </div>
-          <div class="marker-pin">5</div>
-          <div class="marker-line"></div>
+    </section>
+
+    <!-- SERVICIOS -->
+    <section id="servicios">
+        <div class="container">
+            <h2 class="section-title">Mis Servicios</h2>
+
+            <div class="row g-4 mb-5">
+                <div class="col-lg-6" data-aos="fade-right" data-aos-delay="0">
+                    <div class="content-card h-100" id="servicio-capacitaciones">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="bi bi-easel fs-2 me-3" style="color: var(--accent-color);"></i>
+                            <h3 class="mb-0">Capacitaciones</h3>
+                        </div>
+                        <p class="text-muted">
+                            Formación In-Company y Online en metodologías Lean Manufacturing, Six Sigma, 5S y Kaizen.
+                            Desarrollo habilidades directivas y de gestión para mandos medios, fomentando una cultura de
+                            mejora continua.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left" data-aos-delay="200">
+                    <div class="content-card h-100" id="servicio-asistencia">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="bi bi-gear-wide-connected fs-2 me-3" style="color: var(--accent-color);"></i>
+                            <h3 class="mb-0">Asistencia Técnica</h3>
+                        </div>
+                        <p class="text-muted">
+                            Consultoría estratégica para detectar y eliminar pérdidas. Implementación directa de mejoras
+                            en planta y oficinas para optimizar recursos y reducir costos operativos.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Roadmap mejorado -->
+            <div class="content-card" data-aos="zoom-in" data-aos-delay="100">
+                <h4 class="text-center mb-5 fw-bold">Roadmap de Implementación</h4>
+                <div class="roadmap-wrapper">
+                    <div class="roadmap-steps">
+                        <div class="step-item" data-aos="fade-up" data-aos-delay="300">
+                            <div class="step-number">1</div>
+                            <h5 class="step-title">Diagnóstico</h5>
+                            <p class="step-desc">Relevamiento de datos y situación actual.</p>
+                        </div>
+                        <div class="step-item" data-aos="fade-up" data-aos-delay="400">
+                            <div class="step-number">2</div>
+                            <h5 class="step-title">Diseño</h5>
+                            <p class="step-desc">Propuesta de soluciones personalizadas.</p>
+                        </div>
+                        <div class="step-item" data-aos="fade-up" data-aos-delay="500">
+                            <div class="step-number">3</div>
+                            <h5 class="step-title">Acción</h5>
+                            <p class="step-desc">Implementación y capacitación in-situ.</p>
+                        </div>
+                        <div class="step-item" data-aos="fade-up" data-aos-delay="600">
+                            <div class="step-number">4</div>
+                            <h5 class="step-title">Control</h5>
+                            <p class="step-desc">Medición de KPIs y plan de sostenibilidad.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
-      </div>
+    </section>
+
+    <!-- EMPRESAS / CLIENTES -->
+    <section id="clientes">
+        <div class="container">
+            <h2 class="section-title clientes-title text-center mb-5">Empresas con las que trabajé</h2>
+
+            <div class="clients-card" data-aos="fade-up">
+                <div class="slider-container">
+                    <div class="logo-track">
+                        <!-- Set 1 -->
+                        <div class="client-logo-wrapper">
+                            <div class="client-logo-named">
+                                <img src="https://medisur-rg.com.ar/wp-content/uploads/2025/01/Diseno_sin_titulo__30_-removebg-preview.webp" alt="Medisur" class="client-logo">
+                                <span class="client-logo-name">Medisur</span>
+                            </div>
+                        </div>
+                        <div class="client-logo-wrapper">
+                            <img src="https://www.ssservicios.com.ar/wp-content/uploads/2026/03/Logo-ss-celeste-y-negro-scaled.png"
+                                alt="SS Servicios" class="client-logo">
+                        </div>
+                        <div class="client-logo-wrapper">
+                            <img src="https://mspatagonia.com/wp-content/uploads/2021/05/logo-ms.svg"
+                                alt="MS Patagonia" class="client-logo">
+                        </div>
+                        <div class="client-logo-wrapper">
+                            <svg viewBox="0 0 245.84 68.43" class="client-logo" role="img" aria-label="Brandt"><use href="#brandt-logo"/></svg>
+                        </div>
+                        <div class="client-logo-wrapper">
+                            <img src="https://www.aeropuertosargentina.com/assets/logos/aeropuertos-logo.svg"
+                                alt="Aeropuertos Argentina" class="client-logo client-logo-lg">
+                        </div>
+                        <!-- Duplicate Set for Seamless Loop -->
+                        <div class="client-logo-wrapper">
+                            <div class="client-logo-named">
+                                <img src="https://medisur-rg.com.ar/wp-content/uploads/2025/01/Diseno_sin_titulo__30_-removebg-preview.webp" alt="Medisur" class="client-logo">
+                                <span class="client-logo-name">Medisur</span>
+                            </div>
+                        </div>
+                        <div class="client-logo-wrapper">
+                            <img src="https://www.ssservicios.com.ar/wp-content/uploads/2026/03/Logo-ss-celeste-y-negro-scaled.png"
+                                alt="SS Servicios" class="client-logo">
+                        </div>
+                        <div class="client-logo-wrapper">
+                            <img src="https://mspatagonia.com/wp-content/uploads/2021/05/logo-ms.svg"
+                                alt="MS Patagonia" class="client-logo">
+                        </div>
+                        <div class="client-logo-wrapper">
+                            <svg viewBox="0 0 245.84 68.43" class="client-logo" role="img" aria-label="Brandt"><use href="#brandt-logo"/></svg>
+                        </div>
+                        <div class="client-logo-wrapper">
+                            <img src="https://www.aeropuertosargentina.com/assets/logos/aeropuertos-logo.svg"
+                                alt="Aeropuertos Argentina" class="client-logo client-logo-lg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto">
+        <div class="container text-center" data-aos="zoom-in">
+            <h2 class="section-title mb-4">Hablemos</h2>
+            <p class="lead mb-5">¿Listo para optimizar la productividad de tu negocio?</p>
+
+            <div class="row justify-content-center">
+                <div class="col-md-4">
+                    <a href="mailto:andriytrofymenko@gmail.com" class="contact-item">
+                        <i class="bi bi-envelope-fill contact-icon"></i>
+                        <span>andriytrofymenko@gmail.com</span>
+                    </a>
+                </div>
+                <div class="col-md-4">
+                    <a href="https://wa.me/5491133278023" class="contact-item">
+                        <i class="bi bi-whatsapp contact-icon"></i>
+                        <span>+54 9 11 3327-8023</span>
+                    </a>
+                </div>
+                <div class="col-md-4">
+                    <div class="contact-item">
+                        <i class="bi bi-geo-alt-fill contact-icon"></i>
+                        <span>Río Gallegos, Santa Cruz</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p class="mb-0">&copy; 2026 Andriy Trofymenko. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Modal Único para Imágenes con Carrusel -->
+    <div class="modal fade" id="modalVisor" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-content bg-transparent border-0">
+                <div class="modal-body text-center p-0 position-relative">
+                    <button type="button" class="btn-close btn-close-white position-absolute top-0 end-0 m-3"
+                        data-bs-dismiss="modal" aria-label="Close"
+                        style="z-index: 1060; background-color: white; opacity: 0.8;"></button>
+
+                    <!-- Botones de Navegación -->
+                    <button class="btn-nav-modal btn-prev" onclick="changeImage(-1)">
+                        <i class="bi bi-chevron-left fs-4"></i>
+                    </button>
+                    <button class="btn-nav-modal btn-next" onclick="changeImage(1)">
+                        <i class="bi bi-chevron-right fs-4"></i>
+                    </button>
+
+                    <img id="modalImage" src="" class="img-fluid rounded shadow-lg" style="max-height: 90vh;">
+                </div>
+            </div>
+        </div>
     </div>
-  </section>
-  <!-- SECCIÓN DESCARGAS -->
-  <section id="descargas">
-    <h2>Descargas</h2>
-    <ul>
-     <li>
-  <a href="https://andriytrofymenko.github.io/CV%20Andriy%20Trofymenko.pdf?v=4" 
-     download target="_blank" rel="noopener">
-     Descargar CV
-  </a>
-</li>
-    </ul>
-  </section>
-  <!-- SECCIÓN CONTACTO -->
-  <section id="contacto">
-    <h2>Contacto</h2>
-    <p>
-      ✉️ atrofymenko@fi.uba.ar<br><br>
-      ☎ +549 11 33278023<br><br>
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
-        <path fill-rule="evenodd" d="M3.654 6.328c0-1.755 1.447-3.179 3.233-3.179 1.786 0 3.233 1.424 3.233 3.179 0 1.056-.53 2.202-1.369 2.963-.745.666-1.5 1.07-1.864 1.168a.58.58 0 0 1-.001-.003C5.992 9.514 5.238 9.11 4.493 8.444 3.654 7.603 3.654 6.328 3.654 6.328zm4.936 7.846C5.74 12.217 2.25 9.344 2.25 6.328 2.25 3.986 4.347 2 6.887 2c2.54 0 4.637 1.986 4.637 4.328 0 3.016-3.49 5.889-5.654 7.846l-.01.008a.623.623 0 0 1-.41.16.623.623 0 0 1-.41-.16l-.01-.008z"/>
-      </svg>
-      Río Gallegos, Santa Cruz
-    </p>
-  </section>
-  <!-- Modales para las imágenes (Capacitaciones, Proyectos, Herramientas) -->
-  <!-- Modal Capacitaciones 1 -->
-  <div class="modal fade" id="capacitacionesModal1" tabindex="-1" aria-labelledby="capacitacionesModalLabel1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-body" style="position: relative;">
-          <div style="position: relative; display: inline-block;">
-            <button class="modal-close" data-bs-dismiss="modal" aria-label="Close">X</button>
-            <img src="https://i.ibb.co/6z173zP/Imagen-de-Whats-App-2025-02-14-a-las-20-30-12-dbf6f0c3.jpg" alt="Imagen de Capacitaciones 1" class="img-fluid">
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- Modal Capacitaciones 2 -->
-  <div class="modal fade" id="capacitacionesModal2" tabindex="-1" aria-labelledby="capacitacionesModalLabel2" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-body" style="position: relative;">
-          <div style="position: relative; display: inline-block;">
-            <button class="modal-close" data-bs-dismiss="modal" aria-label="Close">X</button>
-            <img src="https://i.ibb.co/chB8ZGLN/Imagen-de-Whats-App-2025-02-14-a-las-20-27-49-4e77bac1.jpg" alt="Imagen de Capacitaciones 2" class="img-fluid">
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- Modal Capacitaciones 3 -->
-  <div class="modal fade" id="capacitacionesModal3" tabindex="-1" aria-labelledby="capacitacionesModalLabel3" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-body" style="position: relative;">
-          <div style="position: relative; display: inline-block;">
-            <button class="modal-close" data-bs-dismiss="modal" aria-label="Close">X</button>
-            <img src="https://i.ibb.co/PvRrSw0Y/Imagen-de-Whats-App-2025-02-14-a-las-20-10-33-550c9616.jpg" alt="Imagen de Capacitaciones 3" class="img-fluid">
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- Modal Capacitaciones 4 -->
-  <div class="modal fade" id="capacitacionesModal4" tabindex="-1" aria-labelledby="capacitacionesModalLabel4" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-body" style="position: relative;">
-          <div style="position: relative; display: inline-block;">
-            <button class="modal-close" data-bs-dismiss="modal" aria-label="Close">X</button>
-            <img src="https://i.ibb.co/Wvbwj2p2/Imagen-de-Whats-App-2025-02-18-a-las-19-47-54-2a875330.jpg" alt="Imagen-de-Whats-App-2025-02-18-a-las-19-47-54-2a875330" border="0" class="img-fluid">
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- Modal Proyecto 3 (Dimensionamiento) -->
-  <div class="modal fade" id="proyecto3Modal1" tabindex="-1" aria-labelledby="proyecto3ModalLabel1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-body" style="position: relative;">
-          <div style="position: relative; display: inline-block;">
-            <button class="modal-close" data-bs-dismiss="modal" aria-label="Close">X</button>
-            <img src="https://i.ibb.co/rRHcJhrT/2.png" alt="2" class="img-fluid">
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="modal fade" id="proyecto3Modal2" tabindex="-1" aria-labelledby="proyecto3ModalLabel2" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-body" style="position: relative;">
-          <div style="position: relative; display: inline-block;">
-            <button class="modal-close" data-bs-dismiss="modal" aria-label="Close">X</button>
-            <img src="https://i.ibb.co/G3xbrfMf/render-pro.png" alt="render-pro" class="img-fluid">
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="modal fade" id="proyecto3Modal3" tabindex="-1" aria-labelledby="proyecto3ModalLabel3" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-body" style="position: relative;">
-          <div style="position: relative; display: inline-block;">
-            <button class="modal-close" data-bs-dismiss="modal" aria-label="Close">X</button>
-            <img src="https://i.ibb.co/b5jKfPz1/3.png" alt="3" class="img-fluid">
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="modal fade" id="proyecto3Modal4" tabindex="-1" aria-labelledby="proyecto3ModalLabel4" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-body" style="position: relative;">
-          <div style="position: relative; display: inline-block;">
-            <button class="modal-close" data-bs-dismiss="modal" aria-label="Close">X</button>
-            <img src="https://i.ibb.co/DPC2mY5S/7.png" alt="7" class="img-fluid">
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- Modal Proyecto 4 (Diseño de Layout) -->
-  <div class="modal fade" id="proyecto4Modal1" tabindex="-1" aria-labelledby="proyecto4ModalLabel1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-body" style="position: relative;">
-          <div style="position: relative; display: inline-block;">
-            <button class="modal-close" data-bs-dismiss="modal" aria-label="Close">X</button>
-            <img src="https://i.ibb.co/kVRFDtSw/1bc1fb7d699ffa0917736253c54d46c19b2c482b.jpg" alt="Imagen 1" class="img-fluid">
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="modal fade" id="proyecto4Modal2" tabindex="-1" aria-labelledby="proyecto4ModalLabel2" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-body" style="position: relative;">
-          <div style="position: relative; display: inline-block;">
-            <button class="modal-close" data-bs-dismiss="modal" aria-label="Close">X</button>
-            <img src="https://i.ibb.co/yFQChTGL/2fc7eced7aea8ee1c2f4f3c0bf05d1eeced0f136.jpg" alt="Imagen 2" class="img-fluid">
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="modal fade" id="proyecto4Modal3" tabindex="-1" aria-labelledby="proyecto4ModalLabel3" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-body" style="position: relative;">
-          <div style="position: relative; display: inline-block;">
-            <button class="modal-close" data-bs-dismiss="modal" aria-label="Close">X</button>
-            <img src="https://i.ibb.co/5X8tk2D6/8a20fb1069d1d31c2ec18578125f9ffc866bf186.jpg" alt="Imagen 3" class="img-fluid">
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="modal fade" id="proyecto4Modal4" tabindex="-1" aria-labelledby="proyecto4ModalLabel4" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-body" style="position: relative;">
-          <div style="position: relative; display: inline-block;">
-            <button class="modal-close" data-bs-dismiss="modal" aria-label="Close">X</button>
-            <img src="https://i.ibb.co/RkD8tNXq/diagrama-de-hilos.png" alt="diagrama-de-hilos" class="img-fluid">
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- Modal Herramientas de Gestión -->
-  <div class="modal fade" id="herramientasModal1" tabindex="-1" aria-labelledby="herramientasModalLabel1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-body" style="position: relative;">
-          <div style="position: relative; display: inline-block;">
-            <button class="modal-close" data-bs-dismiss="modal" aria-label="Close">X</button>
-            <img src="https://i.ibb.co/XkSLpXg0/5S.png" alt="5S" class="img-fluid">
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="modal fade" id="herramientasModal2" tabindex="-1" aria-labelledby="herramientasModalLabel2" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-body" style="position: relative;">
-          <div style="position: relative; display: inline-block;">
-            <button class="modal-close" data-bs-dismiss="modal" aria-label="Close">X</button>
-            <img src="https://i.ibb.co/qMnndpyB/IMG-20250222-WA0004.jpg" alt="IMG-20250222-WA0004" class="img-fluid">
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="modal fade" id="herramientasModal3" tabindex="-1" aria-labelledby="herramientasModalLabel3" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-body" style="position: relative;">
-          <div style="position: relative; display: inline-block;">
-            <button class="modal-close" data-bs-dismiss="modal" aria-label="Close">X</button>
-            <img src="https://i.ibb.co/21XsSHgD/IMG-20250222-WA0007.jpg" alt="IMG-20250222-WA0007" class="img-fluid">
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="modal fade" id="herramientasModal4" tabindex="-1" aria-labelledby="herramientasModalLabel4" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-body" style="position: relative;">
-          <div style="position: relative; display: inline-block;">
-            <button class="modal-close" data-bs-dismiss="modal" aria-label="Close">X</button>
-            <img src="https://i.ibb.co/cnDFGLF/sdssdd.png" alt="sdssdd" class="img-fluid">
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <script>
-    particlesJS("particles-js", {
-      particles: {
-        number: { value: 60, density: { enable: true, value_area: 800 } },
-        color: { value: "#2c3e50" },
-        shape: {
-          type: "circle",
-          stroke: { width: 0, color: "#000000" },
-          polygon: { nb_sides: 5 }
-        },
-        opacity: {
-          value: 0.5,
-          random: false,
-          anim: { enable: false, speed: 1, opacity_min: 0.1, sync: false }
-        },
-        size: {
-          value: 3,
-          random: true,
-          anim: { enable: false, speed: 40, size_min: 0.1, sync: false }
-        },
-        line_linked: {
-          enable: true,
-          distance: 150,
-          color: "#2c3e50",
-          opacity: 0.4,
-          width: 1
-        },
-        move: {
-          enable: true,
-          speed: 6,
-          direction: "none",
-          random: false,
-          straight: false,
-          out_mode: "out",
-          bounce: false,
-          attract: { enable: false, rotateX: 600, rotateY: 1200 }
+
+    <!-- SVG Definitions -->
+    <svg style="display:none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+        <symbol id="brandt-logo" viewBox="0 0 245.84 68.43">
+            <g fill="white">
+                <!-- BRANDT letras grandes -->
+                <path d="M33.16,6.7c2.04,0,4.17,0.09,6.49,1.72c1.86,1.31,3.13,3.31,3.13,5.9c0,3.81-2.5,6.12-6.35,7.39v0.1c6.94,1.86,7.3,6.67,7.3,8.39c0,3.22-1.22,5.08-4.17,6.9c-1.09,0.68-3.54,1.49-6.17,1.49H8.07v-0.63h3.63V7.33H8.08V6.7H33.16z M25.04,7.33v13.48h5.31V7.33H25.04z M25.04,22.21v15.74h5.31V22.21H25.04z"/>
+                <path d="M70.52,6.7c2.77,0,5.62,0.05,8.26,1.72c1.68,1.09,3.54,2.95,3.54,5.99c0,4.49-3.45,6.58-8.26,7.21v0.09c3.54,0.82,8.39,2.08,8.39,9.3v6.25c1.64-1.04,2.54-2.45,2.68-5.26h0.64c-0.36,5.49-3.86,6.9-7.58,6.9c-0.6,0-5.63-0.05-7.45-2.27c-1.22-1.46-1.89-3.31-1.91-5.21v-9.48h-5.08v16.01h3.81v0.63H46.66v-0.63h3.76V7.33h-3.76V6.7H70.52z M63.76,7.33v13.25h5.08V7.33H63.76z"/>
+                <path d="M122.26,37.95h1.86v0.63h-18.74v-0.63h3.09l-3.72-10.16h-8.43l-1.72,5.08l3.44,5.08h1.59v0.63H87.47v-0.63h1.84l3.97-5.12l8.93-26.49h8.39L122.26,37.95z M100.37,15.49L100.37,15.49l-3.8,11.15h7.77L100.37,15.49z"/>
+                <path d="M144.04,6.7l13.25,17.74h-0.46v-13.1l-4.17-3.99h-1.81V6.7h12.97v0.64h-2.08l-3.72,3.99v27.26h-6.22l-19.42-26.27h-0.09v21.76l4.13,3.87h1.72v0.63h-11.93v-0.63h1.43l3.2-3.82l-0.05-23.57l-2.22-3.23h-2.36V6.7H144.04z"/>
+                <path d="M187.01,6.7c8.26,0,15.74,5.85,15.74,16.06c0,4.31-1.54,8.85-4.17,11.16c-3.4,2.99-6.99,4.67-12.52,4.67h-19.6v-0.63h3.68V7.33h-3.68V6.7H187.01z M183.47,7.68V37.6h3.45c0.61-0.01,1.21-0.05,1.81-0.14V7.81c-0.6-0.1-1.21-0.15-1.81-0.14L183.47,7.68z"/>
+                <path d="M237.26,6.7l0.36,10.89h-0.63v-1.13l-9.07-9.12h-0.23v30.62H232v0.63h-21.87v-0.63h4.32V7.33h-0.23l-8.93,9.12v1.13h-0.64l0.36-10.89H237.26z"/>
+                <!-- equipos y componentes mecánicos -->
+                <path d="M31.85,65.07v-7.31h2.83v0.76h-1.81v2.42h1.47v0.72h-1.47v2.68h1.83v0.73L31.85,65.07z"/>
+                <path d="M40.68,66.56c-0.18-0.1-0.34-0.22-0.48-0.36c-0.16-0.16-0.31-0.33-0.45-0.51c-0.14-0.19-0.27-0.36-0.38-0.53c-0.03,0.01-0.05,0.01-0.08,0.01H39.2c-0.41,0.02-0.82-0.08-1.18-0.29c-0.3-0.2-0.52-0.49-0.63-0.83c-0.13-0.41-0.2-0.83-0.19-1.26v-2.77c-0.01-0.42,0.06-0.84,0.19-1.24c0.12-0.33,0.34-0.61,0.63-0.8c0.36-0.2,0.77-0.3,1.18-0.28c0.41-0.02,0.82,0.08,1.18,0.28c0.29,0.19,0.51,0.47,0.63,0.8c0.14,0.4,0.2,0.82,0.2,1.24v2.78c0,0.33-0.03,0.65-0.11,0.97c-0.06,0.27-0.18,0.52-0.34,0.74c-0.16,0.21-0.38,0.37-0.62,0.47c0.07,0.09,0.15,0.18,0.24,0.28c0.09,0.1,0.17,0.19,0.25,0.28c0.07,0.07,0.15,0.14,0.23,0.21L40.68,66.56z M39.19,64.35c0.22,0.02,0.44-0.04,0.62-0.17c0.14-0.12,0.24-0.29,0.28-0.47c0.05-0.23,0.08-0.47,0.07-0.71v-3.2c0-0.24-0.02-0.47-0.07-0.7c-0.04-0.18-0.14-0.33-0.28-0.45c-0.39-0.21-0.85-0.21-1.24,0c-0.14,0.11-0.25,0.27-0.28,0.45c-0.05,0.23-0.08,0.46-0.07,0.7v3.2c0,0.24,0.02,0.48,0.07,0.71c0.04,0.18,0.14,0.35,0.28,0.47C38.76,64.31,38.97,64.37,39.19,64.35z"/>
+                <path d="M45.9,65.16c-0.53,0-0.93-0.11-1.22-0.32c-0.29-0.22-0.5-0.54-0.58-0.89c-0.11-0.44-0.16-0.89-0.15-1.34v-4.84h0.97v4.89c0,0.29,0.02,0.57,0.06,0.86c0.03,0.23,0.12,0.44,0.28,0.61c0.37,0.3,0.91,0.3,1.28,0c0.15-0.17,0.24-0.39,0.27-0.61c0.04-0.28,0.06-0.57,0.06-0.86v-4.89h0.97v4.85c0.01,0.45-0.04,0.9-0.15,1.34c-0.08,0.35-0.28,0.67-0.57,0.89C46.84,65.05,46.43,65.16,45.9,65.16z"/>
+                <path d="M50.78,65.07v-7.31h1v7.31H50.78z"/>
+                <path d="M54.77,65.07v-7.31h1.81c0.37-0.02,0.73,0.06,1.05,0.24c0.26,0.16,0.46,0.4,0.57,0.69c0.13,0.35,0.19,0.72,0.18,1.09c0.01,0.35-0.06,0.69-0.2,1c-0.13,0.27-0.33,0.5-0.6,0.65c-0.3,0.16-0.65,0.24-0.99,0.23h-0.8v3.4H54.77z M55.79,60.94h0.47c0.24,0.01,0.47-0.02,0.7-0.1c0.16-0.06,0.29-0.19,0.36-0.35c0.08-0.22,0.12-0.46,0.11-0.7c0.01-0.27-0.02-0.54-0.08-0.8c-0.04-0.17-0.16-0.32-0.32-0.39c-0.24-0.09-0.5-0.12-0.76-0.11h-0.48L55.79,60.94z"/>
+                <path d="M62.77,65.16c-0.41,0.02-0.82-0.08-1.18-0.29c-0.3-0.2-0.52-0.49-0.63-0.83c-0.13-0.41-0.2-0.83-0.19-1.26v-2.77c-0.01-0.42,0.06-0.84,0.2-1.24c0.12-0.33,0.34-0.61,0.63-0.8c0.36-0.2,0.77-0.3,1.18-0.28c0.41-0.02,0.82,0.08,1.17,0.28c0.29,0.19,0.51,0.47,0.63,0.8c0.14,0.4,0.2,0.82,0.19,1.24v2.78c0.01,0.42-0.06,0.84-0.19,1.24c-0.11,0.34-0.33,0.63-0.63,0.83C63.59,65.07,63.18,65.18,62.77,65.16z M62.77,64.35c0.22,0.02,0.43-0.04,0.61-0.17c0.14-0.12,0.24-0.29,0.28-0.47c0.05-0.23,0.08-0.47,0.07-0.71v-3.2c0-0.24-0.02-0.47-0.07-0.7c-0.04-0.18-0.14-0.33-0.28-0.45c-0.18-0.12-0.4-0.17-0.61-0.16c-0.22-0.01-0.43,0.04-0.62,0.16c-0.14,0.11-0.25,0.27-0.28,0.45c-0.05,0.23-0.08,0.46-0.07,0.7v3.2c0,0.24,0.02,0.48,0.07,0.71c0.04,0.18,0.14,0.35,0.28,0.47C62.34,64.31,62.55,64.37,62.77,64.35z"/>
+                <path d="M69.3,65.16c-0.37,0.01-0.73-0.08-1.05-0.27c-0.28-0.18-0.5-0.44-0.64-0.74c-0.15-0.35-0.24-0.73-0.25-1.11l0.9-0.24c0.02,0.25,0.06,0.5,0.12,0.74c0.05,0.22,0.16,0.43,0.31,0.6c0.16,0.16,0.38,0.24,0.6,0.23c0.22,0.01,0.44-0.07,0.6-0.22c0.15-0.18,0.22-0.41,0.2-0.64c0.01-0.28-0.07-0.56-0.23-0.8c-0.17-0.22-0.36-0.43-0.57-0.61l-1.23-1.08c-0.22-0.19-0.41-0.42-0.53-0.69c-0.12-0.29-0.18-0.61-0.17-0.93c0-0.54,0.15-0.95,0.46-1.24c0.34-0.31,0.79-0.47,1.26-0.45c0.26,0,0.52,0.03,0.76,0.11c0.21,0.07,0.4,0.19,0.55,0.35c0.16,0.17,0.28,0.37,0.35,0.6c0.09,0.27,0.15,0.55,0.18,0.84l-0.87,0.23c-0.02-0.22-0.05-0.45-0.11-0.66c-0.04-0.19-0.14-0.36-0.28-0.49c-0.16-0.13-0.37-0.2-0.58-0.18c-0.22-0.01-0.43,0.06-0.6,0.2c-0.15,0.16-0.23,0.38-0.21,0.6c-0.01,0.19,0.03,0.38,0.11,0.55c0.09,0.17,0.22,0.32,0.37,0.45l1.24,1.08c0.28,0.25,0.53,0.54,0.73,0.86c0.22,0.36,0.33,0.77,0.32,1.19c0.01,0.33-0.07,0.65-0.22,0.94c-0.15,0.25-0.36,0.46-0.62,0.6C69.92,65.09,69.61,65.16,69.3,65.16z"/>
+                <path d="M78.64,65.07v-2.58l-1.58-4.73h0.95l1.12,3.53l1.1-3.53h0.96l-1.57,4.73v2.58L78.64,65.07z"/>
+                <path d="M89.38,65.16c-0.52,0-0.92-0.11-1.2-0.32c-0.29-0.22-0.5-0.53-0.6-0.88c-0.12-0.4-0.17-0.81-0.17-1.23v-2.58c-0.01-0.44,0.05-0.87,0.17-1.29c0.1-0.34,0.31-0.64,0.6-0.85c0.29-0.2,0.69-0.3,1.2-0.3c0.38-0.02,0.76,0.07,1.09,0.25c0.27,0.17,0.47,0.42,0.58,0.72c0.13,0.36,0.18,0.75,0.18,1.13v0.57h-0.97v-0.51c0-0.24-0.01-0.48-0.04-0.72c-0.02-0.18-0.09-0.35-0.22-0.48c-0.17-0.13-0.39-0.19-0.61-0.17c-0.42-0.07-0.82,0.22-0.89,0.64c0,0.02-0.01,0.05-0.01,0.07c-0.04,0.26-0.06,0.52-0.06,0.79v2.9c-0.01,0.29,0.02,0.59,0.09,0.87c0.04,0.18,0.15,0.35,0.3,0.46c0.17,0.1,0.36,0.15,0.56,0.14c0.22,0.02,0.43-0.05,0.6-0.19c0.13-0.14,0.21-0.32,0.22-0.51c0.03-0.25,0.05-0.51,0.04-0.76v-0.54h0.97v0.54c0.01,0.4-0.05,0.8-0.16,1.18c-0.09,0.32-0.29,0.6-0.56,0.79C90.23,65.06,89.86,65.16,89.38,65.16z"/>
+                <path d="M95.87,65.16c-0.41,0.02-0.82-0.08-1.18-0.29c-0.3-0.2-0.52-0.49-0.63-0.83c-0.13-0.41-0.2-0.83-0.19-1.26v-2.77c-0.01-0.42,0.06-0.84,0.2-1.24c0.12-0.33,0.34-0.61,0.63-0.8c0.36-0.2,0.77-0.3,1.18-0.28c0.41-0.02,0.82,0.08,1.17,0.28c0.29,0.19,0.51,0.47,0.63,0.8c0.14,0.4,0.2,0.82,0.19,1.24v2.78c0.01,0.42-0.06,0.84-0.19,1.24c-0.11,0.34-0.33,0.63-0.63,0.83C96.69,65.07,96.28,65.18,95.87,65.16z M95.87,64.35c0.22,0.02,0.43-0.04,0.61-0.17c0.14-0.12,0.24-0.29,0.28-0.47c0.05-0.23,0.07-0.47,0.07-0.71v-3.2c0-0.24-0.02-0.47-0.07-0.7c-0.04-0.18-0.14-0.33-0.28-0.45c-0.18-0.12-0.4-0.17-0.61-0.16c-0.22-0.01-0.43,0.04-0.62,0.16c-0.14,0.11-0.25,0.27-0.28,0.45c-0.05,0.23-0.08,0.46-0.07,0.7v3.2c0,0.24,0.02,0.48,0.07,0.71c0.04,0.18,0.14,0.35,0.28,0.47C95.43,64.31,95.65,64.37,95.87,64.35z"/>
+                <path d="M100.65,65.07l0.14-7.31h1l1.29,5.93l1.3-5.93h0.99l0.14,7.31h-0.82l-0.08-5.31l-1.24,5.31h-0.58l-1.23-5.31l-0.08,5.31H100.65z"/>
+                <path d="M108.43,65.07v-7.31h1.82c0.37-0.02,0.73,0.06,1.06,0.23c0.26,0.16,0.46,0.4,0.57,0.69c0.13,0.35,0.18,0.72,0.17,1.1c0.01,0.35-0.06,0.69-0.2,1c-0.13,0.27-0.33,0.5-0.6,0.65c-0.3,0.16-0.65,0.24-0.99,0.23h-0.8v3.4L108.43,65.07z M109.45,60.94h0.47c0.24,0.01,0.47-0.02,0.7-0.1c0.16-0.06,0.29-0.19,0.36-0.35c0.08-0.22,0.12-0.46,0.11-0.7c0.01-0.27-0.02-0.54-0.08-0.8c-0.04-0.17-0.16-0.32-0.32-0.39c-0.24-0.09-0.5-0.12-0.76-0.11h-0.48L109.45,60.94z"/>
+                <path d="M116.44,65.16c-0.41,0.02-0.82-0.08-1.18-0.29c-0.3-0.2-0.52-0.49-0.63-0.83c-0.13-0.41-0.2-0.83-0.19-1.26v-2.77c-0.01-0.42,0.06-0.84,0.19-1.24c0.12-0.33,0.34-0.61,0.63-0.8c0.36-0.2,0.77-0.3,1.18-0.28c0.41-0.02,0.82,0.08,1.17,0.28c0.29,0.19,0.51,0.47,0.63,0.8c0.14,0.4,0.2,0.82,0.2,1.24v2.78c0.01,0.42-0.06,0.84-0.2,1.24c-0.11,0.34-0.33,0.63-0.63,0.83C117.26,65.07,116.85,65.18,116.44,65.16z M116.44,64.35c0.22,0.02,0.43-0.04,0.61-0.17c0.14-0.12,0.24-0.29,0.28-0.47c0.05-0.23,0.08-0.47,0.07-0.71v-3.2c0-0.24-0.02-0.47-0.07-0.7c-0.04-0.18-0.14-0.33-0.28-0.45c-0.18-0.12-0.4-0.17-0.61-0.16c-0.22-0.01-0.43,0.04-0.62,0.16c-0.14,0.11-0.25,0.27-0.28,0.45c-0.05,0.23-0.08,0.46-0.07,0.7v3.2c0,0.24,0.02,0.48,0.07,0.71c0.04,0.18,0.14,0.35,0.28,0.47C116,64.31,116.22,64.37,116.44,64.35z"/>
+                <path d="M121.24,65.07v-7.31h0.7l2.08,4.86v-4.86h0.85v7.31h-0.65l-2.1-4.99v4.99L121.24,65.07z"/>
+                <path d="M127.82,65.07v-7.31h2.83v0.76h-1.81v2.42h1.47v0.72h-1.47v2.68h1.83v0.73L127.82,65.07z"/>
+                <path d="M133.3,65.07v-7.31h0.7l2.08,4.86v-4.86h0.85v7.31h-0.65l-2.1-4.99v4.99L133.3,65.07z"/>
+                <path d="M140.67,65.07v-6.55h-1.24v-0.76h3.46v0.76h-1.2v6.55H140.67z"/>
+                <path d="M145.4,65.07v-7.31h2.83v0.76h-1.81v2.42h1.47v0.72h-1.47v2.68h1.83v0.73L145.4,65.07z"/>
+                <path d="M152.61,65.16c-0.37,0.01-0.74-0.08-1.05-0.27c-0.28-0.18-0.5-0.44-0.64-0.74c-0.15-0.35-0.24-0.73-0.25-1.11l0.9-0.24c0.02,0.25,0.06,0.5,0.12,0.74c0.05,0.22,0.16,0.43,0.31,0.6c0.16,0.16,0.38,0.24,0.61,0.23c0.22,0.01,0.44-0.07,0.6-0.22c0.15-0.18,0.22-0.41,0.2-0.64c0.01-0.28-0.06-0.56-0.22-0.8c-0.17-0.22-0.36-0.43-0.57-0.61l-1.23-1.08c-0.22-0.19-0.41-0.42-0.53-0.69c-0.12-0.29-0.18-0.61-0.17-0.93c0-0.54,0.15-0.95,0.46-1.24c0.34-0.31,0.79-0.47,1.26-0.45c0.26,0,0.52,0.03,0.76,0.11c0.21,0.07,0.4,0.19,0.55,0.35c0.16,0.17,0.28,0.38,0.35,0.6c0.09,0.27,0.15,0.55,0.18,0.84l-0.87,0.23c-0.01-0.22-0.05-0.45-0.11-0.66c-0.04-0.19-0.14-0.36-0.28-0.49c-0.16-0.13-0.37-0.2-0.58-0.18c-0.22-0.01-0.43,0.06-0.6,0.2c-0.15,0.16-0.23,0.38-0.21,0.6c-0.01,0.19,0.03,0.38,0.11,0.55c0.09,0.17,0.22,0.32,0.37,0.45l1.24,1.08c0.28,0.25,0.53,0.54,0.73,0.86c0.22,0.36,0.33,0.77,0.32,1.19c0.01,0.33-0.07,0.65-0.23,0.94c-0.14,0.25-0.36,0.46-0.62,0.6C153.23,65.09,152.92,65.16,152.61,65.16z"/>
+                <path d="M160.81,65.07l0.14-7.31h1l1.29,5.93l1.3-5.93h0.99l0.14,7.31h-0.82l-0.08-5.31l-1.24,5.31h-0.58l-1.23-5.31l-0.08,5.31H160.81z"/>
+                <path d="M168.59,65.07v-7.31h2.83v0.76h-1.82v2.42h1.47v0.72h-1.47v2.68h1.83v0.73L168.59,65.07z"/>
+                <path d="M175.91,65.16c-0.52,0-0.92-0.11-1.2-0.32c-0.29-0.22-0.5-0.53-0.6-0.88c-0.12-0.4-0.17-0.81-0.17-1.23v-2.58c-0.01-0.44,0.05-0.87,0.17-1.29c0.09-0.34,0.31-0.64,0.6-0.85c0.29-0.2,0.69-0.3,1.2-0.3c0.38-0.02,0.76,0.07,1.09,0.25c0.27,0.17,0.47,0.42,0.58,0.72c0.12,0.36,0.18,0.75,0.18,1.13v0.57h-0.97v-0.51c0-0.24-0.01-0.48-0.04-0.72c-0.01-0.18-0.09-0.35-0.22-0.48c-0.17-0.13-0.39-0.19-0.6-0.17c-0.42-0.07-0.82,0.22-0.89,0.64c0,0.02-0.01,0.05-0.01,0.07c-0.04,0.26-0.06,0.52-0.06,0.79v2.9c-0.01,0.29,0.02,0.59,0.09,0.87c0.04,0.18,0.15,0.35,0.3,0.46c0.17,0.1,0.36,0.14,0.56,0.14c0.22,0.02,0.43-0.05,0.6-0.19c0.13-0.14,0.21-0.32,0.23-0.51c0.03-0.25,0.05-0.51,0.04-0.76v-0.54h0.97v0.54c0.01,0.4-0.05,0.8-0.16,1.18c-0.09,0.32-0.29,0.6-0.56,0.79C176.76,65.06,176.39,65.16,175.91,65.16z"/>
+                <path d="M180.13,65.07l1.55-7.31h0.98l1.56,7.31h-0.97l-0.34-1.84h-1.49l-0.35,1.84H180.13z M181.57,62.5h1.22l-0.61-3.3L181.57,62.5z"/>
+                <path d="M186.77,65.07v-7.31h0.7l2.08,4.86v-4.86h0.85v7.31h-0.65l-2.11-4.99v4.99L186.77,65.07z"/>
+                <path d="M193.4,65.07v-7.31h1v7.31H193.4z"/>
+                <path d="M199.22,65.16c-0.52,0-0.92-0.11-1.21-0.32c-0.29-0.22-0.5-0.53-0.6-0.88c-0.12-0.4-0.17-0.81-0.17-1.23v-2.58c-0.01-0.44,0.05-0.87,0.17-1.29c0.1-0.34,0.31-0.64,0.6-0.85c0.29-0.2,0.69-0.3,1.21-0.3c0.38-0.02,0.76,0.07,1.09,0.25c0.27,0.17,0.47,0.42,0.58,0.72c0.13,0.36,0.18,0.75,0.18,1.13v0.57h-0.96v-0.51c0-0.24-0.01-0.48-0.04-0.72c-0.01-0.18-0.09-0.35-0.22-0.48c-0.17-0.13-0.39-0.19-0.6-0.17c-0.23-0.02-0.45,0.05-0.63,0.18c-0.14,0.14-0.23,0.33-0.26,0.52c-0.04,0.26-0.06,0.52-0.06,0.79v2.9c-0.01,0.29,0.02,0.59,0.09,0.87c0.04,0.18,0.15,0.35,0.3,0.46c0.17,0.1,0.36,0.14,0.56,0.14c0.22,0.02,0.43-0.05,0.6-0.19c0.13-0.14,0.21-0.32,0.22-0.51c0.03-0.25,0.05-0.51,0.05-0.76v-0.54h0.96v0.54c0.01,0.4-0.05,0.8-0.16,1.18c-0.09,0.32-0.29,0.6-0.56,0.79C200.08,65.06,199.71,65.16,199.22,65.16z"/>
+                <path d="M205.71,65.16c-0.41,0.02-0.82-0.08-1.18-0.29c-0.3-0.2-0.52-0.49-0.63-0.83c-0.13-0.41-0.2-0.83-0.19-1.26v-2.77c-0.01-0.42,0.06-0.84,0.19-1.24c0.12-0.33,0.34-0.61,0.63-0.8c0.36-0.2,0.77-0.3,1.18-0.28c0.41-0.02,0.82,0.08,1.17,0.28c0.29,0.19,0.51,0.47,0.63,0.8c0.14,0.4,0.2,0.82,0.19,1.24v2.78c0.01,0.42-0.06,0.84-0.19,1.24c-0.11,0.34-0.33,0.63-0.63,0.83C206.53,65.07,206.12,65.18,205.71,65.16z M205.71,64.35c0.22,0.02,0.43-0.04,0.61-0.17c0.14-0.12,0.24-0.29,0.28-0.47c0.05-0.23,0.07-0.47,0.07-0.71v-3.2c0-0.24-0.02-0.47-0.07-0.7c-0.04-0.18-0.14-0.33-0.28-0.45c-0.18-0.12-0.4-0.17-0.61-0.16c-0.22-0.01-0.44,0.04-0.62,0.16c-0.14,0.11-0.24,0.27-0.28,0.45c-0.05,0.23-0.08,0.46-0.07,0.7v3.2c0,0.24,0.02,0.48,0.07,0.71c0.04,0.18,0.14,0.35,0.28,0.47C205.27,64.31,205.49,64.37,205.71,64.35z"/>
+                <path d="M212.24,65.16c-0.37,0.01-0.73-0.08-1.05-0.27c-0.28-0.18-0.5-0.44-0.64-0.74c-0.15-0.35-0.24-0.73-0.25-1.11l0.9-0.24c0.02,0.25,0.06,0.5,0.12,0.74c0.05,0.22,0.16,0.43,0.31,0.6c0.16,0.16,0.38,0.24,0.6,0.23c0.22,0.01,0.44-0.07,0.6-0.22c0.15-0.18,0.22-0.41,0.2-0.64c0.01-0.28-0.07-0.56-0.23-0.8c-0.17-0.22-0.36-0.43-0.57-0.61l-1.23-1.08c-0.22-0.19-0.4-0.42-0.53-0.69c-0.12-0.29-0.18-0.61-0.17-0.93c0-0.54,0.15-0.95,0.46-1.24c0.34-0.31,0.79-0.47,1.26-0.45c0.26,0,0.52,0.03,0.76,0.11c0.21,0.07,0.4,0.19,0.55,0.35c0.16,0.17,0.28,0.38,0.35,0.6c0.09,0.27,0.15,0.55,0.18,0.84L213,59.83c-0.02-0.22-0.05-0.45-0.11-0.66c-0.05-0.19-0.14-0.36-0.28-0.49c-0.16-0.13-0.37-0.2-0.58-0.18c-0.22-0.01-0.43,0.06-0.6,0.2c-0.15,0.16-0.23,0.38-0.21,0.6c-0.01,0.19,0.03,0.38,0.11,0.55c0.09,0.17,0.22,0.32,0.36,0.45l1.24,1.08c0.28,0.25,0.53,0.54,0.73,0.86c0.22,0.36,0.33,0.77,0.32,1.19c0.01,0.33-0.07,0.65-0.22,0.94c-0.15,0.25-0.36,0.46-0.62,0.6C212.86,65.09,212.55,65.16,212.24,65.16z"/>
+            </g>
+        </symbol>
+    </svg>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        // Inicializar animaciones
+        AOS.init({
+            duration: 900,
+            once: true,
+            offset: 100,
+            easing: 'cubic-bezier(0.22, 1, 0.36, 1)'
+        });
+
+        // Lógica del Carrusel
+        let currentImages = [];
+        let currentIndex = 0;
+
+        function updateModal(imgElement) {
+            const container = imgElement.closest('.img-grid');
+            currentImages = Array.from(container.querySelectorAll('img'));
+            currentIndex = currentImages.indexOf(imgElement);
+            showImage();
         }
-      },
-      interactivity: {
-        detect_on: "canvas",
-        events: {
-          onhover: { enable: true, mode: "repulse" },
-          onclick: { enable: true, mode: "push" },
-          resize: true
-        },
-        modes: {
-          repulse: { distance: 100, duration: 0.4 },
-          push: { particles_nb: 4 }
+
+        function showImage() {
+            if (currentImages.length > 0) {
+                const modalImg = document.getElementById('modalImage');
+                modalImg.src = currentImages[currentIndex].src;
+                const nextIndex = (currentIndex + 1) % currentImages.length;
+                const nextImg = new Image();
+                nextImg.src = currentImages[nextIndex].src;
+            }
         }
-      },
-      retina_detect: true
-    });
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+        function changeImage(direction) {
+            currentIndex = (currentIndex + direction + currentImages.length) % currentImages.length;
+            showImage();
+        }
+
+        // Navegación con Teclado
+        document.addEventListener('keydown', function (event) {
+            const modal = document.getElementById('modalVisor');
+            if (modal.classList.contains('show')) {
+                if (event.key === 'ArrowLeft') changeImage(-1);
+                else if (event.key === 'ArrowRight') changeImage(1);
+            }
+        });
+
+        // Cerrar menú móvil al hacer click en un enlace
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                const navbarCollapse = document.querySelector('.navbar-collapse');
+                if (navbarCollapse.classList.contains('show')) {
+                    var bsCollapse = new bootstrap.Collapse(navbarCollapse);
+                    bsCollapse.hide();
+                }
+            });
+        });
+    </script>
 </body>
+
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
