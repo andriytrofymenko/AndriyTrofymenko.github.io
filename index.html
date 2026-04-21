@@ -68,9 +68,29 @@
         }
 
         .navbar-brand {
-            font-weight: 700;
-            font-size: 1.5rem;
-            color: var(--accent-color);
+            width: 38px;
+            height: 38px;
+            background: var(--accent-color);
+            color: var(--white) !important;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+            flex-shrink: 0;
+            transition: background 0.3s ease;
+        }
+
+        .navbar-brand:hover {
+            background: var(--accent-hover);
+        }
+
+        /* En desktop ocultamos el brand */
+        @media (min-width: 992px) {
+            .navbar-brand { display: none; }
         }
 
         .nav-link {
@@ -849,7 +869,7 @@
             header {
                 height: auto;
                 min-height: 100svh;
-                padding-top: 110px;
+                padding-top: 140px;
                 padding-bottom: 60px;
             }
 
@@ -868,7 +888,7 @@
            ========================================= */
         @media (max-width: 480px) {
             header {
-                padding-top: 120px;
+                padding-top: 150px;
                 padding-bottom: 50px;
             }
 
@@ -908,7 +928,8 @@
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
-            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            <a class="navbar-brand" href="#inicio">AT</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
