@@ -84,13 +84,25 @@
             transition: background 0.3s ease;
         }
 
-        .navbar-brand:hover {
-            background: var(--accent-hover);
-        }
-
         /* En desktop ocultamos el brand */
         @media (min-width: 992px) {
             .navbar-brand { display: none; }
+        }
+
+        .navbar-toggler {
+            border: 2px solid var(--accent-color);
+            padding: 7px 10px;
+            border-radius: 8px;
+            background: rgba(15, 76, 129, 0.06);
+            transition: background 0.2s ease;
+        }
+
+        .navbar-toggler:focus {
+            box-shadow: none;
+        }
+
+        .navbar-toggler:hover {
+            background: rgba(15, 76, 129, 0.14);
         }
 
         .nav-link {
@@ -928,8 +940,7 @@
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="#inicio">AT</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
