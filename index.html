@@ -39,6 +39,7 @@
         html {
             scroll-behavior: smooth;
             scroll-padding-top: 80px;
+            overflow-x: clip;
         }
 
         body {
@@ -105,17 +106,39 @@
             background: rgba(15, 76, 129, 0.14);
         }
 
+        /* =========================================
+           NAVBAR MOBILE — sin hamburguesa, links siempre visibles
+           ========================================= */
         @media (max-width: 991px) {
-            .navbar > .container {
+            /* Ocultar el botón hamburguesa */
+            .navbar-toggler { display: none !important; }
+
+            /* Forzar que el menú colapsado esté siempre abierto */
+            .navbar-collapse {
                 display: flex !important;
+                flex-basis: auto !important;
+            }
+
+            /* Centrar todo el contenedor */
+            .navbar > .container {
                 justify-content: center !important;
-                padding-left: 0 !important;
-                padding-right: 0 !important;
             }
-            .navbar-toggler {
+
+            /* Links en fila horizontal compacta */
+            .navbar-nav {
+                flex-direction: row !important;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 0;
+            }
+
+            .nav-link {
+                font-size: 0.72rem !important;
+                letter-spacing: 0.8px !important;
+                padding: 6px 10px !important;
                 margin: 0 !important;
-                float: none !important;
             }
+
         }
 
         .nav-link {
@@ -373,6 +396,7 @@
            ========================================= */
         section {
             padding: 100px 0;
+            overflow-x: clip; /* evita desborde horizontal por animaciones AOS */
         }
 
         .section-title {
@@ -1196,7 +1220,7 @@
             <h2 class="section-title">Mis Servicios</h2>
 
             <div class="row g-4 mb-5">
-                <div class="col-lg-6" data-aos="fade-right" data-aos-delay="0">
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="0">
                     <div class="content-card h-100" id="servicio-capacitaciones">
                         <div class="d-flex align-items-center mb-3">
                             <i class="bi bi-easel fs-2 me-3" style="color: var(--accent-color);"></i>
@@ -1209,7 +1233,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="col-lg-6" data-aos="fade-left" data-aos-delay="200">
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="150">
                     <div class="content-card h-100" id="servicio-asistencia">
                         <div class="d-flex align-items-center mb-3">
                             <i class="bi bi-gear-wide-connected fs-2 me-3" style="color: var(--accent-color);"></i>
