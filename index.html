@@ -107,9 +107,14 @@
 
         @media (max-width: 991px) {
             .navbar > .container {
-                justify-content: center;
-                padding-left: 0;
-                padding-right: 0;
+                display: flex !important;
+                justify-content: center !important;
+                padding-left: 0 !important;
+                padding-right: 0 !important;
+            }
+            .navbar-toggler {
+                margin: 0 !important;
+                float: none !important;
             }
         }
 
@@ -948,7 +953,7 @@
     <!-- NAVBAR -->
     <nav class="navbar navbar-light navbar-expand-lg fixed-top">
         <div class="container">
-            <button class="navbar-toggler mx-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
