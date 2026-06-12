@@ -5,6 +5,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Andriy Trofymenko - Soluciones de Ingeniería</title>
+    <meta name="description"
+        content="Ingeniero Industrial especializado en optimización de procesos, mejora continua y excelencia operativa. Capacitaciones y asistencia técnica para empresas.">
+    <meta name="theme-color" content="#0f172a">
+
+    <!-- Open Graph: vista previa al compartir el link en WhatsApp, LinkedIn, etc. -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Andriy Trofymenko - Soluciones de Ingeniería">
+    <meta property="og:description" content="Ingeniero Industrial | Optimización de Procesos | Mejora Continua">
+    <meta property="og:image" content="https://i.ibb.co/tw4dzPjf/6ef92317-28a2-406d-8dec-efc060fd04a0.jpg">
+    <meta property="og:locale" content="es_AR">
+    <meta name="twitter:card" content="summary">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%230f4c81'/%3E%3Ctext x='32' y='43' font-family='Arial, sans-serif' font-size='26' font-weight='bold' fill='%23fff' text-anchor='middle'%3EAT%3C/text%3E%3C/svg%3E">
+
+    <!-- Prioridad de carga para la foto de perfil (elemento LCP) -->
+    <link rel="preload" as="image" href="img/perfil-andriy.webp" fetchpriority="high">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Google Fonts -->
@@ -113,6 +131,8 @@
             /* Ocultar el botón hamburguesa */
             .navbar-toggler { display: none !important; }
 
+            .navbar { padding: 8px 0; }
+
             /* Forzar que el menú colapsado esté siempre abierto */
             .navbar-collapse {
                 display: flex !important;
@@ -132,13 +152,25 @@
                 gap: 0;
             }
 
+            /* Área táctil de ~44px de alto (estándar de accesibilidad táctil) */
             .nav-link {
-                font-size: 0.72rem !important;
-                letter-spacing: 0.8px !important;
-                padding: 6px 10px !important;
+                font-size: 0.75rem !important;
+                letter-spacing: 0.6px !important;
+                padding: 12px 9px !important;
                 margin: 0 !important;
             }
 
+            /* Los dropdowns flotan bajo su item: Bootstrap los vuelve estáticos
+               en pantallas chicas y romperían la fila del menú */
+            .navbar-nav .nav-item.dropdown { position: relative; }
+
+            .navbar-nav .dropdown-menu {
+                position: absolute;
+                top: 100%;
+                left: 50%;
+                transform: translateX(-50%);
+                min-width: 210px;
+            }
         }
 
         .nav-link {
@@ -292,7 +324,8 @@
             z-index: 3;
             opacity: 0.04;
             pointer-events: none;
-            background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
+            /* Textura original, servida localmente (sin depender de un servidor externo) */
+            background-image: url("img/textura-ruido.png");
         }
 
         .hero-content {
@@ -511,6 +544,40 @@
             position: absolute;
             top: 0; left: 0;
             width: 100%; height: 100%;
+        }
+
+        /* Fachada de video: miniatura + botón play.
+           El iframe de YouTube (~1.5 MB) se carga recién al hacer clic */
+        .video-facade { cursor: pointer; }
+
+        .video-facade img {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            object-fit: cover;
+        }
+
+        .video-play-btn {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 64px; height: 64px;
+            border-radius: 50%;
+            background: rgba(15, 23, 42, 0.78);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+            pointer-events: none;
+        }
+
+        .video-facade:hover .video-play-btn,
+        .video-facade:focus-visible .video-play-btn {
+            background: var(--secondary-accent);
+            color: #000;
+            transform: translate(-50%, -50%) scale(1.1);
         }
 
         /* =========================================
@@ -899,11 +966,11 @@
         }
 
         @media (max-width: 768px) {
-            .aurora-blob { filter: blur(60px); }
+            .aurora-blob { filter: blur(50px); }
             .blob-1 { width: 380px; height: 380px; }
             .blob-2 { width: 320px; height: 320px; }
-            .blob-3 { width: 240px; height: 240px; }
-            .blob-4 { width: 200px; height: 200px; }
+            /* En móvil solo 2 blobs: menos repintado y consumo de batería */
+            .blob-3, .blob-4 { display: none; }
         }
 
         /* =========================================
@@ -970,10 +1037,64 @@
 
             .section-title { margin-bottom: 35px; }
         }
+
+        /* =========================================
+           ACCESIBILIDAD
+           ========================================= */
+        /* Indicador de foco visible al navegar con teclado */
+        .img-grid img:focus-visible,
+        .video-facade:focus-visible,
+        .btn-nav-modal:focus-visible,
+        .btn-cta:focus-visible,
+        .btn-outline-cta:focus-visible {
+            outline: 3px solid var(--secondary-accent);
+            outline-offset: 2px;
+        }
+
+        /* Usuarios que piden menos movimiento (config. del sistema operativo) */
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+
+            .hero-bg-mesh,
+            .logo-track { animation: none !important; }
+
+            .aurora-blob {
+                animation: none !important;
+                opacity: 1;
+            }
+
+            .hero-animate-1, .hero-animate-2,
+            .hero-animate-3, .hero-animate-4 {
+                animation-duration: 0.01ms !important;
+                animation-delay: 0s !important;
+            }
+
+            .project-card, .img-grid img, .profile-img,
+            .btn-cta, .btn-outline-cta { transition: none !important; }
+        }
     </style>
+
+    <!-- Datos estructurados para buscadores -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Andriy Trofymenko",
+        "jobTitle": "Ingeniero Industrial",
+        "email": "mailto:andriytrofymenko@gmail.com",
+        "telephone": "+54 9 11 3327-8023",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Río Gallegos",
+            "addressRegion": "Santa Cruz",
+            "addressCountry": "AR"
+        },
+        "knowsAbout": ["Lean Manufacturing", "Six Sigma", "Optimización de Procesos", "Mejora Continua", "Industria 4.0"]
+    }
+    </script>
 </head>
 
-<body>
+<body data-bs-spy="scroll" data-bs-target="#navbarNav">
 
     <!-- NAVBAR -->
     <nav class="navbar navbar-light navbar-expand-lg fixed-top">
@@ -1029,8 +1150,8 @@
             <div class="aurora-blob blob-4"></div>
         </div>
         <div class="hero-content">
-            <img src="https://i.ibb.co/tw4dzPjf/6ef92317-28a2-406d-8dec-efc060fd04a0.jpg" alt="Andriy Trofymenko"
-                class="profile-img hero-animate-1">
+            <img src="img/perfil-andriy.webp" alt="Andriy Trofymenko" width="491" height="640"
+                fetchpriority="high" class="profile-img hero-animate-1">
             <h1 class="hero-title hero-animate-2">Andriy Trofymenko</h1>
             <p class="hero-subtitle hero-animate-3">Ingeniero Industrial | Optimización de Procesos | Mejora Continua
             </p>
@@ -1083,10 +1204,11 @@
                                 de valor del cáñamo industrial. Desarrollo de propuestas para el desarrollo sostenible
                                 del sector.
                             </p>
-                            <div class="video-container">
-                                <iframe src="https://www.youtube.com/embed/tYU88wsM110" frameborder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                    allowfullscreen></iframe>
+                            <div class="video-container video-facade" data-video-id="tYU88wsM110" role="button"
+                                tabindex="0" aria-label="Reproducir video: Cadena de Valor del Cáñamo">
+                                <img src="img/video-canamo.webp" alt="Miniatura del video: Cadena de Valor del Cáñamo"
+                                    width="1280" height="720" loading="lazy">
+                                <span class="video-play-btn" aria-hidden="true"><i class="bi bi-play-fill"></i></span>
                             </div>
                         </div>
                     </div>
@@ -1102,16 +1224,16 @@
                                 metodologías estratégicas para la competitividad organizacional.
                             </p>
                             <div class="img-grid">
-                                <img src="https://i.ibb.co/6z173zP/Imagen-de-Whats-App-2025-02-14-a-las-20-30-12-dbf6f0c3.jpg"
+                                <img src="img/capacitaciones-1.webp" alt="Sesión de capacitación corporativa"
                                     data-bs-toggle="modal" data-bs-target="#modalVisor" onclick="updateModal(this)"
                                     loading="lazy">
-                                <img src="https://i.ibb.co/chB8ZGLN/Imagen-de-Whats-App-2025-02-14-a-las-20-27-49-4e77bac1.jpg"
+                                <img src="img/capacitaciones-2.webp" alt="Capacitación a equipos de trabajo"
                                     data-bs-toggle="modal" data-bs-target="#modalVisor" onclick="updateModal(this)"
                                     loading="lazy">
-                                <img src="https://i.ibb.co/PvRrSw0Y/Imagen-de-Whats-App-2025-02-14-a-las-20-10-33-550c9616.jpg"
+                                <img src="img/capacitaciones-3.webp" alt="Formación in-company para mandos medios"
                                     data-bs-toggle="modal" data-bs-target="#modalVisor" onclick="updateModal(this)"
                                     loading="lazy">
-                                <img src="https://i.ibb.co/Wvbwj2p2/Imagen-de-Whats-App-2025-02-18-a-las-19-47-54-2a875330.jpg"
+                                <img src="img/capacitaciones-4.webp" alt="Taller práctico de capacitación"
                                     data-bs-toggle="modal" data-bs-target="#modalVisor" onclick="updateModal(this)"
                                     loading="lazy">
                             </div>
@@ -1128,13 +1250,13 @@
                                 Diseño y puesta en marcha de planta de bolsas de polietileno: 15 t/mes de capacidad, coordinación de 30 operarios y 9,6 t/mes de producción.
                             </p>
                             <div class="img-grid">
-                                <img src="https://i.ibb.co/rRHcJhrT/2.png" data-bs-toggle="modal"
+                                <img src="img/polietileno-1.webp" alt="Plano de la planta de bolsas de polietileno" data-bs-toggle="modal"
                                     data-bs-target="#modalVisor" onclick="updateModal(this)" loading="lazy">
-                                <img src="https://i.ibb.co/G3xbrfMf/render-pro.png" data-bs-toggle="modal"
+                                <img src="img/polietileno-2.webp" alt="Render 3D de la planta de polietileno" data-bs-toggle="modal"
                                     data-bs-target="#modalVisor" onclick="updateModal(this)" loading="lazy">
-                                <img src="https://i.ibb.co/b5jKfPz1/3.png" data-bs-toggle="modal"
+                                <img src="img/polietileno-3.webp" alt="Distribución de equipos de la planta de polietileno" data-bs-toggle="modal"
                                     data-bs-target="#modalVisor" onclick="updateModal(this)" loading="lazy">
-                                <img src="https://i.ibb.co/DPC2mY5S/7.png" data-bs-toggle="modal"
+                                <img src="img/polietileno-4.webp" alt="Detalle del diseño de la planta de polietileno" data-bs-toggle="modal"
                                     data-bs-target="#modalVisor" onclick="updateModal(this)" loading="lazy">
                             </div>
                         </div>
@@ -1150,16 +1272,16 @@
                                 Optimización del layout y ampliación de planta industrial de 760 m² a 1.860 m² mediante la metodología de Planificación Sistemática de Layout, mejorando el flujo operativo y la productividad.
                             </p>
                             <div class="img-grid">
-                                <img src="https://i.ibb.co/kVRFDtSw/1bc1fb7d699ffa0917736253c54d46c19b2c482b.jpg"
+                                <img src="img/layout-1.webp" alt="Plano de reestructuración del layout de planta"
                                     data-bs-toggle="modal" data-bs-target="#modalVisor" onclick="updateModal(this)"
                                     loading="lazy">
-                                <img src="https://i.ibb.co/yFQChTGL/2fc7eced7aea8ee1c2f4f3c0bf05d1eeced0f136.jpg"
+                                <img src="img/layout-2.webp" alt="Layout optimizado de la planta industrial"
                                     data-bs-toggle="modal" data-bs-target="#modalVisor" onclick="updateModal(this)"
                                     loading="lazy">
-                                <img src="https://i.ibb.co/5X8tk2D6/8a20fb1069d1d31c2ec18578125f9ffc866bf186.jpg"
+                                <img src="img/layout-3.webp" alt="Ampliación de la planta industrial"
                                     data-bs-toggle="modal" data-bs-target="#modalVisor" onclick="updateModal(this)"
                                     loading="lazy">
-                                <img src="https://i.ibb.co/RkD8tNXq/diagrama-de-hilos.png" data-bs-toggle="modal"
+                                <img src="img/layout-4.webp" alt="Diagrama de hilos del flujo operativo" data-bs-toggle="modal"
                                     data-bs-target="#modalVisor" onclick="updateModal(this)" loading="lazy">
                             </div>
                         </div>
@@ -1176,10 +1298,11 @@
                                 <i class="bi bi-clock-history text-primary"></i> -44% Tiempo de espera<br>
                                 Rediseño de flujos y layout en área de endoscopia para maximizar eficiencia y ergonomía.
                             </p>
-                            <div class="video-container">
-                                <iframe src="https://www.youtube.com/embed/k5jvN9XXlm4" frameborder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                    allowfullscreen></iframe>
+                            <div class="video-container video-facade" data-video-id="k5jvN9XXlm4" role="button"
+                                tabindex="0" aria-label="Reproducir video: Optimización Clínica">
+                                <img src="img/video-clinica.webp" alt="Miniatura del video: Optimización Clínica"
+                                    width="1280" height="720" loading="lazy">
+                                <span class="video-play-btn" aria-hidden="true"><i class="bi bi-play-fill"></i></span>
                             </div>
                         </div>
                     </div>
@@ -1195,13 +1318,13 @@
                                 control y mejora de procesos productivos.
                             </p>
                             <div class="img-grid">
-                                <img src="https://i.ibb.co/XkSLpXg0/5S.png" data-bs-toggle="modal"
+                                <img src="img/herramientas-1.webp" alt="Implementación de metodología 5S" data-bs-toggle="modal"
                                     data-bs-target="#modalVisor" onclick="updateModal(this)" loading="lazy">
-                                <img src="https://i.ibb.co/qMnndpyB/IMG-20250222-WA0004.jpg" data-bs-toggle="modal"
+                                <img src="img/herramientas-2.webp" alt="Gestión visual en planta" data-bs-toggle="modal"
                                     data-bs-target="#modalVisor" onclick="updateModal(this)" loading="lazy">
-                                <img src="https://i.ibb.co/21XsSHgD/IMG-20250222-WA0007.jpg" data-bs-toggle="modal"
+                                <img src="img/herramientas-3.webp" alt="Aplicación de herramientas Lean" data-bs-toggle="modal"
                                     data-bs-target="#modalVisor" onclick="updateModal(this)" loading="lazy">
-                                <img src="https://i.ibb.co/cnDFGLF/sdssdd.png" data-bs-toggle="modal"
+                                <img src="img/herramientas-4.webp" alt="Tablero Kanban de control de procesos" data-bs-toggle="modal"
                                     data-bs-target="#modalVisor" onclick="updateModal(this)" loading="lazy">
                             </div>
                         </div>
@@ -1288,45 +1411,45 @@
                         <!-- Set 1 -->
                         <div class="client-logo-wrapper">
                             <div class="client-logo-named">
-                                <img src="https://medisur-rg.com.ar/wp-content/uploads/2025/01/Diseno_sin_titulo__30_-removebg-preview.webp" alt="Medisur" class="client-logo">
+                                <img src="img/clientes/medisur.webp" alt="Medisur" class="client-logo">
                                 <span class="client-logo-name">Medisur</span>
                             </div>
                         </div>
                         <div class="client-logo-wrapper">
-                            <img src="https://www.ssservicios.com.ar/wp-content/uploads/2026/03/Logo-ss-celeste-y-negro-scaled.png"
+                            <img src="img/clientes/ss-servicios.webp"
                                 alt="SS Servicios" class="client-logo">
                         </div>
                         <div class="client-logo-wrapper">
-                            <img src="https://mspatagonia.com/wp-content/uploads/2021/05/logo-ms.svg"
+                            <img src="img/clientes/ms-patagonia.svg"
                                 alt="MS Patagonia" class="client-logo">
                         </div>
                         <div class="client-logo-wrapper">
                             <svg viewBox="0 0 245.84 68.43" class="client-logo" role="img" aria-label="Brandt"><use href="#brandt-logo"/></svg>
                         </div>
                         <div class="client-logo-wrapper">
-                            <img src="https://www.aeropuertosargentina.com/assets/logos/aeropuertos-logo.svg"
+                            <img src="img/clientes/aeropuertos-argentina.svg"
                                 alt="Aeropuertos Argentina" class="client-logo client-logo-lg">
                         </div>
                         <!-- Duplicate Set for Seamless Loop -->
                         <div class="client-logo-wrapper">
                             <div class="client-logo-named">
-                                <img src="https://medisur-rg.com.ar/wp-content/uploads/2025/01/Diseno_sin_titulo__30_-removebg-preview.webp" alt="Medisur" class="client-logo">
+                                <img src="img/clientes/medisur.webp" alt="Medisur" class="client-logo">
                                 <span class="client-logo-name">Medisur</span>
                             </div>
                         </div>
                         <div class="client-logo-wrapper">
-                            <img src="https://www.ssservicios.com.ar/wp-content/uploads/2026/03/Logo-ss-celeste-y-negro-scaled.png"
+                            <img src="img/clientes/ss-servicios.webp"
                                 alt="SS Servicios" class="client-logo">
                         </div>
                         <div class="client-logo-wrapper">
-                            <img src="https://mspatagonia.com/wp-content/uploads/2021/05/logo-ms.svg"
+                            <img src="img/clientes/ms-patagonia.svg"
                                 alt="MS Patagonia" class="client-logo">
                         </div>
                         <div class="client-logo-wrapper">
                             <svg viewBox="0 0 245.84 68.43" class="client-logo" role="img" aria-label="Brandt"><use href="#brandt-logo"/></svg>
                         </div>
                         <div class="client-logo-wrapper">
-                            <img src="https://www.aeropuertosargentina.com/assets/logos/aeropuertos-logo.svg"
+                            <img src="img/clientes/aeropuertos-argentina.svg"
                                 alt="Aeropuertos Argentina" class="client-logo client-logo-lg">
                         </div>
                     </div>
@@ -1380,14 +1503,14 @@
                         style="z-index: 1060; background-color: white; opacity: 0.8;"></button>
 
                     <!-- Botones de Navegación -->
-                    <button class="btn-nav-modal btn-prev" onclick="changeImage(-1)">
+                    <button class="btn-nav-modal btn-prev" onclick="changeImage(-1)" aria-label="Imagen anterior">
                         <i class="bi bi-chevron-left fs-4"></i>
                     </button>
-                    <button class="btn-nav-modal btn-next" onclick="changeImage(1)">
+                    <button class="btn-nav-modal btn-next" onclick="changeImage(1)" aria-label="Imagen siguiente">
                         <i class="bi bi-chevron-right fs-4"></i>
                     </button>
 
-                    <img id="modalImage" src="" class="img-fluid rounded shadow-lg" style="max-height: 90vh;">
+                    <img id="modalImage" src="" alt="" class="img-fluid rounded shadow-lg" style="max-height: 90vh;">
                 </div>
             </div>
         </div>
@@ -1442,12 +1565,39 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     <script>
+        // Respetar la preferencia de menos movimiento del sistema del usuario
+        const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
         // Inicializar animaciones
         AOS.init({
             duration: 900,
             once: true,
             offset: 100,
-            easing: 'cubic-bezier(0.22, 1, 0.36, 1)'
+            easing: 'cubic-bezier(0.22, 1, 0.36, 1)',
+            disable: reducedMotion
+        });
+
+        // Carga diferida de YouTube: el iframe se inserta recién al hacer clic
+        document.querySelectorAll('.video-facade').forEach(facade => {
+            const loadVideo = () => {
+                if (!facade.classList.contains('video-facade')) return;
+                const iframe = document.createElement('iframe');
+                iframe.src = 'https://www.youtube.com/embed/' + facade.dataset.videoId + '?autoplay=1';
+                iframe.title = facade.getAttribute('aria-label') || 'Video';
+                iframe.setAttribute('frameborder', '0');
+                iframe.setAttribute('allow',
+                    'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
+                iframe.setAttribute('allowfullscreen', '');
+                facade.innerHTML = '';
+                facade.appendChild(iframe);
+                facade.classList.remove('video-facade');
+                facade.removeAttribute('role');
+                facade.removeAttribute('tabindex');
+            };
+            facade.addEventListener('click', loadVideo);
+            facade.addEventListener('keydown', e => {
+                if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); loadVideo(); }
+            });
         });
 
         // Lógica del Carrusel
@@ -1465,6 +1615,7 @@
             if (currentImages.length > 0) {
                 const modalImg = document.getElementById('modalImage');
                 modalImg.src = currentImages[currentIndex].src;
+                modalImg.alt = currentImages[currentIndex].alt || 'Imagen del proyecto';
                 const nextIndex = (currentIndex + 1) % currentImages.length;
                 const nextImg = new Image();
                 nextImg.src = currentImages[nextIndex].src;
@@ -1483,6 +1634,30 @@
                 if (event.key === 'ArrowLeft') changeImage(-1);
                 else if (event.key === 'ArrowRight') changeImage(1);
             }
+        });
+
+        // Navegación con gestos táctiles (swipe) en el visor de imágenes
+        const modalVisor = document.getElementById('modalVisor');
+        let touchStartX = null;
+
+        modalVisor.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].clientX;
+        }, { passive: true });
+
+        modalVisor.addEventListener('touchend', e => {
+            if (touchStartX === null) return;
+            const deltaX = e.changedTouches[0].clientX - touchStartX;
+            if (Math.abs(deltaX) > 45) changeImage(deltaX < 0 ? 1 : -1);
+            touchStartX = null;
+        }, { passive: true });
+
+        // Las imágenes de las grillas también se pueden abrir con teclado
+        document.querySelectorAll('.img-grid img').forEach(img => {
+            img.setAttribute('tabindex', '0');
+            img.setAttribute('role', 'button');
+            img.addEventListener('keydown', e => {
+                if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); img.click(); }
+            });
         });
 
         // Cerrar menú móvil al hacer click en un enlace
