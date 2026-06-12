@@ -78,9 +78,9 @@
            NAVBAR
            ========================================= */
         .navbar {
+            /* Sin backdrop-filter: con fondo 97% opaco el desenfoque era invisible,
+               pero obligaba a re-desenfocar el contenido de atrás en cada scroll */
             background-color: var(--glass-bg);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
             box-shadow: var(--nav-shadow);
             padding: 14px 0;
             transition: all 0.3s ease;
@@ -911,7 +911,11 @@
         /* El hero pausa sus animaciones al salir de pantalla (lo controla JS),
            así nunca le roba fluidez al resto de la página */
         header.hero-anim-paused .aurora-blob,
-        header.hero-anim-paused .hero-bg-mesh {
+        header.hero-anim-paused .hero-bg-mesh,
+        header.hero-anim-paused .scroll-indicator,
+        /* También se congelan mientras el usuario scrollea activamente */
+        header.hero-scrolling .aurora-blob,
+        header.hero-scrolling .hero-bg-mesh {
             animation-play-state: paused;
         }
 
@@ -1046,6 +1050,77 @@
         }
 
         /* =========================================
+           BOTÓN FLOTANTE DE WHATSAPP
+           ========================================= */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 22px;
+            right: 22px;
+            width: 56px;
+            height: 56px;
+            background: #25d366;
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.28);
+            z-index: 1030;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            color: #fff;
+            box-shadow: 0 10px 26px rgba(0, 0, 0, 0.35);
+        }
+
+        @media (max-width: 480px) {
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                bottom: 16px;
+                right: 16px;
+                font-size: 1.6rem;
+            }
+        }
+
+        /* =========================================
+           INDICADOR DE SCROLL DEL HERO
+           ========================================= */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 24px;
+            /* Centrado con márgenes: no depende de transform ni de la animación */
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            width: max-content;
+            z-index: 4;
+            color: rgba(255, 255, 255, 0.55);
+            font-size: 1.6rem;
+            line-height: 1;
+            /* Aparece tarde (después del resto del hero) y rebota suave */
+            animation:
+                auroraFadeIn 1.5s ease 1.6s both,
+                scrollBounce 2.4s ease-in-out 2.2s infinite;
+            transition: color 0.3s ease;
+        }
+
+        .scroll-indicator:hover { color: #fff; }
+
+        @keyframes scrollBounce {
+            0%, 100% { transform: translateY(0); }
+            50%      { transform: translateY(9px); }
+        }
+
+        /* En pantallas muy bajas taparía los botones del hero */
+        @media (max-height: 600px) {
+            .scroll-indicator { display: none; }
+        }
+
+        /* =========================================
            ACCESIBILIDAD
            ========================================= */
         /* Indicador de foco visible al navegar con teclado */
@@ -1064,6 +1139,11 @@
 
             .hero-bg-mesh,
             .logo-track { animation: none !important; }
+
+            .scroll-indicator {
+                animation: none !important;
+                opacity: 1;
+            }
 
             .aurora-blob {
                 animation: none !important;
@@ -1170,6 +1250,9 @@
                 </a>
             </div>
         </div>
+        <a href="#sobre-mi" class="scroll-indicator" aria-label="Bajar a la siguiente sección">
+            <i class="bi bi-chevron-double-down"></i>
+        </a>
     </header>
 
     <!-- SOBRE MÍ -->
@@ -1500,6 +1583,12 @@
         </div>
     </footer>
 
+    <!-- Botón flotante de WhatsApp -->
+    <a href="https://wa.me/5491133278023" target="_blank" rel="noopener" class="whatsapp-float"
+        aria-label="Escribime por WhatsApp">
+        <i class="bi bi-whatsapp"></i>
+    </a>
+
     <!-- Modal Único para Imágenes con Carrusel -->
     <div class="modal fade" id="modalVisor" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-xl">
@@ -1607,12 +1696,27 @@
             });
         });
 
-        // Pausar las animaciones del hero cuando sale de pantalla,
+        // Pausar las animaciones del hero apenas queda menos del 20% visible,
         // para que nunca le quiten fluidez al resto de la página
         const heroHeader = document.querySelector('header');
         new IntersectionObserver(entries => {
             heroHeader.classList.toggle('hero-anim-paused', !entries[0].isIntersecting);
-        }).observe(heroHeader);
+        }, { threshold: 0.2 }).observe(heroHeader);
+
+        // Congelar el fondo del hero mientras se scrollea (se reanuda al frenar);
+        // las animaciones son tan lentas que la pausa es imperceptible
+        let scrollTimer;
+        window.addEventListener('scroll', () => {
+            heroHeader.classList.add('hero-scrolling');
+            clearTimeout(scrollTimer);
+            scrollTimer = setTimeout(() => heroHeader.classList.remove('hero-scrolling'), 150);
+        }, { passive: true });
+
+        // El carrusel de logos solo corre cuando su sección está en pantalla
+        const logoTrack = document.querySelector('.logo-track');
+        new IntersectionObserver(entries => {
+            logoTrack.style.animationPlayState = entries[0].isIntersecting ? 'running' : 'paused';
+        }).observe(document.getElementById('clientes'));
 
         // Lógica del Carrusel
         let currentImages = [];
