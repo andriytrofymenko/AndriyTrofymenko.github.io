@@ -1779,22 +1779,13 @@
             });
         });
 
-        // Bloquear scroll del fondo cuando el modal está abierto (fix móvil)
-        let scrollY = 0;
+        // Bloquear scroll táctil del fondo cuando el modal está abierto (fix móvil)
         const preventTouch = (e) => e.preventDefault();
 
         document.getElementById('modalVisor').addEventListener('show.bs.modal', () => {
-            scrollY = window.scrollY;
-            document.body.style.position = 'fixed';
-            document.body.style.top = `-${scrollY}px`;
-            document.body.style.width = '100%';
             document.addEventListener('touchmove', preventTouch, { passive: false });
         });
-        document.getElementById('modalVisor').addEventListener('hide.bs.modal', () => {
-            document.body.style.position = '';
-            document.body.style.top = '';
-            document.body.style.width = '';
-            window.scrollTo(0, scrollY);
+        document.getElementById('modalVisor').addEventListener('hidden.bs.modal', () => {
             document.removeEventListener('touchmove', preventTouch);
         });
 
