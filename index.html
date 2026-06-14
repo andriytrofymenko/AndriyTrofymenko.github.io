@@ -1780,13 +1780,20 @@
         });
 
         // Bloquear scroll táctil del fondo cuando el modal está abierto (fix móvil)
+        // Al cerrar, Bootstrap devuelve el foco a la miniatura y eso mueve la página;
+        // guardamos la posición antes y la restauramos después de que Bootstrap termine.
         const preventTouch = (e) => e.preventDefault();
+        let savedScrollY = 0;
 
         document.getElementById('modalVisor').addEventListener('show.bs.modal', () => {
             document.addEventListener('touchmove', preventTouch, { passive: false });
         });
+        document.getElementById('modalVisor').addEventListener('hide.bs.modal', () => {
+            savedScrollY = window.scrollY;
+        });
         document.getElementById('modalVisor').addEventListener('hidden.bs.modal', () => {
             document.removeEventListener('touchmove', preventTouch);
+            window.scrollTo(0, savedScrollY);
         });
 
         // Cerrar menú móvil al hacer click en un enlace
