@@ -8,6 +8,7 @@
     <meta name="description"
         content="Ingeniero Industrial especializado en optimización de procesos, mejora continua y excelencia operativa. Capacitaciones y asistencia técnica para empresas.">
     <meta name="theme-color" content="#0f172a">
+    <meta name="color-scheme" content="light">
 
     <!-- Open Graph: vista previa al compartir el link en WhatsApp, LinkedIn, etc. -->
     <meta property="og:type" content="website">
@@ -1776,6 +1777,21 @@
             img.addEventListener('keydown', e => {
                 if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); img.click(); }
             });
+        });
+
+        // Bloquear scroll del fondo cuando el modal está abierto (fix móvil)
+        let scrollY = 0;
+        document.getElementById('modalVisor').addEventListener('show.bs.modal', () => {
+            scrollY = window.scrollY;
+            document.body.style.position = 'fixed';
+            document.body.style.top = `-${scrollY}px`;
+            document.body.style.width = '100%';
+        });
+        document.getElementById('modalVisor').addEventListener('hide.bs.modal', () => {
+            document.body.style.position = '';
+            document.body.style.top = '';
+            document.body.style.width = '';
+            window.scrollTo(0, scrollY);
         });
 
         // Cerrar menú móvil al hacer click en un enlace
