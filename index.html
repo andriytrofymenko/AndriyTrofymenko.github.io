@@ -333,8 +333,10 @@
         .hero-content {
             position: relative;
             z-index: 4;
+            width: 100%;
             max-width: 900px;
             padding: 20px 16px;
+            margin: 0 auto;
             user-select: none;
             -webkit-user-select: none;
             -moz-user-select: none;
@@ -366,9 +368,9 @@
         }
 
         .hero-title {
-            font-size: clamp(2.2rem, 6vw, 4rem);
+            font-size: clamp(1.8rem, 4.5vw, 3rem);
             font-weight: 800;
-            margin-bottom: 15px;
+            margin-bottom: 30px;
             letter-spacing: -1px;
             background: linear-gradient(to right, #fff 30%, #94a3b8);
             -webkit-background-clip: text;
@@ -380,7 +382,7 @@
             font-size: clamp(1.1rem, 3vw, 1.7rem);
             font-weight: 300;
             color: #94a3b8;
-            margin-bottom: 45px;
+            margin-bottom: 30px;
             line-height: 1.5;
         }
 
@@ -397,6 +399,9 @@
             border: none;
             box-shadow: 0 4px 20px rgba(234, 180, 8, 0.45);
             display: inline-block;
+            width: 270px;
+            text-align: center;
+            white-space: nowrap;
         }
 
         .btn-cta:hover {
@@ -418,6 +423,9 @@
             letter-spacing: 1px;
             font-size: 1rem;
             display: inline-block;
+            width: 270px;
+            text-align: center;
+            white-space: nowrap;
         }
 
         .btn-outline-cta:hover {
@@ -1094,16 +1102,14 @@
         .scroll-indicator {
             position: absolute;
             bottom: 24px;
-            /* Centrado con márgenes: no depende de transform ni de la animación */
             left: 0;
             right: 0;
-            margin: 0 auto;
-            width: max-content;
+            display: block;
+            text-align: center;
             z-index: 4;
             color: rgba(255, 255, 255, 0.55);
             font-size: 1.6rem;
             line-height: 1;
-            /* Aparece tarde (después del resto del hero) y rebota suave */
             animation:
                 auroraFadeIn 1.5s ease 1.6s both,
                 scrollBounce 2.4s ease-in-out 2.2s infinite;
