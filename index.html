@@ -23,7 +23,7 @@
         href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%230f4c81'/%3E%3Ctext x='32' y='43' font-family='Arial, sans-serif' font-size='26' font-weight='bold' fill='%23fff' text-anchor='middle'%3EAT%3C/text%3E%3C/svg%3E">
 
     <!-- Prioridad de carga para la foto de perfil (elemento LCP) -->
-    <link rel="preload" as="image" href="https://i.ibb.co/Kpjd85jQ/Chat-GPT-Image-18-jun-2026-01-22-02.png" fetchpriority="high">
+    <link rel="preload" as="image" href="https://i.ibb.co/whsnqcj0/Whats-App-Image-2026-06-18-at-23-29-01.jpg" fetchpriority="high">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Google Fonts -->
@@ -129,32 +129,28 @@
         /* =========================================
            NAVBAR MOBILE — sin hamburguesa, links siempre visibles
            ========================================= */
+        /* Tablet y desktop: barra horizontal sin hamburguesa */
         @media (max-width: 991px) {
-            /* Ocultar el botón hamburguesa */
             .navbar-toggler { display: none !important; }
 
             .navbar { padding: 8px 0; }
 
-            /* Forzar que el menú colapsado esté siempre abierto */
             .navbar-collapse {
                 display: flex !important;
                 flex-basis: auto !important;
             }
 
-            /* Centrar todo el contenedor */
             .navbar > .container {
                 justify-content: center !important;
             }
 
-            /* Links en fila horizontal compacta */
             .navbar-nav {
                 flex-direction: row !important;
-                flex-wrap: wrap;
+                flex-wrap: nowrap;
                 justify-content: center;
                 gap: 0;
             }
 
-            /* Área táctil de ~44px de alto (estándar de accesibilidad táctil) */
             .nav-link {
                 font-size: 0.75rem !important;
                 letter-spacing: 0.6px !important;
@@ -162,8 +158,6 @@
                 margin: 0 !important;
             }
 
-            /* Los dropdowns flotan bajo su item: Bootstrap los vuelve estáticos
-               en pantallas chicas y romperían la fila del menú */
             .navbar-nav .nav-item.dropdown { position: relative; }
 
             .navbar-nav .dropdown-menu {
@@ -172,6 +166,23 @@
                 left: 50%;
                 transform: translateX(-50%);
                 min-width: 210px;
+            }
+        }
+
+        /* Móvil: reducir tamaño para que los 4 ítems entren en una sola fila */
+        @media (max-width: 540px) {
+            .nav-link {
+                font-size: 0.68rem !important;
+                letter-spacing: 0.2px !important;
+                padding: 11px 7px !important;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .nav-link {
+                font-size: 0.6rem !important;
+                letter-spacing: 0px !important;
+                padding: 10px 5px !important;
             }
         }
 
@@ -357,6 +368,7 @@
                 0 0 0 12px rgba(15, 76, 129, 0.18),
                 0 0 50px rgba(0, 0, 0, 0.5);
             margin-bottom: 35px;
+            background-color: #1e3a5f;
             transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.3s ease, box-shadow 0.4s ease;
         }
 
@@ -996,23 +1008,36 @@
         }
 
         /* =========================================
-           RESPONSIVE — tablet
+           RESPONSIVE — tablet (≤768px)
            ========================================= */
         @media (max-width: 768px) {
             section { padding: 42px 0; }
 
             .section-title { margin-bottom: 45px; }
 
-            .hero-subtitle { margin-bottom: 28px; }
-
             header {
                 height: auto;
                 min-height: 100svh;
-                padding-top: 140px;
-                padding-bottom: 60px;
+                padding-top: 130px;
+                padding-bottom: 70px;
+            }
+
+            .profile-img {
+                width: 210px;
+                height: 210px;
+                margin-bottom: 22px;
+            }
+
+            .hero-title { margin-bottom: 16px; }
+
+            .hero-subtitle {
+                font-size: 1rem;
+                margin-bottom: 24px;
+                padding: 0 8px;
             }
 
             .btn-cta, .btn-outline-cta {
+                width: min(270px, 80vw);
                 padding: 13px 28px;
                 font-size: 0.92rem;
             }
@@ -1020,28 +1045,53 @@
             .btn-nav-modal { width: 42px; height: 42px; }
             .btn-prev { left: 10px; }
             .btn-next { right: 10px; }
+
+            .project-card-body { padding: 20px; }
         }
 
         /* =========================================
-           RESPONSIVE — móvil pequeño
+           RESPONSIVE — móvil pequeño (≤480px)
            ========================================= */
         @media (max-width: 480px) {
             header {
-                padding-top: 150px;
-                padding-bottom: 50px;
+                padding-top: 110px;
+                padding-bottom: 60px;
             }
 
-            .hero-subtitle { font-size: 1rem; }
+            .profile-img {
+                width: 170px;
+                height: 170px;
+                border-width: 4px;
+                margin-bottom: 18px;
+            }
+
+            .hero-title {
+                font-size: clamp(1.5rem, 7.5vw, 1.9rem);
+                margin-bottom: 14px;
+                letter-spacing: -0.5px;
+            }
+
+            .hero-subtitle {
+                font-size: 0.9rem;
+                margin-bottom: 22px;
+                line-height: 1.8;
+                padding: 0 4px;
+            }
+
+            .d-flex.gap-3 {
+                flex-direction: column !important;
+                align-items: center;
+                gap: 12px !important;
+            }
 
             .btn-cta, .btn-outline-cta {
-                padding: 11px 22px;
-                font-size: 0.85rem;
+                width: min(270px, 88vw);
+                padding: 13px 20px;
+                font-size: 0.88rem;
                 letter-spacing: 0.5px;
             }
 
-            .d-flex.gap-3 { gap: 10px !important; }
-
-            .img-grid img { height: 88px; }
+            .img-grid img { height: 85px; }
 
             .project-title { font-size: 1.2rem; }
 
@@ -1058,6 +1108,33 @@
             }
 
             .section-title { margin-bottom: 35px; }
+
+            .content-card { border-radius: 14px; }
+            .project-card { border-radius: 14px; }
+
+            .contact-item { font-size: 0.95rem; gap: 10px; }
+        }
+
+        /* =========================================
+           RESPONSIVE — móvil muy pequeño (≤360px)
+           ========================================= */
+        @media (max-width: 360px) {
+            .nav-link {
+                font-size: 0.62rem !important;
+                padding: 10px 5px !important;
+                letter-spacing: 0.2px !important;
+            }
+
+            .profile-img {
+                width: 150px;
+                height: 150px;
+            }
+
+            .hero-title { font-size: 1.35rem; }
+
+            .hero-subtitle { font-size: 0.8rem; }
+
+            .btn-cta, .btn-outline-cta { width: 92vw; }
         }
 
         /* =========================================
@@ -1246,7 +1323,7 @@
             <div class="aurora-blob blob-4"></div>
         </div>
         <div class="hero-content">
-            <img src="https://i.ibb.co/Kpjd85jQ/Chat-GPT-Image-18-jun-2026-01-22-02.png"
+            <img src="https://i.ibb.co/whsnqcj0/Whats-App-Image-2026-06-18-at-23-29-01.jpg"
                 alt="Andriy Trofymenko" fetchpriority="high"
                 class="profile-img hero-animate-1">
             <h1 class="hero-title hero-animate-2">Andriy Trofymenko</h1>
